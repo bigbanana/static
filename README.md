@@ -7,5 +7,6 @@
 
 
 接下来...
-开始玩ubuntu，学习linux。慢慢构建一些ui或都小工具
+开始玩ubuntu，学习linux,加强下git的使用。
+构建一些ui或都小工具放上来。
 markdown 不太熟，只记得标题的语法。。。
