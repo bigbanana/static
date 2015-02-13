@@ -14,20 +14,10 @@
 构建一些ui或都小工具放上来。
 markdown 不太熟，只记得标题的语法。。。
 
-<table>
-  <thead>
-    <th>测试表格</th>
-    <th>列1</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>sdf</td>
-      <td>sdf</td>
-    </tr>
-  </tbody>
-</table>
-
->这是一段测试的区块
-
->还是一段区块
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+> 
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+> id sem consectetuer libero luctus adipiscing.
 
