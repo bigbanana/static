@@ -13,3 +13,16 @@
 
 构建一些ui或都小工具放上来。
 markdown 不太熟，只记得标题的语法。。。
+
+<table>
+  <thead>
+    <th>测试表格</th>
+    <th>列1</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sdf</td>
+      <td>sdf</td>
+    </tr>
+  </tbody>
+</table>
