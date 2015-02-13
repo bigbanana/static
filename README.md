@@ -1,4 +1,4 @@
-# myplace
+#myplace
 ## 以前一直没得记录的习惯得，从现在开始，以后做的小玩意都放在这里做记录。
 ### 2015-02-05 日更新
 添加outer参考mootool的官方outer写了一个jquery的outer。
