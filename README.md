@@ -18,7 +18,15 @@ markdown 不太熟，只记得标题的语法。。。
   Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
   
 > Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-  > id sem consectetuer libero luctus adipiscingsdf.
+>> id sem consectetuer libero luctus adipiscingsdf.
+
+* Red
+* Green
+* Blue
+
+---
+
+分割符
 
 ---
 
