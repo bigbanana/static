@@ -1,4 +1,4 @@
-define(['jquery','underscore',
+define('module/waterfall',['jquery','underscore',
   'jquery.easing'],function($,_){
   //简单瀑布流实现
   var Waterfall = function(opt){

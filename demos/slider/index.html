@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>slider</title>
+  <style>
+    .sliders{background-color: #ccc;}
+    .sliders .slider{width:200px;height:100px;margin:5px;background-color: #333;float:left;}
+    .control{margin-top: 10px;}
+  </style>  
+  <script type="text/javascript" src="../../js/require.js"></script>
+  <script type="text/javascript" src="../../js/config.js"></script>
+</head>
+<body>
+  <div class="slider-demo">
+    <div class="sliders">
+      <div class="slider"></div>
+      <div class="slider"></div>
+      <div class="slider"></div>
+      <div class="slider"></div>
+      <div class="slider"></div>
+      <div class="slider"></div>
+      <div class="slider"></div>
+      <div class="slider"></div>
+    </div>
+    <div class="control">
+      <button class="prev">prev</button>
+      <button class="next">next</button>
+    </div>     
+  </div>
+  <p>基本：</p>
+  <div id="demo1"></div>
+  <p>多个item：</p>
+  <div id="demo2"></div>
+  <p>动画缓动：</p>
+  <div id="demo3"></div>
+  <p>动画持续时间：</p>
+  <div id="demo4"></div>
+  <p>动画延迟：</p>
+  <div id="demo5"></div>
+  <p>方向：</p>
+  <div id="demo6"></div>
+  <p>定义补间：</p>
+  <div id="demo7"></div>
+  <script>
+    require(['jquery','module/slider'],function($,Slider){
+      var $slider = $('.slider-demo').detach();
+      //demo1
+      (function(){
+        var $demo = $('#demo1');
+        $demo.append($slider.clone());
+        var slider = new Slider({el:$demo.find('.sliders')});
+        $demo.on('click','button',function(){
+          slider[this.className]();
+        });
+      })();
+
+      //demo2
+      (function(){
+        var $demo = $('#demo2');
+        $demo.append($slider.clone());
+        var slider = new Slider({el:$demo.find('.sliders'),displayNumber:3});
+        $demo.on('click','button',function(){
+          slider[this.className]();
+        });
+      })();
+
+      //demo3
+      (function(){
+        var $demo = $('#demo3');
+        $demo.append($slider.clone());
+        var slider = new Slider({
+          el:$demo.find('.sliders'),
+          fx:{
+            easing : 'easeOutBack'
+          }
+        });
+        $demo.on('click','button',function(){
+          slider[this.className]();
+        });
+      })();
+
+      //demo4
+      (function(){
+        var $demo = $('#demo4');
+        $demo.append($slider.clone());
+        var slider = new Slider({
+          el:$demo.find('.sliders'),
+          fx:{
+            duration : 3000
+          }
+        });
+        $demo.on('click','button',function(){
+          slider[this.className]();
+        });
+      })();
+
+      //demo5
+      (function(){
+        var $demo = $('#demo5');
+        $demo.append($slider.clone());
+        var slider = new Slider({
+          el:$demo.find('.sliders'),
+          fx:{
+            delay : 300
+          }
+        });
+        $demo.on('click','button',function(){
+          slider[this.className]();
+        });
+      })();
+
+      //demo6
+      (function(){
+        var $demo = $('#demo6');
+        $demo.append($slider.clone());
+        var slider = new Slider({
+          el:$demo.find('.sliders'),
+          direction:0,
+          displayNumber:3
+        });
+        $demo.on('click','button',function(){
+          slider[this.className]();
+        });
+      })();
+
+      //demo7
+      (function(){
+        var $demo = $('#demo7');
+        $demo.append($slider.clone());
+        var slider = new Slider({
+          el:$demo.find('.sliders'),
+          displayNumber : 3,
+          fx:{
+            from:function(options,$item){
+              return {
+                left : options.width,
+                top : -options.height,
+                zIndex:10
+              }
+            },
+            to:function(options,$item){
+              return {
+                left : -options.width,
+                top : options.height
+              }
+            }
+          }
+        });
+        $demo.on('click','button',function(){
+          slider[this.className]();
+        });
+      })();
+
+    });
+  </script>
+</body>
+</html>

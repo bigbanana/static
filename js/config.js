@@ -19,9 +19,6 @@ require.config({
     "doT":"lib/doT",
     "preloadjs":"lib/preloadjs",
     "TweenMax":"lib/TweenMax",
-    "underscore":"lib/underscore",
-    //modules
-    "module/event":"module/event",
-    "module/waterfall":"module/waterfall"
+    "underscore":"lib/underscore"
   }
 });

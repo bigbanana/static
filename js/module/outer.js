@@ -1,5 +1,5 @@
 /**
- * file: module/event/outer.js
+ * file: module/outer.js
  * description: 
  *   通过实例化一个outer对象让一个元素获得outer事件。
  *   此事件重度依赖jquery。
@@ -30,7 +30,7 @@
  * author : [" 564493634@qq.com "]
  * date : 2014/10/24
  */
-define(['jquery'],function($){
+define('module/outer',['jquery'],function($){
    
     var $elems = $();
 
