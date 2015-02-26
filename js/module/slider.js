@@ -102,7 +102,7 @@ define('module/slider',['jquery','underscore',
           if(opt.direction){
             css.left = options.width;
           }else{
-            css.top = -options.height;
+            css.top = options.height;
           }
           return css
         },
@@ -112,7 +112,7 @@ define('module/slider',['jquery','underscore',
           if(opt.direction){
             css.left = -options.width;
           }else{
-            css.top = options.height;
+            css.top = -options.height;
           }
           return css;
         }

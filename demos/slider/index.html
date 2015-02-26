@@ -5,7 +5,7 @@
   <title>slider</title>
   <style>
     .sliders{background-color: #ccc;}
-    .sliders .slider{width:200px;height:100px;margin:5px;background-color: #333;float:left;}
+    .sliders .slider{width:200px;height:100px;margin:5px;background-color: #333;float:left;color:#fff;font-size: 60px;text-align: center;line-height: 100px;font-family: Helvetica;}
     .control{margin-top: 10px;}
   </style>  
   <script type="text/javascript" src="../../js/require.js"></script>
@@ -14,14 +14,14 @@
 <body>
   <div class="slider-demo">
     <div class="sliders">
-      <div class="slider"></div>
-      <div class="slider"></div>
-      <div class="slider"></div>
-      <div class="slider"></div>
-      <div class="slider"></div>
-      <div class="slider"></div>
-      <div class="slider"></div>
-      <div class="slider"></div>
+      <div class="slider">1</div>
+      <div class="slider">2</div>
+      <div class="slider">3</div>
+      <div class="slider">4</div>
+      <div class="slider">5</div>
+      <div class="slider">6</div>
+      <div class="slider">7</div>
+      <div class="slider">8</div>
     </div>
     <div class="control">
       <button class="prev">prev</button>
@@ -130,8 +130,8 @@
         $demo.append($slider.clone());
         var slider = new Slider({
           el:$demo.find('.sliders'),
-          displayNumber : 3,
           fx:{
+            easing : 'easeOutBounce',
             from:function(options,$item){
               return {
                 left : options.width,
