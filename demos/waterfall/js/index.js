@@ -1,4 +1,4 @@
-require(['jquery','underscore','module/waterfall','jquery.easing'],function($,_){
+require(['jquery','underscore','jquery.waterfall','jquery.easing','prism'],function($,_){
   $(function(){
     var $list = $('.list');
     $list.waterfall({

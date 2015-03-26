@@ -11,9 +11,9 @@
  */
 
 require([
-  'jquery','doT','underscore','backbone',
-  'preloadjs','TweenMax'
-  ],function($,doT,_,Backbone){
+  'jquery','underscore','backbone',
+  'preloadjs','TweenMax','css!../css/font'
+  ],function($,_,Backbone){
   
   var $banner = $('.banner');
   var $loading = $banner.find('.loading');
@@ -58,10 +58,10 @@ require([
   function createRocket(id){
     var item1 = preload.getItem(id+'_1');
     var item2 = preload.getItem(id+'_2');
-    var temp = doT.template([
-      '<div class="{{=it.id}}">',
-        '<img class="thing rocket_1" src="{{=it.item1.src}}" />',
-        '<img class="thing rocket_2" src="{{=it.item2.src}}" />',
+    var temp = _.template([
+      '<div class="<%= id %>">',
+        '<img class="thing rocket_1" src="<%= item1.src %>" />',
+        '<img class="thing rocket_2" src="<%= item2.src %>" />',
       '</div>'
     ].join(''));
     return $(temp({item1:item1,item2:item2,id:id})).appendTo($stage);
@@ -69,11 +69,11 @@ require([
   function createGoods(id){
     var item = preload.getItem(id);
     var arr = [1,2,3,4,5,6,7,8];
-    var temp = doT.template([
-      '<div class="{{=it.id}}">',
-      '{{~ it.arr :item:index}}',
-        '<div class="thing good good{{=item}}" style="background-image:url({{=it.src}});"></div>',
-      '{{~}}',
+    var temp = _.template([
+      '<div class="<%= id %>">',
+      '<% _.each(arr,function(v,i){ %>',
+        '<div class="thing good good<%= v %>" style="background-image:url(<%= src %>);"></div>',
+      '<% }); %>',
       '</div>'
     ].join(''));
     return $(temp({src:item.src,arr:arr,id:id})).appendTo($stage);

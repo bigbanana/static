@@ -1,4 +1,4 @@
-define('module/waterfall',['jquery','underscore',
+define('jquery.waterfall',['jquery','underscore',
   'jquery.easing'],function($,_){
   //简单瀑布流实现
   var Waterfall = function(opt){
@@ -126,8 +126,7 @@ define('module/waterfall',['jquery','underscore',
         var data = $this.data('waterfall');
 
         if($.type(opt) == 'object'){
-          opt = $.extend({},opt);
-          $.extend(opt,{el:$this});
+          opt = $.extend({},opt,{el:$this});
           data = new Waterfall(opt);
           $this.data('waterfall',data);
         }

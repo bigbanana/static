@@ -5,13 +5,15 @@
   <title>slider</title>
   <style>
     .sliders{background-color: #ccc;}
-    .sliders .slider{width:200px;height:100px;margin:5px;background-color: #333;float:left;color:#fff;font-size: 60px;text-align: center;line-height: 100px;font-family: Helvetica;}
+    .sliders .slider{width:200px;height:100px;margin:5px;background-color: #333;float:left;
+      color:#fff;font-size: 60px;text-align: center;line-height: 100px;font-family: Helvetica;
+    }
     .control{margin-top: 10px;}
   </style>
-  <script type="text/javascript" src="../../js/require.js"></script>
-  <script type="text/javascript" src="../../js/config.js"></script>
+  <script type="text/javascript" src="../../src/js/app.js"></script>
 </head>
 <body>
+  <h1>slider</h1>
   <div class="slider-demo">
     <div class="sliders">
       <div class="slider">1</div>
@@ -42,118 +44,9 @@
   <div id="demo6"></div>
   <p>定义补间：</p>
   <div id="demo7"></div>
-  <script>
-    require(['jquery','module/slider'],function($,Slider){
-      debugger;
-      var $slider = $('.slider-demo').detach();
-      //demo1
-      (function(){
-        var $demo = $('#demo1');
-        $demo.append($slider.clone());
-        var slider = new Slider({el:$demo.find('.sliders')});
-        $demo.on('click','button',function(){
-          slider[this.className]();
-        });
-      })();
-
-      //demo2
-      (function(){
-        var $demo = $('#demo2');
-        $demo.append($slider.clone());
-        var slider = new Slider({el:$demo.find('.sliders'),displayNumber:3});
-        $demo.on('click','button',function(){
-          slider[this.className]();
-        });
-      })();
-
-      //demo3
-      (function(){
-        var $demo = $('#demo3');
-        $demo.append($slider.clone());
-        var slider = new Slider({
-          el:$demo.find('.sliders'),
-          fx:{
-            easing : 'easeOutBack'
-          }
-        });
-        $demo.on('click','button',function(){
-          slider[this.className]();
-        });
-      })();
-
-      //demo4
-      (function(){
-        var $demo = $('#demo4');
-        $demo.append($slider.clone());
-        var slider = new Slider({
-          el:$demo.find('.sliders'),
-          fx:{
-            duration : 3000
-          }
-        });
-        $demo.on('click','button',function(){
-          slider[this.className]();
-        });
-      })();
-
-      //demo5
-      (function(){
-        var $demo = $('#demo5');
-        $demo.append($slider.clone());
-        var slider = new Slider({
-          el:$demo.find('.sliders'),
-          fx:{
-            delay : 300
-          }
-        });
-        $demo.on('click','button',function(){
-          slider[this.className]();
-        });
-      })();
-
-      //demo6
-      (function(){
-        var $demo = $('#demo6');
-        $demo.append($slider.clone());
-        var slider = new Slider({
-          el:$demo.find('.sliders'),
-          direction:0,
-          displayNumber:3
-        });
-        $demo.on('click','button',function(){
-          slider[this.className]();
-        });
-      })();
-
-      //demo7
-      (function(){
-        var $demo = $('#demo7');
-        $demo.append($slider.clone());
-        var slider = new Slider({
-          el:$demo.find('.sliders'),
-          fx:{
-            easing : 'easeOutBounce',
-            from:function(options,$item){
-              return {
-                left : options.width,
-                top : -options.height,
-                zIndex:10
-              }
-            },
-            to:function(options,$item){
-              return {
-                left : -options.width,
-                top : options.height
-              }
-            }
-          }
-        });
-        $demo.on('click','button',function(){
-          slider[this.className]();
-        });
-      })();
-
-    });
-  </script>
+  <p>source:</p>
+  <pre class="language-html" data-src="./index.html"></pre>
+  <pre class="language-javascript" data-src="./js/index.js"></pre>
+  <script src="./js/index.js"></script>
 </body>
 </html>

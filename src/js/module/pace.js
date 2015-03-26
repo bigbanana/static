@@ -922,7 +922,6 @@
 
   if (typeof define === 'function' && define.amd) {
     define('pace',[], function() {
-      Pace.start();
       return Pace;
     });
   } else if (typeof exports === 'object') {

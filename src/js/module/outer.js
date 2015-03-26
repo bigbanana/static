@@ -30,7 +30,7 @@
  * author : [" 564493634@qq.com "]
  * date : 2014/10/24
  */
-define('module/outer',['jquery'],function($){
+define('outer',['jquery'],function($){
    
     var $elems = $();
 

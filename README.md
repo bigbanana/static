@@ -1,42 +1,32 @@
-# myplace
-## 以前一直没得记录的习惯得，从现在开始，以后做的小玩意都放在这里做记录。
-### 2015-02-05 日更新
-添加outer参考mootool的官方outer写了一个jquery的outer。
+# static
+## 前端静态资源。
+### 2015-03-26 日更新
 
-添加一个用TweenMax实现的小动画rocket
+*global* : 全局执行的代码，此代码会在所有模块加载之前执行。
 
-突然间脑子热重新写了下瀑布流（公司那渣渣需求完全对它来说完全有点杀鸡用牛刀了。功能还在完善中。。。）
+*lib* : 核心模块
+* jquery : jquery
+* backbone : backbone
+* underscore : underscore
 
-接下来...
-开始玩ubuntu，学习linux,加强下git的使用。
+*module* : 全局模块
+* outer : 元素外部点击事件
 
-构建一些ui或都小工具放上来。
-markdown 不太熟，只记得标题的语法。。。
+*plugin* : 插件
+* pace : 伪加载进度
+* prism : 高亮代码
+* require.css : requirejs css加载插件
+* jquery.plax : github 404页面 鼠标效果 https://github.com/cameronmcefee/plax
+* jquery.easing : jquery 缓动函数
+* jquery.waterfall : jquery 瀑布流
+* jquery.sliderbox : jquery 幻灯片切换
+* jquery.clearInput ： jquery 清除表单value
+* jquery.marquee : jquery 循环滚动元素
 
-> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-  consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-  Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-  
-> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
->> id sem consectetuer libero luctus adipiscingsdf.
+*preloadjs* : 其它
+* preloadjs : 资源预加载器(by CreateJS)
+* TweenMax : 补间动画库(by GSAP)
 
-* Red
-* Green
-* Blue
-
----
-
-分割符
-
----
-
-    <html>
-      <head>
-        <title></title>
-      </head>
-      <body>
-        <div>
-          <p>sdflk</p>
-        </div>
-      </body>
-    </html>
+*special* : 特殊的
+* ie6 : ie6兼容代码
+* DD_belatedPNG : ie6 png透明解决方案

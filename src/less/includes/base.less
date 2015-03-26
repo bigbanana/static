@@ -1,0 +1,15 @@
+@import "lesshat.less";
+/* vars */
+
+
+/* mixins */
+.clearfix(){
+  &:before,
+  &:after{
+    content:"";display:table;
+  }
+  &:after{
+    clear:both;
+  }
+  *zoom:1;
+}
