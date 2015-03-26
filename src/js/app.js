@@ -2089,7 +2089,7 @@ var requirejs, require, define;
  * date : 2015/3/19
  */
 require.config({
-  baseUrl : 'http://static.yaozh.com/js',
+  baseUrl : '/static/src/js',
   urlArgs : 'v=1.1',
   waitSeconds : 5,
   map : {
