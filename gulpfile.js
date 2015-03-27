@@ -15,92 +15,89 @@ var package = require('./package.json');
 var fs = require('fs');
 var path    = require('path');
 
-var src,dest;
+var src  = './src',   
+    dest = './dist';
 
-    src        = new String('./src/'),
-    src.script = src+'js/',
-    src.css    = src+'css/';
-    src.less = src+'less/';
-    
-    dest       = new String('./dist/'),
-    dest.script = dest+'js/',
-    dest.css    = dest+'css/';
-    dest.less = dest+'less/';
-
-var concatDir  = ['lib','module'];
-var uglifyFile = [src.script+'**/*.js','!'+src.script+'+(config|require).js'];
-var lessFile   = [src.less+'**/*.less','!'+src.less+'includes/**/*'];
+//所有需要合并的模块配置
+var concatConfig = {
+  "lib" : "lib/**/*.js",
+  "module" : "module/**/*.js",
+  "plugin" : "plugin/**/*.js",
+  "app" : "+(config|require).js"
+}
+//includes下的less不进行编译
+var lessFile   = [src+'/less/**/*.less','!'+src+'/less/includes/**/*'];
 
 var banner = [
     '/* build : <%= package.author %> '+moment().format('YYYY-MM-DD HH:mm:ss')+' */\n'
   ].join('');
 
+function getPath(pro){
+  var paths = JSON.parse(fs.readFileSync(src+'/js/path.json'));
+  if(!!pro){
+    paths = _.mapObject(paths,function(v,k){
+      //查找第一级目录
+      var dir = v.match(/^[^\/]+(?=\/|$)/)[0];
+      if(dir in concatConfig){
+        return dir;
+      }
+      return v;
+    });
+  }
+  return paths; 
+}
+
 gulp.task('clean',function(){
-  del([dest.script]);
+  return gulp.src(dest,{read:false}).pipe(clean());
 });
 
-gulp.task('uglify',function(){
-  gulp.src(uglifyFile)
-  .pipe(uglify())
-  .pipe(header(banner,{package:package}))
-  .pipe(gulp.dest(dest.script));
-});
-
-gulp.task('concat',['uglify'],function(){
-  concatDir.forEach(function(dirname){
-    gulp.src(dest.script+dirname+'/**/*.js')
-      .pipe(concat(dirname+'.js'))
-      .pipe(clean({force:true}))
-      .pipe(gulp.dest(dest.script));
+gulp.task('script',['clean'],function(){
+  var otherFiles = [src+'/js/**/*.js']
+  //处理合并
+  _.mapObject(concatConfig,function(files,file){
+    files = src+'/js/'+files
+    otherFiles.push("!"+files);
+    var fileStream = gulp.src(files).pipe(uglify()).pipe(concat(file+'.js'));
+    if(file == "app"){
+      fileStream.pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath(true)}));
+    }
+    fileStream.pipe(header(banner,{package:package})).pipe(gulp.dest(dest+'/js'));
   });
-
+  //处理其它脚本
+  gulp.src(otherFiles)
+    .pipe(uglify())
+    .pipe(header(banner,{package:package}))
+    .pipe(gulp.dest(dest+'/js'));
 });
-gulp.task('copy',function(){
-  gulp.src(src+'fonts/**/*')
-    .pipe(gulp.dest(dest+'fonts'));
+
+gulp.task('copy',['clean'],function(){
+  return gulp.src(src+'/fonts/**/*')
+    .pipe(gulp.dest(dest+'/fonts'));
+});
+
+gulp.task('css',['clean'],function(){
+  return gulp.src(src+'/css/**/*.css')
+    .pipe(cssmin({compatibility:'ie7'}))
+    .pipe(header(banner,{package:package}))
+    .pipe(gulp.dest(dest+'/css'))
 });
 
 gulp.task('less',function(){
   return gulp.src(lessFile)
     .pipe(less())
-    .pipe(gulp.dest(src.css));
-});
-
-gulp.task('cssmin',function(){
-  gulp.src(src.css+'**/*.css')
-    .pipe(cssmin({compatibility:'ie7'}))
-    .pipe(header(banner,{package:package}))
-    .pipe(gulp.dest(dest.css))
-});
-
-gulp.task('initApp',function(){
-
-  var paths   = JSON.parse(fs.readFileSync('./src/js/path.json'));
-  _paths = _.mapObject(paths,function(v,k){
-    //查找第一级目录
-    var dir = v.match(/^[^\/]+(?=\/|$)/)[0];
-    if(concatDir.indexOf(dir)!=-1){
-      return dir;
-    }
-    return v;
-  });
-  
-  gulp.src([src.script+'require.js',src.script+'config.js'])
-    .pipe(concat('app.js'))
-    .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:paths}))
-    .pipe(gulp.dest(src.script));
-
-  gulp.src([src.script+'require.js',src.script+'config.js'])
-    .pipe(concat('app.js'))
-    .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:_paths}))
-    .pipe(uglify())
-    .pipe(header(banner,{package:package}))
-    .pipe(gulp.dest(dest.script));
+    .pipe(gulp.dest(src+'/css'));
 });
 
 gulp.task('watch',function(){
-  gulp.watch([src.script+'config.js',src.script+'path.json'],['initApp']);
-  gulp.watch([src.less+'**/*.less'],['less']);
+  //build src app.js
+  gulp.watch([src+'/js/config.js',src+'/js/path.json'],function(){
+    gulp.src([src+'/js/'+concatConfig.app])
+      .pipe(concat('app.js'))
+      .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath()}))
+      .pipe(gulp.dest(src+'/js'));
+  });
+  //build src less
+  gulp.watch([src+'/less/**/*.less'],['less']);
 });
 
-gulp.task('default',['initApp','concat','cssmin','copy']);
+gulp.task('default',['script','css','copy']);
