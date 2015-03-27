@@ -14,7 +14,7 @@ require.config({
       'css' : 'require.css'
     }
   },
-  deps : ['css!../css/normalize.css','css!../css/public.css',"global"].concat(config.deps)
+  deps : ["global"].concat(config.deps)
 });
 require.config({
   shim : {

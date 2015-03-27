@@ -6,7 +6,7 @@ define(['jquery','validate'],function($){
     var validator = $form.validate({
       rules:{
         ch : {
-          required:true,
+          required:"true",
           zhCode:true
         },
         eng : {

@@ -18,7 +18,7 @@
    * 英文和空格
    */
   $.validator.addMethod('enCode',function(value,element,param){
-    return this.optional(element) || !/[^a-zA-Z]/.test(value);
+    return this.optional(element) || !/[^a-zA-Z\s]/.test(value);
   },$.validator.format("请输入英文字符"));
 
   /**
@@ -70,7 +70,8 @@
   /**
    * 设置默认值
    */
-  $.setDefaults({
+  var defaultsHighlight = $.validator.defaults.highlight;
+  $.validator.setDefaults({
     ignore : ".ignore",
     success : function(label){
       label.addClass('validate-tips-success');
@@ -82,7 +83,7 @@
       var $el = $(el);
       $el.addClass('validate-error').removeClass('validate-success')
       .siblings("."+errorClass).removeClass('validate-tips-success');
-      $.validator.defaults.highlight.apply(this,arguments);
+      defaultsHighlight.apply(this,arguments);
     }
   });
 
