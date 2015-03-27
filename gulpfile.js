@@ -22,7 +22,6 @@ var src  = './src',
 var concatConfig = {
   "lib" : "lib/**/*.js",
   "module" : "module/**/*.js",
-  "plugin" : "plugin/**/*.js",
   "app" : "+(require|config).js"
 }
 //includes下的less不进行编译
@@ -57,11 +56,20 @@ gulp.task('script',['clean'],function(){
   _.mapObject(concatConfig,function(files,file){
     files = src+'/js/'+files
     otherFiles.push("!"+files);
-    var fileStream = gulp.src(files).pipe(uglify()).pipe(concat(file+'.js'));
+
     if(file == "app"){
-      fileStream.pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath(true)}));
+      gulp.src([src+'/js/require.js',src+'/js/config.js'])
+        .pipe(concat('app.js'))
+        .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath(true)}))
+        .pipe(header(banner,{package:package}))
+        .pipe(gulp.dest(dest+'/js'));
+    }else{
+      gulp.src(files)
+        .pipe(uglify())
+        .pipe(concat(file+'.js'))
+        .pipe(header(banner,{package:package}))
+        .pipe(gulp.dest(dest+'/js'));
     }
-    fileStream.pipe(header(banner,{package:package})).pipe(gulp.dest(dest+'/js'));
   });
   //处理其它脚本
   gulp.src(otherFiles)
@@ -90,10 +98,11 @@ gulp.task('less',function(){
 
 gulp.task('config',function(){
   return gulp.src([src+'/js/require.js',src+'/js/config.js'])
-      .pipe(concat('app.js'))
-      .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath()}))
-      .pipe(gulp.dest(src+'/js'));
-})
+    .pipe(concat('app.js'))
+    .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath()}))
+    .pipe(header(banner,{package:package}))
+    .pipe(gulp.dest(src+'/js'));
+});
 
 gulp.task('watch',function(){
   //build src app.js

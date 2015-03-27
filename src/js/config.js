@@ -4,6 +4,7 @@
  * author : [" 564493634@qq.com "]
  * date : 2015/3/19
  */
+window.config = window.config || {deps:[]};
 require.config({
   baseUrl : 'http://static.yaozh.com/js',
   urlArgs : 'v=1.1',
