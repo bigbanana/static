@@ -1,0 +1,33 @@
+{
+  "name": "static",
+  "title": "静态资源库",
+  "description": "静态资源库",
+  "version": "0.0.1",
+  "homepage": "http://bigbanana.github.io/myplace/",
+  "author": "564493634@qq.com",
+  "keywords": [
+    "zp",
+    "static"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bigbanana/myplace.git"
+  },
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-footer": "^1.0.5",
+    "gulp-header": "^1.2.2",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-less": "^3.0.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.1.0",
+    "moment": "^2.9.0",
+    "through2": "^0.6.3",
+    "underscore": "^1.8.2"
+  }
+}
