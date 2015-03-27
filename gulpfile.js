@@ -61,6 +61,7 @@ gulp.task('script',['clean'],function(){
       gulp.src([src+'/js/require.js',src+'/js/config.js'])
         .pipe(concat('app.js'))
         .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath(true)}))
+        .pipe(uglify())
         .pipe(header(banner,{package:package}))
         .pipe(gulp.dest(dest+'/js'));
     }else{
