@@ -41,7 +41,7 @@ define('jquery.sliderbox',['jquery','underscore',
       this.$items.each(function(i){
         _this.$controlBox.append('<a href="javascript:;">'+i+'</a>');
       });
-      this.$controlBox.on('click','a',function(){
+      this.$controlBox.on(this.options.eventType,'a',function(){
         var $this = $(this);
         _this.slider($this.index());
       });
@@ -85,6 +85,7 @@ define('jquery.sliderbox',['jquery','underscore',
   $.extend(SliderBox,{
     options : {
       direction : '1',//1:horizontal,2:vertical
+      eventType : 'click',
       displayNumber : 1,
       control : true,
       auto : true,
