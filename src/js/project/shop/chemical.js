@@ -13,6 +13,10 @@ define(['jquery','validate'],function($){
           required:true,
           enCode:true
         },
+        xuhao : {
+          required:true,
+          zhCode:true
+        },
         cas : {
           required:true,
           casCode:true
