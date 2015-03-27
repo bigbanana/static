@@ -2089,7 +2089,7 @@ var requirejs, require, define;
  * date : 2015/3/19
  */
 require.config({
-  baseUrl : '/static/src/js',
+  baseUrl : 'http://static.yaozh.com/js',
   urlArgs : 'v=1.1',
   waitSeconds : 5,
   map : {
@@ -2097,7 +2097,7 @@ require.config({
       'css' : 'require.css'
     }
   },
-  deps : ['css!../css/normalize.css','css!../css/public.css',"global"]
+  deps : ['css!../css/normalize.css','css!../css/public.css',"global"].concat(config.deps)
 });
 require.config({
   shim : {
@@ -2109,4 +2109,4 @@ require.config({
     }
   }
 });
-require.config({paths:{"global":"global","jquery":"lib/jquery","backbone":"lib/backbone","underscore":"lib/underscore","outer":"module/outer","pace":"plugin/pace","prism":"plugin/prism","require.css":"plugin/require-css-plugin","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.marquee":"plugin/marquee","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG"}})
+require.config({paths:{"global":"global","jquery":"lib/jquery","backbone":"lib/backbone","underscore":"lib/underscore","outer":"module/outer","pace":"plugin/pace","prism":"plugin/prism","require.css":"plugin/require-css-plugin","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate":"plugin/validate","validate":"plugin/validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.marquee":"plugin/marquee","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG"}})

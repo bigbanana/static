@@ -5,7 +5,7 @@
  * date : 2015/3/19
  */
 require.config({
-  baseUrl : '/static/src/js',
+  baseUrl : 'http://static.yaozh.com/js',
   urlArgs : 'v=1.1',
   waitSeconds : 5,
   map : {
@@ -13,7 +13,7 @@ require.config({
       'css' : 'require.css'
     }
   },
-  deps : ['css!../css/normalize.css','css!../css/public.css',"global"]
+  deps : ['css!../css/normalize.css','css!../css/public.css',"global"].concat(config.deps)
 });
 require.config({
   shim : {

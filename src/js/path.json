@@ -12,6 +12,8 @@
   "require.css":"plugin/require-css-plugin",
   "jquery.plax":"plugin/plax",
   "jquery.easing":"plugin/jquery.easing.1.3",
+  "jquery.validate":"plugin/validate",
+  "validate":"plugin/validate",
   "jquery.waterfall":"plugin/waterfall",
   "jquery.sliderbox":"plugin/sliderbox",
   "jquery.clearInput":"plugin/clearInput",

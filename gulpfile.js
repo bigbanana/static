@@ -23,7 +23,7 @@ var concatConfig = {
   "lib" : "lib/**/*.js",
   "module" : "module/**/*.js",
   "plugin" : "plugin/**/*.js",
-  "app" : "+(config|require).js"
+  "app" : "+(require|config).js"
 }
 //includes下的less不进行编译
 var lessFile   = [src+'/less/**/*.less','!'+src+'/less/includes/**/*'];
@@ -88,14 +88,16 @@ gulp.task('less',function(){
     .pipe(gulp.dest(src+'/css'));
 });
 
-gulp.task('watch',function(){
-  //build src app.js
-  gulp.watch([src+'/js/config.js',src+'/js/path.json'],function(){
-    gulp.src([src+'/js/'+concatConfig.app])
+gulp.task('config',function(){
+  return gulp.src([src+'/js/require.js',src+'/js/config.js'])
       .pipe(concat('app.js'))
       .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath()}))
       .pipe(gulp.dest(src+'/js'));
-  });
+})
+
+gulp.task('watch',function(){
+  //build src app.js
+  gulp.watch([src+'/js/config.js',src+'/js/path.json'],['config']);
   //build src less
   gulp.watch([src+'/less/**/*.less'],['less']);
 });
