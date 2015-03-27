@@ -6,18 +6,16 @@ define(['jquery','validate'],function($){
     var validator = $form.validate({
       rules:{
         ch : {
-          required:"true",
+          required:true,
           zhCode:true
         },
         eng : {
           required:true,
           enCode:true
         },
-        xuhao : {
-          required:true
-        },
         cas : {
-          required:true
+          required:true,
+          casCode:true
         }
       }
     });
@@ -26,7 +24,6 @@ define(['jquery','validate'],function($){
         return false;
       }
     });
-
   }
 
   function info(){

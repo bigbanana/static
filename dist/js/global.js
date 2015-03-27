@@ -1,2 +1,2 @@
-/* build : 564493634@qq.com 2015-03-27 15:39:08 */
-window.browser=function(){var r=navigator.userAgent.match(/msie.(\d+)/i);return r?r[1]:100}(),window.browser>9?require(["pace"],function(r){r.start()}):window.browser<7&&require(["ie6"],function(){});
+/* build : 564493634@qq.com 2015-03-27 18:01:00 */
+window.browser=function(){var e=navigator.userAgent.match(/msie.(\d+)/i);return e?e[1]:100}(),window.browser>9?require(["pace"],function(e){e.start()}):window.browser<7&&require(["ie6"],function(){}),require(["jquery"],function(e){e(function(){var o=e(document.body);window.browser<7&&o.on("mouseover",".ie-hover",function(){e(this).addClass("hover")}).on("mouseleave",".ie-hover",function(){e(this).removeClass("hover")})})});

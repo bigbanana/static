@@ -1,6 +1,9 @@
 //require start
 require(['jquery'],function($){
-
+window.browser = (function(){
+  var arr = navigator.userAgent.match(/msie.(\d+)/i);
+  return !arr ? 100 : arr[1];
+})();
 //--------------------------------------------------------------------------------------------------
 $(function() {
 	$(window).scroll(function(){
@@ -18,12 +21,14 @@ $(function() {
     },400);
 	})
 
-	$(".code").hover(function() {
-		$(".poop").toggle(1);
-	}, function() {
-		$(".poop").toggle(1);
-	});
-
+	if(window.browser<7){
+		$(".code").hover(function() {
+			$(this).toggleClass('hover');
+		}, function() {
+			$(this).toggleClass('hover');
+		});
+	}
+		
 	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
 	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;

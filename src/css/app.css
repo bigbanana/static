@@ -142,6 +142,11 @@ hr {
 html {
   overflow-y: scroll;
 }
+@media screen and (min-width: 1024px) {
+  :focus {
+    outline: none;
+  }
+}
 /* @import "widgets.less" */
 /* ui-slider */
 .ui-sliderbox {
@@ -223,4 +228,18 @@ html {
 }
 .blue {
   color: #2980b9;
+}
+.opacity {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+.color {
+  opacity: 1!important;
+  background-color: #007fba !important;
+}
+.color:hover {
+  background-color: #005c87!important;
 }

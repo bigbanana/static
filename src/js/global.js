@@ -9,3 +9,17 @@ if(window.browser>9){
   //开启ie6兼容
   require(['ie6'],function(){});
 }
+
+require(['jquery'],function($){
+  $(function(){
+    var $body = $(document.body);
+    if(window.browser<7){
+      $body.on('mouseover','.ie-hover',function(){
+        $(this).addClass('hover')
+      }).on('mouseleave','.ie-hover',function(){
+        $(this).removeClass('hover')
+      });
+    }
+    
+  });
+});

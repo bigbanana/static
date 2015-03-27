@@ -1,2 +1,2 @@
-/* build : 564493634@qq.com 2015-03-27 15:39:08 */
-define(["jquery","validate"],function(e){function r(){var r=e(".search-form"),n=r.validate({rules:{ch:{required:"true",zhCode:!0},eng:{required:!0,enCode:!0},xuhao:{required:!0},cas:{required:!0}}});r.on("submit",function(){return n.form()?void 0:!1})}function n(){}return{index:r,info:n}});
+/* build : 564493634@qq.com 2015-03-27 18:01:00 */
+define(["jquery","validate"],function(e){function n(){var n=e(".search-form"),r=n.validate({rules:{ch:{required:!0,zhCode:!0},eng:{required:!0,enCode:!0},cas:{required:!0,casCode:!0}}});n.on("submit",function(){return r.form()?void 0:!1})}function r(){}return{index:n,info:r}});

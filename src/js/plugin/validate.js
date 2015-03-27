@@ -43,6 +43,14 @@
     return this.optional(element) || /^(\d{3,4}-?)?\d{8}$/.test(value);
   },$.validator.format("请输入固定电话号码"));
 
+  /**
+   * CSA编号
+   */
+  $.validator.addMethod('casCode',function(value,element,param){
+    return this.optional(element) || /^\d+\-\d+\-\d+$/.test(value);
+  },$.validator.format("请输入正确的CSA编号"));
+
+
   /* 中文 
    * Translated default messages for the jQuery validation plugin.
    * Locale: ZH (Chinese, 中文 (Zhōngwén), 汉语, 漢語)
@@ -73,16 +81,16 @@
   var defaultsHighlight = $.validator.defaults.highlight;
   $.validator.setDefaults({
     ignore : ".ignore",
+    errorClass : "validate-error",
     success : function(label){
-      label.addClass('validate-tips-success');
+      label.addClass('validate-success');
     },
     errorPlacement : function(error,element){
       element.parent().append(error);
     },
     highlight : function(el,errorClass){
       var $el = $(el);
-      $el.addClass('validate-error').removeClass('validate-success')
-      .siblings("."+errorClass).removeClass('validate-tips-success');
+      $el.siblings("."+errorClass).removeClass('validate-success');
       defaultsHighlight.apply(this,arguments);
     }
   });

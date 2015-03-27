@@ -7,7 +7,7 @@
 window.config = window.config || {deps:[]};
 require.config({
   baseUrl : 'http://static.yaozh.com/js',
-  urlArgs : 'v=1.1',
+  urlArgs : 'v=1.1'+new Date().getTime(),
   waitSeconds : 5,
   map : {
     '*' : {
