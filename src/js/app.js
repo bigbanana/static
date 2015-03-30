@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-03-27 15:34:30 */
+/* build : 564493634@qq.com 2015-03-30 15:12:41 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2108,7 +2108,10 @@ require.config({
     },
     "prism" : {
       deps : ['css!../css/plugin/prism-twilight']
+    },
+    "jquery.ui" : {
+      deps : ['css!../css/jquery-ui']
     }
   }
 });
-require.config({paths:{"global":"global","jquery":"lib/jquery","backbone":"lib/backbone","underscore":"lib/underscore","outer":"module/outer","pace":"plugin/pace","prism":"plugin/prism","require.css":"plugin/require-css-plugin","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate":"plugin/jquery.validate","validate":"plugin/validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.marquee":"plugin/marquee","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG"}})
+require.config({paths:{"global":"global","jquery":"lib/jquery","backbone":"lib/backbone","underscore":"lib/underscore","outer":"module/outer","pace":"plugin/pace","prism":"plugin/prism","require.css":"plugin/require-css-plugin","jquery.ui":"plugin/jquery-ui","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate.core":"plugin/jquery.validate.core","jquery.validate":"plugin/jquery.validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.marquee":"plugin/marquee","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG"}})
