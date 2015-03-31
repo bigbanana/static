@@ -1,2 +1,2 @@
-/* build : 564493634@qq.com 2015-03-30 15:56:57 */
+/* build : 564493634@qq.com 2015-03-31 15:44:10 */
 window.browser=function(){var e=navigator.userAgent.match(/msie.(\d+)/i);return e?e[1]:100}(),window.browser>9?require(["pace"],function(e){e.start()}):window.browser<7&&require(["ie6"],function(){}),require(["jquery"],function(e){e(function(){var i=e(document.body);window.browser<7&&i.on("mouseover",".ie-hover",function(){e(this).addClass("hover")}).on("mouseleave",".ie-hover",function(){e(this).removeClass("hover")}),e.fn.serializeObject=function(){var i={},n=this.serializeArray();return e.each(n,function(){void 0!==i[this.name]?(i[this.name].push||(i[this.name]=[i[this.name]]),i[this.name].push(this.value||"")):i[this.name]=this.value||""}),i}})});

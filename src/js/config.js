@@ -6,7 +6,7 @@
  */
 window.config = window.config || {deps:[]};
 require.config({
-  baseUrl : 'http://static.yaozh.com/js',
+  baseUrl : 'http://static.yaozh.com/js',//http://192.168.1.251/static/src/js
   urlArgs : 'v=1.1',
   waitSeconds : 5,
   map : {

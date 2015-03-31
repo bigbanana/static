@@ -1,4 +1,4 @@
-define(['jquery','validate'],function($){
+define(['jquery','jquery.validate'],function($){
 
   function index(){
     

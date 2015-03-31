@@ -4,12 +4,10 @@
   "jquery":"lib/jquery",
   "backbone":"lib/backbone",
   "underscore":"lib/underscore",
+  "require.css":"lib/require-css-plugin",
 
   "outer":"module/outer",
 
-  "pace":"plugin/pace",
-  "prism":"plugin/prism",
-  "require.css":"plugin/require-css-plugin",
   "jquery.ui":"plugin/jquery-ui",
   "jquery.plax":"plugin/plax",
   "jquery.easing":"plugin/jquery.easing.1.3",
@@ -20,8 +18,10 @@
   "jquery.clearInput":"plugin/clearInput",
   "jquery.marquee":"plugin/marquee",
 
+  "pace":"other/pace",
   "preloadjs":"other/preloadjs",
   "TweenMax":"other/TweenMax",
+  "prism":"other/prism",
   
   "ie6":"special/ie6",
   "DD_belatedPNG":"special/DD_belatedPNG"

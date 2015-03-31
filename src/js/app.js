@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-03-30 15:36:01 */
+/* build : 564493634@qq.com 2015-03-31 14:48:48 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2091,7 +2091,7 @@ var requirejs, require, define;
  */
 window.config = window.config || {deps:[]};
 require.config({
-  baseUrl : 'http://static.yaozh.com/js',
+  baseUrl : 'http://static.yaozh.com/js',//http://192.168.1.251/static/src/js
   urlArgs : 'v=1.1',
   waitSeconds : 5,
   map : {
@@ -2114,4 +2114,4 @@ require.config({
     }
   }
 });
-require.config({paths:{"global":"global","jquery":"lib/jquery","backbone":"lib/backbone","underscore":"lib/underscore","outer":"module/outer","pace":"plugin/pace","prism":"plugin/prism","require.css":"plugin/require-css-plugin","jquery.ui":"plugin/jquery-ui","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate.core":"plugin/jquery.validate.core","jquery.validate":"plugin/jquery.validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.marquee":"plugin/marquee","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG"}})
+require.config({paths:{"global":"global","jquery":"lib/jquery","backbone":"lib/backbone","underscore":"lib/underscore","require.css":"lib/require-css-plugin","outer":"module/outer","jquery.ui":"plugin/jquery-ui","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate.core":"plugin/jquery.validate.core","jquery.validate":"plugin/jquery.validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.marquee":"plugin/marquee","pace":"other/pace","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","prism":"other/prism","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG"}})

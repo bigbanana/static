@@ -80,10 +80,10 @@ gulp.task('script',['clean'],function(){
 });
 
 gulp.task('copy',['clean'],function(){
-    gulp.src(src+'/fonts/**/*')
+    gulp.src(src+'/fonts/**')
     .pipe(gulp.dest(dest+'/fonts'));
 
-  return gulp.src(src+'/images/**/*')
+  return gulp.src(src+'/images/**')
     .pipe(gulp.dest(dest+'/images'));
 });
 
