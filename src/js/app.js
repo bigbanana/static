@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-03-31 14:48:48 */
+/* build : 564493634@qq.com 2015-04-09 14:46:04 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2088,18 +2088,22 @@ var requirejs, require, define;
  * description:   require.config
  * author : [" 564493634@qq.com "]
  * date : 2015/3/19
+ * devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
+ * probaseUrl http://static.yaozh.com/js
  */
-window.config = window.config || {deps:[]};
+window.config = config = window.config || {};
+config.deps = config.deps || [];
+config.baseUrl = config.baseUrl || 'http://192.168.1.251/static/src/js';
 require.config({
-  baseUrl : 'http://static.yaozh.com/js',//http://192.168.1.251/static/src/js
-  urlArgs : 'v=1.1',
+  baseUrl : window.config.baseUrl,
+  urlArgs : 'yaozhVersion=1.1'+'&d='+new Date().getTime(),
   waitSeconds : 5,
   map : {
     '*' : {
       'css' : 'require.css'
     }
   },
-  deps : ["global"].concat(config.deps)
+  deps : ["global"].concat(window.config.deps)
 });
 require.config({
   shim : {
@@ -2111,7 +2115,10 @@ require.config({
     },
     "jquery.ui" : {
       deps : ['css!../css/jquery-ui']
+    },
+    "baidu.ueditor" : {
+      deps : ['baidu.ueditor.config']
     }
   }
 });
-require.config({paths:{"global":"global","jquery":"lib/jquery","backbone":"lib/backbone","underscore":"lib/underscore","require.css":"lib/require-css-plugin","outer":"module/outer","jquery.ui":"plugin/jquery-ui","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate.core":"plugin/jquery.validate.core","jquery.validate":"plugin/jquery.validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.marquee":"plugin/marquee","pace":"other/pace","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","prism":"other/prism","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG"}})
+require.config({paths:{"global":"global","browser":"lib/browser","jquery":"lib/jquery","backbone":"lib/backbone","backbone.epoxy":"lib/backbone.epoxy","backbone.queryparams":"lib/backbone.queryparams","underscore":"lib/underscore","require.css":"lib/require-css-plugin","outer":"module/outer","jquery.ui":"plugin/jquery-ui","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate.core":"plugin/jquery.validate.core","jquery.validate":"plugin/jquery.validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.placeholder":"plugin/placeholder","jquery.focusInput":"plugin/focusInput","jquery.marquee":"plugin/marquee","pace":"other/pace","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","prism":"other/prism","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG","baidu.map":"http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"}})

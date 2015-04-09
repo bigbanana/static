@@ -200,8 +200,9 @@ h3,h4{ font-weight:bold; color:#3c3c3c;}
 #sheet .stp{ margin-top:10px;}
 #sheet .yuan{font-size:14px; color:#e74c3c;}
 
-#sheet label.error,#sheet span.error{display: inline-block;*zoom:1;margin-left: 6px; padding:0 5px;line-height:30px; height:30px;vertical-align: top; color:#f00; background:#ffebeb; border:1px #ffbdbe solid;}
+#sheet label.error,#sheet span.error,#sheet label.validate-error{display: inline-block;*zoom:1;margin-left: 6px; padding:0 5px;line-height:30px; height:30px;vertical-align: top; color:#f00; background:#ffebeb; border:1px #ffbdbe solid;}
 #sheet label.success{ background:url(../../../images/project/shop/correctss.png) no-repeat 0 7px; width:6px;border:none;}
+#sheet label.validate-success{visibility: hidden!important;}
 /* #sheet label.correct{ color:#6c6c6c; background:#f7f7f7; width:250px; border:1px #ddd solid; top:0px; left:340px;} */
 
 #sheet .p-radio label { float:left; padding-right:20px;}

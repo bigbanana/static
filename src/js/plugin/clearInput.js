@@ -18,7 +18,7 @@ define('jquery.clearInput',['jquery'],function($){
           width : height,
           fontSize : Math.ceil(height*0.9),
           fontWeight : 700,
-          color : "#000",
+          color : "#333",
           lineHeight : height+'px',
           verticalAlign : 'middle',
           textDecoration : 'none',
@@ -81,5 +81,7 @@ define('jquery.clearInput',['jquery'],function($){
       });
     }
   });
+
+  return ClearInput;
 
 });

@@ -19,11 +19,12 @@ var src  = './src',
     dest = './dist';
 
 //所有需要合并的模块配置
-var concatConfig = {
-  "lib" : "lib/**/*.js",
-  "module" : "module/**/*.js",
-  "app" : "+(require|config).js"
-}
+var concatConfig = ["/js/lib","/js/module","/js/plugin"];
+//所有需要复制的文件配置
+var copyConfig = ["/fonts","/thirdparty","/images","/test"];
+//构建app.js需要的模块
+var appJsConfig = [src+'/js/require.js',src+'/js/config.js'];
+
 //includes下的less不进行编译
 var lessFile   = [src+'/less/**/*.less','!'+src+'/less/includes/**/*'];
 
@@ -37,7 +38,8 @@ function getPath(pro){
     paths = _.mapObject(paths,function(v,k){
       //查找第一级目录
       var dir = v.match(/^[^\/]+(?=\/|$)/)[0];
-      if(dir in concatConfig){
+      var str = '/js/'+dir
+      if(concatConfig.indexOf(str) != -1){
         return dir;
       }
       return v;
@@ -51,40 +53,46 @@ gulp.task('clean',function(){
 });
 
 gulp.task('script',['clean'],function(){
-  var otherFiles = [src+'/js/**/*.js']
+  console.log('注意：任务返回的时间为异步执行时间，不是任务执行时间');
+  var otherFiles = [src+'/js/**/*.js'];
+  appJsConfig.forEach(function(file){
+    otherFiles.push("!"+file);
+  });
+
+  //处理app.js
+  gulp.src(appJsConfig)
+    .pipe(concat('app.js'))
+    .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath(true)}))
+    .pipe(uglify())
+    .pipe(header(banner,{package:package}))
+    .pipe(gulp.dest(dest+'/js'));
+
   //处理合并
-  _.mapObject(concatConfig,function(files,file){
-    files = src+'/js/'+files
+  concatConfig.forEach(function(file){
+    var files = src+file+'/**/*.js';
+    var fileName = file.match('[^\/]*(?=$|\/$)')[0];
     otherFiles.push("!"+files);
 
-    if(file == "app"){
-      gulp.src([src+'/js/require.js',src+'/js/config.js'])
-        .pipe(concat('app.js'))
-        .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath(true)}))
-        .pipe(uglify())
-        .pipe(header(banner,{package:package}))
-        .pipe(gulp.dest(dest+'/js'));
-    }else{
-      gulp.src(files)
-        .pipe(uglify())
-        .pipe(concat(file+'.js'))
-        .pipe(header(banner,{package:package}))
-        .pipe(gulp.dest(dest+'/js'));
-    }
+    gulp.src(files)
+      .pipe(uglify())
+      .pipe(concat(fileName+'.js'))
+      .pipe(header(banner,{package:package}))
+      .pipe(gulp.dest(dest+'/js'));
   });
+
   //处理其它脚本
   gulp.src(otherFiles)
     .pipe(uglify())
     .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(dest+'/js'));
+
 });
 
 gulp.task('copy',['clean'],function(){
-    gulp.src(src+'/fonts/**')
-    .pipe(gulp.dest(dest+'/fonts'));
-
-  return gulp.src(src+'/images/**')
-    .pipe(gulp.dest(dest+'/images'));
+  copyConfig.forEach(function(item){
+    gulp.src(src+item+'/**')
+      .pipe(gulp.dest(dest+item));
+  });
 });
 
 gulp.task('css',['clean'],function(){
@@ -100,8 +108,8 @@ gulp.task('less',function(){
     .pipe(gulp.dest(src+'/css'));
 });
 
-gulp.task('config',function(){
-  return gulp.src([src+'/js/require.js',src+'/js/config.js'])
+gulp.task('app',function(){
+  return gulp.src(appJsConfig)
     .pipe(concat('app.js'))
     .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath()}))
     .pipe(header(banner,{package:package}))
@@ -110,7 +118,7 @@ gulp.task('config',function(){
 
 gulp.task('watch',function(){
   //build src app.js
-  gulp.watch([src+'/js/config.js',src+'/js/path.json'],['config']);
+  gulp.watch([src+'/js/config.js',src+'/js/path.json'],['app']);
   //build src less
   gulp.watch([src+'/less/**/*.less'],['less']);
 });

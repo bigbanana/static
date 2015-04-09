@@ -1,8 +1,11 @@
 {
   "global":"global",
 
+  "browser":"lib/browser",
   "jquery":"lib/jquery",
   "backbone":"lib/backbone",
+  "backbone.epoxy":"lib/backbone.epoxy",
+  "backbone.queryparams":"lib/backbone.queryparams",
   "underscore":"lib/underscore",
   "require.css":"lib/require-css-plugin",
 
@@ -16,6 +19,8 @@
   "jquery.waterfall":"plugin/waterfall",
   "jquery.sliderbox":"plugin/sliderbox",
   "jquery.clearInput":"plugin/clearInput",
+  "jquery.placeholder":"plugin/placeholder",
+  "jquery.focusInput":"plugin/focusInput",
   "jquery.marquee":"plugin/marquee",
 
   "pace":"other/pace",
@@ -24,5 +29,7 @@
   "prism":"other/prism",
   
   "ie6":"special/ie6",
-  "DD_belatedPNG":"special/DD_belatedPNG"
+  "DD_belatedPNG":"special/DD_belatedPNG",
+
+  "baidu.map":"http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
 }
