@@ -37,6 +37,12 @@
         start();
       });
     });
+    QUnit.asyncTest("backbone.epoxy",function(assert){
+      require(['backbone.epoxy'],function(epoxy){
+        assert.ok(typeof(epoxy) != "undefined","加载backbone.epoxy");
+        start();
+      });
+    });
     
     QUnit.asyncTest("underscore",function(assert){
       require(['underscore'],function(underscore){

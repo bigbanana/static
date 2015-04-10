@@ -101,5 +101,5 @@
       defaultsHighlight.apply(this,arguments);
     }
   });
-
+  return $;
 }));

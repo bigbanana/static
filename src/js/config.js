@@ -8,10 +8,10 @@
  */
 window.config = config = window.config || {};
 config.deps = config.deps || [];
-config.baseUrl = config.baseUrl || 'http://192.168.1.251/static/src/js';
+config.baseUrl = config.baseUrl || 'http://static.yaozh.com/js';
 require.config({
   baseUrl : window.config.baseUrl,
-  urlArgs : 'yaozhVersion=1.1'+'&d='+new Date().getTime(),
+  urlArgs : 'yaozhVersion=1.1.1',
   waitSeconds : 5,
   map : {
     '*' : {
