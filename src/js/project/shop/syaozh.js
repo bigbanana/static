@@ -480,5 +480,12 @@ $(function(){
 
 });
 
+$('.J-msg-cancel').click(function(event) {
+	$(this).parents('.fr-a').hide();
+});
+$('.J-messages-cancel').click(function(event) {
+	$(this).parents('.messages').hide();
+});
+
 //require end
 });
