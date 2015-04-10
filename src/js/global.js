@@ -1,17 +1,17 @@
 require(['browser'],function(browser){
   //ie9以上开启进度条
-  if(window.browser>9){
+  if(browser>9){
     require(['pace'],function(Pace){Pace.start();});
-  }else if(window.browser<7){
+  }else if(browser<7){
     //开启ie6兼容
     require(['ie6'],function(){});
   }
 });
 
-require(['jquery'],function($){
+require(['jquery','browser'],function($,browser){
   $(function(){
     var $body = $(document.body);
-    if(window.browser<7){
+    if(browser<7){
       //开启ie6 hover功能
       $body.on('mouseover','.ie-hover',function(){
         $(this).addClass('hover')
