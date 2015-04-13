@@ -6,35 +6,11 @@ function($,underscore,Backbone,epoxy){
   /**
    * Epoxy.binding
    */
-  Backbone.Epoxy.binding.addHandler("placeholder",{
-    init : function($element, value, bindings, context){
-      $element.on('blur',function(){
-        if(context.value() == ""){
-          context.value(value);
-        }
-      });
-      $element.on('focus',function(){
-        if(context.value() == value){
-          context.value("");
-        }
-      });
-    },
-    get : function($element, value){
-      return $element.val();
-    },
-    set : function($element, value){
-      $element.val( value );
-    },
-    clean : function(){
-      
-    }
-  });
-
 
   var defaults = {
-    firstName: "Luke",
-    lastName: "Skywalker",
-    email:"564493634@qq.com",
+    firstName: "",
+    lastName: "",
+    email:"",
     fontSize:16,
     love:[],
     sex:0,
@@ -136,7 +112,6 @@ function($,underscore,Backbone,epoxy){
   /**
    * list
    */
-  var d1 = new Date().getTime();
   var ajaxDatas = (function(){
     var list = [];
     _.each(_.range(97,123),function(code){
@@ -158,103 +133,69 @@ function($,underscore,Backbone,epoxy){
     return list;
   })();
 
-  var d2 = new Date().getTime();
-  var Td = Backbone.Model.extend({
-    defaults : {
-      value : ''
-    }
-  });
-  var Th = Backbone.Model.extend({
-    defaults : {
-      width : 200,
-      value : '',
-      display:true
-    }
-  });
-
-  var TdView = Backbone.Epoxy.View.extend({
-    el:'<td data-bind="text:modelValue,toggle:display">',
-    initialize: function(options){
-      this.pmodel = options.collectionView.model;
+  window.head = [
+    {
+      name:'字符',
+      width:200,
+      sort:true,
+      template:'<%=charval%>'
     },
-    computeds: {
-      modelValue: function(){
-        return this.pmodel.get(this.getBinding('value'));
-      }
-    }
-  });
-  var ThView = TdView.extend({
-    el:'<th data-bind="text:value,css:{width:width},toggle:display">'
-  });
-
-  var Head = Backbone.Collection.extend({
-    model : Th
-  });
-
-  window.head = new Head([
-    {name:'字符',value:'charval'},
-    {name:'字符串',value:'chars'},
-    {name:'电话',value:'phone'},
-    {name:'手机',value:'mobile'},
-    {name:'测试1',value:'test1'},
-    {name:'测试2',value:'test2'},
-    {name:'测试3',value:'test3'},
-    {name:'测试4',value:'test4'},
-    {name:'测试5',value:'test5'},
-    {name:'测试6',value:'test6'}
-  ]);
-  var Tr = Backbone.Model.extend({
-    defaults : {
-      index : 0,
-      name : '',
-      value : '',
-      phone : '',
-      mobile : '',
-      test1:'',
-      test2:'',
-      test3:'',
-      test4:'',
-      test5:'',
-      test6:''
-    }
-  });
-  var TrView = Backbone.Epoxy.View.extend({
-    el:'<tr data-bind="collection:$head">',
-    itemView : TdView,
-    initialize: function() {
-      debugger;
+    {
+      name:'字符串',
+      width:200,
+      sort:true,
+      template:'<%=chars%>'
     },
-    bindingSources: {
-      head: head,
-      mmode: function(){
-        return this.model;
-      }
-    }
-  });
-  var TrList = Backbone.Collection.extend({
-    model : Tr
-  });
-
-  var ListView = Backbone.Epoxy.View.extend({
-    el : "#data-table",
-    itemView : TrView,
-    headView : ThView,
-    initialize: function() {
-      this.collection = new TrList(ajaxDatas);
+    {
+      name:'电话',
+      width:200,
+      sort:true,
+      template:'<%=phone%>'
     },
-    bindingSources : {
-      head : head
+    {
+      name:'手机',
+      width:200,
+      sort:true,
+      template:'<%=mobile%>'
+    },
+    {
+      name:'测试1',
+      width:200,
+      sort:true,
+      template:'<%=test1%>'
+    },
+    {
+      name:'测试2',
+      width:200,
+      sort:true,
+      template:'<%=test2%>'
+    },
+    {
+      name:'测试3',
+      width:200,
+      sort:true,
+      template:'<%=test3%>'
+    },
+    {
+      name:'测试4',
+      width:200,
+      sort:true,
+      template:'<%=test4%>'
+    },
+    {
+      name:'测试5',
+      width:200,
+      sort:true,
+      template:'<%=test5%>'
+    },
+    {
+      name:'测试6',
+      width:200,
+      sort:true,
+      template:'<%=test6%>'
     }
-  });
-  window.listView = new ListView();
+  ];
 
-  var d3 = new Date().getTime();
-  alert(d2-d1);
-  alert(d3-d2);
-
-  $("#toggle").on('click',function(){
-    head.at(0).set('display',!head.at(0).get('display'));
-  });
 
   Backbone.history.start({root:'api/search'});
 

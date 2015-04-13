@@ -31,5 +31,7 @@
   "ie6":"special/ie6",
   "DD_belatedPNG":"special/DD_belatedPNG",
 
-  "baidu.map":"http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
+  "baidu.map":"http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
+
+  "db.customTable":"project/db/customTable"
 }
