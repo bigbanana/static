@@ -8,6 +8,11 @@ KISSY CSS Reset
 特色：1.适应中文 2.基于最新主流浏览器
 维护：玉伯(lifesinger@gmail.com), 正淳(ragecarrier@gmail.com)
 */
+/* 防止ie6 css expression引起的fixed抖动  */
+html body {
+  _background-image: url(about:blank);
+  _background-attachment: fixed;
+}
 /* 清除内外边距 */
 body,
 h1,

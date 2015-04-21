@@ -1,110 +1,17 @@
-require(['jquery','jquery.slider','prism'],function($,Slider){
-  var $slider = $('.slider-demo').detach();
-  //demo1
-  (function(){
-    var $demo = $('#demo1');
-    $demo.append($slider.clone());
-    var slider = new Slider({el:$demo.find('.sliders')});
-    $demo.on('click','button',function(){
-      slider[this.className]();
-    });
-  })();
+require(['jquery','jquery.sliderbox','prism'],function($,Slider){
+  var $slider = $('.sliders');
+  var $customSlider = $('.custom-slider');
+  var $cSliders = $customSlider.children('.c-sliders');
+  var $cControl = $customSlider.children('.c-control');
 
-  //demo2
-  (function(){
-    var $demo = $('#demo2');
-    $demo.append($slider.clone());
-    var slider = new Slider({el:$demo.find('.sliders'),displayNumber:3});
-    $demo.on('click','button',function(){
-      slider[this.className]();
-    });
-  })();
-
-  //demo3
-  (function(){
-    var $demo = $('#demo3');
-    $demo.append($slider.clone());
-    var slider = new Slider({
-      el:$demo.find('.sliders'),
-      fx:{
-        easing : 'easeOutBack'
-      }
-    });
-    $demo.on('click','button',function(){
-      slider[this.className]();
-    });
-  })();
-
-  //demo4
-  (function(){
-    var $demo = $('#demo4');
-    $demo.append($slider.clone());
-    var slider = new Slider({
-      el:$demo.find('.sliders'),
-      fx:{
-        duration : 3000
-      }
-    });
-    $demo.on('click','button',function(){
-      slider[this.className]();
-    });
-  })();
-
-  //demo5
-  (function(){
-    var $demo = $('#demo5');
-    $demo.append($slider.clone());
-    var slider = new Slider({
-      el:$demo.find('.sliders'),
-      fx:{
-        delay : 300
-      }
-    });
-    $demo.on('click','button',function(){
-      slider[this.className]();
-    });
-  })();
-
-  //demo6
-  (function(){
-    var $demo = $('#demo6');
-    $demo.append($slider.clone());
-    var slider = new Slider({
-      el:$demo.find('.sliders'),
-      direction:0,
-      displayNumber:3
-    });
-    $demo.on('click','button',function(){
-      slider[this.className]();
-    });
-  })();
-
-  //demo7
-  (function(){
-    var $demo = $('#demo7');
-    $demo.append($slider.clone());
-    var slider = new Slider({
-      el:$demo.find('.sliders'),
-      fx:{
-        easing : 'easeOutBounce',
-        from:function(options,$item){
-          return {
-            left : options.width,
-            top : -options.height,
-            zIndex:10
-          }
-        },
-        to:function(options,$item){
-          return {
-            left : -options.width,
-            top : options.height
-          }
-        }
-      }
-    });
-    $demo.on('click','button',function(){
-      slider[this.className]();
-    });
-  })();
+  $slider.sliderbox();
+  $cSliders.sliderbox({control:false}).on('slider',function(e){
+    $cControl.children().eq(e.index).addClass('active')
+    .siblings('.active').removeClass('active');
+  });
+  $cControl.on('click','a',function(){
+    var $this = $(this);
+    $cSliders.sliderbox('slider',$this.index());
+  }).appendTo($cSliders);
 
 });

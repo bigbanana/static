@@ -7,5 +7,11 @@ define('ie6',['jquery','DD_belatedPNG'],function($,DD_belatedPNG){
     try{
       document.execCommand("BackgroundImageCache", false, true);
     }catch(e){}
+    //开启ie6 全局hover功能
+    $(document.body).on('mouseover','.ie-hover',function(){
+      $(this).addClass('hover')
+    }).on('mouseleave','.ie-hover',function(){
+      $(this).removeClass('hover')
+    });
   });
 });

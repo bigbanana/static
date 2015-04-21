@@ -32,19 +32,8 @@ define('jquery.sliderbox',['jquery','underscore',
         width : width,
         height : height
       }).addClass('ui-sliderbox');
-      this.options.control && this.initControl();
+      this.initControl();
       this.slider(0);
-    },
-    initControl : function(){
-      var _this = this;
-      this.$controlBox = $('<div class="ui-sliderbox-control"></div>').appendTo(this.$el);
-      this.$items.each(function(i){
-        _this.$controlBox.append('<a href="javascript:;">'+i+'</a>');
-      });
-      this.$controlBox.on(this.options.eventType,'a',function(){
-        var $this = $(this);
-        _this.slider($this.index());
-      });
       if(this.options.auto){
         function start(){
           clearInterval(_this.timer);
@@ -56,6 +45,34 @@ define('jquery.sliderbox',['jquery','underscore',
         this.$el.hover(end,start);
         start();
       }
+    },
+    initControl : function(){
+      var _this = this;
+      if(!this.options.control){
+        this.$controlBox = $('<div>');
+        return ;
+      }
+      this.$controlBox = $('<div class="ui-sliderbox-control"></div>').appendTo(this.$el);
+      this.$controlBox.css({
+        position:'absolute'
+      });
+      this.$items.each(function(i){
+        var $ct;
+        if(!!_this.options.createControl){
+          $ct = _this.options.createControl($(this),i);
+        }else{
+          $ct = $('<a href="javascript:;">'+i+'</a>');
+        }
+        _this.$controlBox.append($ct);
+      });
+      this.$controlBox.on(this.options.eventType,'a',function(){
+        var $this = $(this);
+        _this.slider($this.index());
+      });
+      this.$el.on('slider',function(e){
+        _this.$controlBox.children().eq(e.index).addClass('active')
+        .siblings('.active').removeClass('active');
+      });
     },
     slider : function(index,direction){
       var _this = this;
@@ -72,7 +89,8 @@ define('jquery.sliderbox',['jquery','underscore',
         duration : fx.duration,
         easing : fx.easing
       });
-      this.$controlBox.children().removeClass('active').eq(index).addClass('active');
+      var event = $.Event('slider',{index : index});
+      this.$el.trigger(event);
       this.current = index;
     },
     prev : function(){

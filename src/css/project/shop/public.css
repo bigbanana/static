@@ -1,5 +1,6 @@
 /* CSS Document */
 @charset "UTF-8";
+html{font-size: 12px;}
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, blockquote, textarea, p, th, td ,table {margin:0;padding:0;}
 body, input, select, button, textarea { font-size: 12px; font-family: Tahoma, Geneva, sans-serif;}/*统一不同浏览器字体大小*/
 table {border-collapse:collapse;}
@@ -31,19 +32,23 @@ clearfix:after{}
 .hl{ position:relative;}
 h3,h4{ font-weight:bold; color:#3c3c3c;}
 .clear{display: block; overflow: hidden; clear: both; height: 0px; line-height: 0; font-size: 0px;}
-.subject .w{ width:1000px; margin:0 auto;} 
-.subject .w1{ margin-bottom:10px; overflow:hidden;}
-.w2{width:773px;}
-.w3{ width:213px;}
-.w4{ overflow:hidden;}
+
 
 
 /* 常用class */
 /* 颜色 */
 .cl-red{color:#e74c3c;}
 .cl-blue{color:#2980b9;}
+.mt20{margin-top: 20px;}
+.m20{margin:20px;}
+.p20{padding: 20px;}
 
 /*head-----------------------------------------------------------------------------------------------------------------------------------------*/
+.subject .w{ width:1000px; margin:0 auto;} 
+.subject .w1{ margin-bottom:10px; overflow:hidden;}
+.w2{width:773px;}
+.w3{ width:213px;}
+.w4{ overflow:hidden;}
 #top{ width:100%;border-bottom: 1px solid #EEE; height:30px; line-height: 32px; background:#f5f6f7; }
 #top .w a:hover{ color:#fd5f56;}
 #top li{ float:left; padding-right:15px;}
@@ -172,66 +177,69 @@ h3,h4{ font-weight:bold; color:#3c3c3c;}
 
 
 .sheets{ padding:15px; color:#6c6c6c}
-#sheet .st{ overflow:hidden;*zoom:1; line-height:32px; padding-top:10px;*line-height:30px; }
-#sheet .st-tar{ height:auto; _height:1%;}
-#sheet .p-sheets{ padding-left:30px; color:#3c3c3c; padding-bottom:20px;}
-#sheet .p-sheets a{ color:#2980b9; padding:0 5px;}
-#sheet .p-sheets strong a{ color:#e74c3c;}
-#sheet .st-span{ float:left; width:260px; text-align:right; padding-right:10px; font-size:14px; color:#888}
-#sheet .st-span130{float:left; width:130px; text-align:right; padding-right:10px; font-size:14px; color:#888}
-#sheet .st-span80{ float:left; width:80px; text-align:right; padding-right:10px; font-size:12px}
-#sheet .st b{ color:#e74c3c; font-family:"å®‹ä½“"; margin-right:5px; font-weight:normal;}
-#sheet .st-ifo{ overflow: hidden;*zoom:1;}
-#sheet .st-ifo .st-tips{font-size:12px;color:#999;line-height: 20px;display: block;}
-#sheet .text{border:1px #bbb solid; width:298px; height:30px; line-height:30px; padding:0px 5px;*float:left; outline: none; font-size:14px;}
-#sheet .text:focus{border-color:#7abd54;}
-#sheet .text198{ width:198px; font-size:12px;}
-#sheet .text430{ width:428px;}
-#sheet .text160{ width:160px;}
-#sheet .green{ border-color:#00c546;}
-#sheet .red{border-color:#e74c3c;}
-#sheet .st-p{ float:left; color:#8c8c8c; padding-left:10px;}
-#sheet .st-p a{ color:#2980b9; padding:0 5px;}
-#sheet .st-ifo textarea{ width:300px; height:98px; *height:97px;border:1px #bbb solid; padding: 5px;}
-#sheet .st-po{ background:#fdfbe4; border:1px #f9e1b3 solid; height:23px; line-height:23px; padding:0 10px; margin-left:90px; width:490px; color:#d89b26;}
-#sheet .button{ background:#29a8de; width:270px; height:32px; border:0 none; color:#fff; line-height:32px; text-align:center;font:700 14px/32px "å®‹ä½“";}
-#sheet .button:hover{ background:#1ab1f4;}
-#sheet .btn100{ width:100px; margin-left:90px; font:normal 12px/32px "å®‹ä½“"}
-#sheet .stp{ margin-top:10px;}
-#sheet .yuan{font-size:14px; color:#e74c3c;}
+.sheets .st{ overflow:hidden;*zoom:1; line-height:32px; padding-top:10px;*line-height:30px; }
+.sheets .st-tar{ height:auto; _height:1%;}
+.sheets .p-sheets{ padding-left:30px; color:#3c3c3c; padding-bottom:20px;}
+.sheets .p-sheets a{ color:#2980b9; padding:0 5px;}
+.sheets .p-sheets strong a{ color:#e74c3c;}
+.sheets .st-span{ float:left; width:260px; text-align:right; padding-right:10px; font-size:14px; color:#888}
+.sheets .st-span130{float:left; width:130px; text-align:right; padding-right:10px; font-size:14px; color:#888}
+.sheets .st-span80{ float:left; width:80px; text-align:right; padding-right:10px; font-size:12px}
+.sheets .st b{ color:#e74c3c; font-family:"å®‹ä½“"; margin-right:5px; font-weight:normal;}
+.sheets .st-ifo{ overflow: hidden;*zoom:1;}
+.sheets .st-ifo .st-tips{font-size:12px;color:#999;line-height: 20px;display: block;}
+.sheets .text{border:1px #bbb solid; width:298px; height:30px; line-height:30px; padding:0px 5px;*float:left; outline: none; font-size:14px;}
+.sheets .text:focus{border-color:#7abd54;}
+.sheets .text198{ width:198px; font-size:12px;}
+.sheets .text430{ width:428px;}
+.sheets .text160{ width:160px;}
+.sheets .green{ border-color:#00c546;}
+.sheets .red{border-color:#e74c3c;}
+.sheets .st-p{ float:left; color:#8c8c8c; padding-left:10px;}
+.sheets .st-p a{ color:#2980b9; padding:0 5px;}
+.sheets .st-ifo textarea{ width:300px; height:98px; *height:97px;border:1px #bbb solid; padding: 5px;}
+.sheets .st-po{ background:#fdfbe4; border:1px #f9e1b3 solid; height:23px; line-height:23px; padding:0 10px; margin-left:90px; width:490px; color:#d89b26;}
+.sheets .button{ background:#29a8de; width:270px; height:32px; border:0 none; color:#fff; line-height:32px; text-align:center;font:700 14px/32px "å®‹ä½“";}
+.sheets .button:hover{ background:#1ab1f4;}
+.sheets .btn100{ width:100px; margin-left:90px; font:normal 12px/32px "å®‹ä½“"}
+.sheets .stp{ margin-top:10px;}
+.sheets .yuan{font-size:14px; color:#e74c3c;}
 
-#sheet label.error,#sheet span.error,#sheet label.validate-error{display: inline-block;*zoom:1;margin-left: 6px; padding:0 5px;line-height:30px; height:30px;vertical-align: top; color:#f00; background:#ffebeb; border:1px #ffbdbe solid;}
-#sheet label.success{ background:url(../../../images/project/shop/correctss.png) no-repeat 0 7px; width:6px;border:none;}
-#sheet label.validate-success{visibility: hidden!important;}
-/* #sheet label.correct{ color:#6c6c6c; background:#f7f7f7; width:250px; border:1px #ddd solid; top:0px; left:340px;} */
+.sheets label.validate-error,.sheets span.validate-error{display: inline-block;*zoom:1;margin-left: 6px; padding:0 5px;line-height:30px; height:30px;vertical-align: top; color:#f00; background:#ffebeb; border:1px #ffbdbe solid;}
+.sheets label.validate-success{ background:url(../../../images/project/shop/correctss.png) no-repeat 0 7px; width:6px;border:none;}
+/* .sheets label.correct{ color:#6c6c6c; background:#f7f7f7; width:250px; border:1px #ddd solid; top:0px; left:340px;} */
 
-#sheet .p-radio label { float:left; padding-right:20px;}
-#sheet .contacts{ background:#fbfbfb; border:1px #ddd solid; padding:10px 0}
-#sheet .titllog{ line-height:30px; font-weight:700;}
-#sheet .titllog span{ color:#36ab02;}
-#sheet .tit-contact{ position:relative; height:30px; line-height:30px; background:#f8f8f8; border:1px #ddd solid; padding:0 10px; margin:10px 0;}
-#sheet .tit-contact span{ padding-left:20px;float:left; overflow:hidden;}
-#sheet .tit-contact-input{ position:absolute; left:10px; top:8px; *top:3px; _top:5px;}
-#sheet .tit-contact a{color:#2980b9;}
-#sheet .tit-contact-a{ float:right; }
-#sheet .upload{ background:#fbfbfb; border:1px #ddd solid; height:25px; width:100px; text-align:center; text-align:center; cursor:pointer; margin-right:10px; color:#6c6c6c}
-#sheet .upload:hover{ background:#e4e4e4;}
-#sheet select{height: 32px;border: 1px solid #CCC;font-size: 14px;font-family: arial,"å®‹ä½“";color: #999;padding: 6px 0px; outline:none; *margin-top:5px;margin-right: 2px;}
-#sheet select option{ line-height:32px;}
-#sheet .plus{ width:16px; height:16px; margin:8px 0 0 8px;  float:left; float:left; cursor:pointer;}
-#sheet .st-ifo-a{ border:1px #ddd solid; padding:2px 5px; float:left; margin-right:10px; line-height:16px; }
-#sheet .st-ifo-a:hover{ background:#169bd6; color:#fff;}
-#sheet .st-ifo-a-hover{ border:1px #ddd solid; padding:2px 5px; float:left; margin-right:10px; line-height:16px;  background:#169bd6; color:#fff;}
-#sheet .checkbox{ float:left; margin:10px 5px 0 0;*margin:4px 0px 0 0;_margin:6px 0px 0 0}
-#sheet .checkboxs{ float:left; margin-right:30px;}
-#sheet .checkboxs a{ color:#1295cc}
-#sheet .xjtz{ color:#1295cc}
-#sheet .fl{ float:left; margin-right:10px;}
-#sheet .st-ifo .textarea{ width:500px; /* height:300px; */}
-#sheet .st-ifo-p{ line-height:18px; width:500px; color:#9c9c9c; }
-#sheet .st-ifo-o{ overflow:hidden; height:auto; font-size:14px;margin-bottom: 10px;}
-#sheet .st-ifo-ck{ background:#fdfdfd; border:1px #ddd solid; padding:10px; width:500px;}
-#sheet .a-st-ifo{ background:url(../../../images/project/shop/plus.png) 0px 1px no-repeat; padding-left:20px; *background-position:0 7px; color:#2980b9;}
+.sheets .p-radio label { float:left; padding-right:20px;}
+.sheets .contacts{ background:#fbfbfb; border:1px #ddd solid; padding:10px 0}
+.sheets .titllog{ line-height:30px; font-weight:700;}
+.sheets .titllog span{ color:#36ab02;}
+.sheets .tit-contact{ position:relative; height:30px; line-height:30px; background:#f8f8f8; border:1px #ddd solid; padding:0 10px; margin:10px 0;}
+.sheets .tit-contact span{ padding-left:20px;float:left; overflow:hidden;}
+.sheets .tit-contact-input{ vertical-align: middle;}
+.sheets .tit-contact a{color:#2980b9;}
+.sheets .tit-contact-a{ float:right; }
+.sheets .upload{ background:#fbfbfb; border:1px #ddd solid; height:25px; width:100px; text-align:center; text-align:center; cursor:pointer; margin-right:10px; color:#6c6c6c}
+.sheets .upload:hover{ background:#e4e4e4;}
+.sheets select{height: 32px;border: 1px solid #CCC;font-size: 14px;font-family: arial,"å®‹ä½“";color: #999;padding: 6px 0px; outline:none; *margin-top:5px;margin-right: 2px;}
+.sheets select option{ line-height:32px;}
+.sheets .plus{ width:16px; height:16px; margin:8px 0 0 8px;  float:left; float:left; cursor:pointer;}
+.sheets .st-ifo-a{ border:1px #ddd solid; padding:2px 5px; float:left; margin-right:10px; line-height:16px; }
+.sheets .st-ifo-a:hover{ background:#169bd6; color:#fff;}
+.sheets .st-ifo-a-hover{ border:1px #ddd solid; padding:2px 5px; float:left; margin-right:10px; line-height:16px;  background:#169bd6; color:#fff;}
+.sheets .checkbox{ float:left; margin:10px 5px 0 0;*margin:4px 0px 0 0;_margin:6px 0px 0 0}
+.sheets .checkboxs{ float:left; margin-right:30px;}
+.sheets .checkboxs a{ color:#1295cc}
+.sheets .xjtz{ color:#1295cc}
+.sheets .fl{ float:left; margin-right:10px;}
+.sheets .st-ifo .textarea{ width:500px; /* height:300px; */}
+.sheets .st-ifo-p{ line-height:18px; width:500px; color:#9c9c9c; }
+.sheets .st-ifo-o{ overflow:hidden; height:auto; font-size:14px;margin-bottom: 10px;}
+.sheets .st-ifo-ck{ background:#fdfdfd; border:1px #ddd solid; padding:10px; width:500px;}
+.sheets .a-st-ifo{ background:url(../../../images/project/shop/plus.png) 0px 1px no-repeat; padding-left:20px; *background-position:0 7px; color:#2980b9;}
+/*compact紧凑型表单*/
+.sheets.compact .st-span{width:160px;}
+.sheets.compact .text{width:200px;}
+.sheets.compact .button{width:212px;}
 
 /*弹出窗口*/
 .pop-bj{ width:100%; height:100%;  background:#000; opacity:0.2;  filter: alpha(opacity=20);top:0; left:0; z-index:2;  position:fixed !important; position:absolute; _top: expression(eval(document.compatMode &&document.compatMode=='CSS1Compat') ?documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2); /*IE5 IE5.5*/ }
@@ -306,7 +314,12 @@ document.compatMode=='CSS1Compat') ?documentElement.scrollTop + (document.docume
 .member-left-hover a { color: #2980b6;}
 
 /*返回顶部*/
-#fixed{ position:fixed; _position:absolute; right: 10px;bottom:30%;z-index: 9999;width: 60px;height: 100px;opacity: 1;}
+#fixed{
+  z-index: 9999;width: 60px;height: 100px;opacity: 1;
+  position:fixed; right: 10px;bottom:30%;
+  _position:absolute; 
+  _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-200));
+}
 #fixed .button{
   background-color: #478EB0;background-repeat:no-repeat;background-position:center center;
   display:block;margin-bottom: 10px;height:40px;border-radius: 2px;cursor:pointer;box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
@@ -340,7 +353,7 @@ pre{white-space: pre-wrap;}
 
 .fr{ position:relative;}
 .fr-name{ max-width:120px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; color:#f00; display:inline;}
-.fr-i{ background:url(../images/lv.png) 0px -11px no-repeat;  width:16px; height:10px; display:inline-block; margin-left:3px; overflow:hidden; float:left; margin-top:12px; *margin-top:11px;_margin-top:13px;}
+.fr-i{ background:url(../../../images/project/shop/lv.png) 0px -11px no-repeat;  width:16px; height:10px; display:inline-block; margin-left:3px; overflow:hidden; float:left; margin-top:12px; *margin-top:11px;_margin-top:13px;}
 .fr-news{ padding:0 15px}
 .fr-news b{ padding-left:10px;}
 .fr-sp{ float:left;}
@@ -348,7 +361,8 @@ pre{white-space: pre-wrap;}
 .fr-a{ position:absolute; top:19px; z-index:999; right:165px; *top:14px;}
 .fr-a a{ color:#fff; }
 #top .w .fr-a-a:hover{ text-decoration:none; color:#fff}
-.fr-a-i{ position: absolute;display: block;font-size: 0px;height: 0px;width: 0px;background: none repeat scroll 0px 0px transparent;border-color: transparent transparent #666;border-style: dashed dashed solid;border-width: 6px;right: 20px;top: 0px;_top: -2px; z-index: 930;}
+.fr-a-i{ position: absolute;display: block;font-size: 0px;height: 0px;width: 0px;background: none repeat scroll 0px 0px transparent;border-color: transparent transparent #666;border-style: dashed dashed solid;
+border-width: 6px;right: 20px;top: 0px;_top: -2px; z-index: 930;}
 .fr-a-span{position: absolute;top: 12px;right: 0px;display: block;background-color: #666;border-radius: 2px; padding:1px; height:20px; line-height: 20px; *line-height: 22px; white-space: nowrap;z-index: 931;padding-right: 22px; padding-left:5px; text-align:left; }
 .fr-sd{   color:#aaa; width:12px; height:12px; overflow:hidden; display:inline-block; position:absolute; right:3px; cursor:default; top:0; text-align:center; margin-top:6px; line-height:10px; }
 .fr-sd:hover{ color:#fff; background:#e74c3c;}

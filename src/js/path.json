@@ -7,6 +7,7 @@
   "backbone.epoxy":"lib/backbone.epoxy",
   "backbone.queryparams":"lib/backbone.queryparams",
   "underscore":"lib/underscore",
+  "modernizr":"lib/modernizr",
   "require.css":"lib/require-css-plugin",
 
   "outer":"module/outer",
@@ -30,6 +31,7 @@
   
   "ie6":"special/ie6",
   "DD_belatedPNG":"special/DD_belatedPNG",
+  "respond":"special/respond",
 
   "baidu.map":"http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
 

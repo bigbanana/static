@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-04-10 11:26:52 */
+/* build : 564493634@qq.com 2015-04-14 09:10:57 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2093,10 +2093,11 @@ var requirejs, require, define;
  */
 window.config = config = window.config || {};
 config.deps = config.deps || [];
-config.baseUrl = config.baseUrl || 'http://static.yaozh.com/js';
+config.baseUrl = config.baseUrl || 'http://192.168.1.251/static/src/js';
+
 require.config({
   baseUrl : window.config.baseUrl,
-  urlArgs : 'yaozhVersion=1.1.1',
+  urlArgs : 'yaozhVersion=1.1.1'+'&d='+new Date().getTime(),
   waitSeconds : 5,
   map : {
     '*' : {
@@ -2116,9 +2117,13 @@ require.config({
     "jquery.ui" : {
       deps : ['css!../css/jquery-ui']
     },
+    "" : {
+
+    }
+    /*,
     "baidu.ueditor" : {
       deps : ['baidu.ueditor.config']
-    }
+    }*/
   }
 });
-require.config({paths:{"global":"global","browser":"lib/browser","jquery":"lib/jquery","backbone":"lib/backbone","backbone.epoxy":"lib/backbone.epoxy","backbone.queryparams":"lib/backbone.queryparams","underscore":"lib/underscore","require.css":"lib/require-css-plugin","outer":"module/outer","jquery.ui":"plugin/jquery-ui","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate.core":"plugin/jquery.validate.core","jquery.validate":"plugin/jquery.validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.placeholder":"plugin/placeholder","jquery.focusInput":"plugin/focusInput","jquery.marquee":"plugin/marquee","pace":"other/pace","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","prism":"other/prism","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG","baidu.map":"http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9","db.customTable":"project/db/customTable"}})
+require.config({paths:{"global":"global","browser":"lib/browser","jquery":"lib/jquery","backbone":"lib/backbone","backbone.epoxy":"lib/backbone.epoxy","backbone.queryparams":"lib/backbone.queryparams","underscore":"lib/underscore","modernizr":"lib/modernizr","require.css":"lib/require-css-plugin","outer":"module/outer","jquery.ui":"plugin/jquery-ui","jquery.plax":"plugin/plax","jquery.easing":"plugin/jquery.easing.1.3","jquery.validate.core":"plugin/jquery.validate.core","jquery.validate":"plugin/jquery.validate","jquery.waterfall":"plugin/waterfall","jquery.sliderbox":"plugin/sliderbox","jquery.clearInput":"plugin/clearInput","jquery.placeholder":"plugin/placeholder","jquery.focusInput":"plugin/focusInput","jquery.marquee":"plugin/marquee","pace":"other/pace","preloadjs":"other/preloadjs","TweenMax":"other/TweenMax","prism":"other/prism","ie6":"special/ie6","DD_belatedPNG":"special/DD_belatedPNG","respond":"special/respond","baidu.map":"http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9","db.customTable":"project/db/customTable"}})

@@ -1,78 +1,110 @@
 //require start
-require(['jquery'],function($){
-window.browser = (function(){
-  var arr = navigator.userAgent.match(/msie.(\d+)/i);
-  return !arr ? 100 : arr[1];
-})();
+require(['jquery','underscore','browser','jquery.ui'],function($,_,browser){
+
 //--------------------------------------------------------------------------------------------------
 $(function() {
+	var $body = $(document.body);
+
 	$(window).scroll(function(){
 		if ($(window).scrollTop() > 100) { 
-	        $(".return-top").fadeIn(); 
-	    } 
-	    else if ($(window).scrollTop() == 0) { 
-	        $(".return-top").fadeOut(); 
-	    } 
-	})
-	//scroll to TOP
+      $(".return-top").fadeIn(); 
+    } 
+    else if ($(window).scrollTop() == 0) { 
+      $(".return-top").fadeOut(); 
+    } 
+	});
+	//返回顶部
 	$(".return-top").click(function(){
 		$('html,body').animate({
       scrollTop:'0px'
     },400);
-	})
+	});
 
-	if(window.browser<7){
-		$(".code").hover(function() {
-			$(this).toggleClass('hover');
-		}, function() {
-			$(this).toggleClass('hover');
-		});
-	}
-		
-	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
-	var len = $("#focus ul li").length; //获取焦点图个数
-	var index = 0;
-	var picTimer;
-	if(len>1){
-
-		//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
-		var btn = "<div class='btn'>";
-		for(var i=0; i < len; i++) {
-			btn += "<span></span>";
+	/**
+	 * 分类目录
+	 */
+	$("#category").hover(function(){
+			$(this).children('.fl').addClass('hover');
+			$(this).find("bb").addClass('bbup');	
+		},function()
+		{ 
+			$(this).children('.fl').removeClass('hover');
+			$(this).find("bb").removeClass('bbup');
 		}
-		btn += "</div>";         //</div><div class='preNext pre'></div><div class='preNext next'>
-		$("#focus").append(btn);
-		$("#focus .btnBg").css("opacity",1);
+	);
 
-		//为小按钮添加鼠标滑入事件，以显示相应的内容
-		$("#focus .btn span").css("opacity",1).mouseover(function() {
-			index = $("#focus .btn span").index(this);
-			showPics(index);
-		}).eq(0).trigger("mouseover");
+	/**
+	 * 举报
+	 */
+	$body.on('click','.action-btn-report',function(){
+		var $this = $(this);
+		var data = $this.data();
 
+		var dialog = [
+			'<div class="report-dialog" style="padding:20px;" title="举报">',
+				'<div><textarea name="report" id="" style="height:100px;width:248px;"></textarea></div>',
+				'<div style="margin-top:20px;"><a href="javascript:;" class="submit button">确认</a><a style="margin-left:20px;" href="javascript:;" class="cancel button">取消</a></div>',
+			'</div>'
+		].join('');
+		var $dialog = $(dialog);
 
-		//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
-		$("#focus ul").css("width",sWidth * (len));
-		
-		//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
-		$("#focus").hover(function() {
-			clearInterval(picTimer);
-		},function() {
-			picTimer = setInterval(function() {
-				showPics(index);
-				index++;
-				if(index == len) {index = 0;}
-			},4000); //此4000代表自动播放的间隔，单位：毫秒
-		}).trigger("mouseleave");
-		
-	}
-	//显示图片函数，根据接收的index值显示相应的内容
-	function showPics(index) { //普通切换
-		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
-	}
+		$dialog.dialog({
+			height:240,
+			modal:true
+		});
+		$dialog.find('.button').button();
+		$dialog.on('click','.submit',function(){
+			$.post('/index/report', {id: data.id,cat: data.cat,content: $dialog.find('textarea').val()}, function(data) {
+				alert("感谢您的举报，我们将尽快处理");
+				$dialog.dialog('close');
+			});
+		});
+		$dialog.on('click','.cancel',function(){
+			$dialog.dialog('close');
+		});
+	});
+
+	/**
+	 * 收藏
+	 */
+	$body.on('click','.action-btn-collect',function(){
+		if(!user_id){
+ 			alert('请先登录！');
+ 		}else{
+ 			$.post(collect_url,{'user_id':user_id,'product_id':product_id,'category':category,'type':type},function(data){
+ 				if(data.status==1){
+ 					$('.btn-collect span').html('已收藏');
+ 				}
+ 				else{
+ 					$('.btn-collect span').html('收藏');
+ 				}
+ 			},'json');
+ 		}
+	});
+
+	/**
+	 * 分享
+	 */
+	$body.on('click','.action-btn-share',function(){
+		var $this = $(this);
+		var data = $this.data();
+		type = data.type || 's_weibo';
+		delete data.type;
+		data.title = data.title || '药智商城';
+		data.url = window.location.href
+		var shareUrl = {
+			's_weibo' : 'http://v.t.sina.com.cn/share/share.php?<%=params%>',
+			't_weibo' : 'http://v.t.qq.com.cn/share/share.php?<%=params%>',
+			'qzone' : 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?<%=params%>'
+		}
+
+		if(!shareUrl[type]){
+			throw '错误的分享类型';
+			return;
+		}
+		window.open(_.template(shareUrl[type])({params:$.param(data)}),'_blank');
+	});
+
 });
 
 
@@ -168,8 +200,8 @@ $(function() {
 //------tabbox---------------------------------------------------------------------------------------------------
 
 $(document).ready(function() {
-    jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
-        $(tab_conbox).find("li").hide();
+  jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
+    $(tab_conbox).find("li").hide();
 		$(tabtit).find("li:first").addClass("thistab").show(); 
 		$(tab_conbox).find("li:first").show();	
 		$(tabtit).find("li").bind(shijian,function(){
@@ -215,35 +247,7 @@ $("#product-detail .yc:eq("+$(this).index()+")").show().siblings(".yc").hide().a
 });
 });
 
-
-//-----------------------sdadsadsadasd------------------------------------------------------
-
-/*
-	表单验证冲突，待删
-$(document).ready(function(){
-$("#sheet .text").click(function(){
-		$(this).addClass("green")}).blur(function(){
-		   $(this).removeClass("green");
-		   });
-})
- 
-*/
-
-
 //----------category--------------------------------------------
-
-$(document).ready(function(){
-	$("#category,#category a").hover(function(){
-			$(this).children(".fl").addClass('hover');
-			$(this).children("b").addClass('bbup');	
-		},function()
-		{ 
-			$(this).children(".fl").removeClass('hover');
-			$(this).children("b").removeClass('bbup');
-		}
-	);
- 
-})
 
 $(document).ready(function(){
 	$(".sort-area,.area-b a").hover(function(){
@@ -318,21 +322,7 @@ $(document).ready(function(){
           $(this).attr("class", "on");
  
         });
- 	$('.btn-collect').click(function(){
- 		if(!user_id){
- 			alert('请先登录！');
- 		}
- 		else{
- 			$.post(collect_url,{'user_id':user_id,'product_id':product_id,'category':category,'type':type},function(data){
- 				if(data.status==1){
- 					$('.btn-collect span').html('已收藏');
- 				}
- 				else{
- 					$('.btn-collect span').html('收藏');
- 				}
- 			},'json');
- 		}
- 	})
+ 	
 
  	//--------------------------全选---------------------------
  	$('.all-checkbox').click(function(){
@@ -441,44 +431,6 @@ function share_qzone(url,title){
     var url ="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+encodeURIComponent(window.location.href)+"&title="+document.title;
     window.open(url);
 }
-
-
-/**
- * 举报
- */
-
-$(function(){
-	var $body = $(document.body)
-	$body.on('click','.action-btn-report',function(){
-		var $this = $(this);
-		var data = $this.data();
-
-		var dialog = [
-			'<div class="report-dialog" style="padding:20px;" title="举报">',
-				'<div><textarea name="report" id="" style="height:100px;width:248px;"></textarea></div>',
-				'<div style="margin-top:20px;"><a href="javascript:;" class="submit button">确认</a><a style="margin-left:20px;" href="javascript:;" class="cancel button">取消</a></div>',
-			'</div>'
-		].join('');
-		var $dialog = $(dialog);
-
-		$dialog.dialog({
-			height:240,
-			modal:true
-		});
-		$dialog.find('.button').button();
-		$dialog.on('click','.submit',function(){
-			$.post('/index/report', {id: data.id,cat: data.cat,content: $dialog.find('textarea').val()}, function(data) {
-				alert("感谢您的举报，我们将尽快处理");
-				$dialog.dialog('close');
-			});
-			
-		});
-		$dialog.on('click','.cancel',function(){
-			$dialog.dialog('close');
-		});
-	});
-
-});
 
 $('.J-msg-cancel').click(function(event) {
 	$(this).parents('.fr-a').hide();
