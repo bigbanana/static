@@ -12,7 +12,7 @@ config.baseUrl = config.baseUrl || 'http://static.yaozh.com/js';
 
 require.config({
   baseUrl : window.config.baseUrl,
-  urlArgs : 'yaozhVersion=1.1.1',
+  urlArgs : 'yaozhVersion=1.1.2',
   waitSeconds : 5,
   map : {
     '*' : {

@@ -16,7 +16,9 @@ define(['jquery','underscore','backbone','backbone.epoxy','jquery.validate','jqu
                   option += '<option value="'+item['id']+'">'+item['name']+'</option>';
               })
               var content = content+option+'</select>';
-              $('#st-category select').after(content);
+              if(data.length>0){
+                $('#st-category select').after(content);
+              }
           },'json');
       }
       else{
