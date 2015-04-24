@@ -28,6 +28,8 @@
   "preloadjs":"other/preloadjs",
   "TweenMax":"other/TweenMax",
   "prism":"other/prism",
+  "jquery.lightbox":"other/lightbox",
+  "jquery.waypoints":"other/jquery.waypoints",
   
   "ie6":"special/ie6",
   "DD_belatedPNG":"special/DD_belatedPNG",

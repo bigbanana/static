@@ -213,8 +213,8 @@ h3,h4{ font-weight:bold; color:#3c3c3c;}
 .sheets .contacts{ background:#fbfbfb; border:1px #ddd solid; padding:10px 0}
 .sheets .titllog{ line-height:30px; font-weight:700;}
 .sheets .titllog span{ color:#36ab02;}
-.sheets .tit-contact{ position:relative; height:30px; line-height:30px; background:#f8f8f8; border:1px #ddd solid; padding:0 10px; margin:10px 0;}
-.sheets .tit-contact span{ padding-left:20px;float:left; overflow:hidden;}
+.sheets .tit-contact{ display:block;height:30px; line-height:30px; background:#f8f8f8; border:1px #ddd solid; padding:0 10px; margin:10px 0;}
+.sheets .tit-contact span{ padding-left:20px; overflow:hidden;}
 .sheets .tit-contact-input{ vertical-align: middle;}
 .sheets .tit-contact a{color:#2980b9;}
 .sheets .tit-contact-a{ float:right; }
@@ -353,7 +353,7 @@ pre{white-space: pre-wrap;}
 
 .fr{ position:relative;}
 .fr-name{ max-width:120px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; color:#f00; display:inline;}
-.fr-i{ background:url(../../../images/project/shop/lv.png) 0px -11px no-repeat;  width:16px; height:10px; display:inline-block; margin-left:3px; overflow:hidden; float:left; margin-top:12px; *margin-top:11px;_margin-top:13px;}
+.fr-i{ width:16px; height:10px; display:inline-block; margin-left:3px; overflow:hidden; float:left; margin-top:12px; *margin-top:11px;_margin-top:13px;}
 .fr-news{ padding:0 15px}
 .fr-news b{ padding-left:10px;}
 .fr-sp{ float:left;}

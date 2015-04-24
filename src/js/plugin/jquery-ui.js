@@ -7,7 +7,7 @@
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
-		define('jquery.ui',[ "jquery" ], factory );
+		define('jquery.ui',[ "jquery",'css!../css/jquery-ui'], factory );
 	} else {
 
 		// Browser globals
