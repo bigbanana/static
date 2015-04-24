@@ -13,8 +13,8 @@ define(['jquery','underscore','backbone','backbone.epoxy','jquery.validate','jqu
               var content = '<select name="category" id="child">';
               var option = '';
               $.each(data,function(i,item){
-                  option += '<option value="'+item['id']+'">'+item['name']+'</option>';
-              })
+                option += '<option value="'+item['id']+'">'+item['name']+'</option>';
+              });
               var content = content+option+'</select>';
               if(data.length>0){
                 $('#st-category select').after(content);
