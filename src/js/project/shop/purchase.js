@@ -120,16 +120,6 @@ define(['jquery','underscore','backbone','backbone.epoxy','jquery.validate','jqu
         ignore : "input[type=file],.ignore"
       });
       $publishForm.on('submit',function(e){
-
-        var $pictures = $publishForm.find('input[name="pictures[]"]');
-        if(!$pictures.length){
-          var $err = $(".upload").nextAll('.error');
-          if(!$err.length){
-            $(".upload").after('<span class="error">相关图片不能为空</span>');
-          }
-          return false;
-        }
-
         if(!validator.form()){
           return false;
         }
