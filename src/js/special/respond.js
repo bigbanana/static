@@ -5,6 +5,8 @@
 
 /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
 /*! NOTE: If you're already including a window.matchMedia polyfill via Modernizr or otherwise, you don't need this part */
+define('respond',[],function(){
+
 (function(w) {
   "use strict";
   w.matchMedia = w.matchMedia || function(doc, undefined) {
@@ -303,7 +305,6 @@
     
     win.setTimeout(checkFrameName, 500);
   }
-
     // http://stackoverflow.com/a/472729
   function checkBaseURL(href) {
         var el = document.createElement('div'),
@@ -315,7 +316,7 @@
         return el.firstChild.href;
   }
   
-  function checkRedirectURL() {
+  respond.checkRedirectURL = function() {
     // IE6 & IE7 don't build out absolute urls in <link /> attributes.
     // So respond.proxy.gif remains relative instead of http://example.com/respond.proxy.gif.
     // This trickery resolves that issue.
@@ -335,9 +336,8 @@
     }
   }
   
-  function buildUrls(){
+  respond.buildUrls = function(){
     var links = doc.getElementsByTagName( "link" );
-    
     for( var i = 0, linkl = links.length; i < linkl; i++ ){
       
       var thislink  = links[i],
@@ -355,13 +355,14 @@
         })( thislink );
       } 
     }
-
-    
   }
-  
+
   if( !respond.mediaQueriesSupported ){
-    checkRedirectURL();
-    buildUrls();
+    respond.checkRedirectURL();
+    respond.buildUrls();
   }
 
 })( window, document );
+
+  return respond;
+});

@@ -1,7 +1,29 @@
 define(['jquery','baidu.map','jquery.validate'],function($){
 
   function index(){
-    
+    $(function(){
+      var $submitForm = $('.submit-form');
+      var $phone = $submitForm.find('input[name="phone"]');
+      var $mail = $submitForm.find('input[name="mail"]');
+      var $elements = $phone.add($mail);
+
+      jQuery.validator.addMethod("mobilePhoneEmail", function(value, element) {
+        if(!$phone.val() && !$mail.val()){
+          return false;
+        }
+        return true;
+      }, "电话和E-mail至少填写一项");
+
+      $elements.on('focus keyup',function(){
+        $elements.nextAll('.validate-error:not(.validate-success)').remove();
+      });
+      var validator = $submitForm.validate();
+      $submitForm.on('submit',function(e){
+        if(!validator.form()){
+          return false;
+        }
+      });
+    });
     
   }
 
@@ -27,9 +49,37 @@ define(['jquery','baidu.map','jquery.validate'],function($){
 
   }
 
+  function feedbackList(){
+    $(function(){
+      var $submitForm = $('.submit-form');
+      var $phone = $submitForm.find('input[name="phone"]');
+      var $mail = $submitForm.find('input[name="mail"]');
+      var $elements = $phone.add($mail);
+
+      jQuery.validator.addMethod("mobilePhoneEmail", function(value, element) {
+        if(!$phone.val() && !$mail.val()){
+          return false;
+        }
+        return true;
+      }, "电话和E-mail至少填写一项");
+
+      $elements.on('focus keyup',function(){
+        $elements.nextAll('.validate-error:not(.validate-success)').remove();
+      });
+      var validator = $submitForm.validate();
+      $submitForm.on('submit',function(e){
+        if(!validator.form()){
+          return false;
+        }
+      });
+    });
+  }
+
   return {
     index : index,
-    contactUs : contactUs
+    contactUs : contactUs,
+    feedbackList : feedbackList,
+    summary : index
   }
 
 });

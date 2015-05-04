@@ -103,8 +103,9 @@
 .tuh3 h3{ color:#fff; line-height:30px; background:#169bd6; padding:0 15px; overflow:hidden;}
 .tu{border:1px #ddd solid;padding:15px; border-top:none;  _width:183px; overflow:hidden;}
 .tu ul li{ line-height:30px;  padding-left:10px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; _width:180px}
+.tu .tu-l{height:122px;overflow: hidden;}
 .tu .tu-li{background:url(../../../images/project/shop/icon_dian.png) 0px 15px no-repeat;}
-.tu .tu-i{ text-align:center; padding-left:0; line-height:20px; border-bottom:1px #ddd dotted; padding-bottom:10px; margin-bottom:10px;}
+.tu .tu-i{ text-align:center; padding-left:0;}
 .tu .tu-i-a{ width:183px;}
 .tu .tu-i-a img{ overflow:hidden; margin:0 auto; width: 183px; height: 122px;}
 .tu .tu-i-na{ font-weight:700; color:#3c3c3c;}

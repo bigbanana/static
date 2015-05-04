@@ -208,6 +208,7 @@
 #list-items .tb{ overflow:hidden;}
 #list-items .tb li{ overflow:hidden; border-bottom:1px #ddd solid; padding:10px 0; _height:1%}
 #list-items .trs li{ float:left; padding-left:5px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+#list-items .tr{text-align: left;}
 #list-items .td{ float:left; display:inline-block; overflow:hidden; white-space:nowrap; padding: 7px 0px 7px 5px; text-overflow: ellipsis;}
 #list-items .trss-o a{ display:block;}
 #list-items .trss-o-a{ color:#2980b9; margin-top:5px;float: left;}

@@ -91,7 +91,9 @@
 .supplier .mt span{ width:3px; height:16px; background:#788498; float:right; vertical-align:middle; position:absolute; top:7px; right:0px; display:inline-block;}
 .supplier-list .list ul{ padding:5px 15px; border-bottom:1px #eee solid}
 .supplier-o{ width:213px; height:319px; border:1px #ddd solid; border-top:none; overflow:hidden; }
-.list li{ line-height:30px; padding-left:10px; width:183px;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; background:url(../../../images/project/shop/icon.png) no-repeat -60px 8px;}
+.list li{ line-height:30px; padding-left:10px; width:183px;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; background:url(../../../images/project/shop/icon.png) no-repeat -60px 8px;
+  line-height:27px\0;
+}
 .list-logo{ overflow:hidden;width:215px;_width:217px;}
 .list-logo a{ float: left;border: 1px solid #FFF; display: inline-block;width: 105px; height: 63px; border-right:1px #eee solid; border-bottom:1px #eee solid;cursor: pointer}
 .list-logo img{ width:102px; height:60px;border:1px #fff solid; _width:101px;}

@@ -1,4 +1,4 @@
-define('jquery.placeholder',['jquery','browser'],function($,browser){
+define('jquery.placeholder',['jquery','modernizr'],function($,modernizr){
   function Placeholder(opt){
     Placeholder.options.id++;
     this.options = $.extend(true,{},Placeholder.options,opt);
@@ -8,7 +8,9 @@ define('jquery.placeholder',['jquery','browser'],function($,browser){
 
   $.extend(Placeholder.prototype,{
     init : function(){
-      if(browser>9) return;
+      if(modernizr.input.placeholder){
+        return;
+      }
       var _this = this;
       var options = this.options;
       options.height = this.$el.height();

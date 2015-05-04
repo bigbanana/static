@@ -1,0 +1,48 @@
+.form{
+  .form-group{
+    margin-bottom: 10px;
+  }
+  .form-label{
+    width:16%;float:left;font-weight: 700;
+    text-align: right;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
+  }
+  .form-box{
+    overflow: hidden;*zoom:1;
+  }
+  .form-control{
+    display: inline-block;border-radius:@borderRadiusBase;
+    width:@inputWidth;line-height: @lineHeightBase;font-size: @fontSizeBase;color:#555;
+    border:@inputBorder;padding:@paddingVerticalBase @paddingHorizontalBase;
+    &:focus{
+      border-color:@inputBorderFocusColor
+    }
+  }
+  select.form-control{
+    width:@inputWidth+(@paddingHorizontalBase+1)*2;;
+    height:floor((@lineHeightBase*@fontSizeBase)+(@paddingVerticalBase+1)*2);
+  }
+  .radio,.checkbox,.form-text{
+    display:inline-block;
+    font-size:@fontSizeBase;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
+  }
+  .radio,.checkbox{
+    position: relative;padding-left: 16px;
+    input{
+      position: absolute;margin:4px 0 0 -16px;*margin: 0px 0 0 -20px;
+    }
+  }
+  label.validate-error{
+    display:inline-block;
+    font-size:@fontSizeBase;color:#a94442;border-radius: @borderRadiusBase;
+    padding:(@paddingVerticalBase+1) @paddingHorizontalBase;background-color: #f2dede;
+
+  }
+  label.validate-success{
+    font:normal normal normal 14px/1 FontAwesome;
+    color:#3c763d;background-color: #dff0d8;
+  }
+  input.validate-error{
+    border-color:#a94442;
+  }
+
+}

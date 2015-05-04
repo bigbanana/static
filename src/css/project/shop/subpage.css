@@ -33,6 +33,7 @@
 .lis .lis-o{ padding:20px 20px; overflow:hidden;}
 .lis .l-lis{ float:left; width:520px; overflow:hidden;}
 .lis .lis-h3{ line-height:24px; overflow:hidden; width:520px;}
+.lis .lis-h3 h3 em{color:red;font-style: normal;font-weight: 700;}
 .lis .lis-h3 a{ font-size:14px; color:#06629e; float:left;}
 .lis .lis-h3 a:hover{ color:#FD5F56;}
 .bj{background:url(../../../images/project/shop/inquiry-icon.png) no-repeat; width:35px; height:16px; display:inline-block;}
@@ -333,6 +334,7 @@
 #product-detail{ margin-top:10px; margin-bottom:15px;}
 #product-detail .wraps{ border:1px #ddd solid; border-top:2px #9c9c9c solid; height:30px; width:773px; background:#f7f7f7; line-height:30px; font-weight:700;}
 #product-detail .wraps-o{ width:auto;}
+#product-detail img{max-width:100%;}
 .tab{ margin-left:-1px; float:left;}
 .tab li{ float:left; text-align:center;}
 .tab .curr{ color:#2980b9; background:#fff; border-top:2px #169bd6 solid; margin-top:-6px; }

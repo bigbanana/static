@@ -90,6 +90,7 @@
     ignore : ".ignore",
     errorClass : "validate-error",
     success : function(label){
+      //验证成功设置class并添加fa-check图标
       label.addClass('validate-success');
     },
     errorPlacement : function(error,element){

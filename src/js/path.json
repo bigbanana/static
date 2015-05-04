@@ -12,7 +12,6 @@
 
   "outer":"module/outer",
 
-  "jquery.ui":"plugin/jquery-ui",
   "jquery.plax":"plugin/plax",
   "jquery.easing":"plugin/jquery.easing.1.3",
   "jquery.validate.core":"plugin/jquery.validate.core",
@@ -23,7 +22,11 @@
   "jquery.placeholder":"plugin/placeholder",
   "jquery.focusInput":"plugin/focusInput",
   "jquery.marquee":"plugin/marquee",
+  "jquery.rwdtable":"plugin/jquery.rwdtable",
+  "jquery.dropdown":"plugin/dropdown",
+  "widget.responsivetable":"widget/responsivetable",
 
+  "jquery.ui":"other/jquery-ui",
   "pace":"other/pace",
   "preloadjs":"other/preloadjs",
   "TweenMax":"other/TweenMax",

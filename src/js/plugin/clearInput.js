@@ -18,7 +18,7 @@ define('jquery.clearInput',['jquery'],function($){
           width : height,
           fontSize : Math.ceil(height*0.9),
           fontWeight : 700,
-          color : "#333",
+          color : "#000",
           lineHeight : height+'px',
           verticalAlign : 'middle',
           textDecoration : 'none',
@@ -31,6 +31,7 @@ define('jquery.clearInput',['jquery'],function($){
       });
       this.$el.on('blur',$.proxy(this.hide,this));
       this.position();
+      this.$el.on('remove',$.proxy(this.destory,this));
     },
     show : function(){
       this.$button.show();
@@ -53,6 +54,9 @@ define('jquery.clearInput',['jquery'],function($){
     },
     clear : function(){
       this.$el.val('').trigger('focus');
+    },
+    destory : function(){
+      this.$button.remove();
     }
   });
 

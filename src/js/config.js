@@ -12,7 +12,7 @@ config.baseUrl = config.baseUrl || 'http://static.yaozh.com/js';
 
 require.config({
   baseUrl : window.config.baseUrl,
-  urlArgs : 'yaozhVersion=1.1.2',
+  urlArgs : 'yaozhVersion=1.1.3',
   waitSeconds : 5,
   map : {
     '*' : {
@@ -25,6 +25,9 @@ require.config({
   shim : {
     "prism" : {
       deps : ['css!../css/plugin/prism-twilight']
+    },
+    "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js":{
+      deps : ['jquery']
     }
     /*,
     "baidu.ueditor" : {
