@@ -1,2 +1,2 @@
-/* build : 564493634@qq.com 2015-05-06 09:41:54 */
+/* build : 564493634@qq.com 2015-05-06 14:16:48 */
 require(["browser"],function(e){e>9&&require(["pace"],function(e){e.start()}),7>e&&require(["ie6"],function(){}),9>e&&require(["respond"],function(){})}),require(["jquery","browser","modernizr"],function(e){e(function(){require(["jquery.dropdown"],e.noop),require(["jquery.focusInput"],function(){e.focusInput()});e(document.body);e.fn.serializeObject=function(){var n={},r=this.serializeArray();return e.each(r,function(){void 0!==n[this.name]?(n[this.name].push||(n[this.name]=[n[this.name]]),n[this.name].push(this.value||"")):n[this.name]=this.value||""}),n}})});
