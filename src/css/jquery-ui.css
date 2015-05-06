@@ -51,6 +51,7 @@
 }
 .ui-helper-clearfix:after {
   clear: both;
+  *zoom: 1;
 }
 .ui-helper-zfix {
   width: 100%;

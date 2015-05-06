@@ -1,3 +1,4 @@
+<h3>基本</h3>
 <form action="" class="form" id="form-test">
   <div class="form-group">
     <label class="form-label">账 号：</label>
@@ -55,16 +56,18 @@
   <div class="form-box">
     <input class="clearinput-test form-control" class="form-control" placeholder="请输入账号" type="text" name="name" />
   </div>
+  <h3>focusInput表单焦点动画</h3>
+  <div>$.focusInput();</div>
 </form>
 
 
 <script>
-  require(['jquery','jquery.validate','jquery.placeholder','jquery.clearInput'],function(){
+  require(['jquery','jquery.validate','jquery.placeholder','jquery.clearInput','jquery.focusInput'],function(){
     //表单
     $('#form-test').validate();
     var $form2 = $("#form-test2");
     $form2.find('.placeholder-test').placeholder();
     $form2.find('.clearinput-test').clearInput();
-
+    $.focusInput();
   });
 </script>

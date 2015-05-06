@@ -7,9 +7,9 @@
 #focus ul li{float:left;width:565px;height:285px;overflow:hidden;position:relative;background:#000;}
 #focus ul li div{position:absolute;overflow:hidden;}
 #focus .btnBg{position:absolute;width:565px;height:20px;left:0;bottom:0;background:#000;}
-#focus .btn{position:absolute;width:545px;height:10px;padding:5px 10px;right:0;bottom:10px;text-align:center;}
-#focus .btn span{display:inline-block;_display:inline;_zoom:1;width:25px;height:10px;_font-size:0;margin-left:5px;cursor:pointer;background:#000;}
-#focus .btn span.on{background:#fff;}
+#focus .control{position:absolute;width:545px;height:10px;padding:5px 10px;right:0;bottom:10px;text-align:center;}
+#focus .control span{display:inline-block;_display:inline;_zoom:1;width:25px;height:10px;_font-size:0;margin-left:5px;cursor:pointer;background:#000;}
+#focus .control span.on{background:#fff;}
 #focus .preNext{width:45px;height:100px;position:absolute;top:90px;background:#f00;cursor:pointer;}
 #focus .pre{left:0;}
 #focus .next{right:0;background-position:right top;}
@@ -91,9 +91,7 @@
 .supplier .mt span{ width:3px; height:16px; background:#788498; float:right; vertical-align:middle; position:absolute; top:7px; right:0px; display:inline-block;}
 .supplier-list .list ul{ padding:5px 15px; border-bottom:1px #eee solid}
 .supplier-o{ width:213px; height:319px; border:1px #ddd solid; border-top:none; overflow:hidden; }
-.list li{ line-height:30px; padding-left:10px; width:183px;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; background:url(../../../images/project/shop/icon.png) no-repeat -60px 8px;
-  line-height:27px\0;
-}
+.list li{ line-height:30px;line-height:27px\0; padding-left:10px; width:183px;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; background:url(../../../images/project/shop/icon.png) no-repeat -60px 8px;}
 .list-logo{ overflow:hidden;width:215px;_width:217px;}
 .list-logo a{ float: left;border: 1px solid #FFF; display: inline-block;width: 105px; height: 63px; border-right:1px #eee solid; border-bottom:1px #eee solid;cursor: pointer}
 .list-logo img{ width:102px; height:60px;border:1px #fff solid; _width:101px;}

@@ -327,9 +327,9 @@
 #preview ul li img{ width:280px; height:350px;}
 #preview ul li{float:left; width:280px; height:350px; overflow:hidden; position:relative;}
 #preview .btnBg{position:absolute;width:280px;height:20px;left:0;bottom:0;background:#000;}
-#preview .btn{position:absolute;width:280px;height:10px;right:0;bottom:10px;text-align:center;}
-#preview .btn span{display:inline-block;_display:inline;_zoom:1;width:25px;height:10px;_font-size:0;margin-left:5px;cursor:pointer;background:#000;}
-#preview .btn span.on{background:#fff;}
+#preview .control{position:absolute;width:280px;height:10px;right:0;bottom:10px;text-align:center;}
+#preview .control span{display:inline-block;_display:inline;_zoom:1;width:25px;height:10px;_font-size:0;margin-left:5px;cursor:pointer;background:#000;}
+#preview .control span.on{background:#fff;}
 
 #product-detail{ margin-top:10px; margin-bottom:15px;}
 #product-detail .wraps{ border:1px #ddd solid; border-top:2px #9c9c9c solid; height:30px; width:773px; background:#f7f7f7; line-height:30px; font-weight:700;}

@@ -4,6 +4,7 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
 
   var focusInput = {
     options : {
+      inited:false,
       disabled : false,
       fx : {
         duration : 600,
@@ -15,6 +16,8 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
     },
     init : function(param){
       var _this = this;
+      if(this.options.inited) return;
+      this.options.inited = true;
       $.extend(true,this.options,param);
       $body.on('focus.focusInput','input[type=text],input[type=password]',function(e){
         if(_this.options.disabled) return;
@@ -37,6 +40,7 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
     animate : function(tar,pre,other){
       var $el = $('<div>').appendTo(document.body);
       pre.position = 'absolute';
+      pre.cursor = 'text';
       pre.border = tar.border;
       $el.css(pre);
       $el.animate(tar,this.options.fx);

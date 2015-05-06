@@ -69,10 +69,12 @@
 #focus ul{height:320px;position:absolute;}
 #focus ul li{float:left;width:1000px;height:320px;overflow:hidden;position:relative;background:#000;}
 #focus ul li div{position:absolute;overflow:hidden;}
+#focus ul li a{display: block;text-align: center;height: 100%;}
+#focus ul li img{max-width: 100%;max-height: 100%;}
 #focus .btnBg{position:absolute;width:565px;height:20px;left:0;bottom:0;background:#000;}
-#focus .btn{position:absolute;width:1000px;height:10px;padding:5px 10px;right:0;bottom:10px;text-align:center;}
-#focus .btn span{display:inline-block;_display:inline;_zoom:1;width:25px;height:10px;_font-size:0;margin-left:5px;cursor:pointer;background:#000;}
-#focus .btn span.on{background:#fff;}
+#focus .control{position:absolute;width:1000px;height:10px;padding:5px 10px;right:0;bottom:10px;text-align:center;}
+#focus .control span{display:inline-block;_display:inline;_zoom:1;width:25px;height:10px;_font-size:0;margin-left:5px;cursor:pointer;background:#000;}
+#focus .control span.on{background:#fff;}
 #focus .preNext{width:45px;height:100px;position:absolute;top:90px;background:#f00;cursor:pointer;}
 #focus .pre{left:0;}
 #focus .next{right:0;background-position:right top;}

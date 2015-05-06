@@ -1,0 +1,49 @@
+@dbSubnavWidth : 200px;
+@navColor : @backgroundColorBase;
+header{
+  /* logo */
+  .logo{
+    float:left;width: 130px;height: 34px;
+    background: url(http://db.yaozh.com/newstyle/img/logo.gif) no-repeat 0 0 transparent;
+  }
+  /* topnav */
+  .topnav{
+    float:left;background-color: @navColor;line-height: 18px;
+    .item{
+      float:left;position: relative;
+      .name{
+        display: inline-block;padding:@paddingHorizontalBase @paddingVerticalBase;
+        &:hover{text-decoration: none;}
+      }
+      .subnav{
+        position: absolute;width:@dbSubnavWidth;left:50%;top:100%;
+        margin-left: -(@dbSubnavWidth/2);display: none;
+        padding-top: 10px;_padding-top: 0px;
+        li{
+          a{
+            display: block;background-color: @navColor;_zoom:1;
+            padding: @paddingHorizontalBase*0.8 @paddingVerticalBase*0.8;
+            &:hover{
+              background-color: #CFCFCF;text-decoration: none;
+            }
+          }
+        }
+        &:before{
+          content:"";position: absolute;left:50%;top:-10px;margin-left: -10px;
+          border:10px solid transparent;border-bottom-color: @navColor;
+        }
+      }
+      &.active{
+        background-color: #CFCFCF;
+        .subnav{
+          display: block;
+        }
+      }
+    }
+  }
+  /* padding */
+  .padding{
+    display: inline-block;line-height: 18px;
+  }
+}
+  

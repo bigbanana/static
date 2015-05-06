@@ -212,6 +212,9 @@ html {
   margin-left: 20px;
 }
 /*padding*/
+.padding {
+  padding: 8px 4px;
+}
 .p5 {
   padding: 5px;
 }
@@ -2300,6 +2303,8 @@ html {
 /*forms.less*/
 .form .form-group {
   margin-bottom: 10px;
+  _zoom: 1;
+  _position: relative;
 }
 .form .form-label {
   width: 16%;
@@ -2359,6 +2364,7 @@ html {
   font: normal normal normal 14px/1 FontAwesome;
   color: #3c763d;
   background-color: #dff0d8;
+  padding: 0;
 }
 .form input.validate-error {
   border-color: #a94442;
@@ -2528,6 +2534,8 @@ html {
 }
 .dropdown,
 dropup {
+  display: inline-block;
+  _display: inline;
   position: relative;
   *zoom: 1;
 }

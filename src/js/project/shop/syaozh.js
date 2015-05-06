@@ -165,7 +165,7 @@ $(function() {
 	var index = 0;
 	var picTimer;
 	if(len>1){
-		var btn = "<div class='btn'>";
+		var btn = "<div class='control'>";
 		for(var i=0; i < len; i++) {
 			btn += "<span></span>";
 		}
@@ -173,8 +173,8 @@ $(function() {
 		$("#preview").append(btn);
 		$("#preview .btnBg").css("opacity",1);
 
-		$("#preview .btn span").css("opacity",1).mouseover(function() {
-			index = $("#preview .btn span").index(this);
+		$("#preview .control span").css("opacity",1).mouseover(function() {
+			index = $("#preview .control span").index(this);
 			showPics(index);
 		}).eq(0).trigger("mouseover");
 
@@ -193,7 +193,7 @@ $(function() {
 	function showPics(index) { 
 		var nowLeft = -index*sWidth;
 		$("#preview ul").stop(true,false).animate({"left":nowLeft},300); 
-		$("#preview .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); 
+		$("#preview .control span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); 
 	}
 });
 

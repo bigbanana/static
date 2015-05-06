@@ -19,7 +19,7 @@ var src  = './src',
     dest = './dist';
 
 //所有需要合并的模块配置
-var concatConfig = ["/js/lib","/js/module","/js/plugin"];
+var concatConfig = ["/js/lib","/js/module","/js/plugin","/js/project/db/public"];
 //所有需要复制的文件配置
 var copyConfig = ["/fonts","/thirdparty","/images","/test"];
 //构建app.js需要的模块
@@ -36,11 +36,11 @@ function getPath(pro){
   var paths = JSON.parse(fs.readFileSync(src+'/js/path.json'));
   if(!!pro){
     paths = _.mapObject(paths,function(v,k){
-      //查找第一级目录
-      var dir = v.match(/^[^\/]+(?=\/|$)/)[0];
-      var str = '/js/'+dir
-      if(concatConfig.indexOf(str) != -1){
-        return dir;
+      //查找父级目录
+      var dir = v.match(/^.*(?=\/)/);
+      
+      if(dir && concatConfig.indexOf('/js/'+dir[0]) != -1){
+        return dir[0];
       }
       return v;
     });
@@ -70,14 +70,14 @@ gulp.task('script',['clean'],function(){
   //处理合并
   concatConfig.forEach(function(file){
     var files = src+file+'/**/*.js';
-    var fileName = file.match('[^\/]*(?=$|\/$)')[0];
+    var fileName = file.match('.*(?=$|\/$)')[0];
     otherFiles.push("!"+files);
 
-    gulp.src(files)
+    gulp.src([files])
       .pipe(uglify())
       .pipe(concat(fileName+'.js'))
       .pipe(header(banner,{package:package}))
-      .pipe(gulp.dest(dest+'/js'));
+      .pipe(gulp.dest(dest));
   });
 
   //处理其它脚本

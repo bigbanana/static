@@ -16,6 +16,10 @@ require(['browser'],function(browser){
 
 require(['jquery','browser','modernizr'],function($,browser,modernizr){
   $(function(){
+    //开启dropdown全局支持
+    require(['jquery.dropdown'],$.noop);
+    //开启input focus追踪
+    require(['jquery.focusInput'],function(){$.focusInput();});
     var $body = $(document.body);
     //序列化form为object
     $.fn.serializeObject = function() {

@@ -26,7 +26,9 @@ define('widget.responsivetable',['jquery','underscore','browser','jquery.ui','jq
 				$cells.toggleClass('show',checked).toggleClass('hide',!checked);
 			});
 			$(window).on('resize',function(e){
-				_this.$sticky.css({width:_this.element.width()});
+				_.delay(function(){
+					_this.$sticky.css({width:_this.element.width()});
+				},0);
 				_this.windowResize();
 			});
 			this.element.on('scroll',function(){
