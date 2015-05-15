@@ -9,62 +9,50 @@
   <style>
     .font-dialog{padding:0!important;}
     .font-iframe{border:none;width:100%;height:96%;}
-    h3{margin:10px 0;}
+    body h3{margin:30px 0 10px;}
   </style>
 </head>
 <body class="m10">
   <h1 class="tc">前端公用组件库</h1>
 
-  <h2 class="mt20">通用模块</h2>
-  <div class="mt20 top-tabs">
+  <div class="top-tabs">
     <ul class="clearfix">
-      <li><a href="./docs/icon.html">按钮</a></li>
-      <li><a href="./docs/font.html">图标</a></li>
-      <li><a href="./docs/form.html">表单</a></li>
-      <li><a href="./docs/table.html">表格</a></li>
-      <li><a href="./docs/dropdown.html">下拉</a></li>
-      <li><a href="#page-tabs-5">弹窗</a></li>
+      <li><a href="#top-tabs-1">通用</a></li>
+      <li><a href="#top-tabs-2">数据库</a></li>
     </ul>
-    <div id="page-tabs-5">
-      <button class="btn btn-blue show-dialog">弹 窗</button>
-      <div class="dialog-test" title="添加用户">
-        <h3 class="mt20">添加用户</h3>
+    <div id="top-tabs-1">
+      <h2 class="mt20">通用模块</h2>
+      <div class="mt20 top-tabs">
+        <ul class="clearfix">
+          <li><a href="./docs/icon.html">按钮</a></li>
+          <li><a href="./docs/font.html">图标</a></li>
+          <li><a href="./docs/form.html">表单</a></li>
+          <li><a href="./docs/table.html">表格</a></li>
+          <li><a href="./docs/dropdown.html">下拉</a></li>
+          <li><a href="./docs/pagination.html">分页</a></li>
+          <li><a href="./docs/dialog.html">弹窗</a></li>
+        </ul>
       </div>
     </div>
+    <div id="top-tabs-2">
+      <h2 class="mt20">db项目模块</h2>
+      <div class="mt20 top-tabs">
+        <ul class="clearfix">
+          <li><a href="./docs/db/header.html">顶部导航</a></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
-  <h2 class="mt20">db项目模块</h2>
-  <div class="mt20 top-tabs">
-    <ul class="clearfix">
-      <li><a href="./docs/db/header.html">顶部导航</a></li>
-    </ul>
-  </div>
+  
+
+  
 
   <script>
     require(['jquery','jquery.ui'],function($){
       //tab
       $(".top-tabs").tabs();
-
-      //弹窗
-      var $dialog = $('.dialog-test').append($('.form:eq(0)').clone());
-      $dialog.dialog({
-        width:600,
-        height:400,
-        modal:true,
-        autoOpen:false
-      });
-      $('.show-dialog').on('click',function(){
-        $dialog.dialog('open');
-      });
-
-      //图标
-      $('.font-dialog').dialog({
-        width:1060,
-        height:600,
-        modal:true,
-        autoOpen:false
-      });
-
     });
   </script>
 </body>

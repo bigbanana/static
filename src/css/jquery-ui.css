@@ -1028,7 +1028,6 @@ body .ui-tooltip {
 .ui-widget textarea,
 .ui-widget button {
   font-family: Arial, Helvetica, sans-serif /*{ffDefault}*/;
-  font-size: 1em;
 }
 .ui-widget-content {
   border: 1px solid #dddddd /*{borderColorContent}*/;

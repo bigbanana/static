@@ -102,9 +102,6 @@ a {
   text-decoration: none;
   color: #222;
 }
-a:hover {
-  text-decoration: underline;
-}
 abbr[title],
 acronym[title] {
   /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
@@ -145,7 +142,7 @@ hr {
 }
 /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
 html {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 @media screen and (min-width: 1024px) {
   :focus {
@@ -2100,9 +2097,10 @@ html {
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
+  text-decoration: none;
   padding: 4px 8px;
   font-size: 14px;
-  line-height: 1.42;
+  line-height: 20px;
   border-radius: 3px;
 }
 .btn:focus,
@@ -2141,6 +2139,7 @@ html {
   color: #ffffff;
   background-color: #337ab7;
   border-color: #2e6da4;
+  text-decoration: none;
 }
 .btn-blue:focus,
 .btn-blue.btn-state-focus {
@@ -2177,6 +2176,7 @@ html {
   color: #ffffff;
   background-color: #5cb85c;
   border-color: #4cae4c;
+  text-decoration: none;
 }
 .btn-green:focus,
 .btn-green.btn-state-focus {
@@ -2213,6 +2213,7 @@ html {
   color: #ffffff;
   background-color: #f0ad4e;
   border-color: #eea236;
+  text-decoration: none;
 }
 .btn-orange:focus,
 .btn-orange.btn-state-focus {
@@ -2249,6 +2250,7 @@ html {
   color: #ffffff;
   background-color: #d9534f;
   border-color: #d43f3a;
+  text-decoration: none;
 }
 .btn-red:focus,
 .btn-red.btn-state-focus {
@@ -2283,21 +2285,21 @@ html {
 }
 /*size*/
 .btn-lg {
-  padding: 5px 11px;
+  padding: 8px 11px;
   font-size: 18px;
-  line-height: 1.42;
+  line-height: 20px;
   border-radius: 6px;
 }
 .btn-sm {
   padding: 2px 4px;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 20px;
   border-radius: 3px;
 }
 .btn-xs {
   padding: 1px 3px;
   font-size: 12px;
-  line-height: 1.42;
+  line-height: 18px;
   border-radius: 3px;
 }
 /*forms.less*/
@@ -2307,11 +2309,10 @@ html {
   _position: relative;
 }
 .form .form-label {
-  width: 16%;
   float: left;
   font-weight: 700;
-  text-align: right;
-  padding: 5px 8px;
+  line-height: 20px;
+  padding: 5px 8px 0 0;
 }
 .form .form-box {
   overflow: hidden;
@@ -2320,10 +2321,12 @@ html {
 .form .form-control {
   display: inline-block;
   border-radius: 3px;
-  width: 170px;
-  line-height: 1.42;
   font-size: 14px;
   color: #555;
+  width: 170px;
+  line-height: 20px;
+  height: 20px;
+  vertical-align: middle;
   border: 1px solid #cccccc;
   padding: 4px 8px;
 }
@@ -2332,12 +2335,14 @@ html {
 }
 .form select.form-control {
   width: 188px;
-  height: 29px;
+  height: 30px;
 }
 .form .radio,
 .form .checkbox,
 .form .form-text {
   display: inline-block;
+  line-height: 20px;
+  vertical-align: middle;
   font-size: 14px;
   padding: 5px 8px;
 }
@@ -2351,9 +2356,11 @@ html {
   position: absolute;
   margin: 4px 0 0 -16px;
   *margin: 0px 0 0 -20px;
+  _margin-top: -4px;
 }
 .form label.validate-error {
   display: inline-block;
+  vertical-align: middle;
   font-size: 14px;
   color: #a94442;
   border-radius: 3px;
@@ -2369,6 +2376,11 @@ html {
 .form input.validate-error {
   border-color: #a94442;
 }
+.form.align-right .form-label {
+  width: 16%;
+  text-align: right;
+  padding: 5px 8px;
+}
 /*table.less*/
 .table {
   width: 100%;
@@ -2376,7 +2388,7 @@ html {
 .table td,
 .table th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 6px 8px;
   background-color: #fff;
 }
 .table thead th {
@@ -2603,4 +2615,63 @@ dropup.pull-right .dropdown-menu {
 .dropdown.open .dropdown-menu,
 dropup.open .dropdown-menu {
   display: block;
+}
+/*pagination.less*/
+.pagination {
+  color: #666;
+  line-height: 20px;
+  font-size: 14px;
+}
+.pagination a {
+  display: inline-block;
+  color: #666;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: normal;
+  text-align: center;
+  border: 1px solid #BBB;
+  min-width: 14px;
+  padding: 4px 8px;
+  margin: 0 5px 0 0;
+  border-radius: 3px;
+}
+.pagination a.ellipse {
+  border: none;
+  cursor: default;
+  border-radius: 0;
+  box-shadow: none;
+  line-height: 22px;
+}
+.pagination a.current {
+  background: #666;
+  color: #FFF;
+  border-color: #444;
+  cursor: default;
+}
+.pagination span {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  min-width: 14px;
+  margin: 0 5px 0 0;
+}
+.pagination .skip-page .skip {
+  display: inline-block;
+  width: 2em;
+  border: 1px solid #BBB;
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+.pagination .skip-page .skip:focus {
+  border-color: #66afe9;
+}
+.pagination .page-size {
+  display: inline-block;
+  border: 1px solid #BBB;
+  border-radius: 3px;
+  padding: 4px 8px;
+  height: 30px;
+}
+.pagination .page-size:focus {
+  border-color: #66afe9;
 }

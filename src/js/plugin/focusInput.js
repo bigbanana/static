@@ -19,7 +19,7 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
       if(this.options.inited) return;
       this.options.inited = true;
       $.extend(true,this.options,param);
-      $body.on('focus.focusInput','input[type=text],input[type=password]',function(e){
+      $body.on('focus.focusInput','input[type=text],input[type=password],select',function(e){
         if(_this.options.disabled) return;
         var $tar,$pre,tar,pre;
         $tar = $(e.target);
@@ -49,18 +49,19 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
       times = times || 1;
       var offset,size,borderWidth;
       offset = $el.offset();
-      borderWidth = parseInt($el.css('borderWidth'));
+      borderWidth = parseInt($el.css('borderTopWidth'));
       size = {
         width:$el.outerWidth()-borderWidth*2,
         height:$el.outerHeight()-borderWidth*2
       }
-
       return {
+        zIndex:100000,
         width:size.width*times,
         height:size.height*times,
         left:offset.left-size.width*(times-1)/2,
         top:offset.top-size.height*(times-1)/2,
-        border:$el.css('border')
+        border:$el.css('borderTopWidth')+" "+$el.css('borderTopStyle')+" "+$el.css('borderTopColor'),
+        borderRadius:$el.css('borderTopLeftRadius')
       }
     },
     enable : function(){

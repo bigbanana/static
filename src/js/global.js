@@ -12,14 +12,17 @@ require(['browser'],function(browser){
     //开启Respond 响应式兼容
     require(['respond'],function(){});
   }
+  if(browser>7){
+    //开启input focus追踪
+    require(['jquery.focusInput'],function($){$.focusInput();});
+  }
 });
 
 require(['jquery','browser','modernizr'],function($,browser,modernizr){
   $(function(){
     //开启dropdown全局支持
     require(['jquery.dropdown'],$.noop);
-    //开启input focus追踪
-    require(['jquery.focusInput'],function(){$.focusInput();});
+    
     var $body = $(document.body);
     //序列化form为object
     $.fn.serializeObject = function() {

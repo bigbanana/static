@@ -19,7 +19,7 @@ define('jquery.clearInput',['jquery'],function($){
           fontSize : Math.ceil(height*0.8),
           fontWeight : 700,
           color : "#000",
-          lineHeight : height+'px',
+          lineHeight : height-2+'px',
           verticalAlign : 'middle',
           textDecoration : 'none',
           textAlign : 'center'

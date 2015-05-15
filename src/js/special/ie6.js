@@ -8,10 +8,24 @@ define('ie6',['jquery','DD_belatedPNG'],function($,DD_belatedPNG){
       document.execCommand("BackgroundImageCache", false, true);
     }catch(e){}
     //开启ie6 全局hover功能
-    $(document.body).on('mouseover','.ie-hover',function(){
+    $(document.body).on('mouseenter','.ie-hover',function(){
       $(this).addClass('hover')
     }).on('mouseleave','.ie-hover',function(){
       $(this).removeClass('hover')
     });
+    //兼容ie6 label下的radio,checkbox失效bug
+    $(document.body).on('click','label',function(e){
+      var $target = $(e.target);
+      if($target.prop('tagName') == "INPUT"){
+        e.stopPropagation();
+        return;
+      };
+      var $this = $(this);
+      var $input = $this.children('input');
+      if($input.length){
+        $input.trigger('click');
+      }
+    });
+
   });
 });

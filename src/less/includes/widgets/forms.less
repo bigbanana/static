@@ -4,36 +4,37 @@
     _zoom:1;_position:relative;
   }
   .form-label{
-    width:16%;float:left;font-weight: 700;
-    text-align: right;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
+    float:left;font-weight: 700;line-height: @inputLineHeight;
+    padding:@paddingVerticalBase+1 @paddingHorizontalBase 0 0;
   }
   .form-box{
     overflow: hidden;*zoom:1;
   }
   .form-control{
     display: inline-block;border-radius:@borderRadiusBase;
-    width:@inputWidth;line-height: @lineHeightBase;font-size: @fontSizeBase;color:#555;
+    font-size: @fontSizeBase;color:#555;
+    width:@inputWidth;line-height: @inputLineHeight;height: @inputLineHeight;vertical-align: middle;
     border:@inputBorder;padding:@paddingVerticalBase @paddingHorizontalBase;
     &:focus{
       border-color:@inputBorderFocusColor
     }
   }
   select.form-control{
-    width:@inputWidth+(@paddingHorizontalBase+1)*2;;
-    height:floor((@lineHeightBase*@fontSizeBase)+(@paddingVerticalBase+1)*2);
+    width:@inputWidth+(@paddingHorizontalBase+1)*2;
+    height:floor(@inputLineHeight+(@paddingVerticalBase+1)*2);
   }
   .radio,.checkbox,.form-text{
-    display:inline-block;
+    display:inline-block;line-height: @inputLineHeight;vertical-align: middle;
     font-size:@fontSizeBase;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
   }
   .radio,.checkbox{
     position: relative;padding-left: 16px;
     input{
-      position: absolute;margin:4px 0 0 -16px;*margin: 0px 0 0 -20px;
+      position: absolute;margin:4px 0 0 -16px;*margin: 0px 0 0 -20px;_margin-top:-4px;
     }
   }
   label.validate-error{
-    display:inline-block;
+    display:inline-block;vertical-align: middle;
     font-size:@fontSizeBase;color:#a94442;border-radius: @borderRadiusBase;
     padding:(@paddingVerticalBase+1) @paddingHorizontalBase;background-color: #f2dede;
 
@@ -46,4 +47,11 @@
     border-color:#a94442;
   }
 
+
+  &.align-right{
+    .form-label{
+      width:16%;text-align: right;
+      padding:@paddingVerticalBase+1 @paddingHorizontalBase;
+    }
+  }
 }

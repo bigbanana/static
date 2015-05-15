@@ -9,6 +9,7 @@
   "underscore":"lib/underscore",
   "modernizr":"lib/modernizr",
   "require.css":"lib/require-css-plugin",
+  "cookie":"lib/cookie",
 
   "outer":"module/outer",
 
@@ -24,6 +25,7 @@
   "jquery.marquee":"plugin/marquee",
   "jquery.rwdtable":"plugin/jquery.rwdtable",
   "jquery.dropdown":"plugin/dropdown",
+  "jquery.pagination":"plugin/pagination",
   "widget.responsivetable":"widget/responsivetable",
 
   "jquery.ui":"other/jquery-ui",

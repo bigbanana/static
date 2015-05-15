@@ -1,0 +1,63 @@
+/* @import "var.less"; */
+/*input*/
+/* @import "mixin.less"; */
+/* @import "admin.less" */
+.ui-widget {
+  font-size: 1em;
+}
+header {
+  padding: 8px;
+  position: relative;
+  height: 2.2em;
+}
+header .control-bar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.main-page {
+  padding: 8px;
+}
+.page-nav {
+  float: left;
+  width: 240px;
+  margin-right: 10px;
+}
+.page-nav .sub-nav {
+  padding: 0;
+}
+.page-nav .sub-nav p > a {
+  display: block;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+.page-nav .sub-nav p > a:hover {
+  background-color: #eee;
+}
+.page-tab {
+  overflow: hidden;
+  *zoom: 1;
+}
+.page-tab .ui-tabs-nav li .ui-icon-close {
+  float: left;
+  margin: 0.4em 0.2em 0 0;
+  cursor: pointer;
+}
+.page-tab .tab-iframe {
+  width: 100%;
+  border: none;
+}
+.page-tab .ui-tabs-panel {
+  padding: 8px;
+}
+.control {
+  margin-bottom: 8px;
+}
+/* dialog-page */
+.ui-dialog .dialog-page {
+  padding: 8px;
+}
+.ui-dialog .dialog-page .dialog-iframe {
+  width: 100%;
+  border: none;
+}

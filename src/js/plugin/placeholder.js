@@ -15,7 +15,7 @@ define('jquery.placeholder',['jquery','modernizr'],function($,modernizr){
       var options = this.options;
       options.height = this.$el.height();
       var height = options.height;
-      var borderWidth = parseInt(this.$el.css('borderWidth'))||0;
+      var borderWidth = parseInt(this.$el.css('borderTopWidth')) || 0;
       var id = this.$el.attr('id');
       if(!id){
         id = 'placeholder_'+options.id;

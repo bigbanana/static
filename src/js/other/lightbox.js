@@ -410,4 +410,5 @@ define('jquery.lightbox',['jquery','css!../css/plugin/lightbox.css'],function(jQ
   });
 
 }).call(window);
+
 });

@@ -32,21 +32,6 @@ var banner = [
     '/* build : <%= package.author %> '+moment().format('YYYY-MM-DD HH:mm:ss')+' */\n'
   ].join('');
 
-function getPath(pro){
-  var paths = JSON.parse(fs.readFileSync(src+'/js/path.json'));
-  if(!!pro){
-    paths = _.mapObject(paths,function(v,k){
-      //查找父级目录
-      var dir = v.match(/^.*(?=\/)/);
-      
-      if(dir && concatConfig.indexOf('/js/'+dir[0]) != -1){
-        return dir[0];
-      }
-      return v;
-    });
-  }
-  return paths; 
-}
 
 gulp.task('clean',function(){
   return gulp.src(dest,{read:false}).pipe(clean());
@@ -62,7 +47,7 @@ gulp.task('script',['clean'],function(){
   //处理app.js
   gulp.src(appJsConfig)
     .pipe(concat('app.js'))
-    .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath(true)}))
+    .pipe(footer(initRequireConfig({pro:true})))
     .pipe(uglify())
     .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(dest+'/js'));
@@ -111,7 +96,7 @@ gulp.task('less',function(){
 gulp.task('app',function(){
   return gulp.src(appJsConfig)
     .pipe(concat('app.js'))
-    .pipe(footer('\nrequire.config({paths:<%=JSON.stringify(paths)%>})',{paths:getPath()}))
+    .pipe(footer(initRequireConfig()))
     .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(src+'/js'));
 });
@@ -124,3 +109,48 @@ gulp.task('watch',function(){
 });
 
 gulp.task('default',['script','css','copy']);
+
+
+/**
+ * 工具函数
+ */
+function getPath(pro){
+  var paths = JSON.parse(fs.readFileSync(src+'/js/path.json'));
+  if(!!pro){
+    paths = _.mapObject(paths,function(v,k){
+      //查找父级目录
+      var dir = v.match(/^.*(?=\/)/);
+      
+      if(dir && concatConfig.indexOf('/js/'+dir[0]) != -1){
+        return dir[0];
+      }
+      return v;
+    });
+  }
+  return paths; 
+}
+function initRequireConfig(opt){
+  /* devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
+     probaseUrl http://static.yaozh.com/js
+  */
+  opt = opt || {};
+  var baseUrl = "http://192.168.1.251/static/src/js";
+  if(opt.pro) baseUrl = "http://static.yaozh.com/js";
+  opt = _.extend({
+    pro: false,
+    waitSeconds : 5,
+    baseUrl: baseUrl
+  },opt);
+  opt.paths = JSON.stringify(getPath(opt.pro),null,4).replace(/(\})$/,'  $1');
+
+  var _temp = _.template(['',
+    'require.config({',
+      '  baseUrl: "<%= baseUrl %>",',
+      '  paths: <%= paths %>,',
+      '  urlArgs: "yaozhVersion=1.1.2"<% if(!pro){ %>+"&data="+new Date().getTime()<% } %>,',
+      '  waitSeconds: <%= waitSeconds %>',
+    '})'
+  ].join('\n'));
+
+  return _temp(opt);
+}

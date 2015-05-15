@@ -3,7 +3,7 @@ define('console',['jquery'],function($){
 
   var console = {
     init : function(){
-      var _this = this;
+      var self = this;
       this.$el = $('<div id="customer-console"></div>').appendTo(document.body);
       this.$el.css({
         opacity:0.1,
@@ -14,11 +14,11 @@ define('console',['jquery'],function($){
         height:300,
         background:"#000",
         color:"#fff",
-        padding:"50px 10px 20px"
+        padding:"50px 10px 60px"
       })
       this.$head = $('<div class="console-head">控制台</div>').appendTo(this.$el);
       this.$head.css({
-        width:"600px",
+        width:600,
         margin:"10px 10px",
         paddingBottom:"10px",
         fontSize:16,
@@ -34,14 +34,25 @@ define('console',['jquery'],function($){
         overflowY:'auto'
       });
 
+      this.$footer = $('<div class="console-footer">').appendTo(this.$el);
+      this.$footer.css({
+        width:600,
+        margin:"10px 10px",
+        paddingTop:"10px",
+        fontSize:14,
+        position:"absolute",
+        left:0,bottom:0,height:30,lineHeight:"30px",
+        borderTop:"2px solid #ddd"
+      });
+
       this.$el.hover(function(){
-        if(_this.noOpacity) return;
-        _this.$el.css({
+        if(self.noOpacity) return;
+        self.$el.css({
           opacity:1
         });
       },function(){
-        if(_this.noOpacity) return;
-        _this.$el.css({
+        if(self.noOpacity) return;
+        self.$el.css({
           opacity:0.1
         });
       });
@@ -53,8 +64,42 @@ define('console',['jquery'],function($){
         background:"#fff",color:"#000",
         border:"none",fontSize:"14px"
       }).on('click',function(){
-        _this.noOpacity = !_this.noOpacity;
+        self.noOpacity = !self.noOpacity;
       });
+
+      this.$input = $('<textarea>').appendTo(this.$footer);
+      this.$input.css({
+        padding:"5px",
+        border:"none",overflowY:"hidden",
+        width:580,height:20,lineHeight:"20px"
+      });
+      this.$input.on('keydown',function(e){
+        self.combo[e.keyCode] = true;
+        //shift
+        if(e.keyCode == 13){
+          //shift+enter
+          if(self.combo[16]){
+            return;
+          }else{
+            e.preventDefault();
+            self.doEval();
+            return;
+          }
+        }
+      });
+      this.$input.on('keyup',function(e){
+        self.combo[e.keyCode] = false;
+      });
+    },
+    combo: {},
+    doEval: function(){
+      var code = this.$input.val();
+      this.$input.val("");
+      try{
+        this.log(eval(code));
+      }catch(e){
+        this.log(e.name+' : '+e.message);
+      }
     },
     log : function(str){
       $('<div>').addClass('log').text(str).appendTo(this.$content);
@@ -66,7 +111,9 @@ define('console',['jquery'],function($){
       this.$el.show();
     }
   }
-  console.init();
-  window.console = console;
+  $(function(){
+    console.init();
+  });
+  //window.console = console;
   return console;
 });
