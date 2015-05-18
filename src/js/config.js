@@ -23,5 +23,5 @@ require.config({
       deps : ['css!../css/jquery-ui']
     }
   },
-  deps : ["console","global"].concat(window.config.deps)
+  deps : ["global"].concat(window.config.deps)
 });

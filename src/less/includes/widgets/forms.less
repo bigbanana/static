@@ -6,6 +6,8 @@
   .form-label{
     float:left;font-weight: 700;line-height: @inputLineHeight;
     padding:@paddingVerticalBase+1 @paddingHorizontalBase 0 0;
+    font-size:@fontSizeBase;
+    .text-overflow();
   }
   .form-box{
     overflow: hidden;*zoom:1;
@@ -17,6 +19,9 @@
     border:@inputBorder;padding:@paddingVerticalBase @paddingHorizontalBase;
     &:focus{
       border-color:@inputBorderFocusColor
+    }
+    &.half{
+      width:@inputWidth/2
     }
   }
   select.form-control{
@@ -47,11 +52,16 @@
     border-color:#a94442;
   }
 
-
   &.align-right{
     .form-label{
-      width:16%;text-align: right;
+      width:5em;text-align: right;
       padding:@paddingVerticalBase+1 @paddingHorizontalBase;
+    }
+    &.half-group{
+      .clearfix();
+      .form-group{
+        width:50%;float:left;
+      }
     }
   }
 }

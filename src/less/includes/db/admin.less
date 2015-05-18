@@ -42,9 +42,19 @@ header{
   }
 }
 
-
-.control{
-  margin-bottom: @paddingHorizontalBase;
+/* navigate */
+.navigate{
+  position: fixed;left:-56px;top:20px;z-index: 10;
+  padding-right: @paddingHorizontalBase;
+  .transition(0.2s,left);
+  .ui-widget-header{
+    width:50px;height:26px;
+    padding:@paddingHorizontalBase/2;
+  }
+  &:hover{
+    left:0;
+  }
+  
 }
 
 

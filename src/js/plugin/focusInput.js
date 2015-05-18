@@ -19,7 +19,7 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
       if(this.options.inited) return;
       this.options.inited = true;
       $.extend(true,this.options,param);
-      $body.on('focus.focusInput','input[type=text],input[type=password],select',function(e){
+      $body.on('focus.focusInput','input[type=text],input[type=password],select,textarea',function(e){
         if(_this.options.disabled) return;
         var $tar,$pre,tar,pre;
         $tar = $(e.target);

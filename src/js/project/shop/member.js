@@ -155,6 +155,83 @@ define(['jquery','baidu.map','jquery.validate','jquery.ui'],function($){
 
     $(function(){
 
+      ue = UE.getEditor('ueditor_upload');
+      ue2 = UE.getEditor('ueditor_upload2');
+      ue3 = UE.getEditor('ueditor_upload3');
+      ue4 = UE.getEditor('ueditor_upload4');
+      ue5 = UE.getEditor('ueditor_upload5');
+      ue.ready(function(){
+        ue.hide();
+        // ue.getDialog("insertimage").open();
+        ue.addListener('beforeInsertImage', function(t, args) {
+          if(args.length>1){
+            alert('最多上传1张图片');
+            return false;
+          }
+          $.each(args,function(i,item){
+            $('.prev1').html('<img src="'+item.src+'" /><input type="hidden" name="logo" value="'+item.src+'" />');
+          })
+        });
+      })
+      ue2.ready(function(){
+        ue2.hide();
+        // ue.getDialog("insertimage").open();
+        ue2.addListener('beforeInsertImage', function(t, args) {
+          if(args.length>1){
+            alert('最多上传1张图片');
+            return false;
+          }
+          $.each(args,function(i,item){
+            $('.prev2').html('<img src="'+item.src+'" /><input type="hidden" name="sell_certificate" value="'+item.src+'" />');
+          })
+        });
+      })
+      ue3.ready(function(){
+        ue3.hide();
+        // ue.getDialog("insertimage").open();
+        ue3.addListener('beforeInsertImage', function(t, args) {
+          if(args.length>1){
+            alert('最多上传1张图片');
+            return false;
+          }
+          $.each(args,function(i,item){
+            $('.prev3').html('<img src="'+item.src+'" /><input type="hidden" name="agent_certificate" value="'+item.src+'" />');
+          })
+        });
+      })
+      ue4.ready(function(){
+        ue4.hide();
+        // ue.getDialog("insertimage").open();
+        ue4.addListener('beforeInsertImage', function(t, args) {
+          if(args.length>1){
+            alert('最多上传1张图片');
+            return false;
+          }
+          $.each(args,function(i,item){
+            $('.prev4').html('<img src="'+item.src+'" /><input type="hidden" name="profile_pic" value="'+item.src+'" />');
+          })
+        });
+      })
+      ue5.ready(function(){
+        ue5.hide();
+        // ue.getDialog("insertimage").open();
+        ue5.addListener('beforeInsertImage', function(t, args) {
+          if(args.length>5){
+            alert('最多上传5张图片');
+            return false;
+          }
+          $.each(args,function(i,item){
+            if($('.prev5 ul').find('li').length<5){
+              $('.prev5 ul').append('<li><img src="'+item.src+'" /><input type="hidden" name="pictures[]" value="'+item.src+'" /><div class="file-panel"><span class="cancel">删除</span></div></li>');
+            }
+            else{
+              alert('公司荣誉最多上传5张图片');
+            }
+            
+          })
+        });
+      });
+
       $('.prev5s').on('mouseenter mouseleave', 'li', function(event) {
         $(this).find('.file-panel').toggle(1);
       });

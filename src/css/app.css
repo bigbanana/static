@@ -151,6 +151,9 @@ html {
 }
 /* @import "global.less" */
 /* 公共 */
+.clear {
+  clear: both;
+}
 .clearfix {
   *zoom: 1;
 }
@@ -242,7 +245,10 @@ html {
 .pl10 {
   padding-left: 10px;
 }
-/*font-size*/
+/*font*/
+.b {
+  font-weight: 700;
+}
 .fs12 {
   font-size: 12px;
 }
@@ -271,6 +277,23 @@ html {
 .tr {
   text-align: right;
 }
+/* width */
+.em2 {
+  width: 2em!important;
+}
+.em4 {
+  width: 4em!important;
+}
+.em6 {
+  width: 6em!important;
+}
+.em8 {
+  width: 8em!important;
+}
+.em10 {
+  width: 12em!important;
+}
+/* color */
 .red {
   color: #f00;
 }
@@ -2086,7 +2109,7 @@ html {
 /*buttons.less*/
 .btn {
   display: inline-block;
-  margin-bottom: 0;
+  /* margin-bottom: 0; // For input.btn */
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -2313,6 +2336,10 @@ html {
   font-weight: 700;
   line-height: 20px;
   padding: 5px 8px 0 0;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .form .form-box {
   overflow: hidden;
@@ -2332,6 +2359,9 @@ html {
 }
 .form .form-control:focus {
   border-color: #66afe9;
+}
+.form .form-control.half {
+  width: 85px;
 }
 .form select.form-control {
   width: 188px;
@@ -2377,9 +2407,32 @@ html {
   border-color: #a94442;
 }
 .form.align-right .form-label {
-  width: 16%;
+  width: 5em;
   text-align: right;
   padding: 5px 8px;
+}
+.form.align-right.half-group {
+  *zoom: 1;
+}
+.form.align-right.half-group:before,
+.form.align-right.half-group:after {
+  content: "";
+  display: table;
+}
+.form.align-right.half-group:after {
+  clear: both;
+}
+.form.align-right.half-group:before,
+.form.align-right.half-group:after {
+  content: "";
+  display: table;
+}
+.form.align-right.half-group:after {
+  clear: both;
+}
+.form.align-right.half-group .form-group {
+  width: 50%;
+  float: left;
 }
 /*table.less*/
 .table {
