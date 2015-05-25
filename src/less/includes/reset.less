@@ -39,6 +39,7 @@ ul, ol { list-style: none; }
 
 /* 重置文本格式元素 */
 a { text-decoration: none; color:#222;}
+a:hover{text-decoration: underline;}
 
 abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
     border-bottom: 1px dotted;
@@ -64,7 +65,7 @@ table {
 /* 重置 hr */
 hr {
     border: none;
-    height: 1px;
+    height: 1px;background-color: #ddd;
 }
 
 /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */

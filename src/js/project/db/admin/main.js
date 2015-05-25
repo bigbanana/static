@@ -1,4 +1,4 @@
-require(['jquery','underscore','jquery.ui'],function($,_){
+require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
   $.dialogSetting = $.extend({
     width: 600,
     height: 400
@@ -62,7 +62,6 @@ require(['jquery','underscore','jquery.ui'],function($,_){
       window.updateTitle();
     })();
   
-
     /* 添加链接tab支持 */
     (function(){
       $body.on('click',"a[data-tabs]",function(e){
@@ -116,6 +115,9 @@ require(['jquery','underscore','jquery.ui'],function($,_){
         window.history.forward();
       });
     })();
+
+    /* 添加pagination支持*/
+    $('.pagination').pagination();
 
   });
 

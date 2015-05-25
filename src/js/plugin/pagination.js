@@ -1,7 +1,23 @@
 define('jquery.pagination',['jquery','underscore'],function($,_){
   function Pagination(opt){
-    this.options = $.extend(this,arguments.callee.options,opt);
     this.$el = $(opt.el);
+    var _data = this.$el.data(),data = {};
+    _.mapObject(_data,function(v,k){
+      switch(k){
+        case 'page': {
+          data.currentPage = v;
+          break;
+        }
+        case 'size': {
+          data.pageSize = v;
+          break;
+        }
+        default: {
+          data[k] = v;
+        }
+      }
+    });
+    this.options = $.extend(this,arguments.callee.options,data,opt);
     this.init();
   }
 
@@ -178,6 +194,7 @@ define('jquery.pagination',['jquery','underscore'],function($,_){
   });
 
   function Plugin(option) {
+    option = option || {}
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('bs.pagination')

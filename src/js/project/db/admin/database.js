@@ -13,9 +13,23 @@ define(['jquery','jquery.ui'],function($){
     $tab.tabs();
   }
 
+  function dataCode(){
+    $.dialogSetting = {
+      width: 720,
+      height: 600
+    }
+  }
+
+  function changeCodeConfig(){
+    var $tab = $('.tabs');
+    $tab.tabs();
+  }
+
   return {
     index: index,
-    dataExamine: dataExamine
+    dataExamine: dataExamine,
+    dataCode: dataCode,
+    changeCodeConfig: changeCodeConfig
   }
 
 });

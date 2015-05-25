@@ -102,6 +102,9 @@ a {
   text-decoration: none;
   color: #222;
 }
+a:hover {
+  text-decoration: underline;
+}
 abbr[title],
 acronym[title] {
   /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
@@ -139,6 +142,7 @@ table {
 hr {
   border: none;
   height: 1px;
+  background-color: #ddd;
 }
 /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
 html {
@@ -164,6 +168,10 @@ html {
 }
 .clearfix:after {
   clear: both;
+}
+.zoom {
+  overflow: hidden;
+  *zoom: 1;
 }
 /*margin*/
 .m5 {
@@ -245,7 +253,7 @@ html {
 .pl10 {
   padding-left: 10px;
 }
-/*font*/
+/*font-size*/
 .b {
   font-weight: 700;
 }
@@ -266,6 +274,13 @@ html {
 }
 .fs22 {
   font-size: 22px;
+}
+/*font-family*/
+.yahei {
+  font-family: "Microsoft Yahei";
+}
+.simsun {
+  font-family: "SimSun";
 }
 /*text-align*/
 .tc {
@@ -294,14 +309,37 @@ html {
   width: 12em!important;
 }
 /* color */
-.red {
+.cl-red {
   color: #f00;
 }
-.green {
+.cl-green {
   color: #008E59;
 }
-.blue {
+.cl-blue {
   color: #2980b9;
+}
+.cl-gray {
+  color: #999999;
+}
+.cl-orange {
+  color: #fd6600;
+}
+/* float */
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/* 盒模型 */
+.ib {
+  *display: inline;
+  display: inline-block;
+}
+/* 无序列表 */
+.ul li {
+  padding-left: 16px;
+  background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
 }
 /* @import "font-awesome.less" */
 /*!

@@ -1,2 +1,2 @@
-/* build : 564493634@qq.com 2015-05-18 17:43:34 */
-define(["jquery","jquery.ui"],function(t){function i(){var i=t(".tabs");i.tabs(),t.dialogSetting={width:800,height:600}}function n(){var i=t(".tabs");i.tabs()}return{index:i,dataExamine:n}});
+/* build : 564493634@qq.com 2015-05-25 15:04:16 */
+define(["jquery","jquery.ui"],function(t){function i(){var i=t(".tabs");i.tabs(),t.dialogSetting={width:800,height:600}}function n(){var i=t(".tabs");i.tabs()}function a(){t.dialogSetting={width:720,height:600}}function e(){var i=t(".tabs");i.tabs()}return{index:i,dataExamine:n,dataCode:a,changeCodeConfig:e}});

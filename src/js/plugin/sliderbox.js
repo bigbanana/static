@@ -9,26 +9,32 @@ define('jquery.sliderbox',['jquery','underscore',
   $.extend(SliderBox.prototype,{
     init : function(){
       var _this = this;
-      this.$items = this.$el.children().css({float:'left'}).detach().addClass('ui-sliderbox-item');
-      this.$itemBox = $('<div class="ui-sliderbox-box"></div>').css({position:'absolute',left:0,top:0}).append(this.$items).appendTo(this.$el);
+      this.$el.css({
+        position:'relative',
+        overflow:'hidden'
+      });
+      this.$items = this.$el.children().detach().addClass('ui-sliderbox-item');
+      if(this.options.direction == "vertical") this.$items.css({float:'left'});
+      this.$itemBox = $('<div class="ui-sliderbox-box"></div>').css({
+        position:'absolute',left:0,top:0
+      }).append(this.$items).appendTo(this.$el);
+
+      if(this.options.direction == "horizontal") this.$itemBox.css({width:'100%'});
 
       this.current = 0;
-
       var width = this.$items.eq(0).outerWidth(true),
           height = this.$items.eq(0).outerHeight(true);
       this.options.item = {
         width : width,
         height : height
       }
-      if(this.options.direction == 2){
+      if(this.options.direction == "horizontal"){
         this.$itemBox.css({height:height*this.$items.length});
       }else{
         this.$itemBox.css({width:width*this.$items.length});
       }
 
       this.$el.css({
-        position:'relative',
-        overflow:'hidden',
         width : width,
         height : height
       }).addClass('ui-sliderbox');
@@ -42,7 +48,9 @@ define('jquery.sliderbox',['jquery','underscore',
         function end(){
           clearInterval(_this.timer);
         }
-        this.$el.hover(end,start);
+        if(this.options.hoverPause){
+          this.$el.hover(end,start);
+        }
         start();
       }
     },
@@ -80,8 +88,8 @@ define('jquery.sliderbox',['jquery','underscore',
 
       index = (this.$items.length+index) % this.$items.length
       
-      if(this.direction == 2){
-        endCss = {top:this.options.item.height*index}
+      if(this.options.direction == "horizontal"){
+        endCss = {top:-this.options.item.height*index}
       }else{
         endCss = {left:-this.options.item.width*index}
       }
@@ -102,11 +110,12 @@ define('jquery.sliderbox',['jquery','underscore',
   });
   $.extend(SliderBox,{
     options : {
-      direction : '1',//1:horizontal,2:vertical
+      direction : 'vertical',//horizontal,vertical
       eventType : 'click',
       displayNumber : 1,
       control : true,
       auto : true,
+      hoverPause: true,
       delay : 3000,
       fx : {
         duration : 400,

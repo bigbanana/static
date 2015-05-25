@@ -6,6 +6,7 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
     options : {
       inited:false,
       disabled : false,
+      ignore: "ignore-focus",
       fx : {
         duration : 600,
         easing : 'easeOutExpo',
@@ -24,6 +25,7 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
         var $tar,$pre,tar,pre;
         $tar = $(e.target);
         $pre = $(e.relatedTarget);
+        if($tar.hasClass(_this.options.ignore)) return;
         setTimeout(function(){
           tar = _this.getCss($tar);
           if($pre.length>0){

@@ -53,7 +53,7 @@ header .control-bar {
 /* navigate */
 .navigate {
   position: fixed;
-  left: -56px;
+  left: -108px;
   top: 20px;
   z-index: 10;
   padding-right: 8px;
@@ -63,9 +63,12 @@ header .control-bar {
   transition: 0.2s left;
 }
 .navigate .ui-widget-header {
-  width: 50px;
+  width: 102px;
   height: 26px;
   padding: 4px;
+}
+.navigate .ui-widget-header a {
+  color: #333;
 }
 .navigate:hover {
   left: 0;
