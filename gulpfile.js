@@ -18,6 +18,12 @@ var path    = require('path');
 var src  = './src',   
     dest = './dist';
 
+/* 
+  devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
+  probaseUrl http://static.yaozh.com/js
+*/
+var devbaseUrl = "http://static.yaozh.com/js",
+    onlineBaseUrl = "http://static.yaozh.com/js";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin","/js/project/db/public"];
 //所有需要复制的文件配置
@@ -130,12 +136,10 @@ function getPath(pro){
   return paths; 
 }
 function initRequireConfig(opt){
-  /* devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
-     probaseUrl http://static.yaozh.com/js
-  */
+  
   opt = opt || {};
-  var baseUrl = "http://192.168.1.251/static/src/js";
-  if(opt.pro) baseUrl = "http://static.yaozh.com/js";
+  var baseUrl = devbaseUrl;
+  if(opt.pro) baseUrl = probaseUrl;
   opt = _.extend({
     pro: false,
     waitSeconds : 5,
