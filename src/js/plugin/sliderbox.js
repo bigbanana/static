@@ -41,17 +41,10 @@ define('jquery.sliderbox',['jquery','underscore',
       this.initControl();
       this.slider(0);
       if(this.options.auto){
-        function start(){
-          clearInterval(_this.timer);
-          _this.timer = setInterval($.proxy(_this.next,_this),_this.options.delay);
-        }
-        function end(){
-          clearInterval(_this.timer);
-        }
         if(this.options.hoverPause){
-          this.$el.hover(end,start);
+          this.$el.hover($.proxy(this.closeAuto,this),$.proxy(this.openAuto,this));
         }
-        start();
+        this.openAuto();
       }
     },
     initControl : function(){
@@ -106,6 +99,13 @@ define('jquery.sliderbox',['jquery','underscore',
     },
     next : function(){
       this.slider(this.current+1);
+    },
+    openAuto: function(){
+      clearInterval(this.timer);
+      this.timer = setInterval($.proxy(this.next,this),this.options.delay);
+    },
+    closeAuto: function(){
+      clearInterval(this.timer);
     }
   });
   $.extend(SliderBox,{

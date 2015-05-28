@@ -141,8 +141,7 @@ table {
 /* 重置 hr */
 hr {
   border: none;
-  height: 1px;
-  background-color: #ddd;
+  border-top: 1px solid #ddd;
 }
 /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
 html {
@@ -292,6 +291,22 @@ html {
 .tr {
   text-align: right;
 }
+/*文字溢出*/
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*禁用高亮*/
+.disable_text_highlighting {
+  -webkit-user-select: none;
+  /* Webkit */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE 10  */
+  user-select: none;
+}
 /* width */
 .em2 {
   width: 2em!important;
@@ -336,10 +351,20 @@ html {
   *display: inline;
   display: inline-block;
 }
+.hide {
+  display: none!important;
+}
+.show {
+  display: block!important;
+}
 /* 无序列表 */
 .ul li {
   padding-left: 16px;
   background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
+}
+/*分隔线*/
+hr.dotted {
+  border-top-style: dotted;
 }
 /* @import "font-awesome.less" */
 /*!
@@ -2154,11 +2179,11 @@ html {
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
+  text-decoration: none;
   /*states*/
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
-  text-decoration: none;
   padding: 4px 8px;
   font-size: 14px;
   line-height: 20px;
@@ -2195,12 +2220,14 @@ html {
   background-color: #d4d4d4;
   border-color: #8c8c8c;
 }
+a.btn {
+  text-decoration: none;
+}
 /*colors*/
 .btn-blue {
   color: #ffffff;
   background-color: #337ab7;
   border-color: #2e6da4;
-  text-decoration: none;
 }
 .btn-blue:focus,
 .btn-blue.btn-state-focus {
@@ -2237,7 +2264,6 @@ html {
   color: #ffffff;
   background-color: #5cb85c;
   border-color: #4cae4c;
-  text-decoration: none;
 }
 .btn-green:focus,
 .btn-green.btn-state-focus {
@@ -2274,7 +2300,6 @@ html {
   color: #ffffff;
   background-color: #f0ad4e;
   border-color: #eea236;
-  text-decoration: none;
 }
 .btn-orange:focus,
 .btn-orange.btn-state-focus {
@@ -2311,7 +2336,6 @@ html {
   color: #ffffff;
   background-color: #d9534f;
   border-color: #d43f3a;
-  text-decoration: none;
 }
 .btn-red:focus,
 .btn-red.btn-state-focus {

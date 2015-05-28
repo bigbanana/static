@@ -2,7 +2,6 @@
   color: @color;
   background-color: @background;
   border-color: @border;
-  text-decoration: none;
 
   &:focus,
   &.btn-state-focus {
@@ -50,11 +49,13 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
+  text-decoration: none;
   
   /*states*/
   .button-variant(#333; #fff; #ccc);
   .button-size(@paddingVerticalBase;@paddingHorizontalBase;@fontSizeBase;@inputLineHeight;@borderRadiusBase);
 }
+a.btn{text-decoration: none;}
 
 /*colors*/
 .btn-blue{
