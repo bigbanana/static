@@ -2,6 +2,7 @@
 +(function(){
   var top = window.top;
   if(!top.dialogMessage){
+    //给top注册事件绑定，事件触发
     var dialogMessage = {},_callbacks = {};
     top.dialogMessage = dialogMessage;
     dialogMessage.on = function(event,callback){
@@ -19,6 +20,7 @@
       }
     }
   }
+  //给当前window添加接口方法
   window.sendDialogMessage = function(){
     top.dialogMessage.trigger.apply(top.dialogMessage,arguments);
   };

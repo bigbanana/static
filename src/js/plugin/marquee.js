@@ -43,11 +43,13 @@ define('jquery.marquee',['jquery'],function($){
         this.$itemBox.css({overflow:'hidden',zoom:1});
         switch(options.direction){
           case "left":{
+            this.$items.css({width:options.width});
             this.$el.css({width:options.visible*options.width});
             this.$itemBox.css({width:length*options.width});
             break;
           }
           case "up":{
+            this.$items.css({height:options.height});
             this.$el.css({height:options.visible*options.height});
             this.$itemBox.css({height:length*options.height});
             break;
