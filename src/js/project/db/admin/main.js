@@ -1,3 +1,33 @@
+//弹窗事件通知传递
++(function(){
+  var top = window.top;
+  if(!top.dialogMessage){
+    var dialogMessage = {},_callbacks = {};
+    top.dialogMessage = dialogMessage;
+    dialogMessage.on = function(event,callback){
+      if(!_callbacks[event]){
+        _callbacks[event] = [];
+      }
+      var callbacks = _callbacks[event];
+      callbacks.push(callback);
+    }
+    dialogMessage.trigger = function(event,data){
+      var callbacks = _callbacks[event];
+      if(!callbacks) return;
+      for(var i=0;i<callbacks.length;i++){
+        callbacks[i](data);
+      }
+    }
+  }
+  window.sendDialogMessage = function(){
+    top.dialogMessage.trigger.apply(top.dialogMessage,arguments);
+  };
+  window.onDialogMessage = function(){
+    top.dialogMessage.on.apply(top.dialogMessage,arguments);
+  }
+})();
+
+
 require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],function($,_,Backbone){
   $.dialogSetting = $.extend({
     width: 600,
@@ -39,21 +69,6 @@ require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],funct
       });
       $body.on('click','[data-action=closeDialog]',function(){
         window.closeDialog();
-      });
-      //事件通知传递
-      var top = window.top;
-      if(!top.dialogMessage){
-        var dialogMessage = {};
-        top.dialogMessage = dialogMessage;
-        _.extend(dialogMessage,Backbone.Events);
-      }
-      _.extend(window,{
-        sendDialogMessage: function(){
-          top.dialogMessage.trigger.apply(top.dialogMessage,arguments);
-        },
-        onDialogMessage: function(){
-          top.dialogMessage.on.apply(top.dialogMessage,arguments);
-        }
       });
 
       window.closeDialog = function(reload){
