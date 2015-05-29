@@ -1,4 +1,4 @@
-require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
+require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],function($,_,Backbone){
   $.dialogSetting = $.extend({
     width: 600,
     height: 400
@@ -12,6 +12,7 @@ require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
         e.preventDefault();
         var $dialog,$iframe;
         var $this = $(this);
+        if(!$this[0].href.match(/^javascript:/)) return;
         var data = $this.data();
         var opt = $.extend({
           id: data.dialog.replace('#',''),
@@ -40,18 +41,25 @@ require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
         window.closeDialog();
       });
       //事件通知传递
-      window.sendDialogMessage = function(name,msg){
+      var dialogMessage = {};
+      var top = window.top;
+      top.dialogMessage = dialogMessage;
+      _.extend(dialogMessage,Backbone.Events);
+      _.extend(window,{
+        sendDialogMessage: function(){
+          top.dialogMessage.trigger.apply(top.dialogMessage,arguments);
+        },
+        onDialogMessage: function(){
+          top.dialogMessage.on.apply(top.dialogMessage,arguments);
+        }
+      });
 
-      }
-      window.onDialogMessage = function(name,callback){
-        
-      }
       window.closeDialog = function(reload){
         reload = reload || false;
         if(window.parent === window) return false;
         var parent = window.parent;
         if(reload){
-          parent.location.reload()
+          parent.location.reload();
         }else{
           parent.$(window.frameElement).parents('.dialog-page').dialog('close');
         }
