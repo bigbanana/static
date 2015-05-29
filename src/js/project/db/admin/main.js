@@ -12,7 +12,7 @@ require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],funct
         e.preventDefault();
         var $dialog,$iframe;
         var $this = $(this);
-        if(!$this[0].href.match(/^javascript:/)) return;
+        if(!!$this[0].href.match(/^javascript:/)) return;
         var data = $this.data();
         var opt = $.extend({
           id: data.dialog.replace('#',''),
@@ -41,10 +41,12 @@ require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],funct
         window.closeDialog();
       });
       //事件通知传递
-      var dialogMessage = {};
       var top = window.top;
-      top.dialogMessage = dialogMessage;
-      _.extend(dialogMessage,Backbone.Events);
+      if(!top.dialogMessage){
+        var dialogMessage = {};
+        top.dialogMessage = dialogMessage;
+        _.extend(dialogMessage,Backbone.Events);
+      }
       _.extend(window,{
         sendDialogMessage: function(){
           top.dialogMessage.trigger.apply(top.dialogMessage,arguments);
