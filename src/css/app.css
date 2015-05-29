@@ -2368,6 +2368,42 @@ a.btn {
   background-color: #ac2925;
   border-color: #751c1a;
 }
+.btn-gray {
+  color: #ffffff;
+  background-color: #4c4c4c;
+  border-color: #333333;
+}
+.btn-gray:focus,
+.btn-gray.btn-state-focus {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #000000;
+}
+.btn-gray:hover {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #141414;
+}
+.btn-gray:active,
+.btn-gray.btn-state-active,
+.open .dropdown-toggle.btn-gray {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #141414;
+}
+.btn-gray:active:hover,
+.btn-gray.btn-state-active:hover,
+.open .dropdown-toggle.btn-gray:hover,
+.btn-gray:active:focus,
+.btn-gray.btn-state-active:focus,
+.open .dropdown-toggle.btn-gray:focus,
+.btn-gray:active.focus,
+.btn-gray.btn-state-active.focus,
+.open .dropdown-toggle.btn-gray.focus {
+  color: #ffffff;
+  background-color: #212121;
+  border-color: #000000;
+}
 /*size*/
 .btn-lg {
   padding: 8px 11px;
@@ -2547,6 +2583,8 @@ a.btn {
   -webkit-opacity: 0.6;
   -moz-opacity: 0.6;
   opacity: 0.6;
+  *text-indent: 0;
+  *line-height: 999px;
 }
 .ui-sliderbox-control a.active {
   zoom: 1;

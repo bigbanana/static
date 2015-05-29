@@ -7,7 +7,7 @@ require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
     var $body = $(document.body);
 
     /* 添加链接弹窗支持 */
-    (function(){
+    +(function(){
       $body.on('click','a[data-dialog]',function(e){
         e.preventDefault();
         var $dialog,$iframe;
@@ -40,6 +40,12 @@ require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
         window.closeDialog();
       });
       //事件通知传递
+      window.sendDialogMessage = function(name,msg){
+
+      }
+      window.onDialogMessage = function(name,callback){
+        
+      }
       window.closeDialog = function(reload){
         reload = reload || false;
         if(window.parent === window) return false;
@@ -63,7 +69,7 @@ require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
     })();
   
     /* 添加链接tab支持 */
-    (function(){
+    +(function(){
       $body.on('click',"a[data-tabs]",function(e){
         var $link = $(this)
         var tabs = $link.data('tabs');
@@ -103,7 +109,7 @@ require(['jquery','underscore','jquery.pagination','jquery.ui'],function($,_){
     })();
       
     /* 添加navigate功能 */
-    (function(){
+    +(function(){
       //刷新
       $body.on('click',".navigate .reload",function(){
         window.location.reload();
