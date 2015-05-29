@@ -41,10 +41,12 @@ require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],funct
         window.closeDialog();
       });
       //事件通知传递
-      var dialogMessage = {};
       var top = window.top;
-      top.dialogMessage = dialogMessage;
-      _.extend(dialogMessage,Backbone.Events);
+      if(!top.dialogMessage){
+        var dialogMessage = {};
+        top.dialogMessage = dialogMessage;
+        _.extend(dialogMessage,Backbone.Events);
+      }
       _.extend(window,{
         sendDialogMessage: function(){
           top.dialogMessage.trigger.apply(top.dialogMessage,arguments);
