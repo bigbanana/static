@@ -12,7 +12,7 @@ require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],funct
         e.preventDefault();
         var $dialog,$iframe;
         var $this = $(this);
-        if(!$this[0].href.match(/^javascript:/)) return;
+        if(!!$this[0].href.match(/^javascript:/)) return;
         var data = $this.data();
         var opt = $.extend({
           id: data.dialog.replace('#',''),
