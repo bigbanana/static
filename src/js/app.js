@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-05-30 11:06:36 */
+/* build : 564493634@qq.com 2015-05-30 11:33:11 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2111,7 +2111,7 @@ require.config({
   deps : ["global"].concat(window.config.deps)
 });
 require.config({
-  baseUrl: "http://192.168.1.251/static/src/js",
+  baseUrl: "http://static.yaozh.com/js",
   paths: {
     "global": "global",
     "browser": "lib/browser",
