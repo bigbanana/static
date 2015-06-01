@@ -1,4 +1,5 @@
 /* @import "var.less"; */
+/*border*/
 /*input*/
 /* @import "mixin.less"; */
 /* @import "reset.less" */
@@ -358,7 +359,8 @@ html {
   display: block!important;
 }
 /* 无序列表 */
-.ul li {
+.ul li,
+ul.dot li {
   padding-left: 16px;
   background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
 }
@@ -2187,7 +2189,7 @@ hr.dotted {
   padding: 4px 8px;
   font-size: 14px;
   line-height: 20px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .btn:focus,
 .btn.btn-state-focus {
@@ -2226,26 +2228,26 @@ a.btn {
 /*colors*/
 .btn-blue {
   color: #ffffff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #427fed;
+  border-color: #427fed;
 }
 .btn-blue:focus,
 .btn-blue.btn-state-focus {
   color: #ffffff;
-  background-color: #285f8f;
-  border-color: #122b40;
+  background-color: #1660e6;
+  border-color: #0f43a0;
 }
 .btn-blue:hover {
   color: #ffffff;
-  background-color: #285f8f;
-  border-color: #214d74;
+  background-color: #1660e6;
+  border-color: #155cdd;
 }
 .btn-blue:active,
 .btn-blue.btn-state-active,
 .open .dropdown-toggle.btn-blue {
   color: #ffffff;
-  background-color: #285f8f;
-  border-color: #214d74;
+  background-color: #1660e6;
+  border-color: #155cdd;
 }
 .btn-blue:active:hover,
 .btn-blue.btn-state-active:hover,
@@ -2257,8 +2259,8 @@ a.btn {
 .btn-blue.btn-state-active.focus,
 .open .dropdown-toggle.btn-blue.focus {
   color: #ffffff;
-  background-color: #204d73;
-  border-color: #122b40;
+  background-color: #1353c5;
+  border-color: #0f43a0;
 }
 .btn-green {
   color: #ffffff;
@@ -2409,19 +2411,19 @@ a.btn {
   padding: 8px 11px;
   font-size: 18px;
   line-height: 20px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .btn-sm {
   padding: 2px 4px;
   font-size: 12px;
   line-height: 20px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .btn-xs {
   padding: 1px 3px;
   font-size: 12px;
   line-height: 18px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 /*forms.less*/
 .form .form-group {
@@ -2445,7 +2447,7 @@ a.btn {
 }
 .form .form-control {
   display: inline-block;
-  border-radius: 3px;
+  border-radius: 2px;
   font-size: 14px;
   color: #555;
   width: 170px;
@@ -2491,7 +2493,7 @@ a.btn {
   vertical-align: middle;
   font-size: 14px;
   color: #a94442;
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 5px 8px;
   background-color: #f2dede;
 }
@@ -2786,7 +2788,7 @@ dropup.open .dropdown-menu {
   min-width: 14px;
   padding: 4px 8px;
   margin: 0 5px 0 0;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .pagination a.ellipse {
   border: none;
@@ -2812,7 +2814,7 @@ dropup.open .dropdown-menu {
   display: inline-block;
   width: 2em;
   border: 1px solid #BBB;
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 4px 8px;
 }
 .pagination .skip-page .skip:focus {
@@ -2821,7 +2823,7 @@ dropup.open .dropdown-menu {
 .pagination .page-size {
   display: inline-block;
   border: 1px solid #BBB;
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 4px 8px;
   height: 30px;
 }

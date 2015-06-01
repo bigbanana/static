@@ -141,7 +141,7 @@ define('widget.responsivetable',['jquery','underscore','browser','jquery.ui','jq
 			'<div class="responsive-table-toolbar">',
 				'<div class="btn-group dropdown">',
 					'<button class="btn" data-action="show-all">显示全部</button>',
-					' <button class="btn dropdown-toggle" data-toggle="dropdown">显示</button>',
+					' <button class="btn dropdown-toggle" data-toggle="dropdown">显示 <i class="fa"></i></button>',
 				'</div>',
 			'</div>'
 		].join(''))

@@ -1,40 +1,42 @@
-@dbSubnavWidth : 200px;
-@navColor : @backgroundColorBase;
+@navHeight : 18px;
+@navColor : #fff;
+@navBackgroundColor : #0a4891;
+
+/*subnav*/
+@subnavWidth : 200px;
+@subNavColor : #3366cc;
+@subNavBackgroundColor : #ffffff;
 header{
-  /* logo */
-  .logo{
-    float:left;width: 130px;height: 34px;
-    background: url(http://db.yaozh.com/newstyle/img/logo.gif) no-repeat 0 0 transparent;
-  }
   /* topnav */
   .topnav{
-    float:left;background-color: @navColor;line-height: 18px;
+    float:left;background-color: @navBackgroundColor;line-height: 18px;
     .item{
       float:left;position: relative;
       .name{
         display: inline-block;padding:@paddingHorizontalBase @paddingVerticalBase;
+        color:@navColor;height:@navHeight;
+        position: relative;z-index: 2;
         &:hover{text-decoration: none;}
       }
       .subnav{
-        position: absolute;width:@dbSubnavWidth;left:50%;top:100%;
-        margin-left: -(@dbSubnavWidth/2);display: none;
+        position: absolute;z-index: 1;
+        width:@subnavWidth;left:-1px;top:@navHeight+@paddingHorizontalBase*2-1;
+        display: none;
         padding-top: 10px;_padding-top: 0px;
+        background-color: @subNavBackgroundColor;
+        border:1px solid @borderColor;
         li{
           a{
-            display: block;background-color: @navColor;_zoom:1;
+            display: block;_zoom:1;color:@subNavColor;
             padding: @paddingHorizontalBase*0.8 @paddingVerticalBase*0.8;
-            &:hover{
-              background-color: #CFCFCF;text-decoration: none;
-            }
           }
-        }
-        &:before{
-          content:"";position: absolute;left:50%;top:-10px;margin-left: -10px;
-          border:10px solid transparent;border-bottom-color: @navColor;
         }
       }
       &.active{
-        background-color: #CFCFCF;
+        .name{
+          background-color: @subNavBackgroundColor;
+          color: @subNavColor;
+        }
         .subnav{
           display: block;
         }
