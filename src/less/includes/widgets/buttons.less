@@ -53,7 +53,7 @@
   
   /*states*/
   .button-variant(#333; #fff; #ccc);
-  .button-size(@paddingVerticalBase;@paddingHorizontalBase;@fontSizeBase;@inputLineHeight;@borderRadiusBase);
+  .button-size(@paddingVerticalBase;@paddingHorizontalBase*2;@fontSizeBase;@inputLineHeight;@borderRadiusBase);
 }
 a.btn{text-decoration: none;}
 
@@ -77,11 +77,11 @@ a.btn{text-decoration: none;}
 /*size*/
 
 .btn-lg{
-  .button-size(floor(@paddingVerticalBase*2);floor(@paddingHorizontalBase*1.4);18px;@inputLineHeight;@borderRadiusBase*2;)
+  .button-size(floor(@paddingVerticalBase*2);floor(@paddingHorizontalBase*3);18px;@inputLineHeight;@borderRadiusBase*2;)
 }
 .btn-sm{
-  .button-size(floor(@paddingVerticalBase*0.6);floor(@paddingHorizontalBase*0.6);12px;@inputLineHeight;@borderRadiusBase;)
+  .button-size(floor(@paddingVerticalBase*0.6);floor(@paddingHorizontalBase*1.5);12px;@inputLineHeight;@borderRadiusBase;)
 }
 .btn-xs{
-  .button-size(floor(@paddingVerticalBase*0.4);floor(@paddingHorizontalBase*0.4);12px;@inputLineHeight*0.9;@borderRadiusBase;)
+  .button-size(floor(@paddingVerticalBase*0.4);floor(@paddingHorizontalBase*1);12px;@inputLineHeight*0.9;@borderRadiusBase;)
 }

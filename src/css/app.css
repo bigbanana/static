@@ -359,7 +359,6 @@ html {
   display: block!important;
 }
 /* 无序列表 */
-.ul li,
 ul.dot li {
   padding-left: 16px;
   background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
@@ -2186,7 +2185,7 @@ hr.dotted {
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
-  padding: 4px 8px;
+  padding: 4px 16px;
   font-size: 14px;
   line-height: 20px;
   border-radius: 2px;
@@ -2408,19 +2407,19 @@ a.btn {
 }
 /*size*/
 .btn-lg {
-  padding: 8px 11px;
+  padding: 8px 24px;
   font-size: 18px;
   line-height: 20px;
   border-radius: 4px;
 }
 .btn-sm {
-  padding: 2px 4px;
+  padding: 2px 12px;
   font-size: 12px;
   line-height: 20px;
   border-radius: 2px;
 }
 .btn-xs {
-  padding: 1px 3px;
+  padding: 1px 8px;
   font-size: 12px;
   line-height: 18px;
   border-radius: 2px;
@@ -2691,6 +2690,22 @@ a.btn {
     display: table-cell;
     display: inline\9;
   }
+}
+/*dialog.less*/
+div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 0;
+}
+div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
+  color: #fff;
+  font-size: 16px;
+}
+div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close:hover .fa {
+  color: #ccc;
 }
 /*dropdown.less*/
 .dropdown .dropdown-menu {
