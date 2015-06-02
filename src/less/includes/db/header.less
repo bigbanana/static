@@ -1,49 +1,68 @@
-@dbSubnavWidth : 200px;
-@navColor : @backgroundColorBase;
-header{
-  /* logo */
-  .logo{
-    float:left;width: 130px;height: 34px;
-    background: url(http://db.yaozh.com/newstyle/img/logo.gif) no-repeat 0 0 transparent;
-  }
-  /* topnav */
-  .topnav{
-    float:left;background-color: @navColor;line-height: 18px;
-    .item{
-      float:left;position: relative;
-      .name{
-        display: inline-block;padding:@paddingHorizontalBase @paddingVerticalBase;
-        &:hover{text-decoration: none;}
+@navHeight : 18px;
+@navPaddingHorizontal : 6px;
+@navPaddingVertical : 5px;
+@navColor : #dee2ec;
+@navBackgroundColor : #0a4891;
+
+/*subnav*/
+@subnavWidth : 240px;
+@subNavColor : #3366cc;
+@subNavBackgroundColor : #ffffff;
+
+/* topnav */
+.topnav{
+  background-color: @navBackgroundColor;
+  height: @navHeight+@navPaddingHorizontal*2;
+  .item{
+    float:left;position: relative;
+    .name{
+      display: inline-block;padding:@navPaddingHorizontal @navPaddingVertical*4 @navPaddingHorizontal @navPaddingVertical;
+      color:@navColor;line-height: @navHeight;
+      position: relative;z-index: 2;
+      &:hover{text-decoration: none;}
+      &.arrow:after{
+        content:"";position: absolute;z-index: 2;
+        right:@navPaddingVertical*4+-12px;bottom:@navHeight/2;
+        margin-left:-4px;border:4px solid transparent;
+        border-top-color: #8fabcc;
       }
-      .subnav{
-        position: absolute;width:@dbSubnavWidth;left:50%;top:100%;
-        margin-left: -(@dbSubnavWidth/2);display: none;
-        padding-top: 10px;_padding-top: 0px;
-        li{
-          a{
-            display: block;background-color: @navColor;_zoom:1;
-            padding: @paddingHorizontalBase*0.8 @paddingVerticalBase*0.8;
-            &:hover{
-              background-color: #CFCFCF;text-decoration: none;
-            }
-          }
-        }
-        &:before{
-          content:"";position: absolute;left:50%;top:-10px;margin-left: -10px;
-          border:10px solid transparent;border-bottom-color: @navColor;
-        }
-      }
-      &.active{
-        background-color: #CFCFCF;
-        .subnav{
-          display: block;
+    }
+    .subnav{
+      position: absolute;z-index: 1;
+      width:@subnavWidth;left:-1px;top:@navHeight+@navPaddingHorizontal*2-1;
+      display: none;
+      padding: 10px 0;
+      background-color: @subNavBackgroundColor;
+      border:1px solid @borderColor;
+      li{
+        padding-left: 20px;background-position: 10px center;
+        a{
+          display: block;_zoom:1;color:@subNavColor;line-height: @navHeight;
+          padding: @navPaddingHorizontal*0.8 @navPaddingVertical*0.8;
         }
       }
     }
+
+    &.active{
+      .name{
+        background-color: @subNavBackgroundColor;
+        color: @subNavColor;
+      }
+      .subnav{
+        display: block;
+      }
+    }
   }
+
   /* padding */
   .padding{
-    display: inline-block;line-height: 18px;
+    display: inline-block;line-height: @navHeight;
+    padding:@navPaddingHorizontal @navPaddingVertical;
+    a{
+      color:@navColor;
+    }
   }
+
 }
+
   

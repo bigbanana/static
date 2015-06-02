@@ -53,13 +53,13 @@
   
   /*states*/
   .button-variant(#333; #fff; #ccc);
-  .button-size(@paddingVerticalBase;@paddingHorizontalBase;@fontSizeBase;@inputLineHeight;@borderRadiusBase);
+  .button-size(@paddingVerticalBase;@paddingHorizontalBase*2;@fontSizeBase;@inputLineHeight;@borderRadiusBase);
 }
 a.btn{text-decoration: none;}
 
 /*colors*/
 .btn-blue{
-  .button-variant(#fff; #337ab7; #2e6da4);
+  .button-variant(#fff; #427fed; #427fed);
 }
 .btn-green{
   .button-variant(#fff; #5cb85c; #4cae4c);
@@ -77,11 +77,11 @@ a.btn{text-decoration: none;}
 /*size*/
 
 .btn-lg{
-  .button-size(floor(@paddingVerticalBase*2);floor(@paddingHorizontalBase*1.4);18px;@inputLineHeight;6px;)
+  .button-size(floor(@paddingVerticalBase*2);floor(@paddingHorizontalBase*3);18px;@inputLineHeight;@borderRadiusBase*2;)
 }
 .btn-sm{
-  .button-size(floor(@paddingVerticalBase*0.6);floor(@paddingHorizontalBase*0.6);12px;@inputLineHeight;@borderRadiusBase;)
+  .button-size(floor(@paddingVerticalBase*0.6);floor(@paddingHorizontalBase*1.5);12px;@inputLineHeight;@borderRadiusBase;)
 }
 .btn-xs{
-  .button-size(floor(@paddingVerticalBase*0.4);floor(@paddingHorizontalBase*0.4);12px;@inputLineHeight*0.9;@borderRadiusBase;)
+  .button-size(floor(@paddingVerticalBase*0.4);floor(@paddingHorizontalBase*1);12px;@inputLineHeight*0.9;@borderRadiusBase;)
 }

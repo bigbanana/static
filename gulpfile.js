@@ -22,7 +22,7 @@ var src  = './src',
   devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
   probaseUrl http://static.yaozh.com/js
 */
-var devbaseUrl = "http://192.168.1.137/static/src/js",
+var devbaseUrl = "http://static.yaozh.com/js",
     onlineBaseUrl = "http://static.yaozh.com/js";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin","/js/project/db/public"];

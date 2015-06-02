@@ -8,10 +8,6 @@ require(['browser'],function(browser){
     //开启ie6兼容
     require(['ie6'],function(){});
   }
-  if(browser<9){
-    //开启Respond 响应式兼容
-    require(['respond'],function(){});
-  }
   if(browser>7){
     //开启input focus追踪
     require(['jquery.focusInput'],function($){$.focusInput();});
