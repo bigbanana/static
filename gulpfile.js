@@ -25,7 +25,7 @@ var src  = './src',
 var devbaseUrl = "http://static.yaozh.com/js",
     onlineBaseUrl = "http://static.yaozh.com/js";
 //所有需要合并的模块配置
-var concatConfig = ["/js/lib","/js/module","/js/plugin","/js/project/db/public"];
+var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置
 var copyConfig = ["/fonts","/thirdparty","/images","/test"];
 //构建app.js需要的模块
