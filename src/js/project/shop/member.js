@@ -41,14 +41,18 @@ define(['jquery','baidu.map','jquery.validate','jquery.ui'],function($){
       if(obj>0){
         $.post(AJAX.linkage,{table:table,pid:obj},
         function(data){
-          $('#'+back+' .child').remove();
-          var content = '<select name="'+name+'" class="child">';
-          var option = '';
-          $.each(data,function(i,item){
-            option += '<option value="'+item['id']+'">'+item['name']+'</option>';
-          })
-          var content = content+option+'</select>';
-          $('#'+back+' select').after(content);
+          if(!data.length){
+            $('#'+back+' .child').remove();
+            var content = '<select name="'+name+'" class="child">';
+            var option = '';
+            $.each(data,function(i,item){
+              option += '<option value="'+item['id']+'">'+item['name']+'</option>';
+            })
+            var content = content+option+'</select>';
+            $('#'+back+' select').after(content);
+          }else{
+            $(this).attr('name',name);
+          }
         },'json');
       }
       else{
