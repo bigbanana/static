@@ -4,6 +4,7 @@
  *
  * Copyright 2006, 2015 Klaus Hartl
  * Released under the MIT license
+ * method [get,set,getJSON,defaults,remove]
  */
 (function (factory) {
 	if (typeof define === 'function' && define.amd) {

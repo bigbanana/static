@@ -1,18 +1,96 @@
+/* topbar */
+@topItemPadding : 8px;
+.topbar{
+  height:30px;line-height: 30px;
+  position: relative;z-index: 2;
+  .right-box{
+    float:right;
+  }
+  .item{
+    float:left;padding: 0 @topItemPadding;
+    &.line{
+      height:14px;line-height: 14px;
+      margin:8px @topItemPadding;vertical-align: middle;
+      border-left:1px solid @colorBase;
+      padding:0 0 0 @topItemPadding*2;
+    }
+    &.app{
+      color:#fff; margin:3px 10px; 
+      cursor:default; padding:0 3px;line-height: 20px;
+      position:relative;border-radius:3px;color:#fff;
+      background-color: #4d90fe;border:1px solid #3079ed;
+      .fa{
+        font-size: 20px;vertical-align: top;position: relative;top:1px;
+      }
+      i{float:left; padding-right:5px;}
+      span{float:left;}
+      .hover-layer{
+        position: absolute;right:-1px;top:100%;
+        z-index: 2;padding-top:5px;display: none;
+        .box{
+          border:1px solid #ddd;background-color: #fff;
+          padding: 16px;width: 150px;
+          .btn{
+            display: block;height:22px;color:#fff;
+            span{
+              border-left: 1px solid #fff;line-height: 14px;
+              margin: 4px 0 0 4px;padding: 0 8px;
+            }
+          }
+        }
+      }
+      &:hover{
+        .hover-layer{display: block;}
+      }
+    }
+    &.user{
+      position: relative;padding-left: 40px;
+      img{
+        position: absolute;
+        width:26px;height:26px;
+        top:2px;left:6px;
+      }
+    }
+    &.sub-box{
+      position: relative;
+      .name{
+        display:block;position: relative;z-index: 2;background-color: #fff;
+      }
+      .subnav{
+        display: none;line-height: 24px;
+        position: absolute;z-index:1;top:29px;left:5px;min-width: 100px;
+        border:1px solid @borderColor;background-color: #fff;
+        a{
+          display: block;padding: 0 6px;
+        }
+      }
+      &:hover{
+        .subnav{
+          display: block;
+        }
+      }
+    }
+    &.cl-blue{color:#3366cc;}
+  }
+  a{
+    color:#666;
+  }
+}
+
+/* topnav */
 @navHeight : 18px;
 @navPaddingHorizontal : 6px;
 @navPaddingVertical : 5px;
 @navColor : #dee2ec;
 @navBackgroundColor : #0a4891;
-
-/*subnav*/
 @subnavWidth : 240px;
 @subNavColor : #3366cc;
 @subNavBackgroundColor : #ffffff;
 
-/* topnav */
 .topnav{
   background-color: @navBackgroundColor;
   height: @navHeight+@navPaddingHorizontal*2;
+  position: relative;z-index: 1;
   .item{
     float:left;position: relative;
     .name{
