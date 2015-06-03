@@ -1,2 +1,2 @@
-/* build : 564493634@qq.com 2015-05-25 15:04:16 */
+/* build : 564493634@qq.com 2015-06-03 15:20:47 */
 define("ie6",["jquery","DD_belatedPNG"],function(e,o){e(function(){o.fix("img,.png");try{document.execCommand("BackgroundImageCache",!1,!0)}catch(n){}e(document.body).on("mouseenter",".ie-hover",function(){e(this).addClass("hover")}).on("mouseleave",".ie-hover",function(){e(this).removeClass("hover")}),e(document.body).on("click","label",function(o){var n=e(o.target);if("INPUT"==n.prop("tagName"))return void o.stopPropagation();var t=e(this),i=t.children("input");i.length&&i.trigger("click")})})});
