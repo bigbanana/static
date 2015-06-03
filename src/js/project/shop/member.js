@@ -36,13 +36,13 @@ define(['jquery','baidu.map','jquery.validate','jquery.ui'],function($){
     });
   }
   function releaseSupply(){
-    window.show_child = function(obj,table,back){
+    window.show_child = function(obj,table,back,name){
 
       if(obj>0){
         $.post(AJAX.linkage,{table:table,pid:obj},
         function(data){
           $('#'+back+' .child').remove();
-          var content = '<select name="cid" class="child">';
+          var content = '<select name="'+name+'" class="child">';
           var option = '';
           $.each(data,function(i,item){
             option += '<option value="'+item['id']+'">'+item['name']+'</option>';
