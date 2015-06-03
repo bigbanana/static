@@ -1,2 +1,2 @@
-/* build : 564493634@qq.com 2015-06-03 15:25:58 */
+/* build : 564493634@qq.com 2015-06-03 15:45:35 */
 define(["jquery","jquery.ui"],function(t){function i(){var i=t(".tabs");i.tabs(),t.dialogSetting={width:800,height:600}}function n(){var i=t(".tabs");i.tabs()}function a(){t.dialogSetting={width:720,height:600}}function e(){var i=t(".tabs");i.tabs()}return{index:i,dataExamine:n,dataCode:a,changeCodeConfig:e}});

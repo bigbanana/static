@@ -37,7 +37,7 @@ define(['jquery','baidu.map','jquery.validate','jquery.ui'],function($){
   }
   function releaseSupply(){
     window.show_child = function(obj,table,back,name){
-
+      var _this = this;
       if(obj>0){
         $.post(AJAX.linkage,{table:table,pid:obj},
         function(data){
@@ -51,7 +51,8 @@ define(['jquery','baidu.map','jquery.validate','jquery.ui'],function($){
             var content = content+option+'</select>';
             $('#'+back+' select').after(content);
           }else{
-            $(this).attr('name',name);
+            $(_this).siblings('select').remove();
+            $(_this).attr('name',name);
           }
         },'json');
       }
