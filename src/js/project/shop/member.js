@@ -41,7 +41,7 @@ define(['jquery','baidu.map','jquery.validate','jquery.ui'],function($){
       if(obj>0){
         $.post(AJAX.linkage,{table:table,pid:obj},
         function(data){
-          if(!data.length){
+          if(data.length){
             $('#'+back+' .child').remove();
             var content = '<select name="'+name+'" class="child">';
             var option = '';
