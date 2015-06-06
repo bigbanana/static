@@ -7,6 +7,7 @@ define('widget.responsivetable',['jquery','underscore','browser','jquery.ui','jq
 			this.element.addClass( "responsive-table" ).wrap('<div class="responsive-table-wrapper"/>');
 			this.$wrap = this.element.parent();
 			this.$table = this.$tables = this.element.find('>table');
+			this.$actions = this.element.find('>.actions');
 			this.$head = this.$table.find('thead');
 			this.$body = this.$table.find('tbody');
 			this.initColumn();
@@ -60,6 +61,7 @@ define('widget.responsivetable',['jquery','underscore','browser','jquery.ui','jq
 		createToolbar: function(){
 			var _this = this;
 			this.$toolbar = $(this._tollbarTemp());
+			this.$toolbar.prepend(this.$actions);
 			this.element.before(this.$toolbar);
 			
 			this.createCheckGroup();

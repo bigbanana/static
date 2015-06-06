@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-06-02 17:07:34 */
+/* build : 564493634@qq.com 2015-06-05 16:30:24 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2137,6 +2137,7 @@ require.config({
     "jquery.marquee": "plugin/marquee",
     "jquery.rwdtable": "plugin/jquery.rwdtable",
     "jquery.dropdown": "plugin/dropdown",
+    "jquery.tab": "plugin/tab",
     "jquery.pagination": "plugin/pagination",
     "widget.responsivetable": "widget/responsivetable",
     "jquery.ui": "other/jquery-ui",

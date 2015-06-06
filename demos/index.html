@@ -7,53 +7,113 @@
   <script src="/static/src/js/app.js"></script>
   <!--[if lt IE 9]><script src="http://static.yaozh.com/js/special/html5shiv.js"></script><![endif]-->
   <style>
+    html,body{height:100%;}
     .font-dialog{padding:0!important;}
     .font-iframe{border:none;width:100%;height:96%;}
     body h3{margin:30px 0 10px;}
+    #menus{width:240px;float:left;margin-right: 10px;}
+    #menus .subnav p a{display: block;padding: 2px 0;}
+    #menus .subnav p.b{margin:20px 0 6px -10px;}
+    #maintab{overflow: hidden;}
+    .ui-tabs .ui-tabs-panel iframe{width:100%;height:100%;border:none;}
   </style>
 </head>
 <body class="m10">
-  <h1 class="tc">前端公用组件库</h1>
-
-  <div class="top-tabs">
-    <ul class="clearfix">
-      <li><a href="#top-tabs-1">通用</a></li>
-      <li><a href="#top-tabs-2">数据库</a></li>
-    </ul>
-    <div id="top-tabs-1">
-      <h2 class="mt20">通用模块</h2>
-      <div class="mt20 top-tabs">
-        <ul class="clearfix">
-          <li><a href="./docs/icon.html">按钮</a></li>
-          <li><a href="./docs/font.html">图标</a></li>
-          <li><a href="./docs/form.html">表单</a></li>
-          <li><a href="./docs/table.html">表格</a></li>
-          <li><a href="./docs/dropdown.html">下拉</a></li>
-          <li><a href="./docs/pagination.html">分页</a></li>
-          <li><a href="./docs/dialog.html">弹窗</a></li>
-        </ul>
-      </div>
+  <h1 class="tc mb10">前端公用组件库</h1>
+  <div id="menus">
+    <h3>通用模块</h3>
+    <div class="subnav">
+      <p><a data-tabs="#maintab" href="./docs/icon.html">按钮</a></p>
+      <p><a data-tabs="#maintab" href="./docs/font.html">图标</a></p>
+      <p><a data-tabs="#maintab" href="./docs/form.html">表单</a></p>
+      <p><a data-tabs="#maintab" href="./docs/table.html">表格</a></p>
+      <p><a data-tabs="#maintab" href="./docs/dropdown.html">下拉</a></p>
+      <p><a data-tabs="#maintab" href="./docs/pagination.html">分页</a></p>
+      <p><a data-tabs="#maintab" href="./docs/dialog.html">弹窗</a></p>
+      <p><a data-tabs="#maintab" href="./docs/tab.html">标签页</a></p>
+      <p><a data-tabs="#maintab" href="./docs/box.html">盒子</a></p>
+      <p><a data-tabs="#maintab" href="./docs/panel.html">面板</a></p>
     </div>
-    <div id="top-tabs-2">
-      <h2 class="mt20">db项目模块</h2>
-      <div class="mt20 top-tabs">
-        <ul class="clearfix">
-          <li><a href="./docs/db/header.html">header</a></li>
-          <li><a href="./docs/db/footer.html">footer</a></li>
-        </ul>
-      </div>
-    </div>
-
+    <h3>数据库</h3>
+    <div class="subnav">
+      <p class="b">公共模块</p>
+      <p><a data-tabs="#maintab" href="./docs/db/header.html">header</a></p>
+      <p><a data-tabs="#maintab" href="./docs/db/navigation.html">navigation</a></p>
+      <p><a data-tabs="#maintab" href="./docs/db/filter.html">filter</a></p>
+      <p><a data-tabs="#maintab" href="./docs/db/footer.html">footer</a></p>
+      <p><a data-tabs="#maintab" href="./docs/db/form.html">form</a></p>
+      <p><a data-tabs="#maintab" href="./docs/db/other.html">其它</a></p>
+      <p class="b">页面</p>
+      <p><a data-tabs="#maintab" href="./docs/db/pages/index.html">首页</a></p>
+      <p><a data-tabs="#maintab" href="./docs/db/pages/list.html">列表页</a></p>
+      <p><a data-tabs="#maintab" href="./docs/db/pages/user.html">用户中心</a></p>
+    </div> 
+  </div>
+  <div id="maintab" class="top-tabs">
+    <ul><li><a href="#tab-1">描述</a></li></ul>
+    <div id="tab-1">前端静态资源模块</div>
   </div>
 
-  
-
-  
-
   <script>
-    require(['jquery','jquery.ui'],function($){
+    require(['jquery','underscore','jquery.ui'],function($,_){
+      var $body = $(document.body);
+      $("#menus").accordion();
       //tab
-      $(".top-tabs").tabs();
+      $("#maintab").tabs();
+      /* 添加链接tab支持 */
+      +(function(){
+        $body.on('click',"a[data-tabs]",function(e){
+          var $link = $(this)
+          var tabs = $link.data('tabs');
+          var tab = $(tabs).data('uiTabs');
+
+          if(tab){
+            e.preventDefault();
+            var href = $link[0].href;
+            var title = $link.attr('title') || $link.text();
+            var id = encodeURIComponent(href);
+            var $target = tab.tabs.find('>a[href="#'+id+'"]');
+            var opt = {
+              id: id,
+              href: href,
+              title: title,
+              height: $body.height()-130
+            }
+            if($target.length==0){
+              var $li = $(tabNavTemp(opt));
+              var $target = $li.find('>a');
+              tab.tablist.append($li);
+              tab.element.append($(tabContentTemp(opt)));
+              tab.refresh();
+            }
+            $target.trigger('click');
+          }
+        });
+
+        $body.on("click",".ui-tabs-nav li .ui-icon-close",function() {
+          var $this = $(this);
+          var $tab = $this.closest(".ui-tabs")
+          var panelId = $this.closest( "li" ).remove().attr( "aria-controls" );
+          $(document.getElementById(panelId)).remove();
+          $tab.tabs( "refresh" );
+        });
+      })();
+
+      var tabNavTemp = _.template([
+        '<li>',
+          '<a href="#<%= id %>"><%= title %></a>',
+          '<span class="ui-icon ui-icon-close" role="presentation"></span>',
+        '</li>'
+      ].join(''));
+
+      var tabContentTemp = _.template([
+        '<div id="<%= id %>">',
+          '<div class="content">',
+            '<iframe class="tab-iframe" src="<%= href %>" style="height:<%= height%>px;"></iframe>',
+          '</div>',
+        '</div>'
+      ].join(''));
+
     });
   </script>
 </body>

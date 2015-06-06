@@ -1,0 +1,27 @@
+.ui-panel{
+  @titleHeight : 30px;
+  @padding : 16px;
+  padding: @padding;border:1px solid @borderColor;
+  background-color: #fff;
+  .ui-panel-title{
+    position: relative;
+    line-height: @titleHeight;
+    border-bottom: 2px solid @borderColor;
+    .ui-panel-name{
+      display: inline-block;font-size: 16px;
+    }
+    .ui-panel-side{
+      position: absolute;right: 0;top:0;
+      line-height: @titleHeight;
+      a{
+        &:hover{
+          color:@blue;
+        }
+      }
+      
+    }
+  }
+  .ui-panel-content{
+    padding-top: @padding;
+  }
+}

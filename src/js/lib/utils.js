@@ -1,6 +1,7 @@
-define("utils",['jquery'],function(){
+define("utils",['jquery','browser'],function($,browser){
   
   var utils = {
+    browser: browser,
     success: function(str){
       alert(str)
     },

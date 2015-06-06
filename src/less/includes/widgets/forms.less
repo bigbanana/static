@@ -1,22 +1,40 @@
 .form{
+  /* vars */
+  @inputLineHeight : 20px;
+  @inputWidth : 170px;
+  @inputBorder : 1px solid #ccc;
+  @inputBorderFocusColor : #66afe9;
+  @height : floor(@inputLineHeight+(@paddingVerticalBase+1)*2);
+
   .form-group{
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     _zoom:1;_position:relative;
   }
   .form-label{
-    float:left;font-weight: 700;line-height: @inputLineHeight;
-    padding:@paddingVerticalBase+1 @paddingHorizontalBase 0 0;
+    display: inline-block;vertical-align: middle;
+    line-height: @height;
     font-size:@fontSizeBase;
     .text-overflow();
   }
   .form-box{
     overflow: hidden;*zoom:1;
+    .btn{
+      &.form-control-width{
+        width:@inputWidth+@paddingHorizontalBase*2;padding-left: 0;padding-right: 0;
+      }
+    }
+    button{
+      &.btn.form-control-width{
+        width:@inputWidth+(@paddingHorizontalBase+1)*2;padding-left: 0;padding-right: 0;
+      }
+    }
   }
   .form-control{
     display: inline-block;border-radius:@borderRadiusBase;
     font-size: @fontSizeBase;color:#555;
     width:@inputWidth;line-height: @inputLineHeight;height: @inputLineHeight;vertical-align: middle;
     border:@inputBorder;padding:@paddingVerticalBase @paddingHorizontalBase;
+    .box-shadow(1px 1px 1px #eee inset);
     &:focus{
       border-color:@inputBorderFocusColor
     }
@@ -26,8 +44,12 @@
   }
   select.form-control{
     width:@inputWidth+(@paddingHorizontalBase+1)*2;
-    height:floor(@inputLineHeight+(@paddingVerticalBase+1)*2);
+    height:@height;
   }
+  
+
+  
+  
   .radio,.checkbox,.form-text{
     display:inline-block;line-height: @inputLineHeight;vertical-align: middle;
     font-size:@fontSizeBase;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
@@ -54,7 +76,7 @@
 
   &.align-right{
     .form-label{
-      width:5em;text-align: right;
+      float:left;width:5em;text-align: right;line-height: @inputLineHeight;
       padding:@paddingVerticalBase+1 @paddingHorizontalBase;
     }
     &.half-group{
