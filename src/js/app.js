@@ -2153,6 +2153,6 @@ require.config({
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
     "umeditor": "../thirdparty/umeditor/umeditor"
   },
-  urlArgs: "yaozhVersion=1.1.2"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.1.2",
   waitSeconds: 5
 })
