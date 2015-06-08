@@ -23,9 +23,9 @@ require(['jquery','browser','modernizr'],function($,browser,modernizr){
 
     //开启通用组件支持
     $body.find('[data-widget]').each(function(){
-      
       var $this = $(this);
       var data = $this.data();
+      if(data.ignore) return;
       var widget = data.widget;
       delete data.widget;
       require(['jquery.'+widget],function(){
