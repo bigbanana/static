@@ -1,0 +1,154 @@
+.page-user{
+  @leftBoxWidth : 200px;
+  background-color: #f5f5f5;
+  .main{
+    padding: @space 0; 
+  }
+  .left-box{
+    width:@leftBoxWidth;margin-right: @space;
+    float:left;
+    .nav-boxs{
+      @sp : 14px;
+      font-size: 14px;min-height: 674px;
+      border:1px solid @borderColor;
+      background-color: #fff;overflow: hidden;
+      a{
+        display: block;text-decoration: none;
+        &:hover{
+          color : @blue;
+        }
+      }
+      .nav-box{
+        margin: -1px @space 0;
+        border-top: 1px solid @borderColor;
+        .nav-title{
+          font-weight: 700;font-size: 16px;
+          margin: @sp -@space;padding:0 @space 0 @space+-4;border-left: 4px solid transparent;
+          .fa{
+            font-size: 18px;
+          }
+          &.active{
+            color : @blue;
+            border-left-color: @blue;
+          }
+        }
+        .nav-sub{
+          margin: 0 -@space;
+          a{
+            margin:floor(@sp*0.8) 0; padding: 0 32px;
+            &.active{
+              color : @blue;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-box{
+    .zoom();
+  }
+  .user-info{
+    @headWidth : 84px;
+    @lineSpace : 10px;
+    position: relative;
+    padding-left: @headWidth+@boxPadding*2;
+    height: @headWidth;
+    .head{
+      position: absolute;
+      left: @boxPadding;top:@boxPadding;
+    }
+    .fa{
+      font-size: 14px;
+    }
+    .title{
+      font-size: 16px;margin-top: 4px;
+
+      .vip{
+        font-size: 12px;display: inline-block;padding: 1px;
+        .border-radius(2px);line-height: 1;
+        background-color: #fee67d;color:#dd4d17;border:1px solid #dd4d17;
+        font-style: normal;
+      }
+    }
+    p{
+      margin-top: @lineSpace;
+      a{
+        &:hover{
+          color:@blue;
+        }
+      }
+    }
+  }
+  .rss-info{
+    .clearfix();
+    .db-info{
+      float: left;height:160px;
+      width: 46%;padding-right: 4%;
+    }
+    .report-info{
+      float: left;width: 46%;padding-left: 4%;
+      border-left: 1px solid @borderColor;
+      margin-left: -1px;
+
+      .report{
+        float:left;width:40%;margin-right: 10%;
+        .img{
+          @blue : #4d90fe;
+          border:2px solid @borderColor;
+          position: relative;text-align: center;
+          height: 100px;display: block;line-height: 100px;
+          img{vertical-align: middle;}
+          .status{
+            position: absolute;left:0;top:8px;padding: 2px 4px;
+            background-color: @blue;color:#fff;font-style: normal;
+            line-height: 1;
+            &.past{
+              color:@colorBase;
+              background-color: @borderColor;
+            }
+          }
+          &:hover{
+            border-color:@blue;
+          }
+
+        }
+        .title{
+          margin-top: 10px;text-align: center;
+        }
+      }
+    }
+  }
+  .fq-msg{
+    @msgWidth : @wrapper+-(@leftBoxWidth+@space);
+    @panelWidth : floor((@msgWidth+-@space)/2)+-(@boxPadding+1)*2;
+    margin-left: -@space;
+    .clearfix();
+    .ui-panel{
+      width:@panelWidth;float:left;
+      margin-left: @space;
+    }
+    .dot{  
+      line-height: 24px;
+      li{
+        position: relative;
+        padding-right: 80px;
+      }
+      a{
+        display: block;
+        .text-overflow();
+      }
+      .date{
+        position: absolute;top:0;right:0;
+      }
+    }
+  }
+  .ads{
+    @msgWidth : @wrapper+-(@leftBoxWidth+@space);
+    margin-left: -@space;
+    .clearfix();
+    .ad{
+      display: block;width:floor((@msgWidth+-@space)/2);
+      float:left;margin-left: @space;
+    }
+  }
+}

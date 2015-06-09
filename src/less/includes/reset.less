@@ -1,8 +1,5 @@
 /*
 KISSY CSS Reset
-理念：清除和重置是紧密不可分的
-特色：1.适应中文 2.基于最新主流浏览器
-维护：玉伯(lifesinger@gmail.com), 正淳(ragecarrier@gmail.com)
 */
 
 /* 防止ie6 css expression引起的fixed抖动  */
@@ -22,7 +19,7 @@ th, td { /* table elements 表格元素 */
 body,
 button, input, select, textarea { /* for ie */
     font: 12px/1.42 Microsoft Yahei, Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
-    color:#444;
+    color: @colorBase;
 }
 
 h1 { font-size: 18px; font-family:"microsoft yahei"; /* 18px / 12px = 1.5 */ }
@@ -38,7 +35,7 @@ small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正�
 ul, ol { list-style: none; }
 
 /* 重置文本格式元素 */
-a { text-decoration: none; color:#222;}
+a { text-decoration: none; color:@colorBase;}
 a:hover{text-decoration: underline;}
 
 abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */

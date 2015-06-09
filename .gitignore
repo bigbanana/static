@@ -1,3 +1,4 @@
 gulpfile.demo.js
 /node_modules
+/dist
 /src/thirdparty/umeditor/php/upload

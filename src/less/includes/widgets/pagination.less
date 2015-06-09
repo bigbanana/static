@@ -11,8 +11,8 @@
     font-weight: normal;
     text-align: center;
     border: 1px solid #BBB;
-    min-width: @paginationFontSize;
-    padding: @paddingVerticalBase @paddingHorizontalBase;
+    min-width: @paginationLineHeight;
+    padding: @paddingVerticalBase;
     margin: 0 5px 0 0;
     border-radius: @borderRadiusBase;
 
@@ -37,7 +37,6 @@
     min-width: 14px;
     margin: 0 5px 0 0;
   }
-
   .skip-page{
     .skip{
       display: inline-block;
@@ -61,4 +60,22 @@
     }
   }
 
+  /* 小按钮 */
+  &.pagination-sm{
+    @paginationFontSize : 12px;
+    @paginationLineHeight : floor(@inputLineHeight*0.8);
+    line-height: @paginationLineHeight;
+    font-size: @paginationFontSize;
+    a{
+      font-size: @paginationFontSize;
+      min-width: @paginationLineHeight;
+      padding: floor(@paddingVerticalBase/2);
+    }
+    &.ellipse{
+      line-height: @paginationLineHeight+2;
+    }
+    .page-size{
+      height:floor(@paginationLineHeight+(@paddingVerticalBase+1)*2);
+    }
+  }
 }

@@ -1,9 +1,15 @@
 /*面包屑*/
 .ui-crumb{
-  padding: 6px;
+  @padding : 6px;
+  padding: @padding;
   border:1px solid @borderColor;
-  i{
+  position: relative;
+  background-color: #fff;
+  em{
     font-style: normal;
     font-family: consolas;
+  }
+  .info{
+    position: absolute;top:@padding;right:@padding;
   }
 }

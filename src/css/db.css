@@ -2,6 +2,7 @@
 /*颜色*/
 /*border*/
 /*控件基本属性*/
+/*box*/
 /* @import "mixin.less"; */
 /* 样式重置 */
 /* @import "reset.less" */
@@ -254,7 +255,7 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   line-height: 14px;
   margin: 8px 8px;
   vertical-align: middle;
-  border-left: 1px solid #444444;
+  border-left: 1px solid #333333;
   padding: 0 0 0 16px;
 }
 .ui-topbar .item.app .app-icon {
@@ -377,7 +378,7 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   height: 40px;
   background: url('../images/project/db/logo.png') no-repeat 0 -60px transparent;
   vertical-align: middle;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 .header-bar .search-box {
   display: inline-block;
@@ -463,6 +464,7 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   color: #ffff00;
   text-decoration: none;
   height: 36px;
+  margin-left: 8px;
 }
 .user-header-bar .logo-box .text {
   line-height: 1;
@@ -498,7 +500,7 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   position: relative;
 }
 .user-header-bar .search-box .search-type-select {
-  width: 80px;
+  width: 70px;
   line-height: 28px;
   height: 28px;
   visibility: hidden;
@@ -586,11 +588,54 @@ footer .fa,
 .footer .fa {
   font-size: 20px;
   margin: 0 6px;
-  color: #444444;
+  color: #333333;
 }
 footer .fa:hover,
 .footer .fa:hover {
   text-decoration: none;
+}
+footer.user-footer,
+.footer.user-footer {
+  color: #999;
+  background-color: #ffffff;
+  border-top: 2px solid #488ede;
+}
+footer.user-footer .links,
+.footer.user-footer .links {
+  padding: 0 10px 20px 10px;
+  position: relative;
+}
+footer.user-footer .links .follow,
+.footer.user-footer .links .follow {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+footer.user-footer .links a,
+.footer.user-footer .links a {
+  margin-right: 16px;
+}
+footer.user-footer .links a.fa,
+.footer.user-footer .links a.fa {
+  margin-right: 8px;
+}
+footer.user-footer .relative,
+.footer.user-footer .relative {
+  min-height: 100px;
+}
+footer.user-footer .contacts,
+.footer.user-footer .contacts {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+footer.user-footer .contacts b,
+.footer.user-footer .contacts b {
+  color: #333333;
+}
+footer.user-footer p,
+.footer.user-footer p {
+  margin-top: 4px;
 }
 /* @import "filter.less" */
 .ui-filter .row {
@@ -760,10 +805,17 @@ footer .fa:hover,
 .ui-crumb {
   padding: 6px;
   border: 1px solid #dddddd;
+  position: relative;
+  background-color: #fff;
 }
-.ui-crumb i {
+.ui-crumb em {
   font-style: normal;
   font-family: consolas;
+}
+.ui-crumb .info {
+  position: absolute;
+  top: 6px;
+  right: 6px;
 }
 /* 页面 */
 /* @import "page-index.less" */
@@ -817,4 +869,218 @@ footer .fa:hover,
   font-weight: 700;
   cursor: pointer;
 }
+/* @import "page-list.less" */
+.page-list .main {
+  padding-bottom: 100px;
+}
 /* @import "page-user.less" */
+.page-user {
+  background-color: #f5f5f5;
+}
+.page-user .main {
+  padding: 16px 0;
+}
+.page-user .left-box {
+  width: 200px;
+  margin-right: 16px;
+  float: left;
+}
+.page-user .left-box .nav-boxs {
+  font-size: 14px;
+  min-height: 674px;
+  border: 1px solid #dddddd;
+  background-color: #fff;
+  overflow: hidden;
+}
+.page-user .left-box .nav-boxs a {
+  display: block;
+  text-decoration: none;
+}
+.page-user .left-box .nav-boxs a:hover {
+  color: #3366cc;
+}
+.page-user .left-box .nav-boxs .nav-box {
+  margin: -1px 16px 0;
+  border-top: 1px solid #dddddd;
+}
+.page-user .left-box .nav-boxs .nav-box .nav-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 14px -16px;
+  padding: 0 16px 0 12px;
+  border-left: 4px solid transparent;
+}
+.page-user .left-box .nav-boxs .nav-box .nav-title .fa {
+  font-size: 18px;
+}
+.page-user .left-box .nav-boxs .nav-box .nav-title.active {
+  color: #3366cc;
+  border-left-color: #3366cc;
+}
+.page-user .left-box .nav-boxs .nav-box .nav-sub {
+  margin: 0 -16px;
+}
+.page-user .left-box .nav-boxs .nav-box .nav-sub a {
+  margin: 11px 0;
+  padding: 0 32px;
+}
+.page-user .left-box .nav-boxs .nav-box .nav-sub a.active {
+  color: #3366cc;
+}
+.page-user .right-box {
+  overflow: hidden;
+  *zoom: 1;
+}
+.page-user .user-info {
+  position: relative;
+  padding-left: 116px;
+  height: 84px;
+}
+.page-user .user-info .head {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+}
+.page-user .user-info .fa {
+  font-size: 14px;
+}
+.page-user .user-info .title {
+  font-size: 16px;
+  margin-top: 4px;
+}
+.page-user .user-info .title .vip {
+  font-size: 12px;
+  display: inline-block;
+  padding: 1px;
+  -webkit-border-radius: 2px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 2px;
+  -moz-background-clip: padding;
+  border-radius: 2px;
+  background-clip: padding-box;
+  line-height: 1;
+  background-color: #fee67d;
+  color: #dd4d17;
+  border: 1px solid #dd4d17;
+  font-style: normal;
+}
+.page-user .user-info p {
+  margin-top: 10px;
+}
+.page-user .user-info p a:hover {
+  color: #3366cc;
+}
+.page-user .rss-info {
+  *zoom: 1;
+}
+.page-user .rss-info:before,
+.page-user .rss-info:after {
+  content: "";
+  display: table;
+}
+.page-user .rss-info:after {
+  clear: both;
+}
+.page-user .rss-info .db-info {
+  float: left;
+  height: 160px;
+  width: 46%;
+  padding-right: 4%;
+}
+.page-user .rss-info .report-info {
+  float: left;
+  width: 46%;
+  padding-left: 4%;
+  border-left: 1px solid #dddddd;
+  margin-left: -1px;
+}
+.page-user .rss-info .report-info .report {
+  float: left;
+  width: 40%;
+  margin-right: 10%;
+}
+.page-user .rss-info .report-info .report .img {
+  border: 2px solid #dddddd;
+  position: relative;
+  text-align: center;
+  height: 100px;
+  display: block;
+  line-height: 100px;
+}
+.page-user .rss-info .report-info .report .img img {
+  vertical-align: middle;
+}
+.page-user .rss-info .report-info .report .img .status {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 2px 4px;
+  background-color: #4d90fe;
+  color: #fff;
+  font-style: normal;
+  line-height: 1;
+}
+.page-user .rss-info .report-info .report .img .status.past {
+  color: #333333;
+  background-color: #dddddd;
+}
+.page-user .rss-info .report-info .report .img:hover {
+  border-color: #4d90fe;
+}
+.page-user .rss-info .report-info .report .title {
+  margin-top: 10px;
+  text-align: center;
+}
+.page-user .fq-msg {
+  margin-left: -16px;
+  *zoom: 1;
+}
+.page-user .fq-msg:before,
+.page-user .fq-msg:after {
+  content: "";
+  display: table;
+}
+.page-user .fq-msg:after {
+  clear: both;
+}
+.page-user .fq-msg .ui-panel {
+  width: 450px;
+  float: left;
+  margin-left: 16px;
+}
+.page-user .fq-msg .dot {
+  line-height: 24px;
+}
+.page-user .fq-msg .dot li {
+  position: relative;
+  padding-right: 80px;
+}
+.page-user .fq-msg .dot a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-user .fq-msg .dot .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.page-user .ads {
+  margin-left: -16px;
+  *zoom: 1;
+}
+.page-user .ads:before,
+.page-user .ads:after {
+  content: "";
+  display: table;
+}
+.page-user .ads:after {
+  clear: both;
+}
+.page-user .ads .ad {
+  display: block;
+  width: 484px;
+  float: left;
+  margin-left: 16px;
+}

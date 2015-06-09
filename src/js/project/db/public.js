@@ -1,12 +1,8 @@
 require(['jquery','utils','jquery.waypoints','jquery.ui','jquery.pagination'],function($,utils){
   var $body = $(document.body);
   /**
-   * 添加全局组件自动实例支持
+   * 组件默认值设置
    */
-  +(function(){
-    /* 添加pagination支持*/
-    $('.pagination').pagination();
-  })();
 
   //topnav
   +(function(){

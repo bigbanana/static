@@ -44,7 +44,7 @@ define('jquery.pagination',['jquery','underscore'],function($,_){
       var totalPage = Math.ceil(this.total/this.pageSize);
       var items = [];
       this.$el.empty();
-      if(totalPage <= 1) return;
+      if(this.currentPage>totalPage) return;
       //添加当前页
       items.push({page: this.currentPage,html: this.currentPage,style:'current'});
 
@@ -100,7 +100,8 @@ define('jquery.pagination',['jquery','underscore'],function($,_){
       this.$el.append($els);
 
       //附加功能
-      this.showTotal && this.$el.append('<span class="total-page">共 '+totalPage+' 页</span>');
+      this.showPages && this.$el.append('<span class="total-page">共 '+totalPage+' 页</span>');
+      this.showNums && this.$el.append('<span class="total-nums">共 '+this.total+' 条</span>');
       this.skipPage && this._skipPage();
       this.pageSizeSelect && this._pageSizeSelect();
     },
@@ -188,7 +189,8 @@ define('jquery.pagination',['jquery','underscore'],function($,_){
       pageSizeSelect: false,//是否允许选择每页数量
       pageSizeArray: [10,20,50,100],//分页选择控制
       skipPage: false,//是否允许跳转到指定页
-      showTotal: false,//是否显示总页数
+      showPages: false,//是否显示总页数
+      showNums: true,//是否显示总条数
       onChange: $.noop
     }
   });

@@ -2,13 +2,11 @@
 /*颜色*/
 /*border*/
 /*控件基本属性*/
+/*box*/
 /* @import "mixin.less"; */
 /* @import "reset.less" */
 /*
 KISSY CSS Reset
-理念：清除和重置是紧密不可分的
-特色：1.适应中文 2.基于最新主流浏览器
-维护：玉伯(lifesinger@gmail.com), 正淳(ragecarrier@gmail.com)
 */
 /* 防止ie6 css expression引起的fixed抖动  */
 html body {
@@ -53,7 +51,7 @@ textarea {
   /* for ie */
   font: 12px/1.42 Microsoft Yahei, Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
   /* 用 ascii 字符表示，使得在任何编码下都无问题 */
-  color: #444;
+  color: #333333;
 }
 h1 {
   font-size: 18px;
@@ -102,7 +100,7 @@ ol {
 /* 重置文本格式元素 */
 a {
   text-decoration: none;
-  color: #222;
+  color: #333333;
 }
 a:hover {
   text-decoration: underline;
@@ -217,6 +215,18 @@ html {
 }
 .ml20 {
   margin-left: 20px!important;
+}
+.offset-top {
+  margin-top: 16px;
+}
+.offset-right {
+  margin-right: 16px;
+}
+.offset-bottom {
+  margin-bottom: 16px;
+}
+.offset-left {
+  margin-left: 16px;
 }
 /*padding*/
 .padding {
@@ -380,6 +390,10 @@ ul.dot li {
 /*分隔线*/
 hr.dotted {
   border-top-style: dotted;
+}
+/*定位*/
+.relative {
+  position: relative;
 }
 /* @import "font-awesome.less" */
 /*!
@@ -2540,6 +2554,7 @@ a.btn {
   text-align: right;
   line-height: 20px;
   padding: 5px 8px;
+  margin-right: 8px;
 }
 .form.align-right.half-group {
   *zoom: 1;
@@ -2840,6 +2855,7 @@ dropup.open .dropdown-menu {
   color: #666;
   line-height: 20px;
   font-size: 14px;
+  /* 小按钮 */
 }
 .pagination a {
   display: inline-block;
@@ -2849,8 +2865,8 @@ dropup.open .dropdown-menu {
   font-weight: normal;
   text-align: center;
   border: 1px solid #BBB;
-  min-width: 14px;
-  padding: 4px 8px;
+  min-width: 20px;
+  padding: 4px;
   margin: 0 5px 0 0;
   border-radius: 2px;
 }
@@ -2894,13 +2910,31 @@ dropup.open .dropdown-menu {
 .pagination .page-size:focus {
   border-color: #66afe9;
 }
+.pagination.pagination-sm {
+  line-height: 16px;
+  font-size: 12px;
+}
+.pagination.pagination-sm a {
+  font-size: 12px;
+  min-width: 16px;
+  padding: 2px;
+}
+.pagination.pagination-sm.ellipse {
+  line-height: 18px;
+}
+.pagination.pagination-sm .page-size {
+  height: 26px;
+}
 /*box.less*/
 .ui-box {
   border: 1px solid #dddddd;
-  padding: 10px;
+  padding: 16px;
+  background-color: #fff;
+}
+.ui-box.ui-box-gray {
   background-color: #f1f1f1;
 }
-.ui-box.box-yellow {
+.ui-box.ui-box-yellow {
   border-color: #f0c36d;
   color: #a86722;
   background-color: #f9edbe;
