@@ -45,8 +45,13 @@ define('jquery.dropdownSelect',['jquery','underscore','jquery.dropdown'],functio
       var css = {
         width: this.$el.width()+2
       }
-      this.$widget = $(this._temp({list:this.list})).insertAfter(this.$el);
-      this.$widget.css(css);
+      if(!this.$widget){
+        this.$widget = $('<span class="ui-dropdown-select ui-dropdown">').insertAfter(this.$el);
+        this.$widget.css(css);
+      }else{
+        this.$widget.empty();
+      }
+      this.$widget.html(this._temp({list:this.list}));
       this.$selectName = this.$widget.find('.ui-dropdown-select-name');
       this.$selectMenu = this.$widget.find('.ui-dropdown-select-menu');
       this.changeValue();
@@ -60,17 +65,15 @@ define('jquery.dropdownSelect',['jquery','underscore','jquery.dropdown'],functio
       this.$el.show();
     },
     _temp: _.template([
-      '<span class="ui-dropdown-select ui-dropdown">',
-        '<a href="javascript:;" data-widget="dropdown" class="ui-dropdown-select-name"></a>',
-        '<i class="ui-dropdown-arrow"></i>',
-        '<div class="ui-dropdown-menu">',
-          '<ul>',
-          '<% _.each(list,function(item){ %>',
-            '<li data-value="<%= item.value %>"><a href="javascript:;"><%= item.text %></a></li>',
-          '<% }) %>',
-          '</ul>',
-        '</div>',
-      '</span>'
+      '<a href="javascript:;" data-widget="dropdown" class="ui-dropdown-select-name"></a>',
+      '<i class="ui-dropdown-arrow"></i>',
+      '<div class="ui-dropdown-menu">',
+        '<ul>',
+        '<% _.each(list,function(item){ %>',
+          '<li data-value="<%= item.value %>"><a href="javascript:;"><%= item.text %></a></li>',
+        '<% }) %>',
+        '</ul>',
+      '</div>',
     ].join(''))
   });
   $.extend(DropdownSelect,{

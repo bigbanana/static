@@ -17,13 +17,18 @@
     position: absolute;display: none;left:0;z-index: 1000;
     padding: 5px 0;margin: 2px 0 0;font-size: 14px;
     text-align: left;list-style: none;background-color: #fff;
-    border: 1px solid #ccc;border: 1px solid rgba(0,0,0,.15);
-    .border-radius(2px);
+    border: 1px solid @borderColor;border: 1px solid rgba(0,0,0,.15);
+    .border-radius(@borderRadiusBase);
     .box-shadow(0px 2px 8px 1px rgba(0,0,0,0.2));
     li{
       a{
         display: block;padding: 3px 20px;clear: both;font-weight: 400;
         line-height: 1.42857143;color: #333;white-space: nowrap;
+        text-decoration: none;
+        &:hover{
+          color:@blue;
+          background-color: #f2f2f5;
+        }
       }
     }
   }
