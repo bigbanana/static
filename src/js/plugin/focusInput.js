@@ -1,5 +1,10 @@
-define('jquery.focusInput',['jquery','jquery.easing'],function($){
-
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.focusInput',['jquery','jquery.easing'], factory );
+  } else {
+    factory( jQuery );
+  }
+}(function( $ ) {
   var $body = $(document.body);
 
   var focusInput = {

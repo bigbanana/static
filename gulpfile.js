@@ -151,7 +151,7 @@ function initRequireConfig(opt){
     'require.config({',
       '  baseUrl: "<%= baseUrl %>",',
       '  paths: <%= paths %>,',
-      '  urlArgs: "yaozhVersion=1.1.2"<% if(!pro){ %>+"&data="+new Date().getTime()<% } %>,',
+      '  urlArgs: "yaozhVersion=1.1.3"<% if(!pro){ %>+"&data="+new Date().getTime()<% } %>,',
       '  waitSeconds: <%= waitSeconds %>',
     '})'
   ].join('\n'));
