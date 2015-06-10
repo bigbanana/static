@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-06-05 16:30:24 */
+/* build : 564493634@qq.com 2015-06-09 08:56:32 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2137,6 +2137,7 @@ require.config({
     "jquery.marquee": "plugin/marquee",
     "jquery.rwdtable": "plugin/jquery.rwdtable",
     "jquery.dropdown": "plugin/dropdown",
+    "jquery.dropdownSelect": "plugin/dropdownSelect",
     "jquery.tab": "plugin/tab",
     "jquery.pagination": "plugin/pagination",
     "widget.responsivetable": "widget/responsivetable",
@@ -2153,6 +2154,6 @@ require.config({
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
     "umeditor": "../thirdparty/umeditor/umeditor"
   },
-  urlArgs: "yaozhVersion=1.1.2",
+  urlArgs: "yaozhVersion=1.1.2"+"&data="+new Date().getTime(),
   waitSeconds: 5
 })

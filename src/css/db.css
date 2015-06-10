@@ -391,13 +391,6 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   vertical-align: middle;
   position: relative;
 }
-.header-bar .search-box .search-type-select {
-  width: 80px;
-  line-height: 34px;
-  height: 34px;
-  visibility: hidden;
-  *visibility: visible;
-}
 .header-bar .search-box .search {
   height: 34px;
   line-height: 34px;
@@ -435,11 +428,6 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
 }
 .header-bar .search-box .search-type .ui-icon {
   right: 2px;
-}
-.header-bar .search-box .search-type span.ui-selectmenu-text {
-  padding: 8px 16px 8px 8px;
-  height: 18px;
-  line-height: 18px;
 }
 /* user-header-bar */
 .user-header-bar {

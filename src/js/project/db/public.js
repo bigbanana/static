@@ -35,24 +35,10 @@ require(['jquery','utils','jquery.waypoints','jquery.ui','jquery.pagination'],fu
   !(function(){
     var $headerLayer = $(".header-bar,.user-header-bar"),
         $form = $headerLayer.find('form'),
-        $select = $form.find('.search-type-select')
+        $select = $form.find('.search-type-select'),
         $search = $form.find('.search'),
         $btn = $form.find('.search-btn');
 
-    if(utils.browser>7){
-      $select.selectmenu({
-        change: function(){
-          $select.trigger('change');
-        }
-      });
-      $select.each(function(){
-        var select = $(this).data('uiSelectmenu');
-        select.menuWrap.addClass('search-type-menu');
-        select.button.addClass('search-type');
-      });
-    }else{
-      $select.css({visibility:'visible'});
-    }
     $select.on('change',function(){
       var data = $select.find('option:selected').data();
       $form.attr('action',data.action);

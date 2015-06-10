@@ -68,7 +68,7 @@ define('widget.responsivetable',['jquery','underscore','browser','jquery.ui','jq
 		},
 		createCheckGroup: function(){
 			var _this = this;
-			this.$checkGroup = $('<ul class="dropdown-menu">').appendTo(this.$toolbar.find('.dropdown'));
+			this.$checkGroup = $('<ul class="ui-dropdown-menu ui-dropdown-impede">').appendTo(this.$toolbar.find('.ui-dropdown'));
 			this.$head.find('th').each(function(index){
 				var $this = $(this);
 				var data = $this.data();
@@ -141,9 +141,9 @@ define('widget.responsivetable',['jquery','underscore','browser','jquery.ui','jq
 		].join('')),
 		_tollbarTemp: _.template([
 			'<div class="responsive-table-toolbar">',
-				'<div class="btn-group dropdown">',
+				'<div class="btn-group ui-dropdown">',
 					'<button class="btn" data-action="show-all">显示全部</button>',
-					' <button class="btn dropdown-toggle" data-toggle="dropdown">显示 <i class="fa"></i></button>',
+					' <button class="btn dropdown-toggle" data-widget="dropdown">显示 <i class="fa"></i></button>',
 				'</div>',
 			'</div>'
 		].join(''))

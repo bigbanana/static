@@ -10,9 +10,9 @@
 <body>
 
 
-<div class="btn-group dropdown">
-  <button class="btn dropdown-toggle" data-toggle="dropdown">按钮下拉</button>
-  <ul class="dropdown-menu">
+<div class="ui-dropdown">
+  <button class="btn ui-dropdown-toggle" data-widget="dropdown" >按钮下拉</button>
+  <ul class="ui-dropdown-menu">
     <li>
       <label><input type="checkbox" name="column" value="0">Company</label>
     </li>
@@ -48,20 +48,12 @@
     </li>
   </ul>
 </div>
-<div class="btn-group dropdown">
-  <a class="" href="javascript:;" data-toggle="dropdown">链接下拉</a>
-  <div class="dropdown-menu">
+<div class="ui-dropdown">
+  <a class="" href="javascript:;" data-widget="dropdown">链接下拉</a>
+  <div class="ui-dropdown-menu ui-dropdown-impede">
     <p class="p10">随便弹点啥子东西都可以。</p>
   </div>
 </div>
-
-<script>
-  require(['jquery','jquery.dropdown'],function($){
-    $('.dropdown:eq(1) a').dropdown();
-  });
-</script>
-
-
 
 </body>
 </html>

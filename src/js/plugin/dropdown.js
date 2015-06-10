@@ -14,7 +14,7 @@
   // =========================
 
   var backdrop = '.dropdown-backdrop'
-  var toggle   = '[data-toggle="dropdown"]'
+  var toggle   = '[data-widget="dropdown"]'
   var Dropdown = function (element) {
     $(element).on('click.bs.dropdown', this.toggle)
   }
@@ -57,7 +57,6 @@
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
-
     if ($this.is('.disabled, :disabled')) return
 
     var $parent  = getParent($this)
@@ -154,13 +153,12 @@
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS
   // ===================================
-
   $(document)
     .on('click.bs.dropdown.data-api', clearMenus)
-    .on('click.bs.dropdown.data-api', '.dropdown form,.dropdown .dropdown-menu', function (e) { e.stopPropagation() })
+    .on('click.bs.dropdown.data-api', '.ui-dropdown form,.ui-dropdown .ui-dropdown-impede', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.ui-dropdown-menu', Dropdown.prototype.keydown)
 
   return $
 });

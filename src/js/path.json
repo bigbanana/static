@@ -26,6 +26,7 @@
   "jquery.marquee": "plugin/marquee",
   "jquery.rwdtable": "plugin/jquery.rwdtable",
   "jquery.dropdown": "plugin/dropdown",
+  "jquery.dropdownSelect": "plugin/dropdownSelect",
   "jquery.tab": "plugin/tab",
   "jquery.pagination": "plugin/pagination",
   "widget.responsivetable": "widget/responsivetable",

@@ -1,0 +1,24 @@
+.ui-dropdown-select{
+  @contentHeight : @inputLineHeight;
+  @height : floor(@contentHeight+(@paddingVerticalBase+1)*2);
+  @arrowWidth : 4px;
+  display: inline-block;
+  height: @height;line-height: @contentHeight;
+  .ui-dropdown-select-name{
+    border:1px solid @borderColor;
+    display: block;position: relative;z-index: 2;
+    height: @contentHeight;padding: @paddingVerticalBase @paddingHorizontalBase;
+  }
+  .ui-dropdown-arrow{
+    position: absolute;z-index: 1;
+    top:@height/2+-@arrowWidth+@arrowWidth/2;
+    right:@paddingHorizontalBase;
+    .arrow(bottom,@arrowWidth,#000);
+  }
+  &.open{
+    .ui-dropdown-arrow{
+      top:@height/2+-@arrowWidth+-@arrowWidth/2;
+      .arrow(top,@arrowWidth,#000);
+    }
+  }
+}
