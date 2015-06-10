@@ -1,8 +1,5 @@
 require(['jquery','utils','jquery.waypoints','jquery.ui','jquery.pagination'],function($,utils){
   var $body = $(document.body);
-  /**
-   * 组件默认值设置
-   */
 
   //topnav
   +(function(){

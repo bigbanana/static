@@ -1,7 +1,13 @@
 /**
  * dropdown 与 select集成
  */
-define('jquery.dropdownSelect',['jquery','underscore','jquery.dropdown'],function($,_){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.dropdownSelect',['jquery','underscore','jquery.dropdown'], factory );
+  } else {
+    factory( jQuery , _);
+  }
+}(function($ , _) {  
   var DropdownSelect = function(opt){
     if(opt.event == "hover"){
       opt.event = "mouseenter";

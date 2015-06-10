@@ -244,7 +244,7 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   height: 30px;
   line-height: 30px;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 .ui-topbar .item {
   float: left;
@@ -353,6 +353,8 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   height: 70px;
   padding: 10px 0;
   background-color: #fff;
+  position: relative;
+  z-index: 9;
 }
 .header-bar .header-layer {
   padding: 10px 0;
@@ -1083,4 +1085,60 @@ footer.user-footer p,
   width: 484px;
   float: left;
   margin-left: 16px;
+}
+/* @import "page-custom.less" */
+.page-custom .header-bar {
+  padding: 0;
+  height: auto;
+}
+.page-custom .banner {
+  position: relative;
+  height: 403px;
+}
+.page-custom .banner img {
+  position: absolute;
+  left: 50%;
+  width: 1874px;
+  margin-left: -937px;
+  height: 403px;
+}
+.page-custom .main {
+  padding: 80px 0;
+}
+.page-custom .tese {
+  *zoom: 1;
+}
+.page-custom .tese:before,
+.page-custom .tese:after {
+  content: "";
+  display: table;
+}
+.page-custom .tese:after {
+  clear: both;
+}
+.page-custom .tese .item {
+  position: relative;
+  float: left;
+  width: 270px;
+  padding-left: 100px;
+  margin: 0 15px;
+  height: 75px;
+}
+.page-custom .tese .item .img {
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+.page-custom .tese .item .title {
+  font-size: 14px;
+  color: #3366cc;
+  font-weight: 700;
+}
+.page-custom .tese .item .summary {
+  height: 50px;
+  overflow: hidden;
+  margin-top: 6px;
 }
