@@ -24,6 +24,7 @@ var src  = './src',
 */
 var devbaseUrl = "http://static.yaozh.com/js",
     probaseUrl = "http://static.yaozh.com/js";
+var version = "1.1.4";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置
@@ -143,7 +144,8 @@ function initRequireConfig(opt){
   opt = _.extend({
     pro: false,
     waitSeconds : 5,
-    baseUrl: baseUrl
+    baseUrl: baseUrl,
+    version: version
   },opt);
   opt.paths = JSON.stringify(getPath(opt.pro),null,4).replace(/(\})$/,'  $1');
 
@@ -151,7 +153,7 @@ function initRequireConfig(opt){
     'require.config({',
       '  baseUrl: "<%= baseUrl %>",',
       '  paths: <%= paths %>,',
-      '  urlArgs: "yaozhVersion=1.1.3"<% if(!pro){ %>+"&data="+new Date().getTime()<% } %>,',
+      '  urlArgs: "yaozhVersion=<%= version %>"<% if(!pro){ %>+"&data="+new Date().getTime()<% } %>,',
       '  waitSeconds: <%= waitSeconds %>',
     '})'
   ].join('\n'));
