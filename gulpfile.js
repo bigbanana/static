@@ -143,7 +143,7 @@ function initRequireConfig(opt){
   if(opt.pro) baseUrl = probaseUrl;
   opt = _.extend({
     pro: false,
-    waitSeconds : 5,
+    waitSeconds : 10,
     baseUrl: baseUrl,
     version: version
   },opt);
