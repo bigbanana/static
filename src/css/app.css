@@ -382,6 +382,10 @@ html {
 .show {
   display: block!important;
 }
+/* 边框 */
+.nb {
+  border: none!important;
+}
 /* 无序列表 */
 ul.dot li {
   padding-left: 16px;
@@ -3071,6 +3075,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close:hover .fa {
 }
 .ui-panel .ui-panel-title .ui-panel-name {
   display: inline-block;
+  vertical-align: middle;
   font-size: 16px;
 }
 .ui-panel .ui-panel-title .ui-panel-side {

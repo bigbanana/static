@@ -126,6 +126,21 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   margin-bottom: 20px;
 }
 /* 通用组件 */
+/* @import "dbicons.less" */
+.dbicons {
+  display: inline-block;
+  font-style: normal;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  background: url(../images/project/db/dbicons.png) no-repeat 0 0 transparent;
+}
+.dbicons.icon1-1 {
+  background-position: 0 0;
+}
+.dbicons.icon1-2 {
+  background-position: -30px 0;
+}
 /* @import "tag.less" */
 .tag {
   display: inline-block;
@@ -821,8 +836,9 @@ footer.user-footer p,
 }
 /* 页面 */
 /* @import "page-index.less" */
-.page-index {
-  margin: 100px 0;
+.page-index .main {
+  margin: 100px auto;
+  min-height: 400px;
 }
 .page-index .logo {
   display: inline-block;
@@ -874,6 +890,39 @@ footer.user-footer p,
 /* @import "page-list.less" */
 .page-list .main {
   padding-bottom: 100px;
+}
+.page-list .zh-list .zh-li-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 4px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.page-list .zh-list .ui-panel {
+  position: relative;
+  top: 0;
+}
+.page-list .zh-list .ui-panel-content {
+  min-height: 32px;
+  overflow: hidden;
+}
+.page-list .zh-list .ui-panel-content a {
+  display: block;
+  line-height: 24px;
+  position: relative;
+  padding: 4px 20px;
+}
+.page-list .zh-list .ui-panel-content a .name {
+  display: inline-block;
+}
+.page-list .zh-list .ui-panel-content a .info {
+  right: 20px;
+  top: 4px;
+  position: absolute;
+}
+.page-list .zh-list .ui-panel-content a:hover {
+  color: #e74c3c;
+  background-color: #eeeeee;
 }
 /* @import "page-user.less" */
 .page-user {

@@ -1,7 +1,20 @@
-require(['jquery','utils','jquery.waypoints','jquery.ui','jquery.pagination'],function($,utils){
+require(['jquery'],function($){
   var $body = $(document.body);
+  /**
+   * ajax设置
+   */
+   +(function(){
+    $.ajaxSetup({
+      dataType: 'json',
+      dataFilter: function(str){
+        return str;
+      }
+    });
+   })();
 
-  //topnav
+  /**
+   * top-bar
+   */
   +(function(){
     console.log('执行topnav模块！');
     $body.on('mouseenter','.ui-topnav>.item',function(){
@@ -15,7 +28,7 @@ require(['jquery','utils','jquery.waypoints','jquery.ui','jquery.pagination'],fu
   /**
    * header-bar
    */
-  !(function(){
+  require(['jquery.waypoints'],function(){
     var $headerBar = $(".header-bar");
     var $headerLayer = $('.header-layer');
     if($headerBar.length == 0) return;
@@ -26,7 +39,7 @@ require(['jquery','utils','jquery.waypoints','jquery.ui','jquery.pagination'],fu
         $headerLayer.toggleClass('fixed',direction == "down");
       }
     });
-  })();
+  });
 
   /* 综合搜索 */
   !(function(){
