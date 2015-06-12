@@ -11,9 +11,10 @@ define(['jquery','underscore','TweenMax','utils'],function($,_,TweenMax,utils){
           var data = $.extend($this.data(),searchData);
           _.times(data.dbnum,function(n){
             var req = $.extend({id:n},data);
-            $.get('/Search/getlist',req,function(res){
+            var ajax = $.get('/Search/getlist',req,function(res){
               addItem(res.data,$this);
             });
+            return ajax;
           });
 
         });
@@ -55,7 +56,7 @@ define(['jquery','underscore','TweenMax','utils'],function($,_,TweenMax,utils){
           '<span class="info"><em><%= datanum %></em>条</span>',
         '</a>'
       ].join(''));
-      
+
       $(init);
     }
   });
