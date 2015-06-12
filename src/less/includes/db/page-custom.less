@@ -1,4 +1,6 @@
 .page-custom{
+  @dbSpace : 80px;
+  @itemWidth : (@wrapper+-@dbSpace)/2;
   .header-bar{
     padding: 0;height: auto;
   }
@@ -31,4 +33,33 @@
       }
     }
   }
+  .contacts{
+    .clearfix();
+    margin-left:-@dbSpace;
+    .item{
+      width: @itemWidth+-2;float:left;
+      margin-left:@dbSpace;padding: 30px 40px;
+      background-color: #f7f7f7;
+      border:1px solid @borderColor;
+      li{
+        font-size: 14px;float: left;
+        width:216px;margin: 10px;
+        .fa{
+          font-size: 16px;margin-right: 6px;
+        }
+      }
+    }
+  }
+  .db-list{
+    margin-top: 40px;
+    .clearfix();
+    margin-left: -@dbSpace;
+    .item{
+      width: @itemWidth;float: left;
+      margin-left: @dbSpace;margin-top: -1px;
+      border-top:1px solid @borderColor;
+      padding: 40px 0;
+    }
+  }
+
 }

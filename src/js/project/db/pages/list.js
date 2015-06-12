@@ -11,7 +11,7 @@ define(['jquery','underscore','TweenMax','utils'],function($,_,TweenMax,utils){
           var data = $.extend($this.data(),searchData);
           _.times(data.dbnum,function(n){
             var req = $.extend({id:n},data);
-            $.get('/Search/getlist',req,function(res){
+            var ajax = $.get('/Search/getlist',req,function(res){
           	  if($.type(res.data) != "object") return;
           	  $.extend(res.data,searchData);
               addItem(res.data,$this);

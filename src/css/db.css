@@ -1191,3 +1191,54 @@ footer.user-footer p,
   overflow: hidden;
   margin-top: 6px;
 }
+.page-custom .contacts {
+  *zoom: 1;
+  margin-left: -80px;
+}
+.page-custom .contacts:before,
+.page-custom .contacts:after {
+  content: "";
+  display: table;
+}
+.page-custom .contacts:after {
+  clear: both;
+}
+.page-custom .contacts .item {
+  width: 558px;
+  float: left;
+  margin-left: 80px;
+  padding: 30px 40px;
+  background-color: #f7f7f7;
+  border: 1px solid #dddddd;
+}
+.page-custom .contacts .item li {
+  font-size: 14px;
+  float: left;
+  width: 216px;
+  margin: 10px;
+}
+.page-custom .contacts .item li .fa {
+  font-size: 16px;
+  margin-right: 6px;
+}
+.page-custom .db-list {
+  margin-top: 40px;
+  *zoom: 1;
+  margin-left: -80px;
+}
+.page-custom .db-list:before,
+.page-custom .db-list:after {
+  content: "";
+  display: table;
+}
+.page-custom .db-list:after {
+  clear: both;
+}
+.page-custom .db-list .item {
+  width: 560px;
+  float: left;
+  margin-left: 80px;
+  margin-top: -1px;
+  border-top: 1px solid #dddddd;
+  padding: 40px 0;
+}
