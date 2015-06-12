@@ -122,6 +122,14 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   width: 33.33%;
   float: left;
 }
+.form.form-style-2 .form-double-groups {
+  width: 66.66%;
+  float: left;
+}
+.form.form-style-2 .form-double-groups .form-group {
+  width: 50%;
+  float: left;
+}
 .form.form-style-2 .form-group {
   margin-bottom: 20px;
 }
@@ -1183,7 +1191,7 @@ footer.user-footer p,
 }
 .page-custom .tese .item .title {
   font-size: 14px;
-  color: #3366cc;
+  color: #245dc1;
   font-weight: 700;
 }
 .page-custom .tese .item .summary {
@@ -1193,7 +1201,8 @@ footer.user-footer p,
 }
 .page-custom .contacts {
   *zoom: 1;
-  margin-left: -80px;
+  margin-top: 40px;
+  margin-left: -100px;
 }
 .page-custom .contacts:before,
 .page-custom .contacts:after {
@@ -1204,9 +1213,9 @@ footer.user-footer p,
   clear: both;
 }
 .page-custom .contacts .item {
-  width: 558px;
+  width: 468px;
   float: left;
-  margin-left: 80px;
+  margin-left: 100px;
   padding: 30px 40px;
   background-color: #f7f7f7;
   border: 1px solid #dddddd;
@@ -1214,7 +1223,7 @@ footer.user-footer p,
 .page-custom .contacts .item li {
   font-size: 14px;
   float: left;
-  width: 216px;
+  width: 210px;
   margin: 10px;
 }
 .page-custom .contacts .item li .fa {
@@ -1222,23 +1231,80 @@ footer.user-footer p,
   margin-right: 6px;
 }
 .page-custom .db-list {
-  margin-top: 40px;
+  margin-top: 20px;
+  overflow: hidden;
   *zoom: 1;
-  margin-left: -80px;
-}
-.page-custom .db-list:before,
-.page-custom .db-list:after {
-  content: "";
-  display: table;
-}
-.page-custom .db-list:after {
-  clear: both;
+  margin-left: -100px;
 }
 .page-custom .db-list .item {
-  width: 560px;
+  position: relative;
+  height: 90px;
+  width: 440px;
   float: left;
-  margin-left: 80px;
+  margin-left: 100px;
   margin-top: -1px;
   border-top: 1px solid #dddddd;
-  padding: 40px 0;
+  padding: 40px 0 40px 110px;
+}
+.page-custom .db-list .item .img {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 90px;
+  height: 90px;
+  background-color: #dddddd;
+}
+.page-custom .db-list .item .img img {
+  width: 100%;
+  height: 100%;
+}
+.page-custom .db-list .item .title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.page-custom .db-list .item .title a {
+  color: #245dc1;
+}
+.page-custom .db-list .item .summary {
+  margin-top: 10px;
+  line-height: 1.8;
+  height: 62px;
+  overflow: hidden;
+}
+.page-custom .question {
+  border: 1px solid #dddddd;
+  padding: 20px 0 40px;
+}
+.page-custom .question .title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 20px;
+}
+.page-custom .question .title .fa {
+  font-size: 22px;
+  margin-right: 5px;
+  color: #245dc1;
+}
+.page-custom .question .cat-list {
+  margin-top: 20px;
+  overflow: hidden;
+  *zoom: 1;
+}
+.page-custom .question .cat-list .item {
+  float: left;
+  width: 25%;
+}
+.page-custom .question .cat-list .cat-name {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 90px;
+}
+.page-custom .question .cat-list .list {
+  margin-top: 10px;
+  padding: 0 90px;
+  border-left: 1px solid #dddddd;
+  line-height: 24px;
+}
+.page-custom .question .cat-list .list a {
+  display: block;
 }
