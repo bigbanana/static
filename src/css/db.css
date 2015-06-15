@@ -843,6 +843,86 @@ footer.user-footer p,
   right: 6px;
 }
 /* 页面 */
+/* @import "admin.less" */
+.ui-widget {
+  font-size: 1em;
+}
+header {
+  padding: 8px;
+  position: relative;
+  height: 2.2em;
+}
+header .control-bar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.main-page {
+  padding: 8px;
+}
+.page-nav {
+  float: left;
+  width: 240px;
+  margin-right: 10px;
+}
+.page-nav .sub-nav {
+  padding: 0;
+}
+.page-nav .sub-nav p > a {
+  display: block;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+.page-nav .sub-nav p > a:hover {
+  background-color: #eee;
+}
+.page-tab {
+  overflow: hidden;
+  *zoom: 1;
+}
+.page-tab .ui-tabs-nav li .ui-icon-close {
+  float: left;
+  margin: 0.4em 0.2em 0 0;
+  cursor: pointer;
+}
+.page-tab .tab-iframe {
+  width: 100%;
+  border: none;
+}
+.page-tab .ui-tabs-panel {
+  padding: 8px;
+}
+/* navigate */
+.navigate {
+  position: fixed;
+  left: -108px;
+  top: 20px;
+  z-index: 10;
+  padding-right: 8px;
+  -webkit-transition: 0.2s left;
+  -moz-transition: 0.2s left;
+  -o-transition: 0.2s left;
+  transition: 0.2s left;
+}
+.navigate .ui-widget-header {
+  width: 102px;
+  height: 26px;
+  padding: 4px;
+}
+.navigate .ui-widget-header a {
+  color: #333;
+}
+.navigate:hover {
+  left: 0;
+}
+/* dialog-page */
+.ui-dialog .dialog-page {
+  padding: 8px;
+}
+.ui-dialog .dialog-page .dialog-iframe {
+  width: 100%;
+  border: none;
+}
 /* @import "page-index.less" */
 .page-index .main {
   margin: 100px auto;
