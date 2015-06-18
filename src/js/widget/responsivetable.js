@@ -141,9 +141,12 @@ define('widget.responsivetable',['jquery','underscore','browser','jquery.ui','jq
 		].join('')),
 		_tollbarTemp: _.template([
 			'<div class="responsive-table-toolbar">',
-				'<div class="btn-group ui-dropdown">',
+				'<div class="btn-group">',
 					'<button class="btn" data-action="show-all">显示全部</button>',
-					' <button class="btn dropdown-toggle" data-widget="dropdown">显示 <i class="fa"></i></button>',
+					'<div class="ui-dropdown pull-right ml5">',
+						'<a class="btn dropdown-toggle" data-widget="dropdown">显示&nbsp;&nbsp;</a>',
+						'<i class="ui-dropdown-arrow"></i>',
+					'</div>',
 				'</div>',
 			'</div>'
 		].join(''))

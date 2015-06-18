@@ -10,6 +10,8 @@
 </head>
 <body>
   <button class="btn btn-blue show-dialog">弹 窗</button>
+  <button class="btn btn-blue ml20 confirm">confirm</button>
+  <button class="btn btn-blue ml20 alert">alert</button>
   <div class="dialog-test" title="添加用户">
     <h3 class="mt20 fs18" style="margin-left:60px;">添加用户</h3>
     <form action="" class="form align-right">
@@ -57,7 +59,7 @@
     </div>
   </div>
   <script>
-    require(['jquery','jquery.ui','jquery.validate','jquery.clearInput','jquery.placeholder'],function($){
+    require(['jquery','utils','jquery.ui','jquery.validate','jquery.clearInput','jquery.placeholder'],function($,utils){
       var $dialog = $('.dialog-test');
       var $showDialog = $('.show-dialog');
       $dialog.find('.form').validate();
@@ -72,6 +74,17 @@
         $dialog.dialog('open');
       }).on('remove',function(){
         $dialog.dialog('destroy');
+      });
+      $('.confirm').on('click',function(){
+        utils.confirm().done(function(){
+          utils.alert('您点击了确定！');
+        }).fail(function(){
+          utils.alert('您点击了取消!');
+        });
+      });
+
+      $('.alert').on('click',function(){
+        utils.alert('这是一个alert!');
       });
     });
   </script>

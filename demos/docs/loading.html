@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>加载中</title>
+  <link rel="stylesheet" href="//static.yaozh.com/css/app.css">
+  <script src="//static.yaozh.com/js/app.js"></script>
+  <!--[if lt IE 9]><script src="http://static.yaozh.com/js/special/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+  <button class="btn btn-blue loading">loading</button>
+  <div class="loading1" style="margin:200px;width:400px;height:300px;">
+    <button class="btn btn-blue loading">loading</button>
+  </div>
+  <script>
+    require(['jquery','loading'],function($,Loading){
+      $('.loading').on('click',function(){
+        $(this).parent().loading();
+      });
+    });
+  </script>
+</body>
+</html>

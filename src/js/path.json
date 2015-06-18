@@ -13,6 +13,10 @@
   "utils": "lib/utils",
 
   "outer": "module/outer",
+  "confirm": "module/confirm",
+  "alert": "module/alert",
+  "tips": "module/tips",
+  "loading": "module/loading",
 
   "jquery.plax": "plugin/plax",
   "jquery.easing": "plugin/jquery.easing.1.3",

@@ -9,14 +9,18 @@
       display: inline-block;
     }
     .ui-panel{
-      position: relative;top:0;
+      position: relative;top:0;overflow: hidden;padding: 0;
+    }
+    .ui-panel-title{
+      padding: @boxPadding @boxPadding 0 @boxPadding;
     }
     .ui-panel-content{
       min-height: 32px;
       overflow: hidden;
+      padding-bottom: @boxPadding;
       a{
         display: block;line-height: 24px;
-        position: relative;padding: 4px 20px;
+        position: relative;padding: 4px @boxPadding*2;
         .name{
           display: inline-block;
         }

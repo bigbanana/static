@@ -10,16 +10,4 @@
     .border-radius(@borderRadiusBase);
     height: @contentHeight;padding: @paddingVerticalBase @paddingHorizontalBase;
   }
-  .ui-dropdown-arrow{
-    position: absolute;z-index: 1;
-    top:@height/2+-@arrowWidth+@arrowWidth/2;
-    right:@paddingHorizontalBase;
-    .arrow(bottom,@arrowWidth,#000);
-  }
-  &.open{
-    .ui-dropdown-arrow{
-      top:@height/2+-@arrowWidth+-@arrowWidth/2;
-      .arrow(top,@arrowWidth,#000);
-    }
-  }
 }

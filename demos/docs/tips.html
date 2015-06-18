@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>小提示</title>
+  <link rel="stylesheet" href="//static.yaozh.com/css/app.css">
+  <script src="//static.yaozh.com/js/app.js"></script>
+  <!--[if lt IE 9]><script src="http://static.yaozh.com/js/special/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+  <button class="btn btn-blue info">info</button>
+  <button class="btn btn-blue ml20 success">success</button>
+  <button class="btn btn-blue ml20 error">error</button>
+  <script>
+    require(['jquery','utils'],function($,utils){
+      $('.info').on('click',function(){
+        utils.info('直接调用就可以显示哦!');
+      });
+      $('.success').on('click',function(){
+        utils.success('操作成功！');
+      });
+      $('.error').on('click',function(){
+        utils.error('操作失败！');
+      });
+    });
+  </script>
+</body>
+</html>

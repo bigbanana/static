@@ -1,5 +1,4 @@
-define('jquery.tab',['jquery','underscore',
-  'jquery.easing'],function($,_){
+define('jquery.tab',['jquery','underscore'],function($,_){
   //滑动显示一个列表
   var Tab = function(opt){
     if(opt.event == "hover"){

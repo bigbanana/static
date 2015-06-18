@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-06-15 08:58:50 */
+/* build : 564493634@qq.com 2015-06-16 09:52:22 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2125,6 +2125,10 @@ require.config({
     "cookie": "lib/cookie",
     "utils": "lib/utils",
     "outer": "module/outer",
+    "confirm": "module/confirm",
+    "alert": "module/alert",
+    "tips": "module/tips",
+    "loading": "module/loading",
     "jquery.plax": "plugin/plax",
     "jquery.easing": "plugin/jquery.easing.1.3",
     "jquery.validate.core": "plugin/jquery.validate.core",
