@@ -69,8 +69,8 @@ define('jquery.focusInput',['jquery','jquery.easing'],function($){
     enable : function(){
       this.options.disabled = false;
     },
-    disabled : function(){
-      this.options.disabled = false;
+    disable : function(){
+      this.options.disabled = true;
     }
   }
 

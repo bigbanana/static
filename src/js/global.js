@@ -14,21 +14,8 @@ require(['browser'],function(browser){
   }
 });
 
-require(['jquery','browser','modernizr'],function($,browser,modernizr){
+require(['jquery','browser','modernizr','widget'],function($,browser,modernizr){
   $(function(){
-    var $body = $(document.body);
-
-    //开启通用组件支持
-    $body.find('[data-widget]').each(function(){
-      var $this = $(this);
-      var data = $this.data();
-      var widget = data.widget;
-      delete data.widget;
-      require(['jquery.'+widget],function(){
-        $this[widget](data);
-      });
-    });   
-    
     //序列化form为object
     $.fn.serializeObject = function() {
       var o = {};

@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-06-16 09:52:22 */
+/* build : 564493634@qq.com 2015-06-24 10:06:07 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2124,6 +2124,7 @@ require.config({
     "require.css": "lib/require-css-plugin",
     "cookie": "lib/cookie",
     "utils": "lib/utils",
+    "widget": "lib/widget",
     "outer": "module/outer",
     "confirm": "module/confirm",
     "alert": "module/alert",
@@ -2149,6 +2150,7 @@ require.config({
     "pace": "other/pace",
     "preloadjs": "other/preloadjs",
     "TweenMax": "other/TweenMax",
+    "jquery.gsap": "other/jquery.gsap",
     "prism": "other/prism",
     "jquery.lightbox": "other/lightbox",
     "jquery.waypoints": "other/jquery.waypoints",

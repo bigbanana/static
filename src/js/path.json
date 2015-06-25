@@ -11,6 +11,7 @@
   "require.css": "lib/require-css-plugin",
   "cookie": "lib/cookie",
   "utils": "lib/utils",
+  "widget": "lib/widget",
 
   "outer": "module/outer",
   "confirm": "module/confirm",
@@ -39,6 +40,7 @@
   "pace": "other/pace",
   "preloadjs": "other/preloadjs",
   "TweenMax": "other/TweenMax",
+  "jquery.gsap": "other/jquery.gsap",
   "prism": "other/prism",
   "jquery.lightbox": "other/lightbox",
   "jquery.waypoints": "other/jquery.waypoints",
