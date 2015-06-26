@@ -1,7 +1,7 @@
 define('alert',['jquery','underscore','jquery.ui'],function($,_){
   function Alert(opt){
     $.extend(this,{
-      content: '',
+      content: ''
     },opt);
     this.$el = $(this._template(this));
     this.init();
