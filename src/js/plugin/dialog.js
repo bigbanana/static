@@ -1,5 +1,13 @@
-
-define('jquery.dialog',['jquery','underscore','jquery.widget','jquery.ui'],function($,_,widget){
+/**
+ * 借用jqueryui dialog
+ */
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.dialog',['jquery','jquery.widget','jquery.ui'],factory);
+  } else {
+    factory( jQuery,widget );
+  }
+}(function($,widget){
   
   var Dialog = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
@@ -16,5 +24,5 @@ define('jquery.dialog',['jquery','underscore','jquery.widget','jquery.ui'],funct
 
   return Dialog
 
-});
+}));
 

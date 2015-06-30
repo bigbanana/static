@@ -1,4 +1,10 @@
-define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone'],function($,widget,Dialog,_,Backbone){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone'],factory);
+  } else {
+    factory($,widget,Dialog,_,Backbone);
+  }
+}(function($,widget,Dialog,_,Backbone){
   var URLREG = /^https?:\/\/.*$/;
   var $body = $(document.body);
   var LinkDialog = function(opt){
@@ -43,11 +49,10 @@ define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore
     e.preventDefault();
     var $el = $(this);
     var data = $el.data();
-    debugger;
     data.el = $el;
     new LinkDialog(data);
   });
 
   return LinkDialog
 
-});
+}));

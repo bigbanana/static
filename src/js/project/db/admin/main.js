@@ -148,22 +148,10 @@ require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],funct
       });
     })();
 
-    /* 添加pagination支持*/
-    $('.pagination').pagination();
-
     /* 添加widget支持 */
     //设置默认时间格式
     $.datepicker.setDefaults({
       dateFormat:"yy-mm-dd"
-    });
-
-    $('[data-widget]').each(function(){
-      var $this = $(this);
-      var data = $this.data();
-      var widget = data.widget;
-      if(!$.fn[widget]) return;
-      delete data.widget;
-      $this[widget](data);
     });
 
   });

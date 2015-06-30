@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-06-30 10:05:38 */
+/* build : 564493634@qq.com 2015-06-30 14:58:17 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2143,11 +2143,13 @@ require.config({
     "jquery.rwdtable": "plugin/jquery.rwdtable",
     "jquery.dropdown": "plugin/dropdown",
     "jquery.dropdownSelect": "plugin/dropdownSelect",
-    "jquery.dialog": "plugin/dialog",
     "jquery.linkDialog": "plugin/linkDialog",
     "jquery.tab": "plugin/tab",
     "jquery.pagination": "plugin/pagination",
     "widget.responsivetable": "widget/responsivetable",
+    "jquery.dialog": "plugin/dialog",
+    "jquery.tabs": "plugin/tabs",
+    "jquery.datepicker": "plugin/datepicker",
     "jquery.ui": "other/jquery-ui",
     "pace": "other/pace",
     "preloadjs": "other/preloadjs",
