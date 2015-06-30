@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-06-24 10:06:07 */
+/* build : 564493634@qq.com 2015-06-30 10:05:38 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2124,12 +2124,12 @@ require.config({
     "require.css": "lib/require-css-plugin",
     "cookie": "lib/cookie",
     "utils": "lib/utils",
-    "widget": "lib/widget",
     "outer": "module/outer",
     "confirm": "module/confirm",
     "alert": "module/alert",
     "tips": "module/tips",
     "loading": "module/loading",
+    "jquery.widget": "plugin/jquery.widget",
     "jquery.plax": "plugin/plax",
     "jquery.easing": "plugin/jquery.easing.1.3",
     "jquery.validate.core": "plugin/jquery.validate.core",
@@ -2143,6 +2143,8 @@ require.config({
     "jquery.rwdtable": "plugin/jquery.rwdtable",
     "jquery.dropdown": "plugin/dropdown",
     "jquery.dropdownSelect": "plugin/dropdownSelect",
+    "jquery.dialog": "plugin/dialog",
+    "jquery.linkDialog": "plugin/linkDialog",
     "jquery.tab": "plugin/tab",
     "jquery.pagination": "plugin/pagination",
     "widget.responsivetable": "widget/responsivetable",
@@ -2159,6 +2161,6 @@ require.config({
     "console": "special/console",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
   },
-  urlArgs: "yaozhVersion=1.1.5"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.1.6"+"&data="+new Date().getTime(),
   waitSeconds: 10
 })

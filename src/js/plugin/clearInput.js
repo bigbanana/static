@@ -1,4 +1,10 @@
-define('jquery.clearInput',['jquery'],function($){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.clearInput',['jquery','jquery.widget'],factory);
+  } else {
+    factory( jQuery,widget );
+  }
+}(function($,widget){
   function ClearInput(opt){
     this.options = $.extend(true,{},ClearInput.options,opt);
     this.$el = $(opt.el);
@@ -65,27 +71,8 @@ define('jquery.clearInput',['jquery'],function($){
     }
   });
 
-  $.fn.extend({
-    clearInput : function(opt){
-      opt = opt || {};
-      var args = Array.prototype.slice.apply(arguments);
-      args.shift();
-      return this.each(function(){
-        var $this = $(this);
-        var data = $this.data('clearInput');
-
-        if($.type(opt) == 'object'){
-          opt = $.extend({},opt,{el:$this});
-          data = new ClearInput(opt);
-          $this.data('clearInput',data);
-        }
-        if($.type(opt) == 'string') data[opt].apply(data,args);
-
-        return this;
-      });
-    }
-  });
+  widget.install('clearInput',ClearInput);
 
   return ClearInput;
 
-});
+}));

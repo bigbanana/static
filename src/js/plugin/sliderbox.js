@@ -1,5 +1,5 @@
-define('jquery.sliderbox',['jquery','underscore',
-  'jquery.easing'],function($,_){
+define('jquery.sliderbox',['jquery','underscore','jquery.widget'
+  'jquery.easing'],function($,_,widget){
   //滑动显示一个列表
   var SliderBox = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
@@ -124,26 +124,8 @@ define('jquery.sliderbox',['jquery','underscore',
     }
   });
 
-  $.fn.extend({
-    sliderbox : function(opt){
-      opt = opt || {};
-      var args = Array.prototype.slice.apply(arguments);
-      args.shift();
-      return this.each(function(){
-        var $this = $(this);
-        var data = $this.data('sliderbox');
 
-        if($.type(opt) == 'object'){
-          opt = $.extend({},opt,{el:$this});
-          data = new SliderBox(opt);
-          $this.data('sliderbox',data);
-        }
-        if($.type(opt) == 'string') data[opt].apply(data,args);
-
-        return this;
-      });
-    }
-  });
+  widget.install('sliderbox',SliderBox);
 
   return SliderBox
 

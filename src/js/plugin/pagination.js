@@ -1,4 +1,10 @@
-define('jquery.pagination',['jquery','underscore'],function($,_){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.pagination',['jquery','underscore','jquery.widget'],factory);
+  } else {
+    factory( jQuery,_,widget );
+  }
+}(function($,_,widget){
   function Pagination(opt){
     this.$el = $(opt.el);
     var _data = this.$el.data(),data = {};
@@ -195,18 +201,8 @@ define('jquery.pagination',['jquery','underscore'],function($,_){
     }
   });
 
-  function Plugin(option) {
-    option = option || {}
-    return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('bs.pagination')
-      option.el = $this;
+  widget.install('pagination',Pagination);
 
-      if (!data) $this.data('bs.pagination', (data = new Pagination(option)))
-      if (typeof option == 'string') data[option].call($this)
-    })
-  }
-  $.fn.pagination = Plugin;
-  $.fn.pagination.Constructor = Pagination;
+  return Pagination;
 
-});
+}));

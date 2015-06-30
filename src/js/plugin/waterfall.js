@@ -1,5 +1,10 @@
-define('jquery.waterfall',['jquery','underscore',
-  'jquery.easing'],function($,_){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.waterfall',['jquery','underscore','jquery.widget','jquery.easing'],factory);
+  } else {
+    factory( jQuery,_,widget );
+  }
+}(function($,_,widget){
   //简单瀑布流实现
   var Waterfall = function(opt){
     this.options = $.extend(true,{},Waterfall.options,opt);
@@ -116,27 +121,8 @@ define('jquery.waterfall',['jquery','underscore',
     }
   });
 
-  $.fn.extend({
-    waterfall : function(opt){
-      opt = opt || {};
-      var args = Array.prototype.slice.apply(arguments);
-      args.shift();
-      return this.each(function(){
-        var $this = $(this);
-        var data = $this.data('waterfall');
-
-        if($.type(opt) == 'object'){
-          opt = $.extend({},opt,{el:$this});
-          data = new Waterfall(opt);
-          $this.data('waterfall',data);
-        }
-        if($.type(opt) == 'string') data[opt].apply(data,args);
-
-        return this;
-      });
-    }
-  });
+  widget.install('waterfall',Waterfall);
 
   return Waterfall
 
-});
+}));

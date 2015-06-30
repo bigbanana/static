@@ -14,7 +14,11 @@ require(['browser'],function(browser){
   }
 });
 
-require(['jquery','browser','modernizr','widget'],function($,browser,modernizr){
+require(['jquery','browser','modernizr'],function($,browser,modernizr){
+  //开启DOM widget兼容
+  require(['jquery.widget'],function(widget){
+    widget.update();
+  });
   $(function(){
     //序列化form为object
     $.fn.serializeObject = function() {

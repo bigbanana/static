@@ -1,8 +1,17 @@
-define('jquery.placeholder',['jquery','modernizr'],function($,modernizr){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.placeholder',['jquery','modernizr','jquery.widget'],factory);
+  } else {
+    factory( jQuery,modernizr,widget );
+  }
+}(function($,modernizr,widget){
   function Placeholder(opt){
     Placeholder.options.id++;
-    this.options = $.extend(true,{},Placeholder.options,opt);
     this.$el = $(opt.el);
+    if(!opt.text){
+      opt.text = this.$el.attr('placeholder');
+    }
+    this.options = $.extend(true,{},Placeholder.options,opt);
     this.init();
   }
 
@@ -21,7 +30,7 @@ define('jquery.placeholder',['jquery','modernizr'],function($,modernizr){
         id = 'placeholder_'+options.id;
         this.$el.attr('id',id);
       }
-      this.$label = $('<label for="'+id+'">'+options.placeholder+'</label>')
+      this.$label = $('<label for="'+id+'">'+options.text+'</label>')
         .css({
           position : 'absolute',
           cursor : 'text',
@@ -33,7 +42,7 @@ define('jquery.placeholder',['jquery','modernizr'],function($,modernizr){
         }).insertBefore(this.$el);
       this.$el.on('keyup focus input propertychange',function(){
         if(_this.$el.val() == ""){
-          _this.$label.text(options.placeholder);
+          _this.$label.text(options.text);
         }else{
           _this.$label.text("");
         }
@@ -44,35 +53,13 @@ define('jquery.placeholder',['jquery','modernizr'],function($,modernizr){
 
   $.extend(Placeholder,{
     options : {
-      placeholder : '请输入内容',
+      text : '请输入内容',
       id : 1
     }
   });
 
-  $.fn.extend({
-    placeholder : function(opt){
-      opt = opt || {};
-      var args = Array.prototype.slice.apply(arguments);
-      args.shift();
-      return this.each(function(){
-        var $this = $(this);
-        var data = $this.data('placeholder');
-
-        if($.type(opt) == 'object'){
-          opt = $.extend({},opt,{
-            el:$this,
-            placeholder:$this.attr('placeholder')
-          });
-          data = new Placeholder(opt);
-          $this.data('placeholder',data);
-        }
-        if($.type(opt) == 'string') data[opt].apply(data,args);
-
-        return this;
-      });
-    }
-  });
+  widget.install('placeholder',Placeholder);
 
   return Placeholder;
 
-});
+}));

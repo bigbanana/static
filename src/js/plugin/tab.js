@@ -1,4 +1,10 @@
-define('jquery.tab',['jquery','underscore'],function($,_){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.tab',['jquery','underscore','jquery.widget'],factory);
+  } else {
+    factory( jQuery,_,widget );
+  }
+}(function($,_,widget){
   //滑动显示一个列表
   var Tab = function(opt){
     if(opt.event == "hover"){
@@ -35,27 +41,8 @@ define('jquery.tab',['jquery','underscore'],function($,_){
     }
   });
 
-  $.fn.extend({
-    tab : function(opt){
-      opt = opt || {};
-      var args = Array.prototype.slice.apply(arguments);
-      args.shift();
-      return this.each(function(){
-        var $this = $(this);
-        var data = $this.data('tab');
-
-        if($.type(opt) == 'object'){
-          opt = $.extend({},opt,{el:$this});
-          data = new Tab(opt);
-          $this.data('tab',data);
-        }
-        if($.type(opt) == 'string') data[opt].apply(data,args);
-
-        return this;
-      });
-    }
-  });
+  widget.install('tab',Tab);
 
   return Tab
 
-});
+}));

@@ -1,7 +1,13 @@
 /**
  * dropdown 与 select集成
  */
-define('jquery.dropdownSelect',['jquery','underscore','jquery.dropdown'],function($,_){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.dropdownSelect',['jquery','underscore','jquery.widget','jquery.dropdown'],factory);
+  } else {
+    factory( jQuery,_,widget );
+  }
+}(function($,_,widget){
   var DropdownSelect = function(opt){
     if(opt.event == "hover"){
       opt.event = "mouseenter";
@@ -82,27 +88,8 @@ define('jquery.dropdownSelect',['jquery','underscore','jquery.dropdown'],functio
     }
   });
 
-  $.fn.extend({
-    dropdownSelect : function(opt){
-      opt = opt || {};
-      var args = Array.prototype.slice.apply(arguments);
-      args.shift();
-      return this.each(function(){
-        var $this = $(this);
-        var data = $this.data('dropdownSelect');
-
-        if($.type(opt) == 'object'){
-          opt = $.extend({},opt,{el:$this});
-          data = new DropdownSelect(opt);
-          $this.data('dropdownSelect',data);
-        }
-        if($.type(opt) == 'string') data[opt].apply(data,args);
-
-        return this;
-      });
-    }
-  });
+  widget.install('dropdownSelect',DropdownSelect);
 
   return DropdownSelect
 
-});
+}));

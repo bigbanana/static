@@ -6,8 +6,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
-+define('jquery.dropdown',['jquery'],function ($) {
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.dropdown',['jquery'],factory);
+  } else {
+    factory( jQuery );
+  }
+}(function ($) {
   'use strict';
 
   // DROPDOWN CLASS DEFINITION
@@ -161,4 +166,4 @@
     .on('keydown.bs.dropdown.data-api', '.ui-dropdown-menu', Dropdown.prototype.keydown)
 
   return $
-});
+}));

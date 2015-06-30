@@ -11,7 +11,8 @@
   <button class="btn btn-blue show-dialog">弹 窗</button>
   <button class="btn btn-blue ml20 confirm">confirm</button>
   <button class="btn btn-blue ml20 alert">alert</button>
-  <div class="dialog-test" title="添加用户">
+  <a class="btn btn-blue ml20 link-dialog" data-widget="linkDialog" data-modal="true" title="百度" href="./dialog-iframe.html">百度</a>
+  <div class="dialog-test" data-widget="dialog" data-width="600" data-height="400" data-auto-open="false" data-modal="true" data-title="添加用户">
     <h3 class="mt20 fs18" style="margin-left:60px;">添加用户</h3>
     <form action="" class="form align-right">
       <div class="form-group">
@@ -63,12 +64,7 @@
       var $showDialog = $('.show-dialog');
       $dialog.find('.form').validate();
       $dialog.find('input[type=text],input[type=password]').clearInput().placeholder();
-      $dialog.dialog({
-        width:600,
-        height:400,
-        modal:true,
-        autoOpen:false
-      });
+
       $showDialog.on('click',function(){
         $dialog.dialog('open');
       }).on('remove',function(){
