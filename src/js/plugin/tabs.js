@@ -3,7 +3,7 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.tab',['jquery','jquery.widget','jquery.ui'],factory);
+    define('jquery.tabs',['jquery','jquery.widget','jquery.ui'],factory);
   } else {
     factory( jQuery,widget );
   }

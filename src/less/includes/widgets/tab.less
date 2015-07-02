@@ -6,9 +6,10 @@
   .ui-tab-navs{
     position: relative;
     line-height: @titleHeight;
+    height: @titleHeight;
     border-bottom: 2px solid @borderColor;
     .ui-tab-nav{
-      font-size: 14px;font-weight: 700;height: @titleHeight;
+      font-size: 14px;font-weight: 700;height: @titleHeight;float:left;
       a{
         position: relative;bottom: 0;
         display: inline-block;text-decoration: none;
@@ -35,7 +36,7 @@
       }
     }
     .ui-tab-side{
-      position: absolute;right: 0;top:0;
+      float:right;
       line-height: @titleHeight;
       a{
         color:#666;

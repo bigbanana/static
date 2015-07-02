@@ -2643,6 +2643,10 @@ a.btn {
 .table.table-nb th {
   border-top: none;
 }
+.table.table-vt td,
+.table.table-vt th {
+  vertical-align: top;
+}
 /*slider.less*/
 /* ui-slider */
 .ui-sliderbox {
@@ -3172,12 +3176,14 @@ div.ui-dialog .ui-dialog-iframe {
 .ui-tab .ui-tab-navs {
   position: relative;
   line-height: 30px;
+  height: 30px;
   border-bottom: 2px solid #dddddd;
 }
 .ui-tab .ui-tab-navs .ui-tab-nav {
   font-size: 14px;
   font-weight: 700;
   height: 30px;
+  float: left;
 }
 .ui-tab .ui-tab-navs .ui-tab-nav a {
   position: relative;
@@ -3208,9 +3214,7 @@ div.ui-dialog .ui-dialog-iframe {
   display: block;
 }
 .ui-tab .ui-tab-navs .ui-tab-side {
-  position: absolute;
-  right: 0;
-  top: 0;
+  float: right;
   line-height: 30px;
 }
 .ui-tab .ui-tab-navs .ui-tab-side a {
@@ -3235,17 +3239,15 @@ div.ui-dialog .ui-dialog-iframe {
 .ui-panel .ui-panel-title {
   position: relative;
   line-height: 30px;
+  height: 30px;
   border-bottom: 2px solid #dddddd;
 }
 .ui-panel .ui-panel-title .ui-panel-name {
-  display: inline-block;
-  vertical-align: middle;
+  float: left;
   font-size: 16px;
 }
 .ui-panel .ui-panel-title .ui-panel-side {
-  position: absolute;
-  right: 0;
-  top: 0;
+  float: right;
   line-height: 30px;
 }
 .ui-panel .ui-panel-title .ui-panel-side a:hover {
@@ -3253,4 +3255,14 @@ div.ui-dialog .ui-dialog-iframe {
 }
 .ui-panel .ui-panel-content {
   padding-top: 16px;
+}
+.ui-panel.ui-panel-condensed {
+  padding: 0;
+}
+.ui-panel.ui-panel-condensed .ui-panel-title {
+  padding: 0 10px;
+  border-bottom-width: 1px;
+}
+.ui-panel.ui-panel-condensed .ui-panel-content {
+  padding: 0;
 }
