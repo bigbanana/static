@@ -28,20 +28,36 @@
     events: function(){
       var that = this;
       var iframe = this.$iframe[0];
+      this.$iframe.on('load',function(){
+        try{
+          that.dialog.setTitle(this.contentWindow.document.title);
+        }
+        catch(e){
+        }
+        
+      });
       _.extend(iframe,Backbone.Events);
       iframe.on('close',function(){
         that.destroy();
       });
+      iframe.on('refresh',function(){
+        that.refresh();
+      });
     },
     destroy: function(){
+      this.$iframe[0].off();
       this.dialog.destroy();
     },
-    temp: _.template(['<div class="ui-dialog-iframe-box"><iframe scrolling="no" frameborder="no" src="<%= href %>" class="ui-dialog-iframe"></iframe></div>'].join(''))
+    refresh: function(){
+      window.location.reload();
+    },
+    temp: _.template(['<div class="ui-dialog-iframe-box"><iframe frameborder="no" src="<%= href %>" class="ui-dialog-iframe"></iframe></div>'].join(''))
   });
   $.extend(LinkDialog,{
     options:{
       width:500,
-      height:400
+      height:400,
+      modal:true
     }
   });
 

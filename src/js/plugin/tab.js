@@ -18,10 +18,13 @@
   $.extend(Tab.prototype,{
     init : function(){
       var _this = this;
-      this.$tabNav = this.$el.find('.ui-tab-nav');
+      this.$tabNav = this.$el.find('>.ui-tab-navs>.ui-tab-nav');
       this.$tabNavs = this.$tabNav.children();
-      this.$tabPanels = this.$el.find('.ui-tab-panel');
+      this.$tabPanels = this.$el.find('>.ui-tab-panels>.ui-tab-panel');
       this.events();
+      var curIndex = this.$tabNav.children('.active').index()
+      curIndex = curIndex>=0 ? curIndex : 0;
+      this.select(curIndex);
     },
     events: function(){
       var that = this;

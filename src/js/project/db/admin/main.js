@@ -37,63 +37,6 @@ require(['jquery','underscore','backbone','jquery.pagination','jquery.ui'],funct
   },$.dialogSetting);
   $(function(){
     var $body = $(document.body);
-
-    /* 添加链接弹窗支持 */
-    +(function(){
-      $body.on('click','a[data-dialog]',function(e){
-        e.preventDefault();
-        var $dialog,$iframe;
-        var $this = $(this);
-        if(!!$this[0].href.match(/^javascript:/)) return;
-        var data = $this.data();
-        var opt = $.extend({
-          id: data.dialog.replace('#',''),
-          title: $this.attr('title') || $this.text(),
-          href: $this[0].href,
-          target: data.dialog,
-        },$.dialogSetting,data);
-
-        var $dialog = $(opt.target);
-        if($dialog.length == 0){
-          $dialog = $(linkDialogTemp(opt)).dialog({
-            width:opt.width,
-            height:opt.height,
-            modal:true,
-            autoOpen:false
-          });
-        }
-        $dialog.dialog('option',{
-          title:opt.title
-        });
-        var frameName = $dialog.find('iframe').attr('name');
-        window.open(opt.href,frameName);
-        $dialog.dialog('open');
-      });
-      $body.on('click','[data-action=closeDialog]',function(){
-        window.closeDialog();
-      });
-
-      window.closeDialog = function(reload){
-        reload = reload || false;
-        if(window.parent === window) return false;
-        var parent = window.parent;
-        if(reload){
-          parent.location.reload();
-        }else{
-          parent.$(window.frameElement).parents('.dialog-page').dialog('close');
-        }
-      }
-      window.updateTitle = function(){
-        if(window.parent === window) return false;
-        var title = window.document.title;
-        var parent = window.parent;
-        var $ = parent.$;
-        $(window.frameElement).closest('.dialog-page').dialog('option',{
-          title: title
-        });
-      }
-      window.updateTitle();
-    })();
   
     /* 添加链接tab支持 */
     +(function(){

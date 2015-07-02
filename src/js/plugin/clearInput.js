@@ -22,6 +22,7 @@
           display : 'none',
           height : height,
           width : height,
+          zIndex : 10000,
           fontSize : Math.ceil(height*0.8),
           fontWeight : 700,
           color : "#000",

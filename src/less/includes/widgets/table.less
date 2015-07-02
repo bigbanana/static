@@ -1,7 +1,9 @@
 .table{
   width:100%;
   td,th{
-    border:1px solid #ddd;padding:@paddingVerticalBase*1.5 @paddingHorizontalBase;background-color: #fff;
+    border:1px solid #ddd;
+    padding:@paddingVerticalBase*1.5 @paddingHorizontalBase;
+    background-color: #fff;
   }
   thead{
     th{
@@ -9,13 +11,24 @@
     }
   }
   
-  tbody{
-    tr{
-      &:nth-child(odd)>td,
-      &:nth-child(odd)>th{
-        background-color: #F2F6FA;
+  &.table-striped{
+    tbody{
+      tr{
+        &:nth-child(odd)>td,
+        &:nth-child(odd)>th{
+          background-color: #F2F6FA;
+        }
       }
     }
   }
+  &.table-nb{
+    td,th{
+      border-left:none;border-right: none;border-bottom: none;
+    }
+    th{
+      border-top: none;
+    }
+  }
+  
 
 }

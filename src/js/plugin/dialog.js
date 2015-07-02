@@ -13,9 +13,13 @@
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(this.options.el);
     this.$el.dialog(this.options);
+    this._dialog = this.$el.data('uiDialog');
   }
 
   $.extend(Dialog.prototype,{
+    setTitle: function(str){
+      this._dialog.option({title:str});
+    },
     destroy: function(){
       this.$el.dialog('destroy');
     } 

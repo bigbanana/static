@@ -36,13 +36,14 @@ define(['jquery','underscore','TweenMax','utils'],function($,_,TweenMax,utils){
           return noData.promise();
         });
         
-        //全部都没有数据的时候输出点位
+        //全部都没有数据的时候输出占位
         $.when.apply(null,noDatas).done(function(){
           var $nodata = utils.nodata();
           $zhList.append($nodata.css({marginTop:200}));
           TweenMax.from($nodata,2,{opacity:0,opacity:0,ease:Power4.easeOut});
         });
-        TweenMax.staggerFrom($panels,0.5,{top:"-=100",opacity:0,ease:Power4.easeOut},0.1);     
+        TweenMax.staggerFrom($panels,0.5,{top:"-=100",opacity:0,ease:Power4.easeOut},0.1);
+        $zhList.removeClass('vh');
       }
 
       function addItem(data,$parent){

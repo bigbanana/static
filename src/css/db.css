@@ -830,6 +830,9 @@ footer.user-footer p,
   font-style: normal;
   font-family: consolas;
 }
+.ui-crumb > a {
+  color: #3366cc;
+}
 .ui-crumb .info {
   position: absolute;
   top: 6px;
@@ -888,7 +891,7 @@ header .control-bar {
 /* navigate */
 .navigate {
   position: fixed;
-  left: -108px;
+  left: -142px;
   top: 20px;
   z-index: 10;
   padding-right: 8px;
@@ -898,7 +901,7 @@ header .control-bar {
   transition: 0.2s left;
 }
 .navigate .ui-widget-header {
-  width: 102px;
+  width: 136px;
   height: 26px;
   padding: 4px;
 }
@@ -1386,4 +1389,8 @@ header .control-bar {
 }
 .page-custom .question .cat-list .list a {
   display: block;
+}
+/* @import "page-hhw.less" */
+.page-hhw .main {
+  padding-bottom: 100px;
 }

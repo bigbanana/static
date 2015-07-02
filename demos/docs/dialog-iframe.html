@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-<title>Xbox</title>
-<style>
-.example {
-    height: 600px;
-    background: #FF835B;
-    border-radius: 5px 5px;
-    padding: 20px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>弹个窗窗</title>
+  <link rel="stylesheet" href="//static.yaozh.com/css/app.css">
+  <script src="//static.yaozh.com/js/app.js"></script>
+  <!--[if lt IE 9]><script src="http://static.yaozh.com/js/special/html5shiv.js"></script><![endif]-->
 </head>
 <body>
-<div class="example">
-  <a href="#" id="close">iframe里面的关闭链接</a>
-</div>
-<script type="text/javascript">
-  document.getElementById('close').onclick = function(){
-    window.frameElement.trigger('close');
-  };
-</script>
+  <a id="close" class="btn btn-blue" href="javascript:;">关闭弹窗</a>
+  <a id="refresh" class="btn btn-blue ml20" href="javascript:;">刷新父窗口</a>
+  <script type="text/javascript">
+    document.getElementById('close').onclick = function(){
+      window.frameElement && window.frameElement.trigger('close');
+    };
+    document.getElementById('refresh').onclick = function(){
+      window.frameElement && window.frameElement.trigger('refresh');
+    };
+  </script>
 </body>
 </html>

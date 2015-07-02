@@ -399,6 +399,10 @@ hr.dotted {
 .relative {
   position: relative;
 }
+/*可见性*/
+.vh {
+  visibility: hidden;
+}
 /* @import "font-awesome.less" */
 /*!
  *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2459,6 +2463,7 @@ a.btn {
 /*forms.less*/
 .form {
   /* vars */
+  /*三态复选框*/
 }
 .form .form-group {
   margin-bottom: 6px;
@@ -2528,11 +2533,38 @@ a.btn {
   padding-left: 16px;
 }
 .form .radio input,
-.form .checkbox input {
+.form .checkbox input,
+.form .radio .ui-checkbox-three,
+.form .checkbox .ui-checkbox-three {
   position: absolute;
   margin: 4px 0 0 -16px;
   *margin: 0px 0 0 -20px;
   _margin-top: -4px;
+}
+.form .ui-checkbox-three {
+  display: inline-block;
+  vertical-align: middle;
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.form .ui-checkbox-three .ui-checkbox-three-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../../../images/core/checkbox-three.png) no-repeat 0 0 transparent;
+}
+.form .ui-checkbox-three.ui-state-unchecked .ui-checkbox-three-icon {
+  background-position: 0 0;
+}
+.form .ui-checkbox-three.ui-state-halfchecked .ui-checkbox-three-icon {
+  background-position: 0 -12px;
+}
+.form .ui-checkbox-three.ui-state-checked .ui-checkbox-three-icon {
+  background-position: 0 -24px;
 }
 .form label.validate-error {
   display: inline-block;
@@ -2598,9 +2630,18 @@ a.btn {
   white-space: nowrap;
   border-bottom-width: 2px;
 }
-.table tbody tr:nth-child(odd) > td,
-.table tbody tr:nth-child(odd) > th {
+.table.table-striped tbody tr:nth-child(odd) > td,
+.table.table-striped tbody tr:nth-child(odd) > th {
   background-color: #F2F6FA;
+}
+.table.table-nb td,
+.table.table-nb th {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+.table.table-nb th {
+  border-top: none;
 }
 /*slider.less*/
 /* ui-slider */
@@ -2790,6 +2831,9 @@ div.ui-dialog .ui-confirm {
 }
 div.ui-dialog .ui-alert {
   padding: 20px;
+}
+div.ui-dialog .ui-dialog-iframe-box {
+  padding: 0;
 }
 div.ui-dialog .ui-dialog-iframe {
   border: none;
