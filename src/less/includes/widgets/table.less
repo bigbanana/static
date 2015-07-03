@@ -4,6 +4,9 @@
     border:1px solid #ddd;
     padding:@paddingVerticalBase*1.5 @paddingHorizontalBase;
     background-color: #fff;
+    &.striped{
+      background-color: #F2F6FA;
+    }
   }
   thead{
     th{
@@ -23,13 +26,10 @@
   }
   &.table-nb{
     td,th{
-      border-left:none;border-right: none;border-bottom: none;
-    }
-    th{
-      border-top: none;
+      border:none;
     }
   }
-  
+
   &.table-vt{
     td,th{
       vertical-align: top;

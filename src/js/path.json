@@ -49,6 +49,8 @@
   "jquery.lightbox": "other/lightbox",
   "jquery.waypoints": "other/jquery.waypoints",
   "jquery.threecheckbox": "other/threecheckbox",
+  "magnifier": "other/magnifier",
+  "jquery.magnifier": "other/jquery.magnifier",
   
   "ie6": "special/ie6",
   "DD_belatedPNG": "special/DD_belatedPNG",

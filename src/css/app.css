@@ -2625,6 +2625,10 @@ a.btn {
   padding: 6px 8px;
   background-color: #fff;
 }
+.table td.striped,
+.table th.striped {
+  background-color: #F2F6FA;
+}
 .table thead th {
   vertical-align: bottom;
   white-space: nowrap;
@@ -2636,12 +2640,7 @@ a.btn {
 }
 .table.table-nb td,
 .table.table-nb th {
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-}
-.table.table-nb th {
-  border-top: none;
+  border: none;
 }
 .table.table-vt td,
 .table.table-vt th {

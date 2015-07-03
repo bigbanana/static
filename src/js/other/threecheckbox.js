@@ -27,24 +27,31 @@
     events: function(){
       var that = this;
       this.$wrap.on('click',function(){
-        var value = parseInt(that.$el.val());
+        var value = parseInt(that.getValue());
         var num = that.options.halfclick ? 3 : 2;
+        console.log(value);
         value = ++value%num;
-        that.$el.val(value);
+        that.setValue(value);
         that.updateUI();
       });
     },
+    getValue: function(){
+      return this.$el.val()-this.options.start;
+    },
+    setValue: function(value){
+      this.$el.val(value+this.options.start);
+    },
     updateUI: function(){
-      this.$wrap.attr('class','ui-checkbox-three ui-state-'+this.options.state[this.$el.val()]);
+      this.$wrap.attr('class','ui-checkbox-three ui-state-'+this.options.state[this.getValue()]);
     },
     destroy: function(){
       this.$el.unwrap();
-      debugger;
     }
   });
   $.extend(ThreeCheckbox,{
     options: {
-      halfclick: true,
+      halfclick: false,//设置成true即可点击设置第三态，默认不能点击设置
+      start: 1,//起始值
       state: ['unchecked','checked','halfchecked']
     }
   });

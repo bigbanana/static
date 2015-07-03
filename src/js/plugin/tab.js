@@ -11,20 +11,22 @@
       opt.event = "mouseenter";
     }
     this.options = $.extend(true,{},arguments.callee.options,opt);
-    this.$el = $(opt.el);
+    this.$el = $(opt.el).addClass('ui-tab');
     this.init();
   }
 
   $.extend(Tab.prototype,{
     init : function(){
       var _this = this;
-      this.$tabNav = this.$el.find('>.ui-tab-navs>.ui-tab-nav');
-      this.$tabNavs = this.$tabNav.children();
-      this.$tabPanels = this.$el.find('>.ui-tab-panels>.ui-tab-panel');
-      this.events();
+      if(this.$el.find('>.ui-tab-navs>.ui-tab-nav').length==0){
+        this.simpleModel();
+      }else{
+        this.normalModel();
+      }
       var curIndex = this.$tabNav.children('.active').index()
       curIndex = curIndex>=0 ? curIndex : 0;
       this.select(curIndex);
+      this.events();
     },
     events: function(){
       var that = this;
@@ -36,6 +38,21 @@
     select: function(index){
       this.$tabNavs.eq(index).toggleClass("active",true).siblings().toggleClass("active",false);
       this.$tabPanels.toggleClass("active",false).eq(index).toggleClass("active",true);
+    },
+    normalModel: function(){
+      this.$tabNav = this.$el.find('>.ui-tab-navs>.ui-tab-nav');
+      this.$tabNavs = this.$tabNav.children();
+      this.$tabPanels = this.$el.find('>.ui-tab-panels>.ui-tab-panel');
+    },
+    simpleModel: function(){
+      this.$tabNavs = this.$el.children('a');
+      this.$tabPanels = this.$el.children('div').addClass('ui-tab-panel');
+      var $navWrap = $('<div class="ui-tab-navs">').prependTo(this.$el);
+      var $panelWrap = $('<div class="ui-tab-panels">').appendTo(this.$el);
+      this.$tabNav = $('<div class="ui-tab-nav">').appendTo($navWrap);
+
+      $panelWrap.append(this.$tabPanels);
+      this.$tabNav.append(this.$tabNavs);
     }
   });
   $.extend(Tab,{

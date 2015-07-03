@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-07-01 15:17:21 */
+/* build : 564493634@qq.com 2015-07-02 15:29:20 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2159,6 +2159,8 @@ require.config({
     "jquery.lightbox": "other/lightbox",
     "jquery.waypoints": "other/jquery.waypoints",
     "jquery.threecheckbox": "other/threecheckbox",
+    "magnifier": "other/magnifier",
+    "jquery.magnifier": "other/jquery.magnifier",
     "ie6": "special/ie6",
     "DD_belatedPNG": "special/DD_belatedPNG",
     "console": "special/console",
