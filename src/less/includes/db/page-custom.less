@@ -1,6 +1,6 @@
 .page-custom{
   @blue : #245dc1;
-  @dbSpace : 100px;
+  @dbSpace : 50px;
   @itemWidth : (@wrapper+-@dbSpace)/2;
   .header-bar{
     padding: 0;height: auto;
@@ -9,7 +9,7 @@
     @height : 403px;
     position: relative;height: @height;
     img{
-      @width : 1874px;
+      @width : 2000px;
       position: absolute;left:50%;
       width:@width;margin-left: -@width/2;height: @height;
     }
@@ -38,17 +38,26 @@
     .clearfix();margin-top: 40px;
     margin-left:-@dbSpace;
     .item{
-      width: @itemWidth+-2+-80;float:left;
-      margin-left:@dbSpace;padding: 30px 40px;
-      background-color: #f7f7f7;
+      width: @itemWidth+-2+-40;height:160px;float:left;
+      margin-left:@dbSpace;padding: 20px 20px;
+      background-color: #f7f7f7;font-size: 14px;
       border:1px solid @borderColor;
-      li{
-        font-size: 14px;float: left;
-        width:210px;margin: 10px;
-        .fa{
-          font-size: 16px;margin-right: 6px;
+
+      .top{
+        .zoom();
+        .head{float:left;margin-right: 20px;width:84px;}
+        ul{
+          float:left;width:400px;
+          li{
+            float: left;white-space: nowrap;
+            width:170px;margin: 10px 20px 20px 0;
+            .fa{
+              font-size: 16px;margin-right: 6px;
+            }
+          }
         }
       }
+      
     }
   }
   .db-list{
@@ -78,7 +87,7 @@
     }
   }
   .question{
-    border:1px solid @borderColor;padding: 20px 0 40px;
+    border:1px solid @borderColor;padding: 20px 0 40px;margin-top: 20px;
     .title{
       font-size: 20px;font-weight: 700;margin-left: 20px;
       .fa{font-size: 22px;margin-right:5px;color:@blue;}
@@ -87,14 +96,14 @@
       margin-top: 20px;
       overflow: hidden;*zoom:1;
       .item{
-        float: left;width:25%;
+        float: left;width:25%;margin-left: -1px;
       }
       .cat-name{
         font-size: 14px;font-weight: 700;padding: 0 90px;
       }
       .list{
         margin-top: 10px;padding: 0 90px;
-        border-left: 1px solid @borderColor;
+        border-left: 1px dotted @borderColor;
         line-height: 24px;
         a{
           display: block;

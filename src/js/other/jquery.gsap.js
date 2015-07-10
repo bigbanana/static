@@ -10,16 +10,15 @@ define('jquery.gsap',['jquery','TweenMax','utils'],function($,TweenMax,utils){
   $.extend(Gsap.prototype,{
     init : function(){
       this.timeLine = new TimelineLite({paused:this.options.paused});
+      this.$el.data('tl',this.timeLine);
       this.createTimeLine(this.timeLine,this.$el);
     },
     createTimeLine: function(timeLine,$el){
       var that = this;
       var $el = $($el);
-      var $allAnimates = $el.find('[data-method]');
-      var $timeLineAnimate = $el.find('[data-method=timeline] [data-method]');
+      var $animates = $el.find('[data-method]');
 
-      $allAnimates.each(function(el,i){
-        if($.inArray(this,$timeLineAnimate) != -1) return;
+      $animates.each(function(el,i){
         that.addTween(timeLine,this);
       });
     },
@@ -38,11 +37,6 @@ define('jquery.gsap',['jquery','TweenMax','utils'],function($,TweenMax,utils){
         case "staggerTo":{
           tween = TweenMax[params.method]($el.children(),params.duration,params.vars,params.stagger);
           break; 
-        }
-        case "timeline":{
-          var tween = new TimelineLite();
-          that.createTimeLine(tween,$el);
-          break;
         }
         default:{
           tween = TweenMax[params.method]($el,params.duration,params.vars);

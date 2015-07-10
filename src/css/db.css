@@ -57,6 +57,9 @@ div.ui-dialog .ui-widget-header {
 div.ui-dialog .ui-widget-header .ui-dialog-title {
   margin: 0;
 }
+div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
+  color: #fff;
+}
 /* @import "form.less" */
 /*重置表单*/
 .form {
@@ -1237,8 +1240,8 @@ header .control-bar {
 .page-custom .banner img {
   position: absolute;
   left: 50%;
-  width: 1874px;
-  margin-left: -937px;
+  width: 2000px;
+  margin-left: -1000px;
   height: 403px;
 }
 .page-custom .main {
@@ -1284,7 +1287,7 @@ header .control-bar {
 .page-custom .contacts {
   *zoom: 1;
   margin-top: 40px;
-  margin-left: -100px;
+  margin-left: -50px;
 }
 .page-custom .contacts:before,
 .page-custom .contacts:after {
@@ -1295,20 +1298,35 @@ header .control-bar {
   clear: both;
 }
 .page-custom .contacts .item {
-  width: 468px;
+  width: 533px;
+  height: 160px;
   float: left;
-  margin-left: 100px;
-  padding: 30px 40px;
+  margin-left: 50px;
+  padding: 20px 20px;
   background-color: #f7f7f7;
+  font-size: 14px;
   border: 1px solid #dddddd;
 }
-.page-custom .contacts .item li {
-  font-size: 14px;
-  float: left;
-  width: 210px;
-  margin: 10px;
+.page-custom .contacts .item .top {
+  overflow: hidden;
+  *zoom: 1;
 }
-.page-custom .contacts .item li .fa {
+.page-custom .contacts .item .top .head {
+  float: left;
+  margin-right: 20px;
+  width: 84px;
+}
+.page-custom .contacts .item .top ul {
+  float: left;
+  width: 400px;
+}
+.page-custom .contacts .item .top ul li {
+  float: left;
+  white-space: nowrap;
+  width: 170px;
+  margin: 10px 20px 20px 0;
+}
+.page-custom .contacts .item .top ul li .fa {
   font-size: 16px;
   margin-right: 6px;
 }
@@ -1316,14 +1334,14 @@ header .control-bar {
   margin-top: 20px;
   overflow: hidden;
   *zoom: 1;
-  margin-left: -100px;
+  margin-left: -50px;
 }
 .page-custom .db-list .item {
   position: relative;
   height: 90px;
-  width: 440px;
+  width: 465px;
   float: left;
-  margin-left: 100px;
+  margin-left: 50px;
   margin-top: -1px;
   border-top: 1px solid #dddddd;
   padding: 40px 0 40px 110px;
@@ -1356,6 +1374,7 @@ header .control-bar {
 .page-custom .question {
   border: 1px solid #dddddd;
   padding: 20px 0 40px;
+  margin-top: 20px;
 }
 .page-custom .question .title {
   font-size: 20px;
@@ -1375,6 +1394,7 @@ header .control-bar {
 .page-custom .question .cat-list .item {
   float: left;
   width: 25%;
+  margin-left: -1px;
 }
 .page-custom .question .cat-list .cat-name {
   font-size: 14px;
@@ -1384,7 +1404,7 @@ header .control-bar {
 .page-custom .question .cat-list .list {
   margin-top: 10px;
   padding: 0 90px;
-  border-left: 1px solid #dddddd;
+  border-left: 1px dotted #dddddd;
   line-height: 24px;
 }
 .page-custom .question .cat-list .list a {

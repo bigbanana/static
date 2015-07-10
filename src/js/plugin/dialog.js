@@ -12,7 +12,10 @@
   var Dialog = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(this.options.el);
-    this.$el.dialog(this.options);
+    var close = this.options.close || $.noop;
+    this.$el.dialog($.extend(this.options,{
+      close: close     
+    }));
     this._dialog = this.$el.data('uiDialog');
   }
 
@@ -22,7 +25,7 @@
     },
     destroy: function(){
       this.$el.dialog('destroy');
-    } 
+    }
   });
   $.extend(Dialog,{});
 

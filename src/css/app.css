@@ -2813,11 +2813,10 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close {
   margin: -12px 0 0 0;
 }
 div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
-  color: #fff;
   font-size: 16px;
 }
 div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close:hover .fa {
-  color: #ccc;
+  color: #e74c3c;
 }
 div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
   text-align: center;

@@ -19,10 +19,15 @@
 
   $.extend(LinkDialog.prototype,{
     init: function(){
+      var that = this;
       this.$dialog = $(this.temp(this.options));
       this.$iframe = this.$dialog.children();
       this.dialog = new Dialog($.extend({},this.options,{
-        el: this.$dialog
+        el: this.$dialog,
+        close: function(){
+          that.dialog.destroy();
+          that.$dialog.remove();
+        }
       }));
     },
     events: function(){
