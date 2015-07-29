@@ -2,7 +2,9 @@
 .ui-crumb{
   @padding : 6px;
   padding: @padding;
-  border:1px solid @borderColor;
+  width: @wrapper+-(@padding+1)*2;
+  margin: auto;
+  border: 1px solid @borderColor;
   position: relative;
   background-color: #fff;
   em{
@@ -14,5 +16,9 @@
   }
   .info{
     position: absolute;top:@padding;right:@padding;
+    .fa{
+      font-size: 14px;
+    }
   }
 }
+

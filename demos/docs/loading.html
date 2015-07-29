@@ -13,9 +13,9 @@
     <button class="btn btn-blue loading">loading</button>
   </div>
   <script>
-    require(['jquery','loading'],function($,Loading){
+    require(['jquery','jquery.loading'],function($,Loading){
       $('.loading').on('click',function(){
-        $(this).parent().loading();
+        $(this).parent().loading('show');
       });
     });
   </script>

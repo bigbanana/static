@@ -30,6 +30,7 @@
         }
         &:hover{
           border-color: @backgroundColor;
+          text-decoration: none;
           .fa{
             color:#fff;
             background-color: @backgroundColor;
@@ -38,12 +39,15 @@
       }
       .link{
         display: inline-block;margin-right: @space;color:@blue;
+        &.selected{
+          background-color: @blue;color:#fff;
+        }
       }
       .num-area{
         @contentHeight : @rowContentHeight+-2;
         display: inline-block;
         input{
-          display: inline-block;width:3em;vertical-align: middle;
+          display: inline-block;width:3em;
           border:1px solid @borderColor;height:@contentHeight;line-height: @contentHeight;
           &:focus{
             border-color: lighten(@blue,10%);
@@ -69,6 +73,40 @@
         margin-right: @space;
       }
     }
+    
+    &.multi-select{
+      position: relative;
+      .values{
+        margin-right: 70px;
+      }
+      .multi-actions{
+        position: absolute;top:@rowPadding;right:@rowPadding;
+        width:60px;
+        .btn{
+          margin-bottom: 4px;
+        }
+        .multi-more{
+          display: block;
+        }
+        .multi-submit,.multi-cancel{
+          display: none;
+        }
+      }
+
+      &.open{
+        min-height: 48px;
+        .multi-more{
+          display: none;
+        }
+        .link{
+          padding:0 8px;margin:0 10px 4px 0;
+        }
+        .multi-submit,.multi-cancel{
+          display: block;
+        }
+      }
+    }
+
   }
   .more{
     .clearfix();

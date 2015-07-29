@@ -1,4 +1,16 @@
-define('jquery.widget',['jquery'],function(){
+/**
+ * widget全局组件支持
+ * install : 注册一个组件以便使用[data-widget]方式调用
+ * update : 实例化子节点所有组件
+ *   $el => 节点（默认为document）
+ */
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.widget',['jquery'],factory);
+  } else {
+    factory( jQuery );
+  }
+}(function($){
   var def = $.Deferred();
 
   $.extend(def,{
@@ -7,18 +19,22 @@ define('jquery.widget',['jquery'],function(){
       if(!name || !className) return;
 
       obj[name] = function(opt){
-        opt = opt || {};
+        opt = opt || {},obj = {};
         var args = Array.prototype.slice.apply(arguments);
         args.shift();
         return this.each(function(){
           var $this = $(this);
           var data = $this.data(name);
 
-          if(!data && $.type(opt) == 'object'){
-            opt = $.extend({},opt,{el:$this});
-            data = new className(opt);
+          if(!data){
+            if($.type(opt) == "object"){
+              obj = $.extend(obj,opt);
+            }
+            obj = $.extend(obj,{el:$this});
+            data = new className(obj);
             $this.data(name,data);
           }
+
           if(data && $.type(opt) == 'string') data[opt].apply(data,args);
 
           return this;
@@ -26,9 +42,10 @@ define('jquery.widget',['jquery'],function(){
       }
       $.fn.extend(obj);
     },
-    update: function(){
+    update: function($el){
       $(function(){
-        var defs = $.map($(document.body).find('[data-widget]'),function(el){
+        $el = $el || $(document);
+        var defs = $.map($el.find('[data-widget]'),function(el){
           var d = $.Deferred();
           var $el = $(el);
           var data = $el.data();
@@ -46,4 +63,4 @@ define('jquery.widget',['jquery'],function(){
   });
 
   return def;
-});
+}));

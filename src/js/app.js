@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-07-02 15:29:20 */
+/* build : 564493634@qq.com 2015-07-24 11:52:12 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2114,21 +2114,25 @@ require.config({
   baseUrl: "http://static.yaozh.com/js",
   paths: {
     "global": "global",
-    "browser": "lib/browser",
     "jquery": "lib/jquery",
     "backbone": "lib/backbone",
     "backbone.epoxy": "lib/backbone.epoxy",
     "backbone.queryparams": "lib/backbone.queryparams",
     "underscore": "lib/underscore",
     "modernizr": "lib/modernizr",
+    "device": "lib/device",
     "require.css": "lib/require-css-plugin",
     "cookie": "lib/cookie",
+    "queryString": "lib/queryString",
     "utils": "lib/utils",
+    "browser": "lib/browser",
+    "effect": "lib/effect",
+    "jquery.dialog": "module/dialog",
     "outer": "module/outer",
     "confirm": "module/confirm",
     "alert": "module/alert",
     "tips": "module/tips",
-    "loading": "module/loading",
+    "jquery.loading": "module/loading",
     "jquery.widget": "plugin/jquery.widget",
     "jquery.plax": "plugin/plax",
     "jquery.easing": "plugin/jquery.easing.1.3",
@@ -2142,15 +2146,17 @@ require.config({
     "jquery.marquee": "plugin/marquee",
     "jquery.rwdtable": "plugin/jquery.rwdtable",
     "jquery.dropdown": "plugin/dropdown",
-    "jquery.dropdownSelect": "plugin/dropdownSelect",
     "jquery.linkDialog": "plugin/linkDialog",
     "jquery.tab": "plugin/tab",
     "jquery.pagination": "plugin/pagination",
-    "widget.responsivetable": "widget/responsivetable",
-    "jquery.dialog": "plugin/dialog",
+    "jquery.responsivetable": "plugin/responsivetable",
     "jquery.tabs": "plugin/tabs",
     "jquery.datepicker": "plugin/datepicker",
+    "jquery.linkSelect": "plugin/linkSelect",
+    "jquery.dropdownSelect": "plugin/dropdownSelect",
+    "jquery.autoComplete": "plugin/autoComplete",
     "jquery.ui": "other/jquery-ui",
+    "jquery.transit": "other/jquery.transit",
     "pace": "other/pace",
     "preloadjs": "other/preloadjs",
     "TweenMax": "other/TweenMax",
@@ -2161,11 +2167,13 @@ require.config({
     "jquery.threecheckbox": "other/threecheckbox",
     "magnifier": "other/magnifier",
     "jquery.magnifier": "other/jquery.magnifier",
-    "ie6": "special/ie6",
     "DD_belatedPNG": "special/DD_belatedPNG",
+    "fastclick": "special/fastclick",
+    "ie6": "special/ie6",
     "console": "special/console",
+    "mobile": "special/mobile",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
   },
-  urlArgs: "yaozhVersion=1.1.6"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.1.7"+"&data="+new Date().getTime(),
   waitSeconds: 10
-})
+});

@@ -8,11 +8,11 @@
 
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.dropdown',['jquery'],factory);
+    define('jquery.dropdown',['jquery','effect'],factory);
   } else {
-    factory( jQuery );
+    factory( jQuery,Effect );
   }
-}(function ($) {
+}(function ($,Effect) {
   'use strict';
 
   // DROPDOWN CLASS DEFINITION
@@ -51,12 +51,20 @@
 
       if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
 
-      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+      $parent.trigger(e = $.Event('hide.dropdown', relatedTarget))
 
       if (e.isDefaultPrevented()) return
 
       $this.attr('aria-expanded', 'false')
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
+      
+      new Effect({
+        el: $parent.find('.ui-dropdown-menu'),
+        type: 'fadeOutUp',
+        speed: 'fast'
+      }).done(function(){
+        $parent.removeClass('open').trigger('hidden.dropdown', relatedTarget)
+      });
+
     })
   }
 
@@ -79,7 +87,7 @@
       }
 
       var relatedTarget = { relatedTarget: this }
-      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+      $parent.trigger(e = $.Event('show.dropdown', relatedTarget))
 
       if (e.isDefaultPrevented()) return
 
@@ -87,9 +95,15 @@
         .trigger('focus')
         .attr('aria-expanded', 'true')
 
-      $parent
-        .toggleClass('open')
-        .trigger('shown.bs.dropdown', relatedTarget)
+      $parent.addClass('open')
+        .trigger('shown.dropdown', relatedTarget)
+
+      new Effect({
+        el: $parent.find('.ui-dropdown-menu'),
+        type: 'fadeInDown',
+        speed: 'fast'
+      });
+      
     }
 
     return false

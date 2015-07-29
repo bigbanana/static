@@ -8,8 +8,13 @@
  * visible : 1,//显示元素个数
 
  */
-
-define('jquery.marquee',['jquery'],function($){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.marquee',['jquery'],factory);
+  } else {
+    factory( jQuery );
+  }
+}(function($){
 
   function Marquee(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
@@ -118,5 +123,5 @@ define('jquery.marquee',['jquery'],function($){
 
   return Marquee;
 
-});
+}));
    

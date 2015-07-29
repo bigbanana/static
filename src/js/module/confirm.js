@@ -1,11 +1,10 @@
-define('confirm',['jquery','underscore','jquery.ui'],function($,_){
+define('confirm',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
   function Confirm(opt){
     $.extend(this,{
       content: '确定要继续操作吗？',
       pass: $.noop,
       cancel: $.noop
     },opt);
-    this.$el = $(this._template(this));
     this.init();
     this.events();
   }
@@ -13,23 +12,27 @@ define('confirm',['jquery','underscore','jquery.ui'],function($,_){
   $.extend(Confirm.prototype,{
     init: function(){
       var that = this;
-      this.$el.dialog({
+      this.$wrap = $(this._template(this));
+      this.dialog = new Dialog({
+        el:this.$wrap,
         width:280,
-        height:180,
+        height:160,
+        minWidth:280,
+        minHeight:158,
         modal:true,
         close: function(){
-          that.$el.remove();
+          that.$wrap.remove();
         }
       });
     },
     events: function(){
       var that = this;
-      this.$el.on('click','[data-action=pass]',function(){
-        that.$el.dialog('close');
+      this.$wrap.on('click','[data-action=pass]',function(){
+        that.dialog.close();
         that.pass();
       });
-      this.$el.on('click','[data-action=cancel]',function(){
-        that.$el.dialog('close');
+      this.$wrap.on('click','[data-action=cancel]',function(){
+        that.dialog.close();
         that.cancel();
       });
     },
@@ -38,7 +41,7 @@ define('confirm',['jquery','underscore','jquery.ui'],function($,_){
         '<div class="ui-confirm-content"><%= content %></div>',
         '<div class="ui-dialog-toolbar">',
           '<a class="btn btn-blue btn-sm" data-action="pass">确 定</a>',
-          '<a class="btn btn-sm ml20" data-action="cancel">取 消</a>',
+          '<a class="btn btn-sm ml10" data-action="cancel">取 消</a>',
         '</div>',
       '</div>'
     ].join(''))

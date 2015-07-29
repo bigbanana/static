@@ -2,22 +2,21 @@
   /* vars */
   @inputLineHeight : 20px;
   @inputWidth : 170px;
-  @inputBorder : 1px solid #ccc;
+  @inputBorder : 1px solid @borderColor;
   @inputBorderFocusColor : #66afe9;
+  @formGroupMarginBottom : 6px;
   @height : floor(@inputLineHeight+(@paddingVerticalBase+1)*2);
 
   .form-group{
-    margin-bottom: 6px;
-    _zoom:1;_position:relative;
+    margin-bottom: @formGroupMarginBottom;
+    _position:relative;
+    .clearfix();
   }
   .form-label{
-    display: inline-block;vertical-align: middle;
-    line-height: @height;
     font-size:@fontSizeBase;
     .text-overflow();
   }
   .form-box{
-    overflow: hidden;*zoom:1;
     .btn{
       &.form-control-width{
         width:@inputWidth+@paddingHorizontalBase*2;padding-left: 0;padding-right: 0;
@@ -32,9 +31,9 @@
   .form-control{
     display: inline-block;border-radius:@borderRadiusBase;
     font-size: @fontSizeBase;color:#555;
-    width:@inputWidth;line-height: @inputLineHeight;height: @inputLineHeight;vertical-align: middle;
+    width:@inputWidth;line-height: @inputLineHeight;height: @inputLineHeight;
     border:@inputBorder;padding:@paddingVerticalBase @paddingHorizontalBase;
-    .box-shadow(1px 1px 1px #eee inset);
+    box-shadow: 1px 1px 1px #eee inset;
     &:focus{
       border-color:@inputBorderFocusColor
     }
@@ -49,18 +48,21 @@
    
   
   .radio,.checkbox,.form-text{
-    display:inline-block;line-height: @inputLineHeight;vertical-align: middle;
+    display:inline-block;line-height: @inputLineHeight;
     font-size:@fontSizeBase;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
   }
   .radio,.checkbox{
-    position: relative;padding-left: 16px;
-    input,.ui-checkbox-three{
-      position: absolute;margin:4px 0 0 -16px;*margin: 0px 0 0 -20px;_margin-top:-4px;
+    position: relative;z-index:0;padding-left: 16px;
+    input{
+      position: absolute;margin:4px 0 0 -16px;*margin: -1px 0 0 -20px;_margin-top:-4px;
+    }
+    .ui-checkbox-three{
+      position: absolute;margin:4px 0 0 -16px;
     }
   }
   /*三态复选框*/
   .ui-checkbox-three{
-    display: inline-block;vertical-align: middle;
+    display: inline-block;
     width:12px;height:12px;overflow: hidden;position: relative;
     .ui-checkbox-three-icon{
       position:absolute;left:0;top:0;width:100%;height: 100%;
@@ -85,7 +87,7 @@
 
 
   label.validate-error{
-    display:inline-block;vertical-align: middle;
+    display:inline-block;
     font-size:@fontSizeBase;color:#a94442;border-radius: @borderRadiusBase;
     padding:(@paddingVerticalBase+1) @paddingHorizontalBase;background-color: #f2dede;
 
@@ -101,7 +103,10 @@
   &.align-right{
     .form-label{
       float:left;width:5em;text-align: right;line-height: @inputLineHeight;
-      padding:@paddingVerticalBase+1 @paddingHorizontalBase;margin-right: @paddingHorizontalBase;
+      padding:@paddingVerticalBase+1 @paddingHorizontalBase;
+    }
+    .form-box{
+      overflow: auto;
     }
     &.half-group{
       .clearfix();
@@ -110,4 +115,9 @@
       }
     }
   }
+  
+  .box-height-2{
+    min-height : 2*(@formGroupMarginBottom+@height);
+  }
+
 }

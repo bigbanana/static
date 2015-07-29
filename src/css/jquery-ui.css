@@ -831,6 +831,7 @@ button.ui-button::-moz-focus-inner {
 /* support: IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
+  -webkit-filter: inherit;
   filter: inherit;
 }
 .ui-slider-horizontal {
@@ -1751,6 +1752,5 @@ body .ui-tooltip {
   /* support: IE8 */
 }
 .ui-widget-shadow {
-  -webkit-box-shadow: 0 /*{offsetLeftShadow}*/ 0 /*{offsetTopShadow}*/ 5px /*{thicknessShadow}*/ #666666 /*{bgColorShadow}*/;
   box-shadow: 0 /*{offsetLeftShadow}*/ 0 /*{offsetTopShadow}*/ 5px /*{thicknessShadow}*/ #666666 /*{bgColorShadow}*/;
 }

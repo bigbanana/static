@@ -1,0 +1,76 @@
+.detail-style-1{
+  .head{
+    line-height: 36px;padding: 0 10px;
+    color:@blue;font-size: 14px;font-weight: 700;
+    background-color: #e5e5e6;
+  }
+}
+
+.detail-style-2{
+  position: relative;
+  margin-top: 40px;
+  .head{
+    line-height: 28px;padding: 4px 10px;
+    background-color: #1387f1;color:#fff;
+  }
+  .body{
+    background-color: #f2f5f8;
+    padding: floor(@space*1.6);
+    position: relative;z-index: 3;
+    .ui-panel{
+      border:none;padding: 0;
+      background-color: transparent;
+    }
+    .ui-panel-title{
+      border:none;
+    }
+    .ui-panel-name{
+      font-size: 16px;font-weight: 700;
+      color:@blue;
+      .fa{
+        font-size: 20px;
+      }
+    }
+    .ui-panel-side{
+      font-size: 14px;
+      a{
+        font-weight: 700;
+      }
+    }
+    .ui-panel-content{
+      padding: floor(@space*0.5) @space;
+    }
+  }
+  .other-database{
+    .btn{
+      margin-right: @space;
+    }
+  }
+  .publish{
+    position: absolute;right: 100px;top: -88px;z-index: 2;
+    width:105px;height:95px;
+    .img{
+      position: absolute;right:0;top:0;
+      width:105px;height:95px;
+      background: url(../images/project/db/xh.png) no-repeat 0 0 transparent;
+    }
+
+    &.publish-style1{
+      margin-top: 28px;
+    }
+  }
+  
+  .manual{
+    background-color: #fff;
+    padding: @space;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    p{
+      margin-left: @space;
+      b{
+        font-size: 14px;
+        margin-left: -@space;
+      }
+    }
+  }
+
+}

@@ -24,7 +24,13 @@
 */
 
 //官方 (function ($) {
-define('jquery.plax',['jquery'],function($){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.plax',['jquery'],factory);
+  } else {
+    factory( jQuery );
+  }
+}(function($){
   var maxfps             = 25,
       delay              = 1 / maxfps * 1000,
       lastRender         = new Date().getTime(),
@@ -376,6 +382,6 @@ define('jquery.plax',['jquery'],function($){
     $.ender($.fn, true);
   }
 
-})/*(function () {
+}))/*(function () {
   return typeof jQuery !== 'undefined' ? jQuery : ender;
 }())*/;

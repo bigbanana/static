@@ -6,27 +6,27 @@
   &:focus,
   &.btn-state-focus {
     color: @color;
-    background-color: darken(@background, 10%);
-        border-color: darken(@border, 25%);
+    background-color: darken(@background, 12%);
+        border-color: darken(@border, 12%);
   }
   &:hover {
     color: @color;
-    background-color: darken(@background, 10%);
+    background-color: darken(@background, 12%);
         border-color: darken(@border, 12%);
   }
   &:active,
   &.btn-state-active,
   .open .ui-dropdown-toggle&{
     color: @color;
-    background-color: darken(@background, 10%);
+    background-color: darken(@background, 12%);
         border-color: darken(@border, 12%);
 
     &:hover,
     &:focus,
     &.focus {
       color: @color;
-      background-color: darken(@background, 17%);
-          border-color: darken(@border, 25%);
+      background-color: darken(@background, 12%);
+          border-color: darken(@border, 12%);
     }
   }
 }
@@ -44,7 +44,6 @@
   display: inline-block;
   /* margin-bottom: 0; // For input.btn */
   text-align: center;
-  vertical-align: middle;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
@@ -62,16 +61,16 @@ a.btn{text-decoration: none;}
   .button-variant(#fff; #427fed; #427fed);
 }
 .btn-green{
-  .button-variant(#fff; #5cb85c; #4cae4c);
+  .button-variant(#fff; #5cb85c; #5cb85c);
 }
 .btn-orange{
-  .button-variant(#fff; #f0ad4e; #eea236);
+  .button-variant(#fff; #f0ad4e; #f0ad4e);
 }
 .btn-red{
-  .button-variant(#fff; #d9534f; #d43f3a);
+  .button-variant(#fff; #d9534f; #d9534f);
 }
 .btn-gray{
-  .button-variant(#fff; #4c4c4c; #333);
+  .button-variant(#fff; #4c4c4c; #4c4c4c);
 }
 
 /*size*/

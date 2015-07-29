@@ -1,8 +1,9 @@
 .page-user{
   @leftBoxWidth : 200px;
   background-color: #f5f5f5;
-  .main{
-    padding: @space 0; 
+  
+  .main-box{
+    .zoom();
   }
   .left-box{
     width:@leftBoxWidth;margin-right: @space;
@@ -51,24 +52,20 @@
     @headWidth : 84px;
     @lineSpace : 10px;
     position: relative;
-    padding-left: @headWidth+@boxPadding*2;
+    padding-left: @headWidth+@space*2;
     height: @headWidth;
     .head{
       position: absolute;
-      left: @boxPadding;top:@boxPadding;
+      left: @space;top:@space;
+      font-size:0;overflow: hidden;
+      border-radius: 13px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
     }
     .fa{
       font-size: 14px;
     }
     .title{
       font-size: 16px;margin-top: 4px;
-
-      .vip{
-        font-size: 12px;display: inline-block;padding: 1px;
-        .border-radius(2px);line-height: 1;
-        background-color: #fee67d;color:#dd4d17;border:1px solid #dd4d17;
-        font-style: normal;
-      }
     }
     p{
       margin-top: @lineSpace;
@@ -120,7 +117,7 @@
   }
   .fq-msg{
     @msgWidth : @wrapper+-(@leftBoxWidth+@space);
-    @panelWidth : floor((@msgWidth+-@space)/2)+-(@boxPadding+1)*2;
+    @panelWidth : floor((@msgWidth+-@space)/2)+-(@space+1)*2;
     margin-left: -@space;
     .clearfix();
     .ui-panel{
@@ -151,4 +148,40 @@
       float:left;margin-left: @space;
     }
   }
+  
+  .report-list{
+    .zoom();
+    margin-right: -20px;
+    .item{
+      width: 290px;text-align: center;
+      float: left;position: relative;
+      padding: 4px;border: 2px solid @borderColor;margin: 0 20px 20px 0;
+
+      .status{
+        position: absolute;padding: 2px 10px;
+        background-color: @blue;color:#fff;
+        left:4px;top:4px;font-style: normal;
+        &.past{
+          color:@colorBase;
+          background-color: @borderColor;
+        }
+      }
+      .img{
+        width: 260px;height: 200px;
+      }
+      .title{
+        .text-overflow();
+        margin: 10px 0;
+        a{
+          color:@blue;
+        }
+      }
+      .actions{
+        margin-bottom: 10px;
+      }
+
+    }
+  }
+
+
 }

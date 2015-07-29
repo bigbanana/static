@@ -1,15 +1,16 @@
-var  gulp       = require('gulp'),
-     _          = require('underscore'),
-     header     = require('gulp-header'),
-     footer     = require('gulp-footer'),
-     concat     = require('gulp-concat'),
-     uglify     = require('gulp-uglify'),
-     less       = require('gulp-less'),
-     cssmin     = require('gulp-cssmin'),
-     rename     = require('gulp-rename'),
-     clean      = require('gulp-clean'),
-     sourcemaps = require('gulp-sourcemaps'),
-     moment     = require('moment');
+var  gulp         = require('gulp'),
+     _            = require('underscore'),
+     header       = require('gulp-header'),
+     footer       = require('gulp-footer'),
+     concat       = require('gulp-concat'),
+     uglify       = require('gulp-uglify'),
+     less         = require('gulp-less'),
+     cssmin       = require('gulp-cssmin'),
+     rename       = require('gulp-rename'),
+     clean        = require('gulp-clean'),
+     autoprefixer = require('gulp-autoprefixer'),
+     sourcemaps   = require('gulp-sourcemaps'),
+     moment       = require('moment');
 
 var package = require('./package.json');
 var fs = require('fs');
@@ -97,6 +98,10 @@ gulp.task('css',['clean'],function(){
 gulp.task('less',function(){
   return gulp.src(lessFile)
     .pipe(less())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions','ie 6','ie 7'],
+      cascade: false
+    }))
     .pipe(gulp.dest(src+'/css'));
 });
 

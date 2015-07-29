@@ -1,11 +1,16 @@
 .table{
+  @stripedColor : #F2F6FA;
+
   width:100%;
+  th{
+    font-weight: 700;
+  }
   td,th{
     border:1px solid #ddd;
     padding:@paddingVerticalBase*1.5 @paddingHorizontalBase;
     background-color: #fff;
     &.striped{
-      background-color: #F2F6FA;
+      background-color: @stripedColor;
     }
   }
   thead{
@@ -13,13 +18,21 @@
       vertical-align: bottom;white-space: nowrap;border-bottom-width:2px;
     }
   }
+  tbody{
+    th{
+      background-color: @stripedColor;text-align: right;
+    }
+  }
   
   &.table-striped{
     tbody{
       tr{
+        th{
+          background-color: #fff;
+        }
         &:nth-child(odd)>td,
         &:nth-child(odd)>th{
-          background-color: #F2F6FA;
+          background-color: @stripedColor;
         }
       }
     }

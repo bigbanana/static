@@ -49,10 +49,10 @@
         return {value:$this.val(),text:$this.text()}
       });
       var css = {
-        width: this.$el.width()+2
+        width: this.$el.innerWidth()+2
       }
       if(!this.$widget){
-        this.$widget = $('<span class="ui-dropdown-select ui-dropdown">').insertAfter(this.$el);
+        this.$widget = $('<span class="ui-dropdown-select ui-dropdown"></span>').insertAfter(this.$el);
         this.$widget.css(css);
       }else{
         this.$widget.empty();

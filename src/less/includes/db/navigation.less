@@ -35,7 +35,7 @@
       width:@subnavWidth;left:-1px;top:@navHeight+@navPaddingVertical*2-1;
       display: none;padding: 10px 0;
       background-color: @subNavBackgroundColor;
-      border:1px solid @borderColor;.box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+      border:1px solid @borderColor;box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       li{
         padding-left: 20px;background-position: 10px center;
         a{
@@ -88,4 +88,9 @@
       font-size: @fontSize;
     }
   }
+}
+
+.ui-topnav-wrapper{
+  width: @wrapper;margin: 0 auto;
+  position: relative;z-index: 8;
 }

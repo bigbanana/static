@@ -1,12 +1,17 @@
-define('loading',['jquery','underscore'],function($,_){
-
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.loading',['jquery','underscore','jquery.widget'],factory);
+  } else {
+    factory( jQuery,_,widget );
+  }
+}(function($,_,widget){
     function Loading(options){
       var _this = this;
       $.extend(this,{
         text:'Loading...',
         duration:300,
-        opacity:0.7,
-        delay:10000,
+        className:"",
+        wait:10000,
         easing:'easeOutCirc'
       },options);
       this.$el = $(options.el);
@@ -16,7 +21,7 @@ define('loading',['jquery','underscore'],function($,_){
 
     $.extend(Loading.prototype,{
       init: function(){
-        this.$widget = $(this._temp(this));
+        this.$widget = $(this._temp(this)).addClass(this.className);
         this.$overlay = this.$widget.find('.ui-loading-overlay');
         this.$box = this.$widget.find('.ui-loading-box');
       },
@@ -26,13 +31,12 @@ define('loading',['jquery','underscore'],function($,_){
           this.$el.addClass('ui-loading-parent');
         }
         this.$el.append(this.$widget);
-        this.$overlay.css({opacity:0}).animate({opacity:this.opacity},{
-          duration : this.duration
-        }).delay(this.delay).queue(function(){
+        this.$overlay.fadeIn(this.duration)
+        .delay(this.wait).queue(function(){
           that.hide();
           that.$overlay.dequeue();
         });
-        this.$box.delay(100).css({opacity:0,marginTop:-100})
+        this.$box.delay(50).css({opacity:0,marginTop:-100})
         .animate({opacity:1,marginTop:-25},{
           duration : this.duration,
           easing : this.easing
@@ -44,12 +48,18 @@ define('loading',['jquery','underscore'],function($,_){
           duration : this.duration,
           easing : this.easing
         });
-        this.$overlay.clearQueue().delay(100).animate({opacity:0},{
-          duration: this.duration,
-          complete: function(){
-            that.$el.removeClass('ui-loading-parent');
-            that.$widget.detach();
-          }
+        this.$overlay.clearQueue().delay(50)
+        .fadeOut(this.duration,function(){
+          that.$el.removeClass('ui-loading-parent');
+          that.$widget.detach();
+        });
+      },
+      destroy: function(){
+        var that = this;
+        this.hide();
+        this.$overlay.queue(function(){
+          that.$widget.remove();
+          that.$el.data('loading',null);
         });
       },
       _temp: _.template([
@@ -60,28 +70,7 @@ define('loading',['jquery','underscore'],function($,_){
       ].join(''))
     });
 
-    $.fn.extend({
-      loading: function(opt){
-        opt = opt || {};
-        return this.each(function(){
-          var $this = $(this);
-          var data = $this.data('loading');
+    widget.install('loading',Loading);
 
-          if($.type(opt) == 'object'){
-            opt = $.extend({},opt);
-            $.extend(opt,{el:$this});
-            data = new Loading(opt);
-            $this.data('loading',data);
-          }
-          
-          if(data && $.type(opt) == 'string') data[opt]();
-
-          return this;
-        });
-      },
-      unloading: function(){
-        this.loading('hide');
-      }
-    });
     return Loading;
-});
+}));

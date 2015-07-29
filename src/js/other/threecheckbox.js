@@ -3,15 +3,19 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.threecheckbox',['jquery','jquery.widget'],factory);
+    define('jquery.threecheckbox',['jquery','jquery.widget','underscore'],factory);
   } else {
-    factory( jQuery,widget );
+    factory( jQuery,widget,_ );
   }
-}(function($,widget){
+}(function($,widget,_){
 
   var ThreeCheckbox = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
-    this.$el = $(opt.el);
+    var $el = $(opt.el);
+    var name = $el.attr('name');
+    var value = $el.val();
+    this.$el = $('<input style="display:none;" type="text" name="'+name+'" value="'+value+'">');
+    $el.replaceWith(this.$el);
     this.init();
     this.updateUI();
   }
@@ -19,30 +23,24 @@
   $.extend(ThreeCheckbox.prototype,{
     init : function(){
       var _this = this;
-      this.$el.wrap('<span class="ui-checkbox-three">');
+      this.$el.wrap('<span class="ui-checkbox-three"></span>');
       this.$wrap = this.$el.parent();
-      this.$wrap.prepend('<i class="ui-checkbox-three-icon">');
+      this.$wrap.prepend('<i class="ui-checkbox-three-icon"></i>');
       this.events();
     },
     events: function(){
       var that = this;
-      this.$wrap.on('click',function(){
-        var value = parseInt(that.getValue());
+      this.$wrap.on('click',_.debounce(function(e){
+        var value = parseInt(that.$el.val());
         var num = that.options.halfclick ? 3 : 2;
-        console.log(value);
+
         value = ++value%num;
-        that.setValue(value);
+        that.$el.val(value);
         that.updateUI();
-      });
-    },
-    getValue: function(){
-      return this.$el.val()-this.options.start;
-    },
-    setValue: function(value){
-      this.$el.val(value+this.options.start);
+      },0,true));
     },
     updateUI: function(){
-      this.$wrap.attr('class','ui-checkbox-three ui-state-'+this.options.state[this.getValue()]);
+      this.$wrap.attr('class','ui-checkbox-three ui-state-'+this.options.state[this.$el.val()]);
     },
     destroy: function(){
       this.$el.unwrap();
@@ -51,7 +49,6 @@
   $.extend(ThreeCheckbox,{
     options: {
       halfclick: false,//设置成true即可点击设置第三态，默认不能点击设置
-      start: 1,//起始值
       state: ['unchecked','checked','halfchecked']
     }
   });

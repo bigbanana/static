@@ -13,7 +13,7 @@
     <div class="form-group">
       <label class="form-label">账 号 名 称：</label>
       <div class="form-box">
-        <input class="form-control" placeholder="请输入账号" type="text" name="name" required />
+        <input class="form-control" data-widget="autoComplete" placeholder="请输入账号" type="text" name="name" required />
       </div>
     </div>
     <div class="form-group">
@@ -25,10 +25,10 @@
     <div class="form-group">
       <label class="form-label">搞 起：</label>
       <div class="form-box">
-        <select name="gaoqi" id="" class="form-control">
+        <select name="gaoqi" id="" class="form-control" data-widget="dropdownSelect">
           <option value="1">选我</option>
-          <option value="1">选我啊</option>
-          <option value="1">来选我啊</option>
+          <option value="2">选我啊</option>
+          <option value="3">来选我啊</option>
         </select>
         <label for="" class="form-text">有种就选择一个啊！</label>
       </div>
@@ -51,7 +51,7 @@
     <div class="form-group">
       <label class="form-label">三态复选框：</label>
       <div class="form-box">
-        <label class="checkbox"><input type="checkbox" value="2" data-widget="threecheckbox"> 三大方复选框</label>
+        <label class="checkbox"><input type="checkbox" value="2" name="zzz" data-widget="threecheckbox"> 三态复选框</label>
       </div>
     </div>
     <div class="form-group">

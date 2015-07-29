@@ -38,8 +38,8 @@
           that.dialog.setTitle(this.contentWindow.document.title);
         }
         catch(e){
+
         }
-        
       });
       _.extend(iframe,Backbone.Events);
       iframe.on('close',function(){

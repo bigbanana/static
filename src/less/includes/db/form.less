@@ -2,6 +2,8 @@
 .form{
   @width : 200px;
   @fullWidth : @width+(@paddingHorizontalBase+1)*2;
+  @height : 30px;
+  @formGroupMarginBottom : 20px;
   
   .form-box{
     .btn{
@@ -52,5 +54,8 @@
     }
   }
 
+  .box-height-2{
+    min-height : 2*(@formGroupMarginBottom+@height);
+  }
 
 }

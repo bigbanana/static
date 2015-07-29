@@ -3,8 +3,11 @@
   @searchBoxBorderWidth : 1px;
   @searchBoxContentHeight : @searchBoxHeight+-@searchBoxBorderWidth*2;
   .main{
-    margin:100px auto;
     min-height: 400px;
+    margin:100px auto;
+  }
+  .ui-topnav-wrapper{
+    width: auto;
   }
   .logo{
     display: inline-block;width:338px;height:53px;
@@ -36,4 +39,14 @@
     }
 
   }
+  
+  footer{
+    position: fixed;
+    left:0;bottom:0;width:100%;
+    padding: 20px 0;
+    .clearfix{
+      margin:0 70px;
+    }
+  }
+
 }

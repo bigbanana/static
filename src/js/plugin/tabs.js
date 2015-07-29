@@ -9,14 +9,23 @@
   }
 }(function($,widget){
 
+  //保存jquery-ui的tabs方法
+  var $_fn_tabs = $.fn.tabs;
+
   var Tabs = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(this.options.el);
-    this.$el.datepicker(this.options);
+    //使用jquery-ui的tabs方法
+    $_fn_tabs.call(this.$el,opt);
+
+    this.$el.fadeIn(500);
   }
 
   $.extend(Tabs.prototype,{});
   $.extend(Tabs,{});
+
+  //注册组件，覆盖jquery-ui的tabs方法
+  widget.install('tabs',Tabs);
 
   return Tabs
 

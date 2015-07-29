@@ -39,3 +39,13 @@ require(['jquery','browser','modernizr'],function($,browser,modernizr){
   });
 
 });
+
+/**
+ * 手机兼容
+ */
+require(['device'],function(device){
+  if(device.mobile()){
+    require(['mobile'],function(){});
+  }
+});
+

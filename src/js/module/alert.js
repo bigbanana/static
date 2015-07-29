@@ -1,4 +1,4 @@
-define('alert',['jquery','underscore','jquery.ui'],function($,_){
+define('alert',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
   function Alert(opt){
     $.extend(this,{
       content: ''
@@ -11,9 +11,12 @@ define('alert',['jquery','underscore','jquery.ui'],function($,_){
   $.extend(Alert.prototype,{
     init: function(){
       var that = this;
-      this.$el.dialog({
+      this.dialog = new Dialog({
+        el: this.$el,
         width:280,
-        height:180,
+        height:160,
+        minWidth:280,
+        minHeight:158,
         modal:true,
         close: function(){
           that.$el.remove();
@@ -23,7 +26,7 @@ define('alert',['jquery','underscore','jquery.ui'],function($,_){
     events: function(){
       var that = this;
       this.$el.on('click','[data-action=cancel]',function(){
-        that.$el.dialog('close');
+        that.dialog.close();
       });
     },
     _template: _.template([
