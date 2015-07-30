@@ -14,7 +14,7 @@ require(['browser'],function(browser){
   }
 });
 
-require(['jquery','browser','modernizr'],function($,browser,modernizr){
+require(['jquery','browser'],function($,browser){
   //开启DOM widget兼容
   require(['jquery.widget'],function(widget){
     widget.update();
@@ -37,7 +37,6 @@ require(['jquery','browser','modernizr'],function($,browser,modernizr){
       return o;
     };
   });
-
 });
 
 /**

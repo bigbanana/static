@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-07-24 11:52:12 */
+/* build : 564493634@qq.com 2015-07-29 11:14:47 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2108,7 +2108,7 @@ require.config({
       deps : ['css!../css/jquery-ui']
     }
   },
-  deps : ["global"].concat(window.config.deps)
+  deps : ["modernizr","global"].concat(window.config.deps)
 });
 require.config({
   baseUrl: "http://static.yaozh.com/js",
@@ -2176,4 +2176,4 @@ require.config({
   },
   urlArgs: "yaozhVersion=1.1.7"+"&data="+new Date().getTime(),
   waitSeconds: 10
-});
+})

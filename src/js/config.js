@@ -23,5 +23,5 @@ require.config({
       deps : ['css!../css/jquery-ui']
     }
   },
-  deps : ["global"].concat(window.config.deps)
+  deps : ["modernizr","global"].concat(window.config.deps)
 });

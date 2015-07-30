@@ -904,6 +904,21 @@ footer.user-footer p,
 .ui-crumb .info .fa {
   font-size: 14px;
 }
+/*详情页默认隐藏，防止dom操作的抖动*/
+.detail-html {
+  /*如果不是iframe页面则显示*/
+  /*如果是iframe则在js里处理body显示*/
+}
+.detail-html body {
+  display: none;
+}
+.detail-html.no-iframe body {
+  display: block;
+}
+.detail-html.iframe {
+  background: url(http://static.yaozh.com/images/core/loading-50.gif) no-repeat center center transparent;
+  height: 100%;
+}
 /* 页面 */
 /* @import "admin.less" */
 .ui-widget {

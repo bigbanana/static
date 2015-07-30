@@ -22,3 +22,25 @@
   }
 }
 
+/*详情页默认隐藏，防止dom操作的抖动*/
+.detail-html{
+  
+  body{
+    display: none;
+  }
+  /*如果不是iframe页面则显示*/
+  &.no-iframe{
+    body{
+      display: block;
+    }
+  }
+
+  /*如果是iframe则在js里处理body显示*/
+  &.iframe{
+    background: url(http://static.yaozh.com/images/core/loading-50.gif) no-repeat center center transparent;
+    height: 100%;
+  }
+
+}
+
+

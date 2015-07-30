@@ -33,6 +33,7 @@
     events: function(){
       var that = this;
       var iframe = this.$iframe[0];
+
       this.$iframe.on('load',function(){
         try{
           that.dialog.setTitle(this.contentWindow.document.title);
@@ -60,8 +61,6 @@
   });
   $.extend(LinkDialog,{
     options:{
-      width:500,
-      height:400,
       modal:true
     }
   });

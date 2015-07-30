@@ -17,7 +17,7 @@
     this.$el = $(this.options.el);
 
     //使用jquery-ui的dialog方法
-    $_fn_dialog.call(this.$el,opt);
+    $_fn_dialog.call(this.$el,this.options);
     this._dialog = this.$el.data('uiDialog');
   }
 
@@ -32,7 +32,9 @@
       this._dialog.close();
     }
   });
-  $.extend(Dialog,{});
+  $.extend(Dialog,{
+    options:{}
+  });
 
   //注册组件，覆盖jquery-ui的dialog方法
   widget.install('dialog',Dialog);

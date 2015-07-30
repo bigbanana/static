@@ -16,7 +16,7 @@
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(this.options.el);
     //使用jquery-ui的tabs方法
-    $_fn_tabs.call(this.$el,opt);
+    $_fn_tabs.call(this.$el,this.options);
 
     this.$el.fadeIn(500);
   }
