@@ -25,7 +25,7 @@ var src  = './src',
 */
 var devbaseUrl = "http://static.yaozh.com/js",
     probaseUrl = "http://static.yaozh.com/js";
-var version = "1.1.7";
+var version = "1.2.0";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置
