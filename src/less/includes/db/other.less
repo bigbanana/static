@@ -19,7 +19,39 @@
     .fa{
       font-size: 14px;
     }
+    a:hover{
+      color:@blue;
+    }
   }
+}
+
+/*无数据*/
+.no-data{
+  @defaultHeight : 100px;
+  position: relative;
+  padding: @space 0;
+  height: @defaultHeight+-@space*2;overflow: hidden;
+  font-size: 14px;
+  .text{
+    line-height: 20px;
+    position: absolute;
+    left:50%;top:50%;
+    margin:-10px 0 0 @space/2;
+  }
+  .xiaozhi-girl{
+    position: absolute;top:6px;right: 50%;margin-right: @space/2;
+  }
+}
+
+/*女小智*/
+.xiaozhi-girl{
+  position: relative;
+  width: 88px;height: 88px;
+  .img{
+    position: absolute;right:0;top:0;
+    width:88px;height:88px;
+    background: url(../images/project/db/xiaozhi_girl.png) no-repeat 0 0 transparent;
+  } 
 }
 
 /*详情页默认隐藏，防止dom操作的抖动*/
@@ -39,8 +71,26 @@
   &.iframe{
     background: url(http://static.yaozh.com/images/core/loading-50.gif) no-repeat center center transparent;
     height: 100%;
+    
+    body{
+      margin: @space/2;
+    }
   }
 
 }
 
+/*发布动画*/
+.publish-animate{
+  position: absolute;right: 100px;top: -88px;
+  width:105px;height:95px;
+  .img{
+    position: absolute;right:0;top:0;
+    width:105px;height:95px;
+    background: url(../images/project/db/xh.png) no-repeat 0 0 transparent;
+  }
+
+  &.publish-style1{
+    margin-top: 28px;
+  }
+}
 

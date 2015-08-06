@@ -1,3 +1,6 @@
+/**
+ * [清除文本表单内容]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.clearInput',['jquery','jquery.widget'],factory);

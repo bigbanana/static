@@ -1,3 +1,7 @@
+/**
+ * [瀑布流，然并卵]
+ * @param  {[number]} column [显示列数]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.waterfall',['jquery','underscore','jquery.widget','jquery.easing'],factory);

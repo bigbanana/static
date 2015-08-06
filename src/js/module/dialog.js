@@ -1,5 +1,7 @@
 /**
- * 借用jqueryui dialog
+ * [弹窗]
+ * 借用jquery-ui dialog并重写jquery-ui接口,jqueryui dialog的所有参数，方法均可适用
+ * @return {[object]}         [Dialog 实例]
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
@@ -27,6 +29,9 @@
     },
     destroy: function(){
       this._dialog.destroy();
+    },
+    open: function(){
+      this._dialog.open();
     },
     close: function(){
       this._dialog.close();

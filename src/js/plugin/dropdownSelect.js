@@ -1,5 +1,7 @@
 /**
- * dropdown 与 select集成
+ * [下拉选择]
+ * @param  {[string]} evtnt [触发事件]
+ * @return {[object]}         [DropdownSelect实例]
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {

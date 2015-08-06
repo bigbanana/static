@@ -1,7 +1,8 @@
 /* topbar */
 .ui-topbar{
   @topItemPadding : 8px;
-  @backgroundColor : #fff;
+  @backgroundColor : #f1f1f1;
+  background-color: @backgroundColor;border-bottom: 1px solid @borderColor;
   height:30px;line-height: 30px;
   position: relative;z-index: 10;
   .item{
@@ -72,25 +73,6 @@
   a{
     color:#666;
   }
-  &.other-topbar{
-    @backgroundColor : #f1f1f1;
-    background-color: @backgroundColor;border-bottom: 1px solid @borderColor;
-    .item{
-      &.sub-box{
-        .name,
-        .subnav{
-          background-color: @backgroundColor;
-        }
-      }
-      &.app{
-        .hover-layer{
-          .box{
-            background-color: @backgroundColor;
-          }
-        }
-      }
-    }
-  }
 }
 
 /* header-bar */
@@ -120,7 +102,7 @@
     .inline-block();border: @borderWidth solid @borderColor;margin-left: 80px;
     height:@contentHeight;line-height: @contentHeight;vertical-align:middle;position: relative;
     .search-type-select{
-      width: 64px;visibility: hidden;float: left;margin-left: -1px;
+      width: 84px;visibility: hidden;float: left;margin-left: -1px;
     }
     .ui-dropdown-select{
       @innerHeight : @contentHeight+-@paddingVerticalBase*2;
@@ -145,13 +127,12 @@
       }
     }
     .search{
-      border: none;border-left: 1px solid @borderColor;
+      border: none;border-left: 1px solid @borderColor;float:left;
       height: @contentHeight;line-height: @contentHeight;width: 430px;
       vertical-align: top;padding: 0 4px;color:#222;font-weight:700;
-      *height: @contentHeight+-2;*line-height: @contentHeight+-2;
     }
     .search-btn{
-      width:90px;height:@height;float:right;margin:-1px -1px 0 0;
+      width:90px;height:@height;float:left;margin:-1px -1px 0 0;
       background: @btnBackgroundColor;text-align: center;
       font-size: 14px;color:#fff;text-decoration: none;
     }

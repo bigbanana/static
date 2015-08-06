@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-07-29 11:14:47 */
+/* build : 564493634@qq.com 2015-08-04 09:02:26 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2156,7 +2156,6 @@ require.config({
     "jquery.dropdownSelect": "plugin/dropdownSelect",
     "jquery.autoComplete": "plugin/autoComplete",
     "jquery.ui": "other/jquery-ui",
-    "jquery.transit": "other/jquery.transit",
     "pace": "other/pace",
     "preloadjs": "other/preloadjs",
     "TweenMax": "other/TweenMax",
@@ -2171,7 +2170,6 @@ require.config({
     "fastclick": "special/fastclick",
     "ie6": "special/ie6",
     "console": "special/console",
-    "mobile": "special/mobile",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
   },
   urlArgs: "yaozhVersion=1.1.7"+"&data="+new Date().getTime(),

@@ -11,9 +11,10 @@
     factory( jQuery );
   }
 }(function($){
-  var def = $.Deferred();
 
-  $.extend(def,{
+  var widget = {}  
+
+  $.extend(widget,{
     install: function(name,className){
       var obj={};
       if(!name || !className) return;
@@ -45,6 +46,7 @@
     update: function($el){
       $(function(){
         $el = $el || $(document);
+        var def = $.Deferred();
         var defs = $.map($el.find('[data-widget]'),function(el){
           var d = $.Deferred();
           var $el = $(el);
@@ -56,11 +58,25 @@
           });
           return d.promise();
         });
-
+  
         $.when.apply(window,defs).done(def.resolve);
+        return def;
+
       });
     }
   });
 
-  return def;
+  $.fn.extend({
+    widget: function(){
+      return this.each(function(){
+        var $this = $(this);
+        widget.update($this);
+        return this;
+      });
+
+    }
+  })
+
+  return widget;
+
 }));

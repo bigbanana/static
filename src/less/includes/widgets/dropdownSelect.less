@@ -5,9 +5,10 @@
   display: inline-block;position: relative;z-index: 10;
   height: @height;line-height: @contentHeight;
   .ui-dropdown-select-name{
+    .text-overflow();
     border:1px solid @borderColor;text-decoration: none;
     display: block;position: relative;z-index: 2;
     border-radius: @borderRadiusBase;
-    height: @contentHeight;padding: @paddingVerticalBase @paddingHorizontalBase;
+    height: @contentHeight;padding: @paddingVerticalBase @paddingHorizontalBase*2 @paddingVerticalBase @paddingHorizontalBase;
   }
 }

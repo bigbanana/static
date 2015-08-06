@@ -2,43 +2,36 @@ define("utils",['jquery','browser','underscore','confirm','alert','tips'],functi
   
   var utils = {
     browser: browser,
-    info: function(str){
-      new Tips({content: str});
+    info: function(msg){
+      new Tips({content: msg});
     },
-    success: function(str){
+    success: function(msg){
       new Tips({
         type: 'success',
-        content: str
+        content: msg
       });
     },
-    error: function(str){
+    error: function(msg){
       new Tips({
         type: 'error',
-        content: str
+        content: msg
       });
     },
-    alert: function(str){
+    alert: function(msg){
       new Alert({
-        content: str
+        content: msg
       });
     },
-    confirm: function(str){
+    confirm: function(msg){
       var def = $.Deferred();
       new Confirm({
-        content: str,
+        content: msg,
         pass: def.resolve,
         cancel: def.reject
       });
       return def.promise();
-    },
-    nodata: function(){
-      return $(nodataTemp());
     }
   }
-
-  var nodataTemp = _.template([
-    '<div class="fs14 tc">对不起，小智暂时还没有找到数据。</div>'
-  ].join(''));
 
   return utils
 });

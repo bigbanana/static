@@ -1,3 +1,9 @@
+/**
+ * [突出表单焦点]
+ * 方法
+ * enable [启用]
+ * disable [禁用]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.focusInput',['jquery','jquery.easing'],factory);
@@ -28,6 +34,7 @@
       $.extend(true,this.options,param);
       $body.on('focus.focusInput','input[type=text],input[type=password],select,textarea',function(e){
         if(_this.options.disabled) return;
+        if(e.target.disabled || e.target.readOnly) return;
         var $tar,$pre,tar,pre;
         $tar = $(e.target);
         $pre = $(e.relatedTarget);

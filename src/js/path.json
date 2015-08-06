@@ -46,7 +46,6 @@
   "jquery.autoComplete": "plugin/autoComplete",
 
   "jquery.ui": "other/jquery-ui",
-  "jquery.transit": "other/jquery.transit",
   "pace": "other/pace",
   "preloadjs": "other/preloadjs",
   "TweenMax": "other/TweenMax",
@@ -63,7 +62,6 @@
   "fastclick": "special/fastclick",
   "ie6": "special/ie6",
   "console": "special/console",
-  "mobile": "special/mobile",
 
   "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
 

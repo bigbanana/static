@@ -275,6 +275,8 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 /* @import "header.less" */
 /* topbar */
 .ui-topbar {
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #cccccc;
   height: 30px;
   line-height: 30px;
   position: relative;
@@ -349,7 +351,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   display: block;
   position: relative;
   z-index: 2;
-  background-color: #ffffff;
+  background-color: #f1f1f1;
 }
 .ui-topbar .item.sub-box .subnav {
   display: none;
@@ -361,7 +363,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   min-width: 100px;
   border: 1px solid #cccccc;
   border-top: none;
-  background-color: #ffffff;
+  background-color: #f1f1f1;
 }
 .ui-topbar .item.sub-box .subnav a {
   display: block;
@@ -375,17 +377,6 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .ui-topbar a {
   color: #666;
-}
-.ui-topbar.other-topbar {
-  background-color: #f1f1f1;
-  border-bottom: 1px solid #cccccc;
-}
-.ui-topbar.other-topbar .item.sub-box .name,
-.ui-topbar.other-topbar .item.sub-box .subnav {
-  background-color: #f1f1f1;
-}
-.ui-topbar.other-topbar .item.app .hover-layer .box {
-  background-color: #f1f1f1;
 }
 /* header-bar */
 .header-bar {
@@ -433,7 +424,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   position: relative;
 }
 .header-bar .search-box .search-type-select {
-  width: 64px;
+  width: 84px;
   visibility: hidden;
   float: left;
   margin-left: -1px;
@@ -464,6 +455,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 .header-bar .search-box .search {
   border: none;
   border-left: 1px solid #c0c0c0;
+  float: left;
   height: 34px;
   line-height: 34px;
   width: 430px;
@@ -471,13 +463,11 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   padding: 0 4px;
   color: #222;
   font-weight: 700;
-  *height: 32px;
-  *line-height: 32px;
 }
 .header-bar .search-box .search-btn {
   width: 90px;
   height: 36px;
-  float: right;
+  float: left;
   margin: -1px -1px 0 0;
   background: #3079ed;
   text-align: center;
@@ -607,7 +597,7 @@ footer,
 .footer {
   border-top: 1px solid #cccccc;
   background-color: #f2f2f2;
-  padding: 20px 70px;
+  padding: 20px 0;
   color: #606060;
 }
 footer a,
@@ -648,7 +638,7 @@ footer.user-footer .links .follow,
 .footer.user-footer .links .follow {
   position: absolute;
   right: 0;
-  top: 10px;
+  top: 0;
 }
 footer.user-footer .links a,
 .footer.user-footer .links a {
@@ -657,6 +647,10 @@ footer.user-footer .links a,
 footer.user-footer .links a.fa,
 .footer.user-footer .links a.fa {
   margin-right: 8px;
+}
+footer.user-footer .links a:hover,
+.footer.user-footer .links a:hover {
+  color: #3366cc;
 }
 footer.user-footer .relative,
 .footer.user-footer .relative {
@@ -703,6 +697,7 @@ footer.user-footer p,
   border: 1px solid #cccccc;
   position: relative;
   padding: 0 25px 0 4px;
+  margin-right: 5px;
   cursor: pointer;
 }
 .ui-filter .row .values .field em {
@@ -904,6 +899,44 @@ footer.user-footer p,
 .ui-crumb .info .fa {
   font-size: 14px;
 }
+.ui-crumb .info a:hover {
+  color: #3366cc;
+}
+/*无数据*/
+.no-data {
+  position: relative;
+  padding: 16px 0;
+  height: 68px;
+  overflow: hidden;
+  font-size: 14px;
+}
+.no-data .text {
+  line-height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -10px 0 0 8px;
+}
+.no-data .xiaozhi-girl {
+  position: absolute;
+  top: 6px;
+  right: 50%;
+  margin-right: 8px;
+}
+/*女小智*/
+.xiaozhi-girl {
+  position: relative;
+  width: 88px;
+  height: 88px;
+}
+.xiaozhi-girl .img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 88px;
+  height: 88px;
+  background: url(../images/project/db/xiaozhi_girl.png) no-repeat 0 0 transparent;
+}
 /*详情页默认隐藏，防止dom操作的抖动*/
 .detail-html {
   /*如果不是iframe页面则显示*/
@@ -918,6 +951,28 @@ footer.user-footer p,
 .detail-html.iframe {
   background: url(http://static.yaozh.com/images/core/loading-50.gif) no-repeat center center transparent;
   height: 100%;
+}
+.detail-html.iframe body {
+  margin: 8px;
+}
+/*发布动画*/
+.publish-animate {
+  position: absolute;
+  right: 100px;
+  top: -88px;
+  width: 105px;
+  height: 95px;
+}
+.publish-animate .img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 105px;
+  height: 95px;
+  background: url(../images/project/db/xh.png) no-repeat 0 0 transparent;
+}
+.publish-animate.publish-style1 {
+  margin-top: 28px;
 }
 /* 页面 */
 /* @import "admin.less" */
@@ -998,6 +1053,9 @@ header .control-bar {
   border: none;
 }
 /* @import "page-index.less" */
+.page-index .ui-topbar .wrapper {
+  width: auto;
+}
 .page-index .main {
   min-height: 400px;
   margin: 100px auto;
@@ -1035,9 +1093,11 @@ header .control-bar {
   position: relative;
 }
 .page-index .search-box .search {
-  border: none;
+  float: left;
   width: 516px;
   height: 34px;
+  line-height: 34px;
+  border: none;
   padding: 0 10px;
 }
 .page-index .search-box .submit {
@@ -1064,9 +1124,9 @@ header .control-bar {
 }
 /* @import "page-list.less" */
 .page-list .zh-list .zh-li-icon {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 4px;
+  width: 24px;
+  height: 24px;
+  margin: 0 0 2px 10px;
   vertical-align: middle;
   display: inline-block;
 }
@@ -1101,6 +1161,10 @@ header .control-bar {
 .page-list .zh-list .ui-panel-content a:hover {
   color: #e74c3c;
   background-color: #eeeeee;
+}
+.page-list .list-actions {
+  position: relative;
+  bottom: -16px;
 }
 /* @import "page-user.less" */
 .page-user {
@@ -1658,6 +1722,9 @@ header .control-bar {
 .page-hhw .zh-items .item.open .content {
   display: block;
 }
+.page-hhw .jiegou-list img {
+  height: 80px;
+}
 /* @import "page-detail.less" */
 .detail-style-1 .head {
   line-height: 36px;
@@ -1710,25 +1777,6 @@ header .control-bar {
 }
 .detail-style-2 .other-database .btn {
   margin-right: 16px;
-}
-.detail-style-2 .publish {
-  position: absolute;
-  right: 100px;
-  top: -88px;
-  z-index: 2;
-  width: 105px;
-  height: 95px;
-}
-.detail-style-2 .publish .img {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 105px;
-  height: 95px;
-  background: url(../images/project/db/xh.png) no-repeat 0 0 transparent;
-}
-.detail-style-2 .publish.publish-style1 {
-  margin-top: 28px;
 }
 .detail-style-2 .manual {
   background-color: #fff;

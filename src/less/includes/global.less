@@ -105,6 +105,7 @@
 
 /* 盒模型 */
 .ib{*display:inline;display: inline-block;}
+.dn{display: none;}
 .hide{display: none!important;}
 .show{display: block!important;}
 
@@ -119,10 +120,20 @@ ul.dot{
     padding-left: 16px;background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
   }
 }
+
+/*数字列表*/
+ol.decimal{
+  list-style-type: decimal;
+  li{
+    margin-left: 20px;
+  }
+}
+
 /*分隔线*/
 hr.dotted{
   border-top-style:dotted;
 }
+
 /*定位*/
 .relative{
   position: relative;

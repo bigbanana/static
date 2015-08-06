@@ -1,6 +1,13 @@
+/**
+ * [响应式表格]
+ * @param  {[number]} offset [上边距偏移量（解决与顶部固定条重叠问题）]
+ * @param  {[number]} priority [表格列优先级，值越高越先隐藏使用data-priority设置在thead>tr>th上]
+ * @return {[type]}         [description]
+ */
+
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.responsivetable',['jquery','underscore','browser','jquery.widget','jquery.ui','jquery.dropdown'],factory);
+    define('jquery.responsivetable',['jquery','underscore','browser','jquery.widget','jquery.ui','jquery.dropdown','jquery.waypoints'],factory);
   } else {
     factory( $,_,browser,widget );
   }
@@ -119,23 +126,21 @@
         top: this.options.offset,
         visibility: 'hidden'
       });
-      require(['jquery.waypoints'],function(){
-        _this.$tableWrap.waypoint({
-          offset: _this.options.offset,
-          handler: function(direction){
-            if(direction == 'down'){
-              _this.$sticky.css({
-                visibility: 'visible',
-                position: 'fixed'
-              });
-            }else{
-              _this.$sticky.css({
-                visibility: 'hidden'
-              });
-            }
-          }
-        });
 
+      _this.$tableWrap.waypoint({
+        offset: _this.options.offset,
+        handler: function(direction){
+          if(direction == 'down'){
+            _this.$sticky.css({
+              visibility: 'visible',
+              position: 'fixed'
+            });
+          }else{
+            _this.$sticky.css({
+              visibility: 'hidden'
+            });
+          }
+        }
       });
     },
     windowResize: _.debounce(function(){

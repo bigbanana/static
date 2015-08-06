@@ -29,6 +29,7 @@
           border-color: darken(@border, 12%);
     }
   }
+
 }
 
 // Button sizes
@@ -53,6 +54,13 @@
   /*states*/
   .button-variant(#333; #fff; #ccc);
   .button-size(@paddingVerticalBase;@paddingHorizontalBase*2;@fontSizeBase;@inputLineHeight;@borderRadiusBase);
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: default;
+    .opacity(.65);
+  }
 }
 a.btn{text-decoration: none;}
 

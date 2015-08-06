@@ -87,7 +87,7 @@
 
 
   label.validate-error{
-    display:inline-block;
+    display:inline-block;line-height: @inputLineHeight;
     font-size:@fontSizeBase;color:#a94442;border-radius: @borderRadiusBase;
     padding:(@paddingVerticalBase+1) @paddingHorizontalBase;background-color: #f2dede;
 
@@ -99,6 +99,13 @@
   input.validate-error{
     border-color:#a94442;
   }
+  input.disabled,input.readonly{
+    background: #eee;
+    border-color:@borderColor;
+    &:focus{
+      border-color:@borderColor;
+    }
+  }
 
   &.align-right{
     .form-label{
@@ -106,7 +113,7 @@
       padding:@paddingVerticalBase+1 @paddingHorizontalBase;
     }
     .form-box{
-      overflow: auto;
+      float:left;
     }
     &.half-group{
       .clearfix();

@@ -1,3 +1,11 @@
+/**
+ * 创建一个css3动画（参考animate.css）
+ * @param  {[domElement]} el [动画元素]
+ * @param  {[string]} type [动画类型]
+ * @param  {[string]} speed [动画速度]
+ * @return {[Deferred]}         [jquery延迟对象]
+ */
+
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('effect',['jquery','utils'],factory);
@@ -5,7 +13,7 @@
     factory( jQuery,utils );
   }
 }(function($,utils){
-  //滑动显示一个列表
+  
   var Effect = function(opt){
     var that = this,className;
     var def = $.Deferred();

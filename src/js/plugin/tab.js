@@ -1,3 +1,12 @@
+/**
+ * [标签页]
+ * @param  {[string]} event [触发事件]
+ * @param  {[domElement]} el [作用元素]
+ * 有两种节构实例化一个标签页，简单的和普通的，
+ * 简单的节构为：div>(a+div)*3
+ * 普通的节构为：div>div.ui-tab-navs>div.ui-tab-nav>a*3^^+div.ui-tab-panels>div.ui-tab-panel*3
+ * @return {[object]}         [Tab 实例]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.tab',['jquery','underscore','jquery.widget'],factory);
@@ -5,7 +14,6 @@
     factory( jQuery,_,widget );
   }
 }(function($,_,widget){
-  //滑动显示一个列表
   var Tab = function(opt){
     if(opt.event == "hover"){
       opt.event = "mouseenter";

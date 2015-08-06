@@ -1,3 +1,18 @@
+/**
+ * 级联下拉选择
+ * 参数
+ * names : 分别的字段名，字符串(用逗号隔开)或数组(每一个的名字)
+ * default : 默认值，字符串或数组，同理names参数
+ * data : [
+ *          {
+ *            name:"",
+ *            value:"",
+ *            list:[{name:"",value:""}]
+ *          }
+ *        ]
+ * src : 远程拉取数据,数据格式为data
+ * 
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.linkSelect',['jquery','underscore','jquery.widget'],factory);
@@ -5,7 +20,6 @@
     factory( jQuery,_,widget );
   }
 }(function($,_,widget){
-  //滑动显示一个列表
   var LinkSelect = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
     var $el = $(opt.el);
@@ -62,10 +76,10 @@
       var $select = this.$el.children().eq(index);
       $select.val(item).trigger('change');
     },
-    createSelect: function(data){
+    createSelect: function(list){
       var option = $.extend({},this.options,{name:this.getName()});
       var $select = $(this.selectTemp(option));
-      var list = data,obj;
+      var obj;
 
       if(list.length == 0) return;
       

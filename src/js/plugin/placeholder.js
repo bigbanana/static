@@ -1,3 +1,8 @@
+/**
+ * [placeholder兼容]
+ * @param  {[string]} text [placeholder文字]
+ * @return {[object]}         [Placeholder 实例]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.placeholder',['jquery','modernizr','jquery.widget'],factory);

@@ -1,7 +1,7 @@
 footer,.footer{
   border-top:1px solid @borderColor;
   background-color: #f2f2f2;
-  padding: 20px 70px;color:#606060;
+  padding: 20px 0;color:#606060;
   a{
     color:#606060;
   }
@@ -27,12 +27,15 @@ footer,.footer{
       padding: 0 10px 20px 10px;
       position: relative;
       .follow{
-        position: absolute;right:0;top:10px;
+        position: absolute;right:0;top:0;
       }
       a{
         margin-right: @space;
         &.fa{
           margin-right: @space/2;
+        }
+        &:hover{
+          color:@blue;
         }
       }
     }

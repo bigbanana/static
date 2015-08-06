@@ -1,3 +1,8 @@
+/**
+ * [以弹出窗的形式打开一个链接]
+ * @param  所有dialog含有的参数
+ * @return {[object]}         [LinkDialog实例]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone'],factory);

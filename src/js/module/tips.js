@@ -1,13 +1,16 @@
+/**
+ * [小提示]
+ * @param  {[string]} type    [类型,info,success,error]
+ * @param  {[string]} content    [显示内容]
+ * @param  {[number]} offset    [初始偏移]
+ * @param  {[number]} delay    [持续时间]
+ * @param  {[number]} duration    [延时]
+ * @param  {[string]} easing    [缓动函数]
+ * @return {[type]}      [description]
+ */
 define('tips',['jquery','underscore','jquery.easing'],function($,_){
   function Tips(opt){
-    $.extend(this,{
-      type: 'info',
-      content: '',
-      distance: 60,
-      duration: 300,
-      delay: 2600,
-      easing: 'easeOutCirc'
-    },opt);
+    $.extend(this,arguments.callee.options,opt);
     this.init();
   }
 
@@ -17,7 +20,7 @@ define('tips',['jquery','underscore','jquery.easing'],function($,_){
       this.$el = $(this._template(this)).appendTo(document.body);
       var marginTop = parseInt(this.$el.css('marginTop')) || 0;
       var startCss = {
-        marginTop : marginTop-this.distance,
+        marginTop : marginTop-this.offset,
         opacity : 0
       };
       var css = {
@@ -25,7 +28,7 @@ define('tips',['jquery','underscore','jquery.easing'],function($,_){
         opacity : 1
       };
       var endCss = {
-        marginTop : marginTop+this.distance,
+        marginTop : marginTop+this.offset,
         opacity : 0
       };
       this.$el.css(startCss).animate(css,{
@@ -44,6 +47,17 @@ define('tips',['jquery','underscore','jquery.easing'],function($,_){
         '<div class="ui-tips-content ui-tips-<%= type %>"><%= content %></div>',
       '</div>'
     ].join(''))
+  });
+
+  $.extend(Tips,{
+    options : {
+      type: 'info',
+      content: '',
+      offset: 60,
+      duration: 300,
+      delay: 2600,
+      easing: 'easeOutCirc'
+    }
   });
 
   return Tips;

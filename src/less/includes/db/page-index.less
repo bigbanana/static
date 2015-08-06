@@ -2,6 +2,11 @@
   @searchBoxHeight : 36px;
   @searchBoxBorderWidth : 1px;
   @searchBoxContentHeight : @searchBoxHeight+-@searchBoxBorderWidth*2;
+  .ui-topbar{
+    .wrapper{
+      width:auto;
+    }
+  }
   .main{
     min-height: 400px;
     margin:100px auto;
@@ -30,7 +35,8 @@
     margin-top: 6px;border:@searchBoxBorderWidth solid #1066ea;background-color: #fff;
     height:@searchBoxContentHeight;position: relative;
     .search{
-      border:none;  width: 516px;height: @searchBoxContentHeight;padding: 0 10px;
+      float:left;width: 516px;height: @searchBoxContentHeight;line-height: @searchBoxContentHeight;
+      border:none;padding: 0 10px;
     }
     .submit{
       position: absolute;top:0px;right: 0px;width:100px;

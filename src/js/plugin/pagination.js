@@ -1,3 +1,23 @@
+/**
+ * [分页]
+ * @param  {[number]} currentPage [当前页]
+ * @param  {[number]} pageSize [一页条数]
+ * @param  {[number]} total [总条数]
+ * @param  {[number]} edges [两边显示个数]
+ * @param  {[number]} displayEdges [中间显示个数]
+ * @param  {[string]} prevHtml [上一页显示html]
+ * @param  {[string]} nextHtml [下一页显示html]
+ * @param  {[string]} href [链接模版，使用<%= page %>获取当前页]
+ * @param  {[string]} ellipseText [省略号样式]
+ * @param  {[boole]} pageSizeSelect [是否允许选择每页数量]
+ * @param  {[array]} pageSizeArray [每页数量选择数组]
+ * @param  {[boole]} skipPage [是否允许跳转到某页]
+ * @param  {[boole]} showPages [是否显示总页数]
+ * @param  {[boole]} showNums [是否显示总条数]
+ * @param  {[function]} onChange [change回调]
+ * 
+ * @return {[object]}         [Pagination 实例]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.pagination',['jquery','underscore','jquery.widget'],factory);
@@ -8,6 +28,7 @@
   function Pagination(opt){
     this.$el = $(opt.el);
     var _data = this.$el.data(),data = {};
+    //对药智数据的参数兼容
     _.mapObject(_data,function(v,k){
       switch(k){
         case 'page': {
@@ -192,7 +213,7 @@
       nextHtml: "下一页",
       href: "#page-<%= page %>",
       ellipseText: "&hellip;",
-      pageSizeSelect: false,//是否允许选择每页数量
+      pageSizeSelect: false,
       pageSizeArray: [10,20,50,100],//分页选择控制
       skipPage: false,//是否允许跳转到指定页
       showPages: false,//是否显示总页数

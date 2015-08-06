@@ -14,37 +14,41 @@ require(['browser'],function(browser){
   }
 });
 
-require(['jquery','browser'],function($,browser){
-  //开启DOM widget兼容
-  require(['jquery.widget'],function(widget){
-    widget.update();
-  });
-  $(function(){
-    //序列化form为object
-    $.fn.serializeObject = function() {
-      var o = {};
-      var a = this.serializeArray();
-      $.each(a, function() {
-        if (o[this.name] !== undefined) {
-          if (!o[this.name].push) {
-            o[this.name] = [o[this.name]];
-          }
-          o[this.name].push(this.value || '');
-        } else {
-          o[this.name] = this.value || '';
-        }
-      });
-      return o;
-    };
-  });
+/**
+ * 开启DOM widget兼容
+ */
+require(['jquery.widget'],function(widget){
+  widget.update();
 });
 
 /**
- * 手机兼容
+ * 设置默认时间格式
  */
-require(['device'],function(device){
-  if(device.mobile()){
-    require(['mobile'],function(){});
-  }
+require(['jquery.datepicker'],function(Datepicker){
+  Datepicker.options.dateFormat = "yy-mm-dd";
+});
+
+/**
+ * jquery常用扩展
+ */
+require(['jquery'],function($){
+
+  //序列化form为object
+  $.fn.serializeObject = function() {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+      if (o[this.name] !== undefined) {
+        if (!o[this.name].push) {
+          o[this.name] = [o[this.name]];
+        }
+        o[this.name].push(this.value || '');
+      } else {
+        o[this.name] = this.value || '';
+      }
+    });
+    return o;
+  };
+
 });
 

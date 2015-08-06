@@ -13,8 +13,9 @@
   @contentHeight : @inputLineHeight;
   @height : floor(@contentHeight+(@paddingVerticalBase+1)*2);
   @arrowWidth : 4px;
-  display:inline-block;_display:inline;position: relative;
+  .inline-block();
   .clearfix();
+  position: relative;
 
   .ui-dropdown-menu{
     position: absolute;display: none;left:0;z-index: 10;

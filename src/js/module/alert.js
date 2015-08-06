@@ -1,8 +1,11 @@
+/**
+ * [警告窗口]
+ * @param  {[string]} content [显示文字]
+ * @return {[object]}           [Alert 实例]
+ */
 define('alert',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
   function Alert(opt){
-    $.extend(this,{
-      content: ''
-    },opt);
+    $.extend(this,arguments.callee.options,opt);
     this.$el = $(this._template(this));
     this.init();
     this.events();
@@ -37,6 +40,12 @@ define('alert',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
         '</div>',
       '</div>'
     ].join(''))
+  });
+
+  $.extend(Alert,{
+    options : {
+      content: ''
+    }
   });
 
   return Alert;

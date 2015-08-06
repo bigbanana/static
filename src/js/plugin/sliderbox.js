@@ -1,3 +1,16 @@
+/**
+ * [轮播展示盒子]
+ * @param  {[string]} direction [方向]
+ * @param  {[string]} eventType [触发事件类型]
+ * @param  {[number]} displayNumber [显示条数]
+ * @param  {[boole]} control [是否显示控制面板]
+ * @param  {[boole]} auto [是否自动播放]
+ * @param  {[boole]} hoverPause [hover状态是否暂停自动播放]
+ * @param  {[number]} delay [自动播放迟延]
+ * @param  {[number]} duration [补间持续时间]
+ * @param  {[string]} easing [缓动函数]
+ * @return {[type]}         [description]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.sliderbox',['jquery','underscore','jquery.widget','jquery.easing'],factory);
@@ -5,7 +18,6 @@
     factory( $,_,widget );
   }
 }(function($,_,widget){
-  //滑动显示一个列表
   var SliderBox = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(opt.el);
@@ -82,7 +94,6 @@
     },
     slider : function(index,direction){
       var _this = this;
-      var fx = this.options.fx;
 
       index = (this.$items.length+index) % this.$items.length
       
@@ -92,8 +103,8 @@
         endCss = {left:-this.options.item.width*index}
       }
       this.$itemBox.stop(true).animate(endCss,{
-        duration : fx.duration,
-        easing : fx.easing
+        duration : this.options.duration,
+        easing : this.options.easing
       });
       var event = $.Event('slider',{index : index});
       this.$el.trigger(event);
@@ -122,10 +133,8 @@
       auto : true,
       hoverPause: true,
       delay : 3000,
-      fx : {
-        duration : 400,
-        easing : 'easeOutExpo'
-      }
+      duration : 400,
+      easing : 'easeOutExpo'
     }
   });
 

@@ -1,3 +1,9 @@
+/**
+ * [自动完成]
+ * @param  {[string]} source [远程数据源]
+ * 数据格式为{state:1,msg:"成功",data:[{name:"aaa"},{name:"bbb"},...]}
+ * @return {[object]}         [AutoComplete实例]
+ */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
     define('jquery.autoComplete',['jquery','underscore','jquery.widget','effect'],factory);
@@ -6,7 +12,7 @@
   }
 }(function($,_,widget,Effect){
 
-  var AutoCompete = function(opt){
+  var AutoComplete = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this._cache = {};
     this._list = [];
@@ -16,7 +22,7 @@
     this.init();
   }
 
-  $.extend(AutoCompete.prototype,{
+  $.extend(AutoComplete.prototype,{
     init: function(){
       this.$el.wrap('<div class="ui-autocomplete"></div>');
       this.$wrap = this.$el.parent();
@@ -134,12 +140,13 @@
       '<li class="<% if(key == item.name){ %>active<% } %>"><span><%= item.name %></span></li>'
     ].join(''))
   });
-  $.extend(AutoCompete,{
+
+  $.extend(AutoComplete,{
     options : {}
   });
 
-  widget.install('autoComplete',AutoCompete);
+  widget.install('autoComplete',AutoComplete);
 
-  return AutoCompete
+  return AutoComplete
 
 }));

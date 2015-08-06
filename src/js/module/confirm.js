@@ -1,10 +1,13 @@
+/**
+ * [确定窗口]
+ * @param  {[string]} content [显示文字]
+ * @param  {[function]} pass [成功后回调]
+ * @param  {[function]} cancel [失败后回调]
+ * @return {[object]}           [Confirm 实例]
+ */
 define('confirm',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
   function Confirm(opt){
-    $.extend(this,{
-      content: '确定要继续操作吗？',
-      pass: $.noop,
-      cancel: $.noop
-    },opt);
+    $.extend(this,arguments.callee.options,opt);
     this.init();
     this.events();
   }
@@ -45,6 +48,14 @@ define('confirm',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
         '</div>',
       '</div>'
     ].join(''))
+  });
+
+  $.extend(Confirm,{
+    options : {
+      content: '确定要继续操作吗？',
+      pass: $.noop,
+      cancel: $.noop
+    }
   });
 
   return Confirm;

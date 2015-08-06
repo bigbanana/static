@@ -376,6 +376,9 @@ html {
   *display: inline;
   display: inline-block;
 }
+.dn {
+  display: none;
+}
 .hide {
   display: none!important;
 }
@@ -390,6 +393,13 @@ html {
 ul.dot li {
   padding-left: 16px;
   background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
+}
+/*数字列表*/
+ol.decimal {
+  list-style-type: decimal;
+}
+ol.decimal li {
+  margin-left: 20px;
 }
 /*分隔线*/
 hr.dotted {
@@ -471,12 +481,6 @@ hr.dotted {
   padding: .2em .25em .15em;
   border: solid 0.08em #eeeeee;
   border-radius: .1em;
-}
-.pull-right {
-  float: right;
-}
-.pull-left {
-  float: left;
 }
 .fa.pull-left {
   margin-right: .3em;
@@ -1096,6 +1100,14 @@ hr.dotted {
   background-color: #e0e0e0;
   border-color: #adadad;
 }
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: default;
+  opacity: 0.65;
+  /* support: IE8 */
+  filter: Alpha(Opacity=65);
+}
 a.btn {
   text-decoration: none;
 }
@@ -1415,6 +1427,7 @@ a.btn {
 }
 .form label.validate-error {
   display: inline-block;
+  line-height: 20px;
   font-size: 14px;
   color: #a94442;
   border-radius: 2px;
@@ -1430,6 +1443,15 @@ a.btn {
 .form input.validate-error {
   border-color: #a94442;
 }
+.form input.disabled,
+.form input.readonly {
+  background: #eee;
+  border-color: #cccccc;
+}
+.form input.disabled:focus,
+.form input.readonly:focus {
+  border-color: #cccccc;
+}
 .form.align-right .form-label {
   float: left;
   width: 5em;
@@ -1438,7 +1460,7 @@ a.btn {
   padding: 5px 8px;
 }
 .form.align-right .form-box {
-  overflow: auto;
+  float: left;
 }
 .form.align-right.half-group {
   *zoom: 1;
@@ -1729,7 +1751,7 @@ div.ui-dialog .ui-dialog-iframe {
 }
 /*loading.less*/
 .ui-loading {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
@@ -1794,9 +1816,9 @@ div.ui-dialog .ui-dialog-iframe {
 .ui-dropdown,
 .ui-dropup {
   display: inline-block;
-  _display: inline;
-  position: relative;
+  *display: inline;
   *zoom: 1;
+  position: relative;
 }
 .ui-dropdown:before,
 .ui-dropup:before,
@@ -1900,6 +1922,9 @@ div.ui-dialog .ui-dialog-iframe {
   line-height: 20px;
 }
 .ui-dropdown-select .ui-dropdown-select-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   border: 1px solid #cccccc;
   text-decoration: none;
   display: block;
@@ -1907,7 +1932,7 @@ div.ui-dialog .ui-dialog-iframe {
   z-index: 2;
   border-radius: 2px;
   height: 20px;
-  padding: 4px 8px;
+  padding: 4px 16px 4px 8px;
 }
 /*autoComplete.less*/
 div.ui-autocomplete {
