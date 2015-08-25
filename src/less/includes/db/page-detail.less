@@ -11,12 +11,13 @@
   margin-top: 40px;
   .head{
     line-height: 28px;padding: 4px 10px;
-    background-color: #1387f1;color:#fff;
+    background-color: #0a4891;color:#fff;
   }
   .body{
     background-color: #f2f5f8;
     padding: floor(@space*1.6);
     position: relative;z-index: 3;
+    min-height: 400px;
     .ui-panel{
       border:none;padding: 0;
       background-color: transparent;
@@ -40,6 +41,17 @@
     .ui-panel-content{
       padding: floor(@space*0.5) @space;
     }
+    
+    .table{
+      text-align: left;
+      tbody{
+        th{text-align: right;}
+      }
+      th,td{
+        padding: 8px;
+      }
+    }
+
   }
   .other-database{
     .btn{

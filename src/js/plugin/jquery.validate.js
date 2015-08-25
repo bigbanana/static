@@ -51,7 +51,35 @@
   },$.validator.format("请输入手机或固定电话号码"));
 
   /**
-   * CSA编号
+   * 几项中任何一项必填
+   */
+  
+  $.validator.addMethod('multiRequire',function(value,element,param){
+    var res = true,that = this;
+    var $others = $('[multirequire='+param+']',this.currentForm).not(element);
+
+    if(!$.trim(value)){//此项为空时
+      res = false;
+      $others.each(function(){
+        //其它项不为空
+        if($.trim($(this).val())){
+          res = true;
+          return false;
+        }
+      });
+    }else{//此项不为空时
+      setTimeout(function(){
+        $others.each(function(){
+          that.element(this);
+        });
+      },0);
+    }
+
+    return res;
+  },$.validator.format("请在这几项中选择一项必填"));
+
+  /**
+   * CSA编号（药智网专用）
    */
   $.validator.addMethod('casCode',function(value,element,param){
     return this.optional(element) || /^\d+\-\d+\-\d+$/.test(value);

@@ -25,7 +25,7 @@
   }
 
   &.align-right{
-    .form-label{width:6em;}
+    .form-label{width:5em;}
   }
   /* 自定义样式1 */
   &.form-style-1{
@@ -46,7 +46,7 @@
     .form-double-groups{
       width:66.66%;float:left;
       .form-group{
-        width:50%;float:left;
+        width:50%;*width:49.9%;float:left;
       }
     }
     .form-group{
@@ -56,6 +56,7 @@
 
   .box-height-2{
     min-height : 2*(@formGroupMarginBottom+@height);
+    width: 220px;
   }
 
 }

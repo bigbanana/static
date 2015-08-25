@@ -15,6 +15,13 @@ require(['browser'],function(browser){
 });
 
 /**
+ * 加入iframe检测
+ */
+require(['modernizr'],function(modernizr){
+  modernizr.addTest('iframe',window != window.top);
+});
+
+/**
  * 开启DOM widget兼容
  */
 require(['jquery.widget'],function(widget){

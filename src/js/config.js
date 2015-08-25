@@ -21,6 +21,21 @@ require.config({
     },
     "jquery.ui": {
       deps : ['css!../css/jquery-ui']
+    },
+    "highcharts": {
+      deps: ['jquery'],
+      exports: 'highcharts'
+    },
+    "highchartTable": {
+      deps: ["highcharts"],
+      exports: "$"
+    },
+    "highcharts.data": {
+      deps: ["highcharts"],
+      exports: "highcharts"
+    },
+    "pinyin": {
+      exports: 'pinyin'
     }
   },
   deps : ["modernizr","global"].concat(window.config.deps)

@@ -96,17 +96,23 @@
   }
   .logo{
     display:inline-block;width: 260px;height: 40px;
-    background: url('../images/project/db/logo.png') no-repeat 0 -60px transparent;vertical-align: middle;margin-left: 8px;
+    background: url('../images/project/db/logo.png') no-repeat 0 -60px transparent;margin-left: 8px;
   }
   .search-box{
-    .inline-block();border: @borderWidth solid @borderColor;margin-left: 80px;
-    height:@contentHeight;line-height: @contentHeight;vertical-align:middle;position: relative;
+    @btnWidth : 90px;
+    @selectWidth : 84px;
+    @searchWidth : 430px;
+    .inline-block();border: @borderWidth solid @borderColor;margin: 2px 0 0 80px;
+    height:@contentHeight;width: @searchWidth;padding:0 @btnWidth 0 @selectWidth;
+    line-height: @contentHeight;position: relative;vertical-align: top;
     .search-type-select{
-      width: 84px;visibility: hidden;float: left;margin-left: -1px;
+      width: @selectWidth;visibility: hidden;
+      position: absolute;left:-1px;top:0;
     }
     .ui-dropdown-select{
       @innerHeight : @contentHeight+-@paddingVerticalBase*2;
-      height: @contentHeight;margin-left: -1px;float:left;
+      height: @contentHeight;
+      position: absolute;left:0;top:0;
       .ui-dropdown-select-name{
         height: @innerHeight;
         line-height: @innerHeight;
@@ -127,12 +133,15 @@
       }
     }
     .search{
-      border: none;border-left: 1px solid @borderColor;float:left;
-      height: @contentHeight;line-height: @contentHeight;width: 430px;
-      vertical-align: top;padding: 0 4px;color:#222;font-weight:700;
+      border: none;border-left: 1px solid @borderColor;
+      height: @contentHeight;line-height: @contentHeight;width: @searchWidth+-8px;
+      padding: 0 4px;color:#222;font-weight:700;
+      box-shadow: @inputBoxShadow;
+      *margin-top: -1px;
     }
     .search-btn{
-      width:90px;height:@height;float:left;margin:-1px -1px 0 0;
+      width:90px;height:@height;
+      position: absolute;right: -1px;top:-1px;
       background: @btnBackgroundColor;text-align: center;
       font-size: 14px;color:#fff;text-decoration: none;
     }

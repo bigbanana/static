@@ -1,7 +1,10 @@
 /**
  * [自动完成]
- * @param  {[string]} source [远程数据源]
- * 数据格式为{state:1,msg:"成功",data:[{name:"aaa"},{name:"bbb"},...]}
+ * @param  {[string]} remote [远程数据源]
+ * 数据格式为{state:1,msg:"成功",data:["aaa","bbb",...]}
+ * @param  {[string]} field [查询字段名]
+ * @param  {[object]} params [额外查询的参数]
+ * 
  * @return {[object]}         [AutoComplete实例]
  */
 (function( factory ) {
@@ -35,7 +38,8 @@
       var that = this;
       this.$el.on('focus',$.proxy(this.show,this));
       this.$el.on('blur',$.proxy(this.hide,this));
-      this.$el.on('keydown',_.debounce(function(e){
+      this.$el.on('keydown',function(e){
+
         switch(e.keyCode){
           case 9:
           case 13:
@@ -45,25 +49,25 @@
           }
           case 38:{
             //up
-            that.move(-1);
             e.preventDefault();
             e.stopPropagation();
-            break;
+            that.move(-1);
+            return false;
           }
           case 40:{
             //down
-            that.move(1);
             e.preventDefault();
             e.stopPropagation();
-            break;
+            that.move(1);
+            return false;
           }
           default:{
-            that.req(that.$el.val());
+            that.debounceReq();
           }
         }
-      },100));
+      });
       this.$el.on('autoCompleteChange',function(e,data){
-        that.$el.val(data.name);
+        that.$el.val(data);
       });
       this.$list.on('mousedown','>li',function(){
         var index = $(this).index();
@@ -80,11 +84,17 @@
         this.render(this._cache[key],key);
         return;
       }
-      $.get(this.options.source).done(function(res){
-        that._cache[key] = res.data;
+      var params = {}
+      params[this.options.field] = key;
+      $.get(this.options.remote,$.extend(params,this.options.params)).done(function(res){
+        if(!res) return;
+        that._cache[key] = res;
         that.render(that._cache[key],key);
       });
     },
+    debounceReq: _.debounce(function(){
+      this.req(this.$el.val());
+    },100),
     render: function(list,key){
       var that = this;
       this._list = list;
@@ -112,7 +122,7 @@
       }else{
         active = num%len;
       }
-      $children.eq(active).addClass('active').trigger('click');
+      $children.eq(active).addClass('active').trigger('mousedown');
     },
     show: function(){
       if(this.state == 'show' || this._list.length == 0) return;
@@ -137,12 +147,15 @@
       });
     },
     _liTemp: _.template([
-      '<li class="<% if(key == item.name){ %>active<% } %>"><span><%= item.name %></span></li>'
+      '<li class="<% if(key == item){ %>active<% } %>"><span><%= item %></span></li>'
     ].join(''))
   });
 
   $.extend(AutoComplete,{
-    options : {}
+    options: {
+      field: 'keyword',
+      params: {}
+    }
   });
 
   widget.install('autoComplete',AutoComplete);

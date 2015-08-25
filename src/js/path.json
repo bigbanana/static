@@ -21,6 +21,7 @@
   "alert": "module/alert",
   "tips": "module/tips",
   "jquery.loading": "module/loading",
+  "sidebar": "module/sidebar",
 
   "jquery.widget": "plugin/jquery.widget",
   "jquery.plax": "plugin/plax",
@@ -56,6 +57,11 @@
   "jquery.threecheckbox": "other/threecheckbox",
   "magnifier": "other/magnifier",
   "jquery.magnifier": "other/jquery.magnifier",
+  "highcharts": "other/highcharts",
+  "highcharts.data": "other/highcharts.data",
+  "highchartTable": "other/highchartTable",
+  "jquery.highchartTable": "other/jquery.highchartTable",
+  "pinyin": "other/pinyin",
   
 
   "DD_belatedPNG": "special/DD_belatedPNG",

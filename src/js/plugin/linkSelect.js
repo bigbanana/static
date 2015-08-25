@@ -37,10 +37,10 @@
         this.options.names = this.options.names.split(',');
       }
       if(!!this.options.default && $.type(this.options.default)!="array"){
-        this.options.default = this.options.default.split(',');
+        this.options.default = this.options.default.toString().split(',');
       }
       if(!!this.options.data){
-        this.create();
+        this.create($.parseJSON(this.options.data));
         return;
       }
       if(!this.options.src) return;

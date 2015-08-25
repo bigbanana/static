@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-08-04 09:02:26 */
+/* build : 564493634@qq.com 2015-08-20 11:42:19 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2106,6 +2106,21 @@ require.config({
     },
     "jquery.ui": {
       deps : ['css!../css/jquery-ui']
+    },
+    "highcharts": {
+      deps: ['jquery'],
+      exports: 'highcharts'
+    },
+    "highchartTable": {
+      deps: ["highcharts"],
+      exports: "$"
+    },
+    "highcharts.data": {
+      deps: ["highcharts"],
+      exports: "highcharts"
+    },
+    "pinyin": {
+      exports: 'pinyin'
     }
   },
   deps : ["modernizr","global"].concat(window.config.deps)
@@ -2133,6 +2148,7 @@ require.config({
     "alert": "module/alert",
     "tips": "module/tips",
     "jquery.loading": "module/loading",
+    "sidebar": "module/sidebar",
     "jquery.widget": "plugin/jquery.widget",
     "jquery.plax": "plugin/plax",
     "jquery.easing": "plugin/jquery.easing.1.3",
@@ -2166,12 +2182,17 @@ require.config({
     "jquery.threecheckbox": "other/threecheckbox",
     "magnifier": "other/magnifier",
     "jquery.magnifier": "other/jquery.magnifier",
+    "highcharts": "other/highcharts",
+    "highcharts.data": "other/highcharts.data",
+    "highchartTable": "other/highchartTable",
+    "jquery.highchartTable": "other/jquery.highchartTable",
+    "pinyin": "other/pinyin",
     "DD_belatedPNG": "special/DD_belatedPNG",
     "fastclick": "special/fastclick",
     "ie6": "special/ie6",
     "console": "special/console",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
   },
-  urlArgs: "yaozhVersion=1.1.7"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.2.0"+"&data="+new Date().getTime(),
   waitSeconds: 10
 })

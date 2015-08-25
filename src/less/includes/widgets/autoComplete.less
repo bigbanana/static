@@ -4,7 +4,7 @@ div.ui-autocomplete{
   .ui-autocomplete-box{
     display: none;
     position: absolute;
-    width:100%;top:100%;
+    width:100%;top:100%;left:0;
     z-index: 10;
     .ui-autocomplete-list{
       padding: 5px 0;margin: 2px 0 0;font-size: 14px;
@@ -12,6 +12,7 @@ div.ui-autocomplete{
       border: 1px solid @borderColor;
       border-radius: @borderRadiusBase;
       box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+      *zoom:1;*line-height: 1.42857143;
       li{
         span{
           display: block;padding: 3px 20px;clear: both;font-weight: 400;

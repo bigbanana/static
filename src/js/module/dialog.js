@@ -27,6 +27,9 @@
     setTitle: function(str){
       this._dialog.option({title:str});
     },
+    setOption: function(opt){
+      this._dialog.option(opt);
+    },
     destroy: function(){
       this._dialog.destroy();
     },

@@ -15,6 +15,9 @@
   .form-label{
     font-size:@fontSizeBase;
     .text-overflow();
+    display: inline-block;
+    line-height: @height;
+    vertical-align: top;
   }
   .form-box{
     .btn{
@@ -33,7 +36,7 @@
     font-size: @fontSizeBase;color:#555;
     width:@inputWidth;line-height: @inputLineHeight;height: @inputLineHeight;
     border:@inputBorder;padding:@paddingVerticalBase @paddingHorizontalBase;
-    box-shadow: 1px 1px 1px #eee inset;
+    box-shadow: @inputBoxShadow;
     &:focus{
       border-color:@inputBorderFocusColor
     }
@@ -87,7 +90,7 @@
 
 
   label.validate-error{
-    display:inline-block;line-height: @inputLineHeight;
+    display:inline-block;line-height: @inputLineHeight;vertical-align: top;
     font-size:@fontSizeBase;color:#a94442;border-radius: @borderRadiusBase;
     padding:(@paddingVerticalBase+1) @paddingHorizontalBase;background-color: #f2dede;
 
@@ -99,7 +102,8 @@
   input.validate-error{
     border-color:#a94442;
   }
-  input.disabled,input.readonly{
+  .form-control.disabled,.form-control.readonly{
+    color:@gray;
     background: #eee;
     border-color:@borderColor;
     &:focus{

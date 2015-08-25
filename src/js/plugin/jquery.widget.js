@@ -44,36 +44,30 @@
       $.fn.extend(obj);
     },
     update: function($el){
-      $(function(){
-        $el = $el || $(document);
-        var def = $.Deferred();
-        var defs = $.map($el.find('[data-widget]'),function(el){
-          var d = $.Deferred();
-          var $el = $(el);
-          var data = $el.data();
-          var widget = data.widget;
-          require(['jquery.'+widget],function(){
-            $el[widget] && $el[widget](data);
-            d.resolve();
-          });
-          return d.promise();
+      $el = $el || $(document);
+      var def = $.Deferred();
+      var defs = $.map($el.find('[data-widget]'),function(el){
+        var d = $.Deferred();
+        var $el = $(el);
+        var data = $el.data();
+        var widget = data.widget;
+        require(['jquery.'+widget],function(){
+          $el[widget] && $el[widget](data);
+          d.resolve();
         });
-  
-        $.when.apply(window,defs).done(def.resolve);
-        return def;
-
+        return d.promise();
       });
+
+      $.when.apply(window,defs).done(def.resolve);
+      return def;
     }
   });
 
   $.fn.extend({
     widget: function(){
-      return this.each(function(){
-        var $this = $(this);
-        widget.update($this);
-        return this;
-      });
-
+      var $this = $(this);
+      var def = widget.update($this);
+      return def
     }
   })
 

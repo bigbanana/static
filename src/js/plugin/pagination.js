@@ -14,6 +14,7 @@
  * @param  {[boole]} skipPage [是否允许跳转到某页]
  * @param  {[boole]} showPages [是否显示总页数]
  * @param  {[boole]} showNums [是否显示总条数]
+ * @param  {[number]} maxPage [最多显示页数]
  * @param  {[function]} onChange [change回调]
  * 
  * @return {[object]}         [Pagination 实例]
@@ -39,6 +40,10 @@
           data.pageSize = v;
           break;
         }
+        case 'max': {
+          data.maxPage = v;
+          break;
+        }
         default: {
           data[k] = v;
         }
@@ -62,13 +67,20 @@
     },
     setPage: function(number){
       this.setOptions({currentPage:number});
+      var href = _.template(this.href)({page:number});
+      //处理hash兼容
+      if(href.search("#") == 0){
+        location.hash = href.substring(1);
+      }else{
+        location.href = href;
+      }
     },
     setPageSize: function(number){
       this.setOptions({pageSize:number});
     },
     render: function(){
       var self = this;
-      var totalPage = Math.ceil(this.total/this.pageSize);
+      var totalPage = this.maxPage || Math.ceil(this.total/this.pageSize);
       var items = [];
       this.$el.empty();
       if(this.currentPage>totalPage) return;
@@ -128,7 +140,7 @@
 
       //附加功能
       this.showPages && this.$el.append('<span class="total-page">共 '+totalPage+' 页</span>');
-      this.showNums && this.$el.append('<span class="total-nums">共 '+this.total+' 条</span>');
+      this.showNums && this.$el.prepend('<span class="total-nums">共 '+this.total+' 条</span>');
       this.skipPage && this._skipPage();
       this.pageSizeSelect && this._pageSizeSelect();
     },
@@ -139,6 +151,7 @@
         if($this.hasClass('ellipse')) return;
         if($this.hasClass('current')) return;
         self.setPage($this.data('page'));
+        return false;
       });
       this.$el.on('keydown','.skip',function(e){
         var totalPage = Math.ceil(self.total/self.pageSize);
@@ -146,11 +159,6 @@
         if(e.keyCode == 13){
           var val = parseInt($this.val());
           if(!isNaN(val) && val<=totalPage){
-            var href = _.template(self.href)({page:val});
-            //处理hash兼容
-            if(href.search("#") == 0){
-              location.hash = href.substring(1);
-            }
             self.setPage(val);
           }else{
             $this.val('');
@@ -218,6 +226,7 @@
       skipPage: false,//是否允许跳转到指定页
       showPages: false,//是否显示总页数
       showNums: true,//是否显示总条数
+      maxPage: 0,//最大显示页数
       onChange: $.noop
     }
   });

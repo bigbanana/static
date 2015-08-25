@@ -35,8 +35,8 @@ define('outer',['jquery'],function($){
     var $elems = $();
 
     function check(e){
-      var target = e.target;
-      var $target = $(target);
+      var target   = e.target;
+      var $target  = $(target);
       var $parents = $target.parents();
       $elems.each(function(){
         if (this != target && $parents.filter(this).length==0){

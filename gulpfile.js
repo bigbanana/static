@@ -1,37 +1,37 @@
-var  gulp         = require('gulp'),
-     _            = require('underscore'),
-     header       = require('gulp-header'),
-     footer       = require('gulp-footer'),
-     concat       = require('gulp-concat'),
-     uglify       = require('gulp-uglify'),
-     less         = require('gulp-less'),
-     cssmin       = require('gulp-cssmin'),
-     rename       = require('gulp-rename'),
-     clean        = require('gulp-clean'),
-     autoprefixer = require('gulp-autoprefixer'),
-     sourcemaps   = require('gulp-sourcemaps'),
-     moment       = require('moment');
+var  gulp    = require('gulp'),
+_            = require('underscore'),
+header       = require('gulp-header'),
+footer       = require('gulp-footer'),
+concat       = require('gulp-concat'),
+uglify       = require('gulp-uglify'),
+less         = require('gulp-less'),
+cssmin       = require('gulp-cssmin'),
+rename       = require('gulp-rename'),
+clean        = require('gulp-clean'),
+autoprefixer = require('gulp-autoprefixer'),
+sourcemaps   = require('gulp-sourcemaps'),
+moment       = require('moment');
 
 var package = require('./package.json');
-var fs = require('fs');
+var fs      = require('fs');
 var path    = require('path');
 
-var src  = './src',   
-    dest = './dist';
+var src     = './src',   
+dest        = './dist';
 
 /* 
   devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
   probaseUrl http://static.yaozh.com/js
 */
-var devbaseUrl = "http://static.yaozh.com/js",
-    probaseUrl = "http://static.yaozh.com/js";
-var version = "1.2.0";
+var devbaseUrl   = "http://static.yaozh.com/js",
+probaseUrl       = "http://static.yaozh.com/js";
+var version      = "1.2.0";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置
-var copyConfig = ["/fonts","/thirdparty","/images","/test"];
+var copyConfig   = ["/fonts","/thirdparty","/images","/test"];
 //构建app.js需要的模块
-var appJsConfig = [src+'/js/require.js',src+'/js/config.js'];
+var appJsConfig  = [src+'/js/require.js',src+'/js/config.js'];
 
 //includes下的less不进行编译
 var lessFile   = [src+'/less/**/*.less','!'+src+'/less/includes/**/*'];

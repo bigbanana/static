@@ -2,13 +2,14 @@
   @contentHeight : @inputLineHeight;
   @height : floor(@contentHeight+(@paddingVerticalBase+1)*2);
   @arrowWidth : 4px;
+  background-color: #fff;box-shadow: @inputBoxShadow;
   display: inline-block;position: relative;z-index: 10;
-  height: @height;line-height: @contentHeight;
+  height: @height;line-height: @contentHeight;vertical-align: top;
   .ui-dropdown-select-name{
     .text-overflow();
     border:1px solid @borderColor;text-decoration: none;
     display: block;position: relative;z-index: 2;
     border-radius: @borderRadiusBase;
-    height: @contentHeight;padding: @paddingVerticalBase @paddingHorizontalBase*2 @paddingVerticalBase @paddingHorizontalBase;
+    padding: @paddingVerticalBase @paddingHorizontalBase*2 @paddingVerticalBase @paddingHorizontalBase;
   }
 }

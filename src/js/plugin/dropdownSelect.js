@@ -33,6 +33,7 @@
         if(that.cache.value == value) return;
         that.$el.val(value);
         that.$el.trigger('change');
+        that.$el.trigger('focusout');
       });
       this.$el.on('change',$.proxy(this.changeValue,this));
     },

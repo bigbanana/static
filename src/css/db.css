@@ -91,7 +91,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   width: 218px;
 }
 .form.align-right .form-label {
-  width: 6em;
+  width: 5em;
 }
 .form.form-style-1 {
   *zoom: 1;
@@ -132,6 +132,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .form.form-style-2 .form-double-groups .form-group {
   width: 50%;
+  *width: 49.9%;
   float: left;
 }
 .form.form-style-2 .form-group {
@@ -139,6 +140,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .form .box-height-2 {
   min-height: 100px;
+  width: 220px;
 }
 /* 通用组件 */
 /* @import "dbicons.less" */
@@ -190,6 +192,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   line-height: 20px;
   position: relative;
   z-index: 2;
+  cursor: default;
 }
 .ui-topnav .item .name:hover {
   text-decoration: none;
@@ -409,7 +412,6 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   width: 260px;
   height: 40px;
   background: url('../images/project/db/logo.png') no-repeat 0 -60px transparent;
-  vertical-align: middle;
   margin-left: 8px;
 }
 .header-bar .search-box {
@@ -417,22 +419,26 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   *zoom: 1;
   *display: inline;
   border: 1px solid #c0c0c0;
-  margin-left: 80px;
+  margin: 2px 0 0 80px;
   height: 34px;
+  width: 430px;
+  padding: 0 90px 0 84px;
   line-height: 34px;
-  vertical-align: middle;
   position: relative;
+  vertical-align: top;
 }
 .header-bar .search-box .search-type-select {
   width: 84px;
   visibility: hidden;
-  float: left;
-  margin-left: -1px;
+  position: absolute;
+  left: -1px;
+  top: 0;
 }
 .header-bar .search-box .ui-dropdown-select {
   height: 34px;
-  margin-left: -1px;
-  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .header-bar .search-box .ui-dropdown-select .ui-dropdown-select-name {
   height: 26px;
@@ -455,20 +461,21 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 .header-bar .search-box .search {
   border: none;
   border-left: 1px solid #c0c0c0;
-  float: left;
   height: 34px;
   line-height: 34px;
-  width: 430px;
-  vertical-align: top;
+  width: 422px;
   padding: 0 4px;
   color: #222;
   font-weight: 700;
+  box-shadow: 1px 1px 1px #eeeeee inset;
+  *margin-top: -1px;
 }
 .header-bar .search-box .search-btn {
   width: 90px;
   height: 36px;
-  float: left;
-  margin: -1px -1px 0 0;
+  position: absolute;
+  right: -1px;
+  top: -1px;
   background: #3079ed;
   text-align: center;
   font-size: 14px;
@@ -902,57 +909,11 @@ footer.user-footer p,
 .ui-crumb .info a:hover {
   color: #3366cc;
 }
-/*无数据*/
-.no-data {
-  position: relative;
-  padding: 16px 0;
-  height: 68px;
-  overflow: hidden;
-  font-size: 14px;
+/* 级联下拉 */
+.link-select-wrap {
+  width: 300px;
 }
-.no-data .text {
-  line-height: 20px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin: -10px 0 0 8px;
-}
-.no-data .xiaozhi-girl {
-  position: absolute;
-  top: 6px;
-  right: 50%;
-  margin-right: 8px;
-}
-/*女小智*/
-.xiaozhi-girl {
-  position: relative;
-  width: 88px;
-  height: 88px;
-}
-.xiaozhi-girl .img {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 88px;
-  height: 88px;
-  background: url(../images/project/db/xiaozhi_girl.png) no-repeat 0 0 transparent;
-}
-/*详情页默认隐藏，防止dom操作的抖动*/
-.detail-html {
-  /*如果不是iframe页面则显示*/
-  /*如果是iframe则在js里处理body显示*/
-}
-.detail-html body {
-  display: none;
-}
-.detail-html.no-iframe body {
-  display: block;
-}
-.detail-html.iframe {
-  background: url(http://static.yaozh.com/images/core/loading-50.gif) no-repeat center center transparent;
-  height: 100%;
-}
-.detail-html.iframe body {
+html.iframe body {
   margin: 8px;
 }
 /*发布动画*/
@@ -969,10 +930,133 @@ footer.user-footer p,
   top: 0;
   width: 105px;
   height: 95px;
-  background: url(../images/project/db/xh.png) no-repeat 0 0 transparent;
+  background: url(//static.yaozh.com/images/project/db/xh.png) no-repeat 0 0 transparent;
 }
 .publish-animate.publish-style1 {
   margin-top: 28px;
+}
+/*无数据*/
+.db-nodata {
+  position: relative;
+  padding: 16px 0;
+  height: 68px;
+  overflow: hidden;
+  font-size: 14px;
+}
+.db-nodata .text {
+  line-height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -10px 0 0 8px;
+}
+.db-nodata .xiaozhi-girl {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  margin-right: 8px;
+  margin-top: -44px;
+}
+.db-nodata.base-list {
+  padding: 100px 0;
+}
+.db-nodata.base-list .xiaozhi-boy-cry,
+.db-nodata.base-list .xiaozhi-boy-sport,
+.db-nodata.base-list .xiaozhi-girl-kefu {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  margin-right: 200px;
+  margin-top: -44px;
+}
+.db-nodata.base-list .to-custom:hover {
+  color: #3366cc;
+}
+.db-nodata.base-list .text {
+  margin-top: -20px;
+  margin-left: -160px;
+}
+/*小智*/
+.xiaozhi-boy,
+.xiaozhi-girl,
+.xiaozhi-boy-cry,
+.xiaozhi-boy-sport,
+.xiaozhi-girl-kefu {
+  position: relative;
+  width: 88px;
+  height: 88px;
+}
+.xiaozhi-boy .img,
+.xiaozhi-girl .img,
+.xiaozhi-boy-cry .img,
+.xiaozhi-boy-sport .img,
+.xiaozhi-girl-kefu .img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 88px;
+  height: 88px;
+}
+/*女小智*/
+.xiaozhi-girl .img {
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_girl.png) no-repeat 0 0 transparent;
+}
+/*男小智*/
+.xiaozhi-boy .img {
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_boy.png) no-repeat 0 0 transparent;
+}
+/* 男小智-哭 */
+.xiaozhi-boy-cry .img {
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_cry.png) no-repeat 0 0 transparent;
+}
+/* 男小智-运动 */
+.xiaozhi-boy-sport .img {
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_sport.png) no-repeat 0 0 transparent;
+}
+/* 女小智-客服 */
+.xiaozhi-girl-kefu .img {
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_girl_kefu.png) no-repeat 0 0 transparent;
+}
+/* 数据库加载中 */
+.db-loading {
+  position: relative;
+  padding: 16px 0;
+  height: 68px;
+  overflow: hidden;
+  font-size: 14px;
+}
+.db-loading .text {
+  line-height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -10px 0 0 8px;
+}
+.db-loading .xiaozhi-girl {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  margin-right: 8px;
+  margin-top: -44px;
+}
+.db-loading.base-list {
+  padding: 80px 0;
+}
+/* 未登录，非VIP提示页，系统提示成功，错误 */
+.no-login,
+.no-vip,
+.msg-success,
+.msg-error {
+  padding: 20px 20px 20px 110px;
+  width: 360px;
+  margin: 60px auto;
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_boy.png) no-repeat 0 center transparent;
+}
+.no-login.msg-error,
+.no-vip.msg-error,
+.msg-success.msg-error,
+.msg-error.msg-error {
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_cry.png) no-repeat 0 center transparent;
 }
 /* 页面 */
 /* @import "admin.less" */
@@ -1084,6 +1168,8 @@ header .control-bar {
   width: 640px;
   margin: 30px auto;
   font-size: 14px;
+  position: relative;
+  z-index: 2;
 }
 .page-index .search-box {
   margin-top: 6px;
@@ -1093,12 +1179,12 @@ header .control-bar {
   position: relative;
 }
 .page-index .search-box .search {
-  float: left;
   width: 516px;
   height: 34px;
   line-height: 34px;
   border: none;
   padding: 0 10px;
+  *margin-top: -1px;
 }
 .page-index .search-box .submit {
   position: absolute;
@@ -1112,6 +1198,9 @@ header .control-bar {
   font-weight: 700;
   cursor: pointer;
 }
+.page-index .search-box .ui-autocomplete-box {
+  float: left;
+}
 .page-index footer {
   position: fixed;
   left: 0;
@@ -1121,6 +1210,51 @@ header .control-bar {
 }
 .page-index footer .clearfix {
   margin: 0 70px;
+}
+.database-list {
+  min-height: 400px;
+}
+.database-list .category {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f0f0f0;
+  border: 1px solid #cccccc;
+}
+.database-list .category .head {
+  padding: 8px 0;
+}
+.database-list .category .head .database-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.database-list .category .head .name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #3366cc;
+  display: inline-block;
+  margin-left: 6px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+.database-list .category .body {
+  padding: 8px;
+}
+.database-list .category .body a {
+  display: inline-block;
+  line-height: 24px;
+  padding: 0 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  margin: 0 8px 8px 0;
+}
+.database-list .category .body a:hover {
+  background: #3366cc;
+  color: #fff;
+}
+.database-list .db-loading,
+.database-list .db-nodata {
+  top: 170px;
 }
 /* @import "page-list.less" */
 .page-list .zh-list .zh-li-icon {
@@ -1147,6 +1281,7 @@ header .control-bar {
 .page-list .zh-list .ui-panel-content a {
   display: block;
   line-height: 24px;
+  font-size: 14px;
   position: relative;
   padding: 4px 32px;
 }
@@ -1158,11 +1293,14 @@ header .control-bar {
   top: 4px;
   position: absolute;
 }
+.page-list .zh-list .ui-panel-content a .info em {
+  color: #3366cc;
+}
 .page-list .zh-list .ui-panel-content a:hover {
   color: #e74c3c;
   background-color: #eeeeee;
 }
-.page-list .list-actions {
+.list-actions {
   position: relative;
   bottom: -16px;
 }
@@ -1628,9 +1766,6 @@ header .control-bar {
   top: 0;
   width: 220px;
 }
-.page-hhw .top-box .right-box .company-info {
-  height: 230px;
-}
 .page-hhw .top-box .right-box .company-info .ui-panel-title {
   color: #fff;
   background-color: #0a4891;
@@ -1741,7 +1876,7 @@ header .control-bar {
 .detail-style-2 .head {
   line-height: 28px;
   padding: 4px 10px;
-  background-color: #1387f1;
+  background-color: #0a4891;
   color: #fff;
 }
 .detail-style-2 .body {
@@ -1749,6 +1884,7 @@ header .control-bar {
   padding: 25px;
   position: relative;
   z-index: 3;
+  min-height: 400px;
 }
 .detail-style-2 .body .ui-panel {
   border: none;
@@ -1774,6 +1910,16 @@ header .control-bar {
 }
 .detail-style-2 .body .ui-panel-content {
   padding: 8px 16px;
+}
+.detail-style-2 .body .table {
+  text-align: left;
+}
+.detail-style-2 .body .table tbody th {
+  text-align: right;
+}
+.detail-style-2 .body .table th,
+.detail-style-2 .body .table td {
+  padding: 8px;
 }
 .detail-style-2 .other-database .btn {
   margin-right: 16px;
