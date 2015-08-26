@@ -1,6 +1,6 @@
 .ui-filter{
   @space : 20px;
-  @rowHeight : 36px;
+  @rowHeight : 35px;
   @rowPadding : 6px;
   @rowContentHeight : @rowHeight+-@rowPadding*2+-1;
   .row{
@@ -13,6 +13,7 @@
       margin-right: 40px;
     }
     .values{
+      position: relative;
       overflow: hidden;*zoom:1;
       .field{
         @contentHeight : @rowContentHeight+-2;
@@ -69,7 +70,10 @@
           position: absolute;margin:6px 0 0 -16px;*margin: -3px 0 0 -20px;_margin-top:-4px;
         }
       }
-
+      .clear-all{
+        position: absolute;
+        right:0;top:0;
+      }
       .space{
         margin-right: @space;
       }

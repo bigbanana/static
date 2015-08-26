@@ -74,24 +74,34 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   /* 自定义样式1 */
   /* 自定义样式2 */
 }
+.form .form-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+}
 .form .form-box .btn.form-control-width {
-  width: 216px;
+  width: 196px;
   padding-left: 0;
   padding-right: 0;
 }
 .form .form-box button.btn.form-control-width {
-  width: 218px;
+  width: 198px;
   padding-left: 0;
   padding-right: 0;
 }
 .form .form-control {
-  width: 200px;
+  font-size: 12px;
+  width: 180px;
+}
+.form .form-control.half {
+  width: 75px;
 }
 .form select.form-control {
-  width: 218px;
+  width: 198px;
 }
 .form.align-right .form-label {
-  width: 5em;
+  padding-left: 0;
+  width: 90px;
 }
 .form.form-style-1 {
   *zoom: 1;
@@ -136,10 +146,10 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   float: left;
 }
 .form.form-style-2 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 .form .box-height-2 {
-  min-height: 100px;
+  min-height: 76px;
   width: 220px;
 }
 /* 通用组件 */
@@ -174,8 +184,8 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 /* topnav */
 .ui-topnav {
   background-color: #0a4891;
-  height: 30px;
-  padding: 0 6px;
+  height: 28px;
+  padding: 0 8px;
   position: relative;
   z-index: 1;
   /* padding */
@@ -187,7 +197,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .ui-topnav .item .name {
   display: inline-block;
-  padding: 5px 6px;
+  padding: 4px 8px;
   color: #dee2ec;
   line-height: 20px;
   position: relative;
@@ -198,13 +208,13 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   text-decoration: none;
 }
 .ui-topnav .item .name.arrow {
-  padding-right: 20px;
+  padding-right: 16px;
 }
 .ui-topnav .item .name.arrow:after {
   content: "";
   position: absolute;
   z-index: 2;
-  right: 8px;
+  right: 4px;
   bottom: 50%;
   margin: 0 0 -6px -4px;
   border: 4px solid transparent;
@@ -215,9 +225,9 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   z-index: 1;
   width: 240px;
   left: -1px;
-  top: 29px;
+  top: 27px;
   display: none;
-  padding: 10px 0;
+  padding: 8px 0;
   background-color: #ffffff;
   border: 1px solid #cccccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -230,8 +240,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   display: block;
   _zoom: 1;
   color: #3366cc;
-  line-height: 20px;
-  padding: 4.8px 4px;
+  padding: 6px 3px;
 }
 .ui-topnav .item.active .name {
   background-color: #ffffff;
@@ -245,24 +254,24 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   *zoom: 1;
   *display: inline;
   line-height: 20px;
-  padding: 6px 5px;
+  padding: 4px 8px;
 }
 .ui-topnav .padding a {
   display: inline-block;
   color: #dee2ec;
 }
 .ui-topnav.other-nav {
-  height: 38px;
-  padding: 0 20px;
+  height: 36px;
+  padding: 0 16px;
 }
 .ui-topnav.other-nav .item .name {
   line-height: 28px;
-  padding: 5px 20px;
+  padding: 4px 16px;
   font-size: 14px;
   font-weight: 700;
 }
 .ui-topnav.other-nav .subnav {
-  top: 37px;
+  top: 35px;
 }
 .ui-topnav.other-nav .padding {
   line-height: 28px;
@@ -679,8 +688,8 @@ footer.user-footer p,
 }
 /* @import "filter.less" */
 .ui-filter .row {
-  min-height: 23px;
-  line-height: 23px;
+  min-height: 22px;
+  line-height: 22px;
   border-bottom: 1px solid #cccccc;
   padding: 6px;
 }
@@ -694,16 +703,17 @@ footer.user-footer p,
   margin-right: 40px;
 }
 .ui-filter .row .values {
+  position: relative;
   overflow: hidden;
   *zoom: 1;
 }
 .ui-filter .row .values .field {
   display: inline-block;
-  height: 21px;
-  line-height: 21px;
+  height: 20px;
+  line-height: 20px;
   border: 1px solid #cccccc;
   position: relative;
-  padding: 0 25px 0 4px;
+  padding: 0 24px 0 4px;
   margin-right: 5px;
   cursor: pointer;
 }
@@ -715,9 +725,9 @@ footer.user-footer p,
   right: 0;
   top: 0;
   color: #e74c3c;
-  width: 21px;
-  height: 21px;
-  line-height: 21px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
   text-align: center;
   background-color: transparent;
 }
@@ -745,8 +755,8 @@ footer.user-footer p,
   display: inline-block;
   width: 3em;
   border: 1px solid #cccccc;
-  height: 21px;
-  line-height: 21px;
+  height: 20px;
+  line-height: 20px;
 }
 .ui-filter .row .values .num-area input:focus {
   border-color: #5c85d6;
@@ -754,14 +764,14 @@ footer.user-footer p,
 .ui-filter .row .values .num-area .btn {
   margin-left: 4px;
   padding: 0 8.4px;
-  line-height: 21px;
-  height: 23px;
+  line-height: 20px;
+  height: 22px;
 }
 .ui-filter .row .values .radio,
 .ui-filter .row .values .checkbox,
 .ui-filter .row .values .text {
   display: inline-block;
-  line-height: 23px;
+  line-height: 22px;
   vertical-align: middle;
   padding: 0 6px;
 }
@@ -776,6 +786,11 @@ footer.user-footer p,
   margin: 6px 0 0 -16px;
   *margin: -3px 0 0 -20px;
   _margin-top: -4px;
+}
+.ui-filter .row .values .clear-all {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .ui-filter .row .values .space {
   margin-right: 20px;
@@ -911,7 +926,7 @@ footer.user-footer p,
 }
 /* 级联下拉 */
 .link-select-wrap {
-  width: 300px;
+  width: 288px;
 }
 html.iframe body {
   margin: 8px;
@@ -1303,6 +1318,31 @@ header .control-bar {
 .list-actions {
   position: relative;
   bottom: -16px;
+}
+.horizontal-box {
+  position: relative;
+  padding-left: 216px;
+}
+.horizontal-box .left-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+}
+.horizontal-box .left-box .ui-panel .ui-panel-title {
+  border-bottom-width: 2px;
+}
+.syz-list {
+  height: 840px;
+  overflow-y: auto;
+}
+.syz-list .item {
+  border-top: 1px solid #cccccc;
+  padding: 4px 8px;
+  margin-top: -1px;
+}
+.syz-list .item a {
+  color: #3366cc;
 }
 /* @import "page-user.less" */
 .page-user {
@@ -1920,6 +1960,9 @@ header .control-bar {
 .detail-style-2 .body .table th,
 .detail-style-2 .body .table td {
   padding: 8px;
+}
+.detail-style-2 .body .table td p {
+  margin-top: 16px;
 }
 .detail-style-2 .other-database .btn {
   margin-right: 16px;

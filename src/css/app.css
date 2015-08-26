@@ -2240,6 +2240,10 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   padding: 0 10px;
   border-bottom-width: 1px;
 }
+.ui-panel.ui-panel-condensed .ui-panel-title .ui-panel-name {
+  font-size: 14px;
+  font-weight: 700;
+}
 .ui-panel.ui-panel-condensed .ui-panel-content {
   padding: 0;
 }

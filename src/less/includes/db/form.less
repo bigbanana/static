@@ -1,10 +1,13 @@
 /*重置表单*/
 .form{
-  @width : 200px;
+  @width : 180px;
   @fullWidth : @width+(@paddingHorizontalBase+1)*2;
   @height : 30px;
-  @formGroupMarginBottom : 20px;
-  
+  @formGroupMarginBottom : @space/2;
+
+  .form-label{
+    font-size: 12px;font-weight: 700;color:#666;
+  }  
   .form-box{
     .btn{
       &.form-control-width{
@@ -18,14 +21,20 @@
     }
   }
   .form-control{
+    font-size: 12px;
     width:@width;
+    &.half{
+      width:75px;
+    }
   }
   select.form-control{
     width:@fullWidth;
   }
 
   &.align-right{
-    .form-label{width:5em;}
+    .form-label{
+      padding-left: 0;width:90px;
+    }
   }
   /* 自定义样式1 */
   &.form-style-1{
@@ -50,7 +59,7 @@
       }
     }
     .form-group{
-      margin-bottom: 20px;
+      margin-bottom: @formGroupMarginBottom;
     }
   }
 

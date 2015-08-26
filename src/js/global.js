@@ -24,8 +24,10 @@ require(['modernizr'],function(modernizr){
 /**
  * 开启DOM widget兼容
  */
-require(['jquery.widget'],function(widget){
-  widget.update();
+require(['jquery','jquery.widget'],function($,widget){
+  $(function(){
+    widget.update();
+  });
 });
 
 /**

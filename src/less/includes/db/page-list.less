@@ -43,3 +43,33 @@
   position: relative;
   bottom:-@space;
 }
+
+.horizontal-box{
+  @leftWidth : 200px;
+  position: relative;
+  padding-left: @leftWidth+@space;
+  .left-box{
+    position: absolute;left:0;top:0;
+    width:@leftWidth;
+    .ui-panel{
+      .ui-panel-title{
+        border-bottom-width: 2px;
+      }
+    }
+  }
+  .right-box{
+    
+  }
+}
+
+.syz-list{
+  height:840px;overflow-y: auto;
+  .item{
+    border-top:1px solid @borderColor;
+    padding: @space/4 @space/2;
+    margin-top: -1px;
+    a{
+      color:@blue;
+    }
+  }
+}
