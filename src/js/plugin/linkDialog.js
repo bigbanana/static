@@ -76,8 +76,19 @@
     refresh: function(){
       window.location.reload();
     },
-    setOption: function(height){
-      this.dialog.setOption(height);
+    setOption: function(opt){
+      if(opt.height && this.dialog._dialog.element.outerHeight()>0){
+        var h = this.dialog._dialog.uiDialogTitlebar.outerHeight();
+        this.dialog._dialog.element.animate({height:opt.height},{
+          speed: 200,
+          callback: function(){
+            this.dialog.setOption(opt);
+          }
+        });
+      }else{
+        this.dialog.setOption(opt);
+      }
+      
     },
     temp: _.template(['<div class="ui-dialog-iframe-box"><iframe frameborder="no" src="<%= href %>" class="ui-dialog-iframe"></iframe></div>'].join(''))
   });

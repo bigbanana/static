@@ -47,6 +47,8 @@ i.vip {
 /* @import "dialog.less" */
 div.ui-dialog {
   padding: 0;
+  border: none;
+  overflow: hidden;
   border-radius: 0 0 3px 3px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
@@ -57,7 +59,6 @@ div.ui-dialog .ui-widget-header {
   padding: 10px;
   height: 22px;
   line-height: 22px;
-  margin: -1px -1px 0;
   font-size: 18px;
   font-weight: 400;
   font-family: "microsoft yahei";

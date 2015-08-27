@@ -1780,6 +1780,7 @@ div.ui-dialog .ui-dialog-content .ui-dialog-toolbar {
 }
 div.ui-dialog .ui-dialog-iframe-box {
   padding: 0;
+  overflow: hidden;
 }
 div.ui-dialog .ui-dialog-iframe {
   border: none;
