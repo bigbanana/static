@@ -1406,7 +1406,10 @@ header .control-bar {
   color: #3366cc;
 }
 .zhongbiaogonggao {
-  visibility: hidden;
+  display: none;
+}
+.zhongbiaogonggao li {
+  line-height: 24px;
 }
 .zhongbiaogonggao li a {
   padding-right: 100px;
