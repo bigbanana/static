@@ -1,10 +1,10 @@
+@uiSideBarWidth: 44px;
 .ui-sidebar{
-  @height : 44px;
   position: fixed;left:50%;bottom:100px;
-  width:@height;line-height: @height;
+  width:@uiSideBarWidth;line-height: @uiSideBarWidth;
   margin-left: 610px;z-index:10;_display:none;
   .item{
-    height: @height;margin-bottom: 6px;display: block;
+    height: @uiSideBarWidth;margin-bottom: 6px;display: block;
     background-color: @blue;color:#fff;text-align: center;text-decoration: none;
     border-radius: @borderRadiusBase;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -21,6 +21,12 @@
       font-size: 28px;text-shadow:1px 1px 3px rgba(0, 0, 0, 0.5);
       width: 28px;height: 28px;margin-top: 8px;
     }
+  }
+}
+
+@media (max-width: (@wrapper+(@uiSideBarWidth+20)*2+18)){
+  .ui-sidebar{
+    left:auto;right:0;margin-right: 10px;margin-left: auto;
   }
 }
 

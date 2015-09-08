@@ -42,6 +42,7 @@
 .list-actions{
   position: relative;
   bottom:-@space;
+  height:0;
 }
 
 .horizontal-box{
@@ -72,4 +73,22 @@
       color:@blue;
     }
   }
+}
+
+.zhongbiaogonggao{
+  visibility: hidden;
+  li{
+    a{
+      padding-right: 100px;
+      display: block;
+      .text-overflow();
+      position: relative;
+      .date{
+        position: absolute;
+        right:0;text-align: right;
+        width:100px;color:@gray;
+      }
+    }  
+  }
+  
 }

@@ -1782,8 +1782,7 @@ function pinyin(hans, options){
   var pys = [];
 
   for(var i = 0, nohans = "", firstCharCode, words, l = phrases.length; i < l; i++){
-
-    words = phrases[i];
+    words = phrases.charAt(i);
     firstCharCode = words.charCodeAt(0);
 
     if(PINYIN_DICT[firstCharCode]){

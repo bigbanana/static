@@ -60,6 +60,7 @@
 }
 
 .database-list{
+  @height : 24px;
   @halfSpace :  floor(@space/2);
   min-height: 400px;
   .category{
@@ -67,34 +68,35 @@
     padding: @space;
     background: #f0f0f0;
     border:1px solid @borderColor;
+    line-height: @height;
     .head{
-      @height : 24px;
       padding: @halfSpace 0;
       .database-icon{
-        width: @height;height: @height;vertical-align: middle;
+        width: @height;height: @height;
+        vertical-align: middle;
       }
       .name{
         font-size: 14px;
         font-weight: 700;
         color: @blue;
-        display: inline-block;
-        margin-left: 6px;
-        line-height: @height;
+        .inline-block();
+        margin-left: @halfSpace;
         vertical-align: middle;
       }
     }
     .body{
-      
       padding: @halfSpace;
       a{
-        display: inline-block;
-        line-height: 24px;
-        padding: 0 10px;
+        .inline-block();
+        padding: 0 @halfSpace;
         text-decoration: none;
-        border-radius: 3px;
+        border-radius: @borderRadiusBase;
         margin: 0 @halfSpace @halfSpace 0;
-        &:hover{
-          background: @blue;color:#fff;
+        &:hover,
+        &.active{
+          background: @blue;
+          color: #fff;
+          box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
       }
     }

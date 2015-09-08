@@ -134,7 +134,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   clear: both;
 }
 .form.form-style-2 .form-groups {
-  width: 33.33%;
+  width: 33.3%;
   float: left;
 }
 .form.form-style-2 .form-double-groups {
@@ -185,12 +185,11 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 /* topnav */
 .ui-topnav {
   background-color: #0a4891;
-  height: 28px;
-  padding: 0 8px;
+  height: 36px;
+  padding: 0 16px;
   position: relative;
   z-index: 1;
   /* padding */
-  /* 其它页面导航样式 */
 }
 .ui-topnav .item {
   float: left;
@@ -198,12 +197,14 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .ui-topnav .item .name {
   display: inline-block;
-  padding: 4px 8px;
+  padding: 4px 16px;
   color: #dee2ec;
-  line-height: 20px;
+  line-height: 28px;
+  font-size: 14px;
   position: relative;
   z-index: 2;
   cursor: default;
+  font-weight: 700;
 }
 .ui-topnav .item .name:hover {
   text-decoration: none;
@@ -226,7 +227,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   z-index: 1;
   width: 240px;
   left: -1px;
-  top: 27px;
+  top: 35px;
   display: none;
   padding: 8px 0;
   background-color: #ffffff;
@@ -241,7 +242,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   display: block;
   _zoom: 1;
   color: #3366cc;
-  padding: 6px 3px;
+  padding: 8px 3px;
 }
 .ui-topnav .item.active .name {
   background-color: #ffffff;
@@ -254,30 +255,76 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   display: inline-block;
   *zoom: 1;
   *display: inline;
-  line-height: 20px;
-  padding: 4px 8px;
+  line-height: 28px;
+  padding: 4px 16px;
+  font-weight: 700;
+  font-size: 14px;
 }
 .ui-topnav .padding a {
   display: inline-block;
   color: #dee2ec;
 }
-.ui-topnav.other-nav {
-  height: 36px;
-  padding: 0 16px;
+.ui-topnav .database-list {
+  min-height: inherit;
 }
-.ui-topnav.other-nav .item .name {
-  line-height: 28px;
-  padding: 4px 16px;
-  font-size: 14px;
-  font-weight: 700;
+.ui-topnav .database-list .form-control {
+  line-height: 18px;
+  height: 18px;
 }
-.ui-topnav.other-nav .subnav {
-  top: 35px;
+.ui-topnav .database-list .ui-dropdown-menu {
+  width: 984px;
+  min-height: 100px;
+  _height: 100px;
+  padding: 16px;
+  font-size: 12px;
+  background-color: #eee;
+  border-top: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
 }
-.ui-topnav.other-nav .padding {
-  line-height: 28px;
-  font-weight: 700;
-  font-size: 14px;
+.ui-topnav .database-list .ui-dropdown-menu .category {
+  margin-top: 0;
+  padding: 0;
+  line-height: 20px;
+  border: none;
+  background-color: transparent;
+}
+.ui-topnav .database-list .ui-dropdown-menu .category .head .database-icon {
+  width: 20px;
+  height: 20px;
+}
+.ui-topnav .database-list .ui-dropdown-menu .category .body {
+  padding: 0;
+}
+.ui-topnav .database-list .db-loading,
+.ui-topnav .database-list .db-nodata {
+  top: 0;
+}
+/* 首页导航样式 */
+.page-index .ui-topnav {
+  height: 28px;
+  padding: 0 8px;
+}
+.page-index .ui-topnav .item .name {
+  line-height: 20px;
+  padding: 4px 16px 4px 8px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.page-index .ui-topnav .subnav {
+  top: 27px;
+}
+.page-index .ui-topnav .padding {
+  padding: 4px 8px;
+  line-height: 20px;
+  font-weight: 400;
+  font-size: 12px;
+}
+.page-index .ui-topnav .database-list {
+  display: none;
+}
+.page-index .ui-topnav .database-list .form-control {
+  line-height: 14px;
+  height: 14px;
 }
 .ui-topnav-wrapper {
   width: 1200px;
@@ -393,18 +440,11 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 /* header-bar */
 .header-bar {
-  height: 60px;
-  padding: 10px 0;
-  background-color: #fff;
-  position: relative;
-  z-index: 9;
-}
-.header-bar .header-layer {
   padding: 10px 0;
   height: 40px;
   background-color: #fff;
 }
-.header-bar .header-layer.fixed {
+.header-bar.stuck {
   position: fixed;
   top: 0;
   left: 0;
@@ -413,7 +453,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   border-bottom: 1px solid #ddd;
   z-index: 10;
 }
-.header-bar .header-layer form {
+.header-bar form {
   width: 1200px;
   margin: 0 auto;
 }
@@ -976,7 +1016,7 @@ html.iframe body {
 .db-nodata.base-list {
   padding: 100px 0;
 }
-.db-nodata.base-list .xiaozhi-boy-cry,
+.db-nodata.base-list .xiaozhi-boy-find,
 .db-nodata.base-list .xiaozhi-boy-sport,
 .db-nodata.base-list .xiaozhi-girl-kefu {
   position: absolute;
@@ -995,7 +1035,7 @@ html.iframe body {
 /*小智*/
 .xiaozhi-boy,
 .xiaozhi-girl,
-.xiaozhi-boy-cry,
+.xiaozhi-boy-find,
 .xiaozhi-boy-sport,
 .xiaozhi-girl-kefu {
   position: relative;
@@ -1004,7 +1044,7 @@ html.iframe body {
 }
 .xiaozhi-boy .img,
 .xiaozhi-girl .img,
-.xiaozhi-boy-cry .img,
+.xiaozhi-boy-find .img,
 .xiaozhi-boy-sport .img,
 .xiaozhi-girl-kefu .img {
   position: absolute;
@@ -1022,8 +1062,8 @@ html.iframe body {
   background: url(//static.yaozh.com/images/project/db/xiaozhi_boy.png) no-repeat 0 0 transparent;
 }
 /* 男小智-哭 */
-.xiaozhi-boy-cry .img {
-  background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_cry.png) no-repeat 0 0 transparent;
+.xiaozhi-boy-find .img {
+  background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_find.png) no-repeat 0 0 transparent;
 }
 /* 男小智-运动 */
 .xiaozhi-boy-sport .img {
@@ -1073,6 +1113,20 @@ html.iframe body {
 .msg-success.msg-error,
 .msg-error.msg-error {
   background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_cry.png) no-repeat 0 center transparent;
+}
+/* 打印样式 */
+@media print {
+  .ui-topbar,
+  .header-bar,
+  .ui-topnav-wrapper,
+  .ui-crumb,
+  .ui-sidebar {
+    display: none;
+  }
+  .wrapper,
+  .main {
+    width: 100%;
+  }
 }
 /* 页面 */
 /* @import "admin.less" */
@@ -1235,6 +1289,7 @@ header .control-bar {
   padding: 16px;
   background: #f0f0f0;
   border: 1px solid #cccccc;
+  line-height: 24px;
 }
 .database-list .category .head {
   padding: 8px 0;
@@ -1249,8 +1304,9 @@ header .control-bar {
   font-weight: 700;
   color: #3366cc;
   display: inline-block;
-  margin-left: 6px;
-  line-height: 24px;
+  *zoom: 1;
+  *display: inline;
+  margin-left: 8px;
   vertical-align: middle;
 }
 .database-list .category .body {
@@ -1258,15 +1314,18 @@ header .control-bar {
 }
 .database-list .category .body a {
   display: inline-block;
-  line-height: 24px;
-  padding: 0 10px;
+  *zoom: 1;
+  *display: inline;
+  padding: 0 8px;
   text-decoration: none;
-  border-radius: 3px;
+  border-radius: 2px;
   margin: 0 8px 8px 0;
 }
-.database-list .category .body a:hover {
+.database-list .category .body a:hover,
+.database-list .category .body a.active {
   background: #3366cc;
   color: #fff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 .database-list .db-loading,
 .database-list .db-nodata {
@@ -1319,6 +1378,7 @@ header .control-bar {
 .list-actions {
   position: relative;
   bottom: -16px;
+  height: 0;
 }
 .horizontal-box {
   position: relative;
@@ -1344,6 +1404,24 @@ header .control-bar {
 }
 .syz-list .item a {
   color: #3366cc;
+}
+.zhongbiaogonggao {
+  visibility: hidden;
+}
+.zhongbiaogonggao li a {
+  padding-right: 100px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+.zhongbiaogonggao li a .date {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  width: 100px;
+  color: #999999;
 }
 /* @import "page-user.less" */
 .page-user {
@@ -1801,6 +1879,13 @@ header .control-bar {
   overflow: hidden;
   height: 230px;
 }
+.page-hhw .top-box .left-box .info .ui-panel-content {
+  height: 201px;
+  overflow-y: auto;
+}
+.page-hhw .top-box .left-box .ui-tab-panels .ui-tab-panel {
+  overflow-x: auto;
+}
 .page-hhw .top-box .right-box {
   position: absolute;
   right: 0;
@@ -1979,6 +2064,62 @@ header .control-bar {
 .detail-style-2 .manual p b {
   font-size: 14px;
   margin-left: -16px;
+}
+.report-detail {
+  padding-left: 216px;
+  position: relative;
+}
+.report-detail .menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+}
+.report-detail .menu ul {
+  border: 1px solid #cccccc;
+  width: 198px;
+  overflow: hidden;
+  line-height: 16px;
+}
+.report-detail .menu ul.stuck {
+  position: fixed;
+  top: 62px;
+}
+.report-detail .menu li {
+  border-top: 1px solid #cccccc;
+  margin-top: -1px;
+}
+.report-detail .menu li a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.report-detail .menu li a:hover {
+  font-weight: 700;
+}
+.report-detail .menu li.active a {
+  background-color: #b0c5da;
+  font-weight: 700;
+}
+.report-detail .detail {
+  padding-bottom: 200px;
+}
+.report-detail .detail .ui-panel-title {
+  background-color: #b0c5da;
+}
+.report-detail .detail .ui-panel-content {
+  padding: 16px;
+}
+.report-detail .detail .cl-blue img {
+  vertical-align: bottom;
+}
+@media print {
+  .report-detail {
+    padding-left: 0;
+  }
+  .report-detail .menu {
+    display: none;
+  }
 }
 /*移动端兼容*/
 /* @import "mobile.less" */

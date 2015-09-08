@@ -72,7 +72,7 @@ html.iframe{
   }
   &.base-list{
     padding: 100px 0;
-    .xiaozhi-boy-cry,
+    .xiaozhi-boy-find,
     .xiaozhi-boy-sport,
     .xiaozhi-girl-kefu{
       position: absolute;
@@ -93,7 +93,7 @@ html.iframe{
 /*小智*/
 .xiaozhi-boy,
 .xiaozhi-girl,
-.xiaozhi-boy-cry,
+.xiaozhi-boy-find,
 .xiaozhi-boy-sport,
 .xiaozhi-girl-kefu{
   position: relative;
@@ -108,7 +108,7 @@ html.iframe{
 /*男小智*/
 .xiaozhi-boy .img{background: url(//static.yaozh.com/images/project/db/xiaozhi_boy.png) no-repeat 0 0 transparent;}
 /* 男小智-哭 */
-.xiaozhi-boy-cry .img{background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_cry.png) no-repeat 0 0 transparent;}
+.xiaozhi-boy-find .img{background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_find.png) no-repeat 0 0 transparent;}
 /* 男小智-运动 */
 .xiaozhi-boy-sport .img{background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_sport.png) no-repeat 0 0 transparent;}
 /* 女小智-客服 */
@@ -150,3 +150,18 @@ html.iframe{
 }
 
 
+/* 打印样式 */
+
+@media print{
+  .ui-topbar,
+  .header-bar,
+  .ui-topnav-wrapper,
+  .ui-crumb,
+  .ui-sidebar{
+    display: none;
+  }
+  .wrapper,
+  .main{
+    width:100%;
+  }
+}

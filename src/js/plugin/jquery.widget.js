@@ -46,20 +46,32 @@
     update: function($el){
       $el = $el || $(document);
       var def = $.Deferred();
-      var defs = $.map($el.find('[data-widget]'),function(el){
-        var d = $.Deferred();
+      var $widgets = $el.find('[data-widget]');
+      if($el.is('[data-widget]')){
+        $widgets = $widgets.add($el);
+      }
+      var defs = $.map($widgets,function(el){
+        var itemDef = $.Deferred();
         var $el = $(el);
         var data = $el.data();
-        var widget = data.widget;
-        require(['jquery.'+widget],function(){
-          $el[widget] && $el[widget](data);
-          d.resolve();
+        var widgetDefs = [];
+        var widgets = data.widget.split(',');
+
+        widgetDefs = $.map(widgets,function(item){
+          var widgetDef = $.Deferred();
+          require(['jquery.'+item],function(){
+            $el[item] && $el[item](data);
+            widgetDef.resolve();
+          });
+          return widgetDef.promise();
         });
-        return d.promise();
+
+        $.when.apply(window,widgetDefs).done(itemDef.resolve);
+        return itemDef.promise();
       });
 
       $.when.apply(window,defs).done(def.resolve);
-      return def;
+      return def.promise();
     }
   });
 

@@ -21,6 +21,17 @@
   var backdrop = '.dropdown-backdrop'
   var toggle   = '[data-widget="dropdown"]'
   var Dropdown = function (element) {
+    var that = this;
+    var $el = $(element);    
+    $el.attr('data-widget','dropdown');
+    if(element.tagName.toLowerCase() == 'input'){
+      $el.on('click.bs.dropdown',function(e){
+        if(getParent($el).hasClass('open')) return false;
+        that.toggle.call(this,e);
+        return false;
+      });
+      return;
+    }
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
@@ -141,7 +152,6 @@
     $items.eq(index).trigger('focus')
   }
 
-
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
 
@@ -168,7 +178,6 @@
     $.fn.dropdown = old
     return this
   }
-
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS
   // ===================================

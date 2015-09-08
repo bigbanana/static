@@ -10,11 +10,6 @@ window.config = config = window.config || {};
 config.deps = config.deps || [];
 
 require.config({
-  map : {
-    '*' : {
-      'css' : 'require.css'
-    }
-  },
   shim : {
     "prism": {
       deps : ['css!../css/plugin/prism-twilight']

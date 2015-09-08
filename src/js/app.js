@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-08-20 11:42:19 */
+/* build : 564493634@qq.com 2015-09-06 13:57:34 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2095,11 +2095,6 @@ window.config = config = window.config || {};
 config.deps = config.deps || [];
 
 require.config({
-  map : {
-    '*' : {
-      'css' : 'require.css'
-    }
-  },
   shim : {
     "prism": {
       deps : ['css!../css/plugin/prism-twilight']
@@ -2136,7 +2131,10 @@ require.config({
     "underscore": "lib/underscore",
     "modernizr": "lib/modernizr",
     "device": "lib/device",
-    "require.css": "lib/require-css-plugin",
+    "css": "lib/require-css-plugin",
+    "text": "lib/require-text-plugin",
+    "json": "lib/require-json-plugin",
+    "image": "lib/require-image-plugin",
     "cookie": "lib/cookie",
     "queryString": "lib/queryString",
     "utils": "lib/utils",
@@ -2158,6 +2156,7 @@ require.config({
     "jquery.sliderbox": "plugin/sliderbox",
     "jquery.clearInput": "plugin/clearInput",
     "jquery.placeholder": "plugin/placeholder",
+    "jquery.moveFocus": "plugin/moveFocus",
     "jquery.focusInput": "plugin/focusInput",
     "jquery.marquee": "plugin/marquee",
     "jquery.rwdtable": "plugin/jquery.rwdtable",
@@ -2171,6 +2170,8 @@ require.config({
     "jquery.linkSelect": "plugin/linkSelect",
     "jquery.dropdownSelect": "plugin/dropdownSelect",
     "jquery.autoComplete": "plugin/autoComplete",
+    "jquery.sticky": "plugin/sticky",
+    "jquery.activemenu": "plugin/activemenu",
     "jquery.ui": "other/jquery-ui",
     "pace": "other/pace",
     "preloadjs": "other/preloadjs",
@@ -2193,6 +2194,6 @@ require.config({
     "console": "special/console",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
   },
-  urlArgs: "yaozhVersion=1.2.0"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.2.1"+"&data="+new Date().getTime(),
   waitSeconds: 10
 })

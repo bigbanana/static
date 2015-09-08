@@ -30,7 +30,7 @@
  *
  */
 
-define("require.css",function() {
+define(function() {
 //>>excludeStart('excludeRequireCss', pragmas.excludeRequireCss)
   if (typeof window == 'undefined')
     return { load: function(n, r, load){ load() } };

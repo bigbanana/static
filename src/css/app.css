@@ -173,6 +173,10 @@ body {
   overflow: hidden;
   *zoom: 1;
 }
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
 /*margin*/
 .m5 {
   margin: 5px!important;
@@ -230,6 +234,18 @@ body {
 }
 .offset-left {
   margin-left: 16px !important;
+}
+.offset-top.double {
+  margin-top: 32px !important;
+}
+.offset-right.double {
+  margin-right: 32px !important;
+}
+.offset-bottom.double {
+  margin-bottom: 32px !important;
+}
+.offset-left.double {
+  margin-left: 32px !important;
 }
 /*padding*/
 .padding {
@@ -349,7 +365,7 @@ body {
   width: 8em!important;
 }
 .em10 {
-  width: 12em!important;
+  width: 10em!important;
 }
 /* color */
 .cl-red {
@@ -1121,6 +1137,8 @@ hr.dotted {
 /*buttons.less*/
 .btn {
   display: inline-block;
+  *zoom: 1;
+  *display: inline;
   /* margin-bottom: 0; // For input.btn */
   text-align: center;
   cursor: pointer;
@@ -1602,6 +1620,9 @@ a.btn {
 .table.table-vt td,
 .table.table-vt th {
   vertical-align: top;
+}
+.table.tl {
+  text-align: left;
 }
 /*slider.less*/
 /* ui-slider */
@@ -2288,6 +2309,14 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   width: 28px;
   height: 28px;
   margin-top: 8px;
+}
+@media (max-width: 1346px) {
+  .ui-sidebar {
+    left: auto;
+    right: 0;
+    margin-right: 10px;
+    margin-left: auto;
+  }
 }
 @-webkit-keyframes sidebarbounce {
   0%,

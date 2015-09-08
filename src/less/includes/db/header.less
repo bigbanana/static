@@ -82,17 +82,14 @@
   @borderColor : #c0c0c0;
   @contentHeight : @height+-@borderWidth*2;
   @btnBackgroundColor : #3079ed;
-  height:60px;padding:10px 0;background-color: #fff;
-  position: relative;z-index: 9;
-  .header-layer{
-    padding: 10px 0;height: 40px;background-color: #fff;
-    &.fixed{
-      position:fixed;top:0;left:0;width:100%;box-shadow: 2px 2px 2px #eee;
-      border-bottom: 1px solid #ddd;z-index: 10;
-    }
-    form{
-      width:@wrapper;margin:0 auto;
-    }
+
+  padding: 10px 0;height: 40px;background-color: #fff;
+  &.stuck{
+    position:fixed;top:0;left:0;width:100%;box-shadow: 2px 2px 2px #eee;
+    border-bottom: 1px solid #ddd;z-index: 10;
+  }
+  form{
+    width:@wrapper;margin:0 auto;
   }
   .logo{
     display:inline-block;width: 260px;height: 40px;
@@ -146,6 +143,7 @@
       font-size: 14px;color:#fff;text-decoration: none;
     }
   }
+
 }
 
 /* user-header-bar */

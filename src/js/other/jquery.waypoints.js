@@ -650,4 +650,6 @@ window.$ = $;
 }())
 ;
 
+return window.Waypoint;
+
 });

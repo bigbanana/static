@@ -5,7 +5,7 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone','jquery.loading'],factory);
+    define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone'],factory);
   } else {
     factory($,widget,Dialog,_,Backbone);
   }
@@ -29,10 +29,9 @@
       var that = this;
       this.$dialog = $(this.temp(this.options));
       this.$iframe = this.$dialog.children();
-      $body.loading('show');
       this.dialog = new Dialog($.extend({},this.options,{
         el: this.$dialog,
-        autoOpen: false,
+        autoOpen: true,
         close: function(){
           that.dialog.destroy();
           that.$dialog.remove();
@@ -42,6 +41,7 @@
     events: function(){
       var that = this;
       var iframe = this.$iframe[0];
+
       this.$iframe.on('load',function(){
         var delay = false;
         try{
@@ -52,11 +52,8 @@
       });
       _.extend(iframe,Backbone.Events);
       iframe.on('load',function(){
-        $body.loading('hide');
-        that.dialog.open();
         try{
           that.dialog.setTitle(this.contentWindow.document.title);
-          this.trigger('setOption',{height:this.contentWindow.document.documentElement.offsetHeight+50});
         }catch(e){}
       });
       iframe.on('close',function(){
@@ -77,18 +74,7 @@
       window.location.reload();
     },
     setOption: function(opt){
-      if(opt.height && this.dialog._dialog.element.outerHeight()>0){
-        var h = this.dialog._dialog.uiDialogTitlebar.outerHeight();
-        this.dialog._dialog.element.animate({height:opt.height},{
-          speed: 200,
-          callback: function(){
-            this.dialog.setOption(opt);
-          }
-        });
-      }else{
-        this.dialog.setOption(opt);
-      }
-      
+      this.dialog.setOption(opt);
     },
     temp: _.template(['<div class="ui-dialog-iframe-box"><iframe frameborder="no" src="<%= href %>" class="ui-dialog-iframe"></iframe></div>'].join(''))
   });

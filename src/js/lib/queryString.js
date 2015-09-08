@@ -42,14 +42,22 @@
 				return ret;
 			}, {});
 		},
-		stringify: function (obj) {
+		/**
+		 * 添加space参数改变url生成规则
+		 */
+		stringify: function (obj,space) {
 			return obj ? _.map(_.keys(obj).sort(),function (key) {
 				var val = obj[key];
 
 				if (_.isArray(val)) {
-					return _.map(val.sort(),function (val2) {
-						return encodeURIComponent(key) + '=' + encodeURIComponent(val2);
-					}).join('&');
+					if(space){
+						return encodeURIComponent(key) + '=' + encodeURIComponent(val.join(space));
+					}else{
+						return _.map(val.sort(),function (val2) {
+							return encodeURIComponent(key) + '=' + encodeURIComponent(val2);
+						}).join('&');
+					}
+					
 				}
 
 				return encodeURIComponent(key) + '=' + encodeURIComponent(val);
