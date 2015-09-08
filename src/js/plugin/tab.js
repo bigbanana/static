@@ -35,6 +35,7 @@
       curIndex = curIndex>=0 ? curIndex : 0;
       this.select(curIndex);
       this.events();
+      this.$el.is(':hidden') && this.$el.show();
     },
     events: function(){
       var that = this;
