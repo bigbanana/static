@@ -4,7 +4,7 @@
  * Version: 0.2.2 (2013/02/08)
  * Released under the MIT license
  */
-define(function(){
+define('image',function(){
 
   var CACHE_BUST_QUERY_PARAM = 'bust',
     CACHE_BUST_FLAG = '!bust',
