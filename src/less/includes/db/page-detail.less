@@ -14,8 +14,9 @@
     background-color: #0a4891;color:#fff;
   }
   .body{
+    @width : 300px;
     background-color: #f2f5f8;
-    padding: floor(@space*1.6);
+    padding: @space @width+@space*2 @space @space;
     position: relative;z-index: 3;
     min-height: 400px;
     .ui-panel{
@@ -57,10 +58,25 @@
       }
     }
 
+    .ads{
+      position: absolute;
+      top: @space;right: @space;
+      width:@width;
+      .ad{
+        width:100%;
+        display: block;
+        height:120px;
+        vertical-align: top;
+        margin-bottom: @space;
+        img{
+          .size(100%);
+        }
+      }
+    }
   }
   .other-database{
     .btn{
-      margin-right: @space;
+      margin: 0 @space @space/2 0;
     }
   }
   
@@ -77,6 +93,15 @@
     }
   }
 
+}
+
+.iframe{
+  .body{
+    padding:@space;
+    .ads{
+      display: none;
+    }
+  }
 }
 
 .report-detail{

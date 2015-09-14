@@ -1,0 +1,275 @@
+/* 左右布局 */
+.main-box{
+  @leftWidth : @leftBoxWidth;
+  .zoom();
+  .left-box{
+    width:@leftWidth;margin-right: @space;
+    float:left;
+    .nav-boxs{
+      @sp : 14px;
+      font-size: 14px;min-height: 500px;
+      border:1px solid @borderColor;
+      background-color: #fff;overflow: hidden;
+      a{
+        display: block;text-decoration: none;
+        &:hover{
+          color : @blue;
+        }
+      }
+      .nav-box{
+        margin: -1px @space 0;
+        border-top: 1px solid @borderColor;
+        .nav-title{
+          font-weight: 700;font-size: 16px;
+          margin: @sp -@space;padding:0 @space 0 @space+-4;border-left: 4px solid transparent;
+          .fa{
+            font-size: 18px;
+          }
+          &.active{
+            color : @blue;
+            border-left-color: @blue;
+          }
+        }
+              color : @blue;
+            }
+          }
+               .nav-sub{
+          margin: 0 -@space;
+          a{
+            margin:floor(@space*0.8) 0; padding: 0 32px;
+            &.active{
+ }
+      }
+    }
+  }
+  .right-box{
+    .zoom();
+    >.ui-panel>.ui-panel-content{
+      min-height: 420px;
+      .zoom();
+    }
+  }
+}
+
+/* vip功能页面 */
+.page-vip{
+  .left-box{
+    float: left;
+    width:800px;
+  }
+  .right-box{
+    float: right;
+    width:350px;
+    .item{
+      @width : 100px;
+      height: @width+-20;
+      position: relative;
+      border:1px solid @borderColor;
+      margin-top: @space*2;
+      padding: 10px 10px 10px @width+10;
+      line-height: 1.6;
+      .head{
+        position: absolute;
+        left:0;top:0;height: @width+-20;width:@width;
+        padding: 10px 0;
+        border-right: 1px solid @borderColor;
+        background-color: #f8f8f8;text-align: center;
+
+        .name{
+          display: inline-block;margin-top: 10px;
+        }
+      }
+      .fa{
+        font-size: 50px;
+        color: @blue;
+        position: relative;
+      }
+      .sicon{
+        position: absolute;
+        right: -10px;
+        bottom: -6px;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 14px;
+        padding: 4px;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #fff;
+        background-color: @blue;
+
+      }
+    }
+  }
+}
+
+/* 友情链接 */
+.page-links{
+  @tipWidth : 400px;
+  .links{
+    a{
+      display: inline-block;
+      font-size: 14px;
+      padding: @space/4 @space/2;
+      margin:@space/4;
+      &:hover{
+        color: @blue;
+      }
+    }
+  }
+  .add-links-box{
+    position: relative;
+    padding-right: @space+@tipWidth;
+  }
+  .add-links-form{
+    margin-left: 100px;
+  }
+  .add-links-tips{
+    width:@tipWidth+-(@space+1)*2;
+    position: absolute;
+    top:@space;right: 0;
+    line-height: 2;
+  }
+}
+
+/*审评结论*/
+.page-audit{
+  @blue : #418dff;
+  @gray : #b2b2b2;
+  @orange : #ff6600;
+  h1{
+    font-size: 40px;color:@blue;text-align: center;
+    background-color: #e5e5e5;font-weight:400;
+    line-height: 100px;
+  }
+  .event-list{
+    border-top: 3px solid @blue;
+    margin: 100px 0;padding: 80px 0 0;
+    position: relative;
+    .item{
+      @itemWidth : 680px;
+      @itemHeight : 200px;
+      @iconWidth : 80px;
+      @fontSize : 24px;
+      width:@itemWidth;height:@itemHeight;margin:0 auto;
+      position: relative;font-size: 24px;line-height: 1;
+      color:@gray;
+      .icon{
+        position: absolute;
+        left:@itemWidth*0.5+-@iconWidth/2;
+        top:@itemHeight*0.5+-@iconWidth/2;
+        line-height: @iconWidth;width:@iconWidth;height:@iconWidth;
+        font-size: floor(@iconWidth*0.6);color:@gray;background-color: #fff;
+        border:2px solid @gray;text-align: center;border-radius: @iconWidth/2+2;
+        .fa{
+          margin-left: 4px;
+        }
+      }
+      .year{
+        position: absolute;
+        right: @itemWidth*0.5+@iconWidth+@space;
+        bottom:@itemHeight*0.5+@space*0.25;
+        font-size: floor(@fontSize*0.85);
+      }
+      .date{
+        position: absolute;
+        right: @itemWidth*0.5+@iconWidth+@space;
+        top:@itemHeight*0.5+@space*0.25;
+        font-size: floor(@fontSize*0.9);
+        font-weight: 700;
+      }
+      .title{
+        position: absolute;
+        left: @itemWidth*0.5+@iconWidth+@space;
+        top:@itemHeight*0.5+-@fontSize*0.5;
+        white-space: nowrap;
+      }
+      .line{
+        width:3px;height:100%;
+        background-color: @gray;
+        position: absolute;left:50%;top:0;
+        z-index: -1;
+      }
+      .text{
+        @iWidth : @iconWidth*1.4;
+        font-size: 30px;
+        position: absolute;
+        left:@itemWidth*0.5+-@iWidth/2;
+        top:@itemHeight*0.5+-@iWidth/2;
+        line-height: @iWidth;width:@iWidth;height:@iWidth;
+        font-size: floor(@iWidth*0.3);color:@orange;text-align: center;
+        border:2px solid @orange;border-radius: @iWidth/2+2;
+        background-color: #fff;z-index: 9;
+      }
+      .row{
+        position: absolute;top:50%;
+        width:100%;height:0;z-index: 1;
+        border-top:3px dotted @gray;
+      }
+
+      &.active{
+        color:@blue;
+        .icon{
+          background-color: @blue;color:#fff;
+          box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.5);
+          border-color: #eee;
+        }
+        .line{
+          background-color: @blue;
+        }
+      }
+
+    }
+    .clock{
+      @iconWidth : 140px;
+      position: absolute;width:@iconWidth;height:@iconWidth;line-height: @iconWidth;
+      left:50%;top:-(@iconWidth/2-1);text-align: center;margin-left: -(@iconWidth/2+5);
+      border:5px solid #eee;border-radius: @iconWidth/2+5;
+      font-size: @iconWidth;color:@orange;
+      background-color: #fff;z-index: 10;
+      box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.5);
+      .fa{
+        vertical-align: top;
+      }
+    }
+
+    .state{
+      position: absolute;left:50%;margin-left: -80px;top:100%;
+      color:@orange;font-weight: 700;
+      background-color: #f1f1f1;font-size: 24px;
+      width:160px;height:40px;text-align: center;line-height: 40px;
+
+      &:before,&:after {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        bottom:15px;
+        left:10px;
+        width:50%;
+        height:20%;
+        max-width:300px;
+        max-height:100px;
+        -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+        box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+        -webkit-transform:rotate(-3deg);
+        -moz-transform:rotate(-3deg);
+        -ms-transform:rotate(-3deg);
+        -o-transform:rotate(-3deg);
+        transform:rotate(-3deg);
+      }
+
+      &:after {
+        right:10px;
+        left:auto;
+        -webkit-transform:rotate(3deg);
+        -moz-transform:rotate(3deg);
+        -ms-transform:rotate(3deg);
+        -o-transform:rotate(3deg);
+        transform:rotate(3deg);
+      }
+
+    }
+    
+
+  }
+}

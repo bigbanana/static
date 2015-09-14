@@ -124,7 +124,7 @@
         height:this.$head.height()+1,
         width:this.$tableWrap.width(),
         top: this.options.offset,
-        visibility: 'hidden'
+        display: 'none'
       });
 
       _this.$tableWrap.waypoint({
@@ -132,12 +132,12 @@
         handler: function(direction){
           if(direction == 'down'){
             _this.$sticky.css({
-              visibility: 'visible',
+              display: 'block',
               position: 'fixed'
             });
           }else{
             _this.$sticky.css({
-              visibility: 'hidden'
+              display: 'none'
             });
           }
         }

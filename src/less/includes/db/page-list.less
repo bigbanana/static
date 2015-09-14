@@ -1,4 +1,12 @@
 .page-list{
+
+}
+
+.zh-main{
+  @width : 300px;
+  padding-right: @width+@space;
+  width:@wrapper+-(@width+@space);
+  position: relative;
   .zh-list{
     .zh-li-icon{
       width:24px;height: 24px;margin:0 0 2px 10px;
@@ -17,26 +25,49 @@
       padding-bottom: @space;
       a{
         display: block;line-height: 24px;font-size: 14px;
-        position: relative;padding: 4px @space*2;
+        position: relative;padding: @space/4 @space*2;
         .name{
           display: inline-block;
         }
         .info{
-          right: 20px;top:4px;
-          position: absolute;
+          display: inline-block;
+          margin-left: @space;
           em{
             color:@blue;
           }
         }
+        .fa{
+          position: absolute;
+          .size(24px);font-size: 22px;
+          top: @space/4;color:#666;
+          right:0;
+        }
         &:hover{
           color:@red;
           background-color: #eeeeee;
+          .fa{
+            color:@red;
+          }
         }
       }    
     }
   
   }
-  
+  .zh-ads{
+    position: absolute;
+    top: @space;right: 0;
+    width:@width;
+    .ad{
+      width:100%;
+      display: block;
+      height:120px;
+      vertical-align: top;
+      margin-bottom: @space;
+      img{
+        .size(100%);
+      }
+    }
+  }  
 }
 
 .list-actions{
@@ -76,7 +107,6 @@
 }
 
 .zhongbiaogonggao{
-  display: none;
   li{
     line-height: 24px;
     a{

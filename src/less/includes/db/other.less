@@ -142,7 +142,10 @@ html.iframe{
 /* 未登录，非VIP提示页，系统提示成功，错误 */
 .no-login,.no-vip,.msg-success,.msg-error{
   padding:20px 20px 20px 110px;
-  width:360px;margin:60px auto;
+  width:360px;
+  position: absolute;
+  left: 50%;top: 50%;
+  margin: -70px 0 0 -230px;
   background: url(//static.yaozh.com/images/project/db/xiaozhi_boy.png) no-repeat 0 center transparent;
   &.msg-error{
     background: url(//static.yaozh.com/images/project/db/xiaozhi_boy_cry.png) no-repeat 0 center transparent;

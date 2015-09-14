@@ -1,53 +1,7 @@
 .page-user{
-  @leftBoxWidth : 200px;
+  @leftWidth : @leftBoxWidth;
   background-color: #f5f5f5;
   
-  .main-box{
-    .zoom();
-  }
-  .left-box{
-    width:@leftBoxWidth;margin-right: @space;
-    float:left;
-    .nav-boxs{
-      @sp : 14px;
-      font-size: 14px;min-height: 674px;
-      border:1px solid @borderColor;
-      background-color: #fff;overflow: hidden;
-      a{
-        display: block;text-decoration: none;
-        &:hover{
-          color : @blue;
-        }
-      }
-      .nav-box{
-        margin: -1px @space 0;
-        border-top: 1px solid @borderColor;
-        .nav-title{
-          font-weight: 700;font-size: 16px;
-          margin: @sp -@space;padding:0 @space 0 @space+-4;border-left: 4px solid transparent;
-          .fa{
-            font-size: 18px;
-          }
-          &.active{
-            color : @blue;
-            border-left-color: @blue;
-          }
-        }
-        .nav-sub{
-          margin: 0 -@space;
-          a{
-            margin:floor(@sp*0.8) 0; padding: 0 32px;
-            &.active{
-              color : @blue;
-            }
-          }
-        }
-      }
-    }
-  }
-  .right-box{
-    .zoom();
-  }
   .user-info{
     @headWidth : 84px;
     @lineSpace : 10px;
@@ -116,7 +70,7 @@
     }
   }
   .fq-msg{
-    @msgWidth : @wrapper+-(@leftBoxWidth+@space);
+    @msgWidth : @wrapper+-(@leftWidth+@space);
     @panelWidth : floor((@msgWidth+-@space)/2)+-(@space+1)*2;
     margin-left: -@space;
     .clearfix();
@@ -140,7 +94,7 @@
     }
   }
   .ads{
-    @msgWidth : @wrapper+-(@leftBoxWidth+@space);
+    @msgWidth : @wrapper+-(@leftWidth+@space);
     margin-left: -@space;
     .clearfix();
     .ad{

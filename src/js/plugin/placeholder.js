@@ -13,6 +13,7 @@
   function Placeholder(opt){
     Placeholder.options.id++;
     this.$el = $(opt.el);
+    this.$label = $();
     if(!opt.text){
       opt.text = this.$el.attr('placeholder');
     }
@@ -21,7 +22,8 @@
   }
 
   $.extend(Placeholder.prototype,{
-    init : function(){
+    init: function(){
+      //兼容placeholder则返回
       if(modernizr.input.placeholder){
         return;
       }
@@ -53,6 +55,14 @@
         }
       });
       this.$el.trigger('input');
+    },
+    set: function(key,value){
+      this.options[key] = value;
+      if(key == "text") this.refresh();
+    },
+    refresh: function(){
+      this.$label.text(this.options.text);
+      this.$el.attr('placeholder',this.options.text);
     }
   });
 

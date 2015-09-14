@@ -60,7 +60,7 @@
   /* padding */
   .padding{
     .inline-block();line-height: @navHeight;
-    padding:@navPaddingVertical @navPaddingHorizontal;
+    padding:@space/4 @space/2;
     font-weight: 700;
     font-size: @fontSize;
     a{
@@ -70,7 +70,7 @@
   }
 
   .database-list{
-    min-height: inherit;
+    min-height: initial;
     .form-control{
       line-height: 18px;
       height: 18px;
@@ -143,4 +143,7 @@
 .ui-topnav-wrapper{
   width: @wrapper;margin: 0 auto;
   position: relative;z-index: 8;
+}
+.header-bar-wrapper{
+  z-index: 9;
 }

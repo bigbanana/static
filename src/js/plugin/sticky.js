@@ -36,8 +36,8 @@
       }))
     },
     createWrapper : function() {
-      this.$el.wrap('<div class="sticky-wrapper" />')
-      this.$wrapper = this.$el.parent()
+      this.$el.wrap('<div class="sticky-wrapper" />');
+      this.$wrapper = this.$el.parent().addClass(this.options.wrapperclass);
       this.wrapper = this.$wrapper[0]
     },
     destroy : function() {
@@ -51,6 +51,7 @@
   $.extend(Sticky,{
     options: {
       stuckClass: 'stuck',
+      wrapperclass: '',
       direction: 'down right',
       handler: $.noop
     }

@@ -2376,3 +2376,7 @@ div.ui-autocomplete.open .ui-autocomplete-box {
     transform: translate3d(0, -2px, 0);
   }
 }
+.sticky-wrapper {
+  position: relative;
+  z-index: 1;
+}
