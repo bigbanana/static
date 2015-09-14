@@ -2153,7 +2153,6 @@ header .control-bar {
 .main-box .left-box .nav-boxs .nav-box {
   margin: -1px 16px 0;
   border-top: 1px solid #cccccc;
-  color: #3366cc;
 }
 .main-box .left-box .nav-boxs .nav-box .nav-title {
   font-weight: 700;
@@ -2169,12 +2168,15 @@ header .control-bar {
   color: #3366cc;
   border-left-color: #3366cc;
 }
-.main-box .left-box .nav-sub {
+.main-box .left-box .nav-boxs .nav-box .nav-sub {
   margin: 0 -16px;
 }
-.main-box .left-box .nav-sub a {
+.main-box .left-box .nav-boxs .nav-box .nav-sub a {
   margin: 12px 0;
   padding: 0 32px;
+}
+.main-box .left-box .nav-boxs .nav-box .nav-sub a.active {
+  color: #3366cc;
 }
 .main-box .right-box {
   overflow: hidden;
