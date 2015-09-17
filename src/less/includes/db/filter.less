@@ -41,9 +41,6 @@
       }
       .link{
         display: inline-block;margin-right: @space;color:@blue;
-        &.selected{
-          background-color: @blue;color:#fff;
-        }
       }
       .num-area{
         @contentHeight : @rowContentHeight+-2;
@@ -80,31 +77,46 @@
     }
     
     &.multi-select{
+      @wWidth : 1100px;
+      @bWidth : 60px;
       position: relative;
       .values{
         margin-right: 70px;
       }
       .multi-actions{
-        position: absolute;top:@rowPadding;right:@rowPadding;
-        width:60px;
-        .btn{
-          margin-bottom: 4px;
-        }
+        position: absolute;top:0;right:0;
+        height: 100%;
+
         .multi-more{
           display: block;
+          position: absolute;
+          right: @rowPadding;top: @rowPadding;
         }
-        .multi-submit,.multi-cancel{
+        .multi-submit{
+          position: absolute;
+          right: @wWidth/2+@space;bottom:@rowPadding;
+          display: none;
+        }
+        .multi-cancel{
+          position: absolute;
+          right: @wWidth/2+-@bWidth;bottom:@rowPadding;
           display: none;
         }
       }
 
       &.open{
         min-height: 48px;
+        padding-bottom: 40px;
         .multi-more{
           display: none;
         }
         .link{
-          padding:0 8px;margin:0 10px 4px 0;
+          background:url(http://static.yaozh.com/images/core/checkbox-three.png) no-repeat 4px 6px transparent;
+          padding:0 @space/2 0 @space;margin:0 10px 4px 0;
+
+          &.selected{
+            background-position: 4px -44px;
+          }
         }
         .multi-submit,.multi-cancel{
           display: block;

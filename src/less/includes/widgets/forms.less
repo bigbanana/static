@@ -51,7 +51,7 @@
    
   
   .radio,.checkbox,.form-text{
-    display:inline-block;line-height: @inputLineHeight;
+    display:inline-block;line-height: @inputLineHeight;vertical-align: top;
     font-size:@fontSizeBase;padding:(@paddingVerticalBase+1) @paddingHorizontalBase;
   }
   .radio,.checkbox{
@@ -78,12 +78,12 @@
     }
     &.ui-state-halfchecked{
       .ui-checkbox-three-icon{
-        background-position: 0 -12px;
+        background-position: 0 -100px;
       }
     }
     &.ui-state-checked{
       .ui-checkbox-three-icon{
-        background-position: 0 -24px;
+        background-position: 0 -50px;
       }
     }
   }

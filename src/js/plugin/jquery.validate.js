@@ -8,11 +8,11 @@
  */
 (function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
-		define("jquery.validate",["jquery", "jquery.validate.core"], factory );
+		define("jquery.validate",["jquery",'jquery.widget', "jquery.validate.core"], factory );
 	} else {
-		factory( jQuery );
+		factory( jQuery,widget );
 	}
-}(function( $ ) {
+}(function( $,widget ) {
 
   /**
    * 英文和空格
@@ -130,6 +130,8 @@
       defaultsHighlight.apply(this,arguments);
     }
   });
+
   return $;
-  
+
+
 }));

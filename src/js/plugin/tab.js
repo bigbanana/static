@@ -35,7 +35,7 @@
       curIndex = curIndex>=0 ? curIndex : 0;
       this.select(curIndex);
       this.events();
-      this.$el.is(':hidden') && this.$el.show(200);
+      this.$el.is(':hidden') && this.$el.fadeIn(200);
     },
     events: function(){
       var that = this;

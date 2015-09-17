@@ -74,10 +74,11 @@
     .form-control{
       line-height: 18px;
       height: 18px;
+      width: 150px;
     }
     .ui-dropdown-menu{
       @width : 20px;
-      @boxWidth : 1000px;
+      @boxWidth : 980px;
       @halfSpace : @space/2;
       width:@boxWidth+-@space;
       min-height: 100px;_height:100px;
@@ -105,6 +106,16 @@
     .db-loading,
     .db-nodata{
       top:0;
+    }
+  }
+  
+  .tools{
+    display: inline-block;
+    border-radius: @borderRadiusBase;
+    width:@navHeight;text-align: center;
+    &:hover{
+      background: #fff;
+      color: @blue;
     }
   }
 

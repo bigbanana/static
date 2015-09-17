@@ -4,6 +4,14 @@
   @itemWidth : (@wrapper+-@dbSpace)/2;
   .header-bar{
     padding: 0;height: auto;
+    .wrapper{
+      position: relative;
+    }
+    .home{
+      position: absolute;
+      width:280px;height:60px;
+      left:4px;top:26px;
+    }
   }
   .banner{
     @height : 403px;
@@ -17,6 +25,7 @@
 
   .tese{
     .clearfix();
+    margin-top: @space*3;
     .item{
       position: relative;float:left;width: 270px;
       padding-left: 100px;margin: 0 15px;height: 75px;
@@ -59,7 +68,6 @@
     }
   }
   .db-list{
-    margin-top: 20px;
     overflow: hidden;*zoom:1;
     margin-left: -@dbSpace;
     .item{
@@ -85,7 +93,7 @@
     }
   }
   .question{
-    border:1px solid @borderColor;padding: 20px 0 40px;margin-top: 20px;
+    border:1px solid @borderColor;padding: 20px 0 40px;
     .title{
       font-size: 20px;font-weight: 700;margin-left: 20px;
       .fa{font-size: 22px;margin-right:5px;color:@blue;}

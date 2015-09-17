@@ -1470,6 +1470,7 @@ a.btn {
 .form .form-text {
   display: inline-block;
   line-height: 20px;
+  vertical-align: top;
   font-size: 14px;
   padding: 5px 8px;
 }
@@ -1510,10 +1511,10 @@ a.btn {
   background-position: 0 0;
 }
 .form .ui-checkbox-three.ui-state-halfchecked .ui-checkbox-three-icon {
-  background-position: 0 -12px;
+  background-position: 0 -100px;
 }
 .form .ui-checkbox-three.ui-state-checked .ui-checkbox-three-icon {
-  background-position: 0 -24px;
+  background-position: 0 -50px;
 }
 .form label.validate-error {
   display: inline-block;
@@ -1635,6 +1636,7 @@ a.btn {
   left: 0;
   top: 0;
   width: 2000px;
+  z-index: 1;
 }
 .ui-sliderbox-control {
   position: absolute;
@@ -1642,6 +1644,7 @@ a.btn {
   right: 0;
   color: red;
   padding: 4px;
+  z-index: 10;
 }
 .ui-sliderbox-control a {
   display: inline-block;

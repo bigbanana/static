@@ -27,6 +27,20 @@
         .ui-panel-content{
           height:201px;overflow-y: auto;
         }
+        .ui-panel-side{
+          a{
+            vertical-align: top;margin-top: 4px;
+          }
+        }
+        .bdsharebuttonbox{
+          .inline-block();
+          vertical-align: top;margin-top: 4px;
+          a{
+            line-height: 18px;height:18px;
+            margin:0;padding-left: 8px;
+            background-image: none;
+          }
+        }
       }
       .ui-tab-panels{
         .ui-tab-panel{
@@ -78,15 +92,14 @@
       font-size: 14px;
     }
     ul{
+      padding: @space/2;
+      list-style-type: decimal;
       li{
-        margin: 20px 0;height: 0;
-        border-top:2px dotted @borderColor;
+        margin: @space/2 0 @space/2 @space;
         .text{
           display: inline-block;
           position: relative;
-          top: -10px;
           font-size: 14px;
-          padding: 0 8px;
           background-color: #fff;
         }
       }

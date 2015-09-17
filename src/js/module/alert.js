@@ -5,8 +5,8 @@
  */
 define('alert',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
   function Alert(opt){
-    $.extend(this,arguments.callee.options,opt);
-    this.$el = $(this._template(this));
+    this.options = $.extend({},arguments.callee.options,opt);
+    this.$el = $(this._template(this.options));
     this.init();
     this.events();
   }
@@ -14,17 +14,12 @@ define('alert',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
   $.extend(Alert.prototype,{
     init: function(){
       var that = this;
-      this.dialog = new Dialog({
-        el: this.$el,
-        width:280,
-        height:160,
-        minWidth:280,
-        minHeight:158,
-        modal:true,
+      this.dialog = new Dialog($.extend({
+        el:this.$el,
         close: function(){
           that.$el.remove();
         }
-      });
+      },this.options));
     },
     events: function(){
       var that = this;
@@ -44,6 +39,11 @@ define('alert',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
 
   $.extend(Alert,{
     options : {
+      width:280,
+      height:160,
+      minWidth:280,
+      minHeight:158,
+      modal:true,
       content: ''
     }
   });

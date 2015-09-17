@@ -80,7 +80,10 @@
     },
     render: function(){
       var self = this;
-      var totalPage = this.maxPage || Math.ceil(this.total/this.pageSize);
+      var totalPage = Math.ceil(this.total/this.pageSize);
+      if(this.maxPage && this.maxPage<totalPage){
+        totalPage = this.maxPage;
+      }
       var items = [];
       this.$el.empty();
       if(this.currentPage>totalPage) return;
@@ -153,21 +156,25 @@
         self.setPage($this.data('page'));
         return false;
       });
+
       this.$el.on('keydown','.skip',function(e){
-        var totalPage = Math.ceil(self.total/self.pageSize);
-        var $this = $(this);
-        if(e.keyCode == 13){
-          var val = parseInt($this.val());
-          if(!isNaN(val) && val<=totalPage){
-            self.setPage(val);
-          }else{
-            $this.val('');
-          }
-        }
+        if(e.keyCode != 13) return;
+        skip();
       });
+      this.$el.on('click','.skip-page .jump',skip);
       this.$el.on('change','.page-size',function(){
         self.setPageSize($(this).val());
       });
+      function skip(){
+        var $skip = self.$el.find('.skip');
+        var totalPage = Math.ceil(self.total/self.pageSize);
+        var val = parseInt($skip.val());
+        if(!isNaN(val) && val<=totalPage){
+          self.setPage(val);
+        }else{
+          $skip.val('');
+        }
+      }
     },
     _createElements: function(items){
       var self = this,$els = $();
@@ -196,7 +203,7 @@
       this.$el.append($el);
     },
     _skipPageTemp: _.template([
-      '<span class="skip-page">跳转到 <input type="text" class="skip" value="" /> 页</span>'
+      '<span class="skip-page">跳转到 <input type="text" class="skip" value="" /> 页 <a href="javascript:;" class="btn jump">跳转</a></span>'
     ].join('')),
     _pageSizeSelectTemp: _.template([
       '<select class="page-size">',

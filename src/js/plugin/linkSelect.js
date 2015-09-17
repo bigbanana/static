@@ -24,6 +24,7 @@
     this.options = $.extend(true,{},arguments.callee.options,opt);
     var $el = $(opt.el);
     this.options.className = $el.attr('class');
+    this.options.default = this.options.default || [];
     this.$el = $('<div class="link-select-wrap"></div>');
     $el.replaceWith(this.$el);
     this.init();
@@ -39,15 +40,18 @@
       if(!!this.options.default && $.type(this.options.default)!="array"){
         this.options.default = this.options.default.toString().split(',');
       }
-      if(!!this.options.data){
-        this.create($.parseJSON(this.options.data));
+      if(!!this.options.data && $.type(this.options.data)=="string"){
+        this.options.data = $.parseJSON(this.options.data);
+      }
+      if(!!this.options.src){
+        $.get(this.options.src).done(function(res){
+          that.option.data = res;
+          that.create();
+        });
         return;
       }
-      if(!this.options.src) return;
-      $.get(this.options.src).done(function(res){
-        that.option.data = res;
-        that.create();
-      });
+
+      this.create();
     },
     create: function(){
       this.$el.append(this.createSelect(this.options.data));
@@ -82,7 +86,7 @@
       var obj;
 
       if(list.length == 0) return;
-      
+      list = list.concat();
       while(obj=list.shift()){
         $select.append(this.createOption(obj));
       }
