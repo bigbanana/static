@@ -24,7 +24,7 @@
   line-height: 30px;
   margin-bottom: 16px;
 }
-i.vip {
+i.vip-text {
   display: inline-block;
   border-radius: 2px;
   padding: 2px 4px;
@@ -37,6 +37,28 @@ i.vip {
   color: #fff;
   line-height: 14px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+i.vip {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: -4px;
+  background: url(//static.yaozh.com/images/project/db/vip_icons.png) center -20px no-repeat transparent;
+}
+i.vip.vip1 {
+  background-position: center -13px;
+}
+i.vip.vip2 {
+  background-position: center -63px;
+}
+i.vip.vip3 {
+  background-position: center -113px;
+}
+i.vip.vip4 {
+  background-position: center -163px;
+}
+i.vip.vip5 {
+  background-position: center -217px;
 }
 /* @import "dialog.less" */
 div.ui-dialog {
@@ -373,7 +395,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   line-height: 20px;
   border-radius: 3px;
   color: #fff;
-  background-color: #4d90fe;
+  background-color: #427fed;
   border: 1px solid #3079ed;
 }
 .ui-topbar .item.app .app-icon .fa {
@@ -448,12 +470,12 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .ui-topbar .download_qrcode {
   display: inline-block;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
 }
 /* header-bar */
 .header-bar {
-  padding: 10px 0;
+  padding: 16px 0;
   height: 40px;
   background-color: #fff;
 }
@@ -538,11 +560,19 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   position: absolute;
   right: -1px;
   top: -1px;
-  background: #3079ed;
+  background: #427fed;
   text-align: center;
   font-size: 14px;
   color: #fff;
   text-decoration: none;
+}
+.header-bar .link-vip {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 32px;
+}
+.header-bar .link-vip img {
+  vertical-align: top;
 }
 /* user-header-bar */
 .user-header-bar {
@@ -996,7 +1026,7 @@ html.iframe body {
 /*发布动画*/
 .publish-animate {
   position: absolute;
-  right: 100px;
+  right: 120px;
   top: -88px;
   width: 105px;
   height: 95px;
@@ -2630,6 +2660,35 @@ header .control-bar {
 }
 .page-tool .tool-panel .item.hover .btn {
   opacity: 1;
+}
+/*分子量计算器*/
+.page-formula .wrapper {
+  width: 800px;
+}
+.page-formula .ui-box-yellow {
+  height: 366px;
+}
+.page-formula .result {
+  height: 366px;
+  overflow-y: auto;
+}
+.page-formula .result .em4 {
+  display: inline-block;
+  text-align: right;
+}
+.page-formula .result p {
+  margin-bottom: 8px;
+}
+.page-formula .result .tips {
+  margin-top: 190px;
+  text-align: center;
+  color: #999999;
+}
+.page-formula .form.form-style-2 .form-double-groups {
+  width: 60%;
+}
+.page-formula .form.form-style-2 .form-groups {
+  width: 40%;
 }
 /*移动端兼容*/
 /* @import "mobile.less" */

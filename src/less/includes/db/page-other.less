@@ -417,5 +417,38 @@
   }
 }
 
-
+/*分子量计算器*/
+.page-formula{
+  @boxHeight : 400px;
+  .wrapper{
+    width: 800px;
+  }
+  .ui-box-yellow{
+    height:@boxHeight+-(@space+1)*2;
+  }
+  .result{
+    height:@boxHeight+-(@space+1)*2;
+    overflow-y:auto;
+    .em4{
+      display: inline-block;text-align: right;
+    }
+    p{
+      margin-bottom: @space/2;
+    }
+    .tips{
+      margin-top: 190px;text-align: center;color:@gray;
+    }
+  }
+  .form{
+    &.form-style-2{
+      .form-double-groups{
+        width: 60%;
+      }
+      .form-groups{
+        width: 40%;
+      }      
+    }
+  }
+  
+}
 

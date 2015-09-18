@@ -24,7 +24,7 @@
     this.options = $.extend(true,{},arguments.callee.options,opt);
     var $el = $(opt.el);
     this.options.className = $el.attr('class');
-    this.options.default = this.options.default || [];
+    this.options.defaults = this.options.defaults || [];
     this.$el = $('<div class="link-select-wrap"></div>');
     $el.replaceWith(this.$el);
     this.init();
@@ -37,8 +37,8 @@
       if(!!this.options.names && $.type(this.options.names)!="array"){
         this.options.names = this.options.names.split(',');
       }
-      if(!!this.options.default && $.type(this.options.default)!="array"){
-        this.options.default = this.options.default.toString().split(',');
+      if(!!this.options.defaults && $.type(this.options.defaults)!="array"){
+        this.options.defaults = this.options.defaults.toString().split(',');
       }
       if(!!this.options.data && $.type(this.options.data)=="string"){
         this.options.data = $.parseJSON(this.options.data);
@@ -100,7 +100,7 @@
     },
     setDefault: function(){
       var that = this;
-      $.each(this.options.default,function(index,item){
+      $.each(this.options.defaults,function(index,item){
         that.setValue(index,item);
       });
     },

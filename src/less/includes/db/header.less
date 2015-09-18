@@ -22,7 +22,7 @@
       .app-icon{
         color:#fff; margin:3px 10px; 
         cursor:default; padding:0 3px;line-height: 20px;border-radius:3px;color:#fff;
-        background-color: #4d90fe;border:1px solid #3079ed;
+        background-color: #427fed;border:1px solid #3079ed;
         .fa{
           font-size: 20px;position: relative;top:2px;height:20px;
         }
@@ -74,7 +74,7 @@
     color:#666;
   }
   .download_qrcode{
-    display: inline-block;width: 70px;height:70px;
+    display: inline-block;width: 80px;height:80px;
   }
 }
 
@@ -84,9 +84,9 @@
   @borderWidth : 1px;
   @borderColor : #c0c0c0;
   @contentHeight : @height+-@borderWidth*2;
-  @btnBackgroundColor : #3079ed;
+  @btnBackgroundColor : #427fed;
 
-  padding: 10px 0;height: 40px;background-color: #fff;
+  padding: @space 0;height: 40px;background-color: #fff;
   &.stuck{
     position:fixed;top:0;left:0;width:100%;box-shadow: 2px 2px 2px #eee;
     border-bottom: 1px solid #ddd;z-index: 10;
@@ -146,7 +146,14 @@
       font-size: 14px;color:#fff;text-decoration: none;
     }
   }
-
+  .link-vip{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: @space*2;
+    img{
+      vertical-align: top;
+    }
+  }
 }
 
 /* user-header-bar */
