@@ -52,6 +52,84 @@
   }
 }
 
+/*404 notfound*/
+.notfound{
+  background:url(//static.yaozh.com/images/project/db/notfound/bj.gif); font-family:"microsoft yahei";
+  .top{
+    background:#fff; height:50px; overflow:hidden; margin:0 auto;
+
+    .top-w{ 
+      width:1000px; margin:0 auto; line-height:50px;
+    }
+    .top-logo{ 
+      background: url(//static.yaozh.com/images/project/db/logo.png) no-repeat;
+      width: 260px;
+      height: 40px;
+      background-position: 0 -59px;
+      float: left;
+      display: inline-block;
+      margin-top: 3px;
+    }
+    .nav{
+      float:right;
+      a{ color:#7c7c7c;}
+      a:hover{ color:#e74c3c;}
+      ul li{ float:left; padding:0 10px; font-size:14px;}
+    }
+  }
+  
+  .overall{
+    position: absolute;width: 100%;height: 100%;
+  }
+  .error{
+    color:#fff;z-index:99;width: 960px;height: 600px;
+    position: relative;left: 50%;top: 50%;margin-left: -480px;margin-top: -300px;
+    .error-w{ 
+      position:absolute; top:0; left:235px;text-align:center; width:470px;
+    }
+    .er{ 
+      background:url(//static.yaozh.com/images/project/db/notfound/error404.png) no-repeat;width:470px; height:130px;
+    }
+    .ea{ 
+      font-size:45px; text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.7); 
+      font-weight:500; letter-spacing:5px; padding-top:5px;
+    }
+    .em{ 
+      font-size:18px; text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.7); 
+      letter-spacing:2px; padding:20px;
+    }
+    .eb-bton{ 
+      width:147px; height:49px; background:url(//static.yaozh.com/images/project/db/notfound/btn.png) 0 0 no-repeat;
+      display:block; margin:0 auto; margin-top:10px;
+    }
+    .eb-bton:hover{ 
+      background:url(//static.yaozh.com/images/project/db/notfound/btn.png) 0 -51px no-repeat; _background-position:0 -50px 
+    }
+  }
+
+  .foot{ 
+    position:absolute; bottom:0px; overflow:hidden; width:100%; height:300px;
+    .ft{ 
+      position:absolute;
+    }
+    .ft1{ 
+      z-index:1;top:0;left:0;
+    }
+    .ft2{ 
+      z-index:2;top:0;left:0;
+    }
+    .ft3{ 
+      z-index:3;top:0;left:0;
+    }
+    .ft4{ 
+      z-index:4;top:0;left:0;
+    }
+  }
+  .foot-w{
+    position:absolute;left:50%;width:2048px;height:150px;margin-left: -1024px;bottom:0;
+  }
+}
+
 /* vip功能页面 */
 .page-vip{
   .left-box{
@@ -119,9 +197,12 @@
   .links{
     a{
       display: inline-block;
+      width:160px;
       font-size: 14px;
       padding: @space/4 @space/2;
       margin:@space/4;
+      text-decoration: none;
+      
       &:hover{
         color: @blue;
       }

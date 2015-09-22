@@ -17,7 +17,6 @@ require(['jquery'],function($){
         //Math.random()*0.8 设置缓区间
         duration = verticalMoveDuration*(1+Math.random());
       }
-
       num++;
       return duration *(1+Math.random()*0.2);
     }
@@ -47,7 +46,7 @@ require(['jquery'],function($){
     }).delay(verticalMoveDelay);
   });
 
-  if(window.ie>8){
+  if(!window.ie||window.ie>8){
     require(['jquery.plax'],function(plax){
       $plaxify.plaxify();
       $.plax.enable();
