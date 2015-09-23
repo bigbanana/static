@@ -82,7 +82,7 @@
       }
     },
     setValue: function(index,item){
-      var $select = this.$el.children().eq(index);
+      var $select = this.$el.children().eq(index).children('select');
       $select.val(item).trigger('change');
     },
     createSelect: function(list,className){

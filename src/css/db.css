@@ -1432,9 +1432,9 @@ header .control-bar {
   position: absolute;
   width: 24px;
   height: 24px;
-  font-size: 22px;
+  font-size: 16px;
   top: 4px;
-  color: #666;
+  color: #999;
   right: 0;
 }
 .zh-main .zh-list .ui-panel-content a:hover {
