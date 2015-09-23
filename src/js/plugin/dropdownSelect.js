@@ -24,6 +24,7 @@
     init : function(){
       var _this = this;
       this.createWidget();
+      this.addClass()
       this.events();
     },
     events: function(){
@@ -60,10 +61,14 @@
       }else{
         this.$widget.empty();
       }
-      this.$widget.html(this._temp({list:this.list}));
+      this.$widget.html(this._temp({list:this.list})).append(this.$el);
       this.$selectName = this.$widget.find('.ui-dropdown-select-name');
       this.$selectMenu = this.$widget.find('.ui-dropdown-select-menu');
       this.changeValue();
+    },
+    addClass: function(name){
+      name = name || this.options.className;
+      this.$widget.addClass(name);
     },
     refresh: function(){
       this.createWidget();
@@ -87,6 +92,7 @@
   });
   $.extend(DropdownSelect,{
     options : {
+      className: '',
       event: 'click'
     }
   });

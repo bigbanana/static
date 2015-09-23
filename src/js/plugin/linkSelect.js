@@ -15,7 +15,7 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.linkSelect',['jquery','underscore','jquery.widget'],factory);
+    define('jquery.linkSelect',['jquery','underscore','jquery.widget','jquery.dropdownSelect'],factory);
   } else {
     factory( jQuery,_,widget );
   }
@@ -54,18 +54,23 @@
       this.create();
     },
     create: function(){
-      this.$el.append(this.createSelect(this.options.data));
+      var $select = this.createSelect(this.options.data);
+      this.$el.append($select);
+      $select.dropdownSelect();
       _.defer(_.bind(this.setDefault,this));
     },
     events: function(){
       var that = this;
       this.$el.on('change','select',function(){
         var $this = $(this);
+        var $widget = $this.data('dropdownSelect').$widget;
         var $selected = $this.find('option:selected');
         var data = $selected.data('data');
-        $this.nextAll().remove();
+        $widget.nextAll().remove();
         if(!data || !data.list || data.list.length == 0) return;
-        $this.after(that.createSelect(data.list));
+        var $select = that.createSelect(data.list);
+        $widget.after($select);
+        $select.dropdownSelect({className:'mt5'});
       });
     },
     getName: function($el){
@@ -80,17 +85,16 @@
       var $select = this.$el.children().eq(index);
       $select.val(item).trigger('change');
     },
-    createSelect: function(list){
+    createSelect: function(list,className){
       var option = $.extend({},this.options,{name:this.getName()});
       var $select = $(this.selectTemp(option));
-      var obj;
+      var obj,opt = {};
 
       if(list.length == 0) return;
       list = list.concat();
       while(obj=list.shift()){
         $select.append(this.createOption(obj));
       }
-
       return $select;
     },
     createOption: function(data){
@@ -105,7 +109,7 @@
       });
     },
     selectTemp: _.template([
-      '<select name="<%= name %>" class="<%= className %>"></select>'
+      '<select name="<%= name %>" class="<%= className %>" data-widget="dropdownSelect"></select>'
     ].join('')),
     optionTemp: _.template([
       '<option value="<%= val %>"><%= name %></option>'

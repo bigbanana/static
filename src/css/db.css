@@ -17,6 +17,8 @@
 .main {
   min-height: 580px;
   margin: 16px auto;
+  position: relative;
+  z-index: 1;
 }
 .responsive-table .tool-bar {
   margin-top: -30px;

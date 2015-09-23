@@ -2012,7 +2012,6 @@ div.ui-dialog .ui-dialog-iframe {
   box-shadow: 1px 1px 1px #eeeeee inset;
   display: inline-block;
   position: relative;
-  z-index: 10;
   height: 30px;
   line-height: 20px;
   vertical-align: top;
