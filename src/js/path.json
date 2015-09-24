@@ -20,6 +20,7 @@
 
   "jquery.dialog": "module/dialog",
   "outer": "module/outer",
+  "preon": "module/preon",
   "confirm": "module/confirm",
   "alert": "module/alert",
   "tips": "module/tips",

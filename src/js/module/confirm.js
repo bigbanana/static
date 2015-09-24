@@ -5,9 +5,22 @@
  * @param  {[function]} cancel [失败后回调]
  * @return {[object]}           [Confirm 实例]
  */
-define('confirm',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('confirm',['jquery','underscore','jquery.dialog','jquery.widget'],factory);
+  } else {
+    factory( jQuery,_,Dialog,widget);
+  }
+}(function($,_,Dialog,widget){
   function Confirm(opt){
-    $.extend(this,arguments.callee.options,opt);
+    $.extend(this,arguments.callee.options,arguments.callee.dialogOpt,opt);
+    this.dialogOpt = $.extend({},arguments.callee.dialogOpt,{
+      width:this.width,
+      height:this.height,
+      minWidth:this.minWidth,
+      minHeight:this.minHeight,
+      modal:this.modal
+    });
     this.init();
     this.events();
   }
@@ -16,17 +29,12 @@ define('confirm',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
     init: function(){
       var that = this;
       this.$wrap = $(this._template(this));
-      this.dialog = new Dialog({
+      this.dialog = new Dialog($.extend({
         el:this.$wrap,
-        width:280,
-        height:160,
-        minWidth:280,
-        minHeight:158,
-        modal:true,
         close: function(){
           that.$wrap.remove();
         }
-      });
+      }),this.dialogOpt);
     },
     events: function(){
       var that = this;
@@ -55,9 +63,32 @@ define('confirm',['jquery','underscore','jquery.dialog'],function($,_,Dialog){
       content: '确定要继续操作吗？',
       pass: $.noop,
       cancel: $.noop
+    },
+    dialogOpt: {
+      width:280,
+      height:160,
+      minWidth:280,
+      minHeight:158,
+      modal:true
     }
   });
 
-  return Confirm;
+  widget.install('confirm',function(opt){
+    this.preon('click',function(e){
+      e.stopImmediatePropagation();
+      
+      var confirm = new Confirm($.extend({
+        pass: function(){
+          
+        },
+        cancel: function(){
 
-});
+        }
+      },opt));
+
+    });
+
+  });
+
+  return Confirm;
+}));

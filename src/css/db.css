@@ -2073,7 +2073,7 @@ header .control-bar {
   padding: 16px 332px 16px 16px;
   position: relative;
   z-index: 3;
-  min-height: 400px;
+  min-height: 540px;
 }
 .detail-style-2 .body .ui-panel {
   border: none;
@@ -2713,6 +2713,9 @@ header .control-bar {
 }
 .page-tool .tool-panel .item .logo.logo6 {
   background-position: 0 -500px;
+}
+.page-tool .tool-panel .item .logo.logo7 {
+  background-position: 0 -600px;
 }
 .page-tool .tool-panel .item .title {
   font-size: 16px;
