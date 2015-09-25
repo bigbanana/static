@@ -1,4 +1,4 @@
-define("utils",['jquery','browser','underscore','confirm','alert','tips'],function($,browser,_,Confirm,Alert,Tips){
+define("utils",['jquery','browser','underscore','jquery.confirm','alert','tips'],function($,browser,_,Confirm,Alert,Tips){
   
   var utils = {
     browser: browser,

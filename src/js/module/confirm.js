@@ -7,7 +7,7 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('confirm',['jquery','underscore','jquery.dialog','jquery.widget'],factory);
+    define('jquery.confirm',['jquery','underscore','jquery.dialog','jquery.widget','jquery.preon'],factory);
   } else {
     factory( jQuery,_,Dialog,widget);
   }
@@ -34,7 +34,7 @@
         close: function(){
           that.$wrap.remove();
         }
-      }),this.dialogOpt);
+      },this.dialogOpt));
     },
     events: function(){
       var that = this;
@@ -73,22 +73,29 @@
     }
   });
 
-  widget.install('confirm',function(opt){
-    this.preon('click',function(e){
+  function ComfirmWidget(opt){
+    opt.el.preon('click',function(e,data){
+      if(!!data && !!data.confirmPass) return;
+
       e.stopImmediatePropagation();
-      
+      e.preventDefault();
+      var that = this;
+      var $this = $(this);
       var confirm = new Confirm($.extend({
         pass: function(){
-          
-        },
-        cancel: function(){
-
+          //调用只有一个的时候，为打开链接
+          if($._data(that).events['click'].length == 1){
+            window.open(that.href,that.target||"_self");
+          }else{
+            $this.trigger('click',{confirmPass:true});
+          }
         }
       },opt));
 
     });
+  }
 
-  });
+  widget.install('confirm',ComfirmWidget);
 
   return Confirm;
 }));
