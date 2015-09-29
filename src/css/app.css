@@ -2177,14 +2177,26 @@ div.ui-autocomplete.open .ui-autocomplete-box {
 .ui-tab .ui-tab-navs {
   position: relative;
   line-height: 30px;
-  height: 30px;
-  border-bottom: 2px solid #cccccc;
+  height: 32px;
+  padding-right: 100px;
+}
+.ui-tab .ui-tab-navs:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  background-color: #cccccc;
+  z-index: 1;
 }
 .ui-tab .ui-tab-navs .ui-tab-nav {
   font-size: 14px;
   font-weight: 700;
-  height: 30px;
-  float: left;
+  height: 32px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
 }
 .ui-tab .ui-tab-navs .ui-tab-nav a {
   position: relative;
@@ -2223,6 +2235,22 @@ div.ui-autocomplete.open .ui-autocomplete-box {
 }
 .ui-tab .ui-tab-navs .ui-tab-side a:hover {
   color: #3366cc;
+}
+.ui-tab .ui-tab-navs .ui-dropdown-select {
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-shadow: none;
+}
+.ui-tab .ui-tab-navs .ui-dropdown-select .ui-dropdown-select-name {
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: right;
+  line-height: 22px;
+}
+.ui-tab .ui-tab-navs .ui-dropdown-select .ui-dropdown-arrow {
+  right: 4px;
 }
 .ui-tab .ui-tab-panel {
   padding-top: 16px;

@@ -6,10 +6,16 @@
   .ui-tab-navs{
     position: relative;
     line-height: @titleHeight;
-    height: @titleHeight;
-    border-bottom: 2px solid @borderColor;
+    height: @titleHeight+2;
+    padding-right: 100px;
+    &:after{
+      content: "";
+      position: absolute;left:0;height:2px;width:100%;bottom:0;
+      background-color: @borderColor;z-index:1;
+    }
     .ui-tab-nav{
-      font-size: 14px;font-weight: 700;height: @titleHeight;float:left;
+      font-size: 14px;font-weight: 700;height: @titleHeight+2;
+      position: relative;z-index:2;overflow: hidden;
       a{
         position: relative;bottom: 0;
         display: inline-block;text-decoration: none;
@@ -44,8 +50,19 @@
           color:@blue;
         }
       }
-      
     }
+    .ui-dropdown-select{
+      position: absolute;right: 0;top:0;
+      box-shadow: none;
+      .ui-dropdown-select-name{
+        border: none;font-weight: 700;font-size: 14px;
+        text-align: right;line-height: 22px;
+      }
+      .ui-dropdown-arrow{
+        right:4px;
+      }
+    }
+
   }
   .ui-tab-panel{
     padding-top: @padding;display: none;

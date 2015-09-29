@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>overflow Test</title>
+  <script src="//static.yaozh.com/js/app.js"></script>
+  <style>
+    #test1{
+      border:2px solid #bbb;overflow: hidden;
+      padding: 4px;
+      width:1000px;height: 26px;overflow: hidden;
+    }
+    #test1 a{
+      float:left;padding: 4px 10px;color:#ff5500;text-decoration: none;
+      background-color: #ddd;margin-right:10px;
+    }
+  </style>
+  <script>
+    require(['jquery'],function(){
+      num = 0
+      var $select = $('<select></select>');
+      $(document.body).append($select);
+      $select.append('<option value="'+(++num)+'">2</option>');
+      $select.append('<option value="'+(++num)+'">3</option>');
+      $select.append('<option value="'+(++num)+'">4</option>');
+      $select.append('<option value="'+(++num)+'">5</option>');
+      $select.append('<option value="'+(++num)+'">6</option>');
+      $select.on('change',function(){
+        debugger;
+      })
+    });
+  </script>
+</head>
+<body>
+  <div id="test1" data-widget="overflow" data-container="#con">
+    <a href="#">测试地址1</a>
+    <a href="#">测试地址2</a>
+    <a href="#">测试地址3</a>
+    <a href="#">测试地址4</a>
+    <a href="#">测试地址5</a>
+    <a href="#">测试地址6</a>
+    <a href="#">测试地址7</a>
+    <a href="#">测试地址8</a>
+  </div>
+  <div id="con"></div>
+
+</body>
+</html>

@@ -9,7 +9,7 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.tab',['jquery','underscore','jquery.widget'],factory);
+    define('jquery.tab',['jquery','underscore','jquery.widget','jquery.tabNavOverflow'],factory);
   } else {
     factory( jQuery,_,widget );
   }
@@ -31,7 +31,8 @@
       }else{
         this.normalModel();
       }
-      var curIndex = this.$tabNav.children('.active').index()
+      this.options.overflow && this.overflow();
+      var curIndex = this.$tabNav.children('.active').index();
       curIndex = curIndex>=0 ? curIndex : 0;
       this.select(curIndex);
       this.events();
@@ -45,8 +46,8 @@
       });
     },
     select: function(index){
-      this.$tabNavs.eq(index).toggleClass("active",true).siblings().toggleClass("active",false);
-      this.$tabPanels.toggleClass("active",false).eq(index).toggleClass("active",true);
+      this.$tabNav.children().removeClass("active").eq(index).addClass("active");
+      this.$tabPanels.removeClass("active").eq(index).addClass("active");
     },
     normalModel: function(){
       this.$tabNav = this.$el.find('>.ui-tab-navs>.ui-tab-nav');
@@ -62,11 +63,27 @@
 
       $panelWrap.append(this.$tabPanels);
       this.$tabNav.append(this.$tabNavs);
+    },
+    overflow: function(){
+      var that = this;
+      this.$tabNav.tabNavOverflow();
+      var $selectName = this.$el.find('.ui-tab-navs .ui-dropdown-select-name').text('更多');
+      var tabNavOverflow = this.$tabNav.data('tabNavOverflow');
+      tabNavOverflow.$container.on('change',function(){
+        var index = $(this).val();
+        $selectName.addClass('cl-blue');
+        that.select(index);
+      });
+      this.$tabNav.on(this.options.event,'>a',function(){
+        tabNavOverflow.$container.val('').trigger('change');
+        $selectName.removeClass('cl-blue').text('更多');
+      });
     }
   });
   $.extend(Tab,{
     options : {
-      event: 'click'
+      event: 'click',
+      overflow: false
     }
   });
 

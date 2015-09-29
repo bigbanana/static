@@ -14,7 +14,6 @@
     if(opt.event == "hover"){
       opt.event = "mouseenter";
     }
-    this.cache = {value:0};
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(opt.el).hide();
     this.init();
@@ -31,7 +30,6 @@
       var that = this;
       this.$widget.on('click','.ui-dropdown-menu li',function(){
         var value = $(this).data('value');
-        if(that.cache.value == value) return;
         that.$el.val(value);
         that.$el.trigger('change');
         that.$el.trigger('focusout');
@@ -42,7 +40,6 @@
       var $selected = this.$el.find('option:selected');
       var value = $selected.val();
       var text = $selected.text();
-      this.cache.value = value;
       this.$selectName.text(text);
       this.$selectMenu.find('>li[data-value="'+value+'"]').addClass('selected')
       .siblings('.selected').removeClass('selected');
@@ -59,6 +56,7 @@
         this.$widget = $('<span class="ui-dropdown-select ui-dropdown"></span>').insertAfter(this.$el);
         this.$widget.css(css);
       }else{
+        this.$el.detach();
         this.$widget.empty();
       }
       this.$widget.html(this._temp({list:this.list})).append(this.$el);
