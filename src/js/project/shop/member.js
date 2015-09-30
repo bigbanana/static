@@ -130,15 +130,18 @@ define(['jquery','baidu.map','jquery.validate','jquery.ui'],function($){
           alert("请阅读阅读药智商城行为准则，并同意后再提交");
           return false;
         }
+/*
 
+  取消图片验证
         var $pictures = $publishForm.find('input[name="pictures[]"]');
         if(!$pictures.length){
-        var $err = $(".upload").nextAll('.error');
-        if(!$err.length){
-          $(".upload").after('<span class="error">相关图片不能为空</span>');
-        }
+          var $err = $(".upload").nextAll('.validate-error');
+          if(!$err.length){
+            $(".upload").after('<span class="validate-error">相关图片不能为空</span>');
+          }
           return false;
         }
+*/
 
         if(!validator.form()){
           return false;

@@ -407,7 +407,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
   height: 20px;
 }
 .ui-topbar .item.app .subnav {
-  width: 120px;
+  width: 160px;
   padding: 10px 20px;
 }
 .ui-topbar .item.app .subnav .btn {
@@ -472,8 +472,6 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .ui-topbar .download_qrcode {
   display: inline-block;
-  width: 80px;
-  height: 80px;
 }
 /* header-bar */
 .header-bar {
