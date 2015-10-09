@@ -3059,6 +3059,14 @@ header .control-bar {
   footer.user-footer .wrapper > .relative > p:first-child {
     display: block;
   }
+  .zh-main {
+    padding-right: 0;
+  }
+  .zh-main .zh-ads {
+    position: static;
+    width: auto;
+    margin-top: 8px;
+  }
   /*用户中心*/
   .user-header-bar .logo-box {
     margin-left: 0;
