@@ -2284,6 +2284,7 @@ div.ui-autocomplete.open .ui-autocomplete-box {
 }
 .ui-panel .ui-panel-content {
   padding-top: 16px;
+  overflow: auto;
 }
 .ui-panel.ui-panel-condensed {
   padding: 0;

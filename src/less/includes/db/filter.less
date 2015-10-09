@@ -1,5 +1,4 @@
 .ui-filter{
-  @space : 20px;
   @rowHeight : 35px;
   @rowPadding : 6px;
   @rowContentHeight : @rowHeight+-@rowPadding*2+-1;
@@ -82,10 +81,13 @@
       position: relative;
       .values{
         margin-right: 70px;
+        position: relative;
+        z-index: 2;
       }
       .multi-actions{
+        z-index: 1;
         position: absolute;top:0;right:0;
-        height: 100%;
+        height: 100%;width:100%;
 
         .multi-more{
           display: block;
@@ -94,12 +96,14 @@
         }
         .multi-submit{
           position: absolute;
-          right: @wWidth/2+@space;bottom:@rowPadding;
+          left:50%;bottom:@rowPadding;
+          margin-left: -@bWidth+-@space*0.5;
           display: none;
         }
         .multi-cancel{
           position: absolute;
-          right: @wWidth/2+-@bWidth;bottom:@rowPadding;
+          left:50%;bottom:@rowPadding;
+          margin-left: @space*0.5;
           display: none;
         }
       }
@@ -111,11 +115,11 @@
           display: none;
         }
         .link{
-          background:url(http://static.yaozh.com/images/core/checkbox-three.png) no-repeat 4px 6px transparent;
+          background:url(http://static.yaozh.com/images/core/checkbox-three.png) no-repeat 1px 6px transparent;
           padding:0 @space/2 0 @space;margin:0 10px 4px 0;
 
           &.selected{
-            background-position: 4px -44px;
+            background-position: 1px -44px;
           }
         }
         .multi-submit,.multi-cancel{
