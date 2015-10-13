@@ -1585,6 +1585,7 @@ a.btn {
 .table {
   text-align: center;
   width: 100%;
+  word-break: break-word;
 }
 .table th {
   font-weight: 700;
@@ -2015,11 +2016,13 @@ div.ui-dialog .ui-dialog-iframe {
   height: 30px;
   line-height: 20px;
   vertical-align: top;
+  font-family: "microsoft yahei";
 }
 .ui-dropdown-select .ui-dropdown-select-name {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: center;
   border: 1px solid #cccccc;
   text-decoration: none;
   display: block;
@@ -2227,7 +2230,9 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   display: block;
 }
 .ui-tab .ui-tab-navs .ui-tab-side {
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
   line-height: 30px;
 }
 .ui-tab .ui-tab-navs .ui-tab-side a {
