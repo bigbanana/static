@@ -52,7 +52,7 @@
       }
 
       this.$el.css({
-        width : width,
+        width : width*this.options.displayNumber,
         height : height
       }).addClass('ui-sliderbox');
       this.initControl();
