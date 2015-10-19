@@ -30,7 +30,11 @@
         position:'relative',
         overflow:'hidden'
       });
-      this.$items = this.$el.children().detach().addClass('ui-sliderbox-item');
+      this.$items = this.$el.children();  
+      this.$items.css({
+        width : this.$items.width()
+      });
+      this.$items.detach().addClass('ui-sliderbox-item');
       if(this.options.direction == "vertical") this.$items.css({float:'left'});
       this.$itemBox = $('<div class="ui-sliderbox-box"></div>').css({
         position:'absolute',left:0,top:0
@@ -45,6 +49,7 @@
         width : width,
         height : height
       }
+
       if(this.options.direction == "horizontal"){
         this.$itemBox.css({height:height*this.$items.length});
       }else{
