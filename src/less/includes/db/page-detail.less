@@ -20,67 +20,69 @@
     padding: @space @width+@space*2 @space @space;
     position: relative;z-index: 3;
     min-height: 540px;
-    .ui-panel{
-      border:none;padding: 0;
-      background-color: transparent;
-    }
-    .ui-panel-title{
-      border:none;
-    }
-    .ui-panel-name{
-      font-size: 16px;font-weight: 700;
-      color:@blue;
-      .fa{
-        font-size: 20px;
-      }
-    }
-    .ui-panel-side{
-      font-size: 14px;
-      a{
-        font-weight: 700;
-      }
-    }
-    .ui-panel-content{
-      padding: floor(@space*0.5) @space;
-    }
     
-    .table{
-      text-align: left;
-      tbody{
-        th{text-align: right;}
-      }
-      th,td{
-        padding: 8px;
-      }
-      td{
-        p{
-          margin-top: @space;
-        }
-      }
-    }
-
-    .ads{
-      position: absolute;
-      top: @space;right: @space;
-      width:@width;
-      .ad{
-        width:100%;
-        display: block;
-        height:120px;
-        vertical-align: top;
-        margin-bottom: @space;
-        img{
-          .size(100%);
-        }
+  }
+  .ads{
+    position: absolute;
+    top: @space+8;right: @space;
+    width:@width;
+    z-index:10;
+    .ad{
+      width:100%;
+      display: block;
+      height:120px;
+      vertical-align: top;
+      margin-bottom: @space;
+      img{
+        .size(100%);
       }
     }
   }
-  .other-database{
-    .btn{
-      margin: 0 @space @space/2 0;
+}
+
+.detail-main{
+  .ui-panel{
+    border:none;padding: 0;
+    background-color: transparent;
+  }
+  .ui-panel-title{
+    border:none;
+  }
+  .ui-panel-name{
+    font-size: 16px;font-weight: 700;
+    color:@blue;
+    .fa{
+      font-size: 20px;
     }
+  }
+  .ui-panel-side{
+    font-size: 14px;
+    a{
+      font-weight: 700;
+    }
+  }
+  .ui-panel-content{
+    padding: floor(@space*0.5) @space;
   }
   
+  .table{
+    text-align: left;
+    tbody{
+      th{
+        text-align: right;
+        width: 100px;
+      }
+    }
+    th,td{
+      padding: 8px;
+    }
+    td{
+      p{
+        margin-top: @space;
+      }
+    }
+  }
+
   .manual{
     background-color: #fff;
     padding: @space;
@@ -91,6 +93,12 @@
         font-size: 14px;
         margin-left: -@space;
       }
+    }
+  }
+
+  .other-database{
+    .btn{
+      margin: 0 @space @space/2 0;
     }
   }
 

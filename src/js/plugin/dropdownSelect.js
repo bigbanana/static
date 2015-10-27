@@ -41,16 +41,17 @@
       var value = $selected.val();
       var text = $selected.text();
       this.$selectName.text(text);
-      this.$selectMenu.find('>li[data-value="'+value+'"]').addClass('selected')
+      this.$selectMenu.find('>ul>li[data-value="'+value+'"]').addClass('selected')
       .siblings('.selected').removeClass('selected');
     },
     createWidget: function(){
+      var minWidth = this.$el.innerWidth()
       this.list = this.$el.children().map(function(){
         var $this = $(this);
         return {value:$this.val(),text:$this.text()}
       });
       var css = {
-        width: this.$el.innerWidth()+2
+        width: minWidth+2
       }
       if(!this.$widget){
         this.$widget = $('<span class="ui-dropdown-select ui-dropdown"></span>').insertAfter(this.$el);
@@ -61,7 +62,8 @@
       }
       this.$widget.html(this._temp({list:this.list})).append(this.$el);
       this.$selectName = this.$widget.find('.ui-dropdown-select-name');
-      this.$selectMenu = this.$widget.find('.ui-dropdown-select-menu');
+      this.$selectMenu = this.$widget.find('.ui-dropdown-menu');
+      this.$selectMenu.css({minWidth:minWidth});
       this.changeValue();
     },
     addClass: function(name){

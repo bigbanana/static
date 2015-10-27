@@ -5,11 +5,11 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone'],factory);
+    define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone','queryString'],factory);
   } else {
-    factory($,widget,Dialog,_,Backbone);
+    factory($,widget,Dialog,_,Backbone,queryString);
   }
-}(function($,widget,Dialog,_,Backbone){
+}(function($,widget,Dialog,_,Backbone,queryString){
   var URLREG = /^https?:\/\/.*$/;
   var $body = $(document.body);
   var LinkDialog = function(opt){
@@ -17,7 +17,11 @@
     if(!!this.options.el){
       this.$el = $(opt.el);
       if(this.$el.length == 0 || !URLREG.test(this.$el[0].href)) return;
-      this.options.href = this.options.href || this.$el[0].href;
+      var href = this.options.href || this.$el[0].href;
+
+      var pars = queryString.parse(href.split('?')[1]||'');
+      pars._window_type = 'iframe';
+      this.options.href = href.split('?')[0]+'?'+queryString.stringify(pars);
       this.options.title = this.options.title || this.$el[0].title;
     }
     this.init();
@@ -42,14 +46,6 @@
       var that = this;
       var iframe = this.$iframe[0];
 
-      this.$iframe.on('load',function(){
-        var delay = false;
-        try{
-          delay = this.contentWindow.document.documentElement.hasAttribute('delay-loading');
-        }catch(e){}
-        if(delay) return;
-        iframe.trigger('load');
-      });
       _.extend(iframe,Backbone.Events);
       iframe.on('load',function(){
         try{
@@ -78,6 +74,7 @@
     },
     temp: _.template(['<div class="ui-dialog-iframe-box"><iframe frameborder="no" src="<%= href %>" class="ui-dialog-iframe"></iframe></div>'].join(''))
   });
+
   $.extend(LinkDialog,{
     options:{
       modal:true,

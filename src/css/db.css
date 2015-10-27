@@ -68,7 +68,7 @@ div.ui-dialog {
   border: none;
   overflow: hidden;
   border-radius: 0 0 3px 3px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 div.ui-dialog .ui-widget-header {
   background-color: #ffffff;
@@ -472,6 +472,7 @@ div.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .fa {
 }
 .ui-topbar .download_qrcode {
   display: inline-block;
+  width: 100%;
 }
 /* header-bar */
 .header-bar {
@@ -1527,6 +1528,36 @@ header .control-bar {
 .hasrule .ui-dropdown-select .ui-dropdown-arrow {
   border-top-color: #999;
 }
+/* top200 */
+.usa-market-list {
+  margin-top: 16px;
+}
+.usa-market-list .usa-nav {
+  padding: 8px;
+  width: 1182px;
+  font-size: 14px;
+}
+.usa-market-list .usa-nav a {
+  display: inline-block;
+  padding: 0 8px;
+}
+.usa-market-list .usa-nav a.active {
+  color: #e74c3c;
+}
+.usa-market-list .usa-nav.stuck {
+  position: fixed;
+  top: 73px;
+}
+.usa-market-list .list {
+  margin-top: 16px;
+}
+.usa-market-list .list .item {
+  margin-bottom: 16px;
+}
+.usa-market-list .list .item h3 {
+  font-size: 14px;
+  line-height: 40px;
+}
 /* @import "page-user.less" */
 .page-user {
   background-color: #f5f5f5;
@@ -2090,44 +2121,6 @@ header .control-bar {
   z-index: 3;
   min-height: 540px;
 }
-.detail-style-2 .body .ui-panel {
-  border: none;
-  padding: 0;
-  background-color: transparent;
-}
-.detail-style-2 .body .ui-panel-title {
-  border: none;
-}
-.detail-style-2 .body .ui-panel-name {
-  font-size: 16px;
-  font-weight: 700;
-  color: #3366cc;
-}
-.detail-style-2 .body .ui-panel-name .fa {
-  font-size: 20px;
-}
-.detail-style-2 .body .ui-panel-side {
-  font-size: 14px;
-}
-.detail-style-2 .body .ui-panel-side a {
-  font-weight: 700;
-}
-.detail-style-2 .body .ui-panel-content {
-  padding: 8px 16px;
-}
-.detail-style-2 .body .table {
-  text-align: left;
-}
-.detail-style-2 .body .table tbody th {
-  text-align: right;
-}
-.detail-style-2 .body .table th,
-.detail-style-2 .body .table td {
-  padding: 8px;
-}
-.detail-style-2 .body .table td p {
-  margin-top: 16px;
-}
 .detail-style-2 .body .ads {
   position: absolute;
   top: 16px;
@@ -2145,20 +2138,59 @@ header .control-bar {
   width: 100%;
   height: 100%;
 }
-.detail-style-2 .other-database .btn {
-  margin: 0 16px 8px 0;
+.detail-main .ui-panel {
+  border: none;
+  padding: 0;
+  background-color: transparent;
 }
-.detail-style-2 .manual {
+.detail-main .ui-panel-title {
+  border: none;
+}
+.detail-main .ui-panel-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3366cc;
+}
+.detail-main .ui-panel-name .fa {
+  font-size: 20px;
+}
+.detail-main .ui-panel-side {
+  font-size: 14px;
+}
+.detail-main .ui-panel-side a {
+  font-weight: 700;
+}
+.detail-main .ui-panel-content {
+  padding: 8px 16px;
+}
+.detail-main .table {
+  text-align: left;
+}
+.detail-main .table tbody th {
+  text-align: right;
+  width: 100px;
+}
+.detail-main .table th,
+.detail-main .table td {
+  padding: 8px;
+}
+.detail-main .table td p {
+  margin-top: 16px;
+}
+.detail-main .manual {
   background-color: #fff;
   padding: 16px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
-.detail-style-2 .manual p {
+.detail-main .manual p {
   margin-left: 16px;
 }
-.detail-style-2 .manual p b {
+.detail-main .manual p b {
   font-size: 14px;
   margin-left: -16px;
+}
+.detail-main .other-database .btn {
+  margin: 0 16px 8px 0;
 }
 .iframe .body {
   padding: 16px;
@@ -2523,9 +2555,12 @@ header .control-bar {
   position: relative;
 }
 .page-audit .event-list .item {
-  width: 680px;
-  height: 200px;
+  width: 1200px;
+  min-height: 200px;
+  _height: 200px;
   margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
   position: relative;
   font-size: 24px;
   line-height: 1;
@@ -2533,7 +2568,7 @@ header .control-bar {
 }
 .page-audit .event-list .item .icon {
   position: absolute;
-  left: 300px;
+  left: 560px;
   top: 60px;
   line-height: 80px;
   width: 80px;
@@ -2550,20 +2585,20 @@ header .control-bar {
 }
 .page-audit .event-list .item .year {
   position: absolute;
-  right: 436px;
-  bottom: 104px;
+  right: 680px;
+  top: 75.6px;
   font-size: 20px;
 }
 .page-audit .event-list .item .date {
   position: absolute;
-  right: 436px;
+  right: 680px;
   top: 104px;
   font-size: 21px;
   font-weight: 700;
 }
 .page-audit .event-list .item .title {
   position: absolute;
-  left: 436px;
+  left: 680px;
   top: 88px;
   white-space: nowrap;
 }
@@ -2572,14 +2607,14 @@ header .control-bar {
   height: 100%;
   background-color: #b2b2b2;
   position: absolute;
-  left: 50%;
+  left: 600px;
   top: 0;
   z-index: -1;
 }
 .page-audit .event-list .item .text {
   font-size: 30px;
   position: absolute;
-  left: 284px;
+  left: 544px;
   top: 44px;
   line-height: 112px;
   width: 112px;
@@ -2591,6 +2626,75 @@ header .control-bar {
   border-radius: 58px;
   background-color: #fff;
   z-index: 9;
+}
+.page-audit .event-list .item .detail {
+  font-size: 16px;
+  background-color: #e1e9f6;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  padding: 16px;
+  color: #5075ac;
+  margin: 140px 4px 4px 680px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.page-audit .event-list .item .detail .node {
+  border-top: 2px dashed #ddd;
+  height: 0;
+  margin: 28.8px 0 28.8px 16px;
+  position: relative;
+}
+.page-audit .event-list .item .detail .node .dot {
+  position: absolute;
+  left: -16px;
+  background-color: #b9cdf0;
+  height: 12px;
+  width: 12px;
+  top: -6px;
+  border-radius: 6px;
+}
+.page-audit .event-list .item .detail .node .dot:after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 32px;
+  top: -10px;
+  left: 6px;
+  background-color: #b9cdf0;
+}
+.page-audit .event-list .item .detail .node .name {
+  position: absolute;
+  padding: 0 8px;
+  background-color: #e1e9f6;
+  height: 16px;
+  line-height: 16px;
+  top: -8px;
+}
+.page-audit .event-list .item .detail .node .time {
+  position: absolute;
+  padding: 0 8px;
+  background-color: #e1e9f6;
+  height: 16px;
+  line-height: 16px;
+  top: -8px;
+  right: 0;
+}
+.page-audit .event-list .item .detail .node:first-child {
+  margin-top: 8px;
+}
+.page-audit .event-list .item .detail .node:first-child .dot:after {
+  top: 0;
+}
+.page-audit .event-list .item .detail .node:last-child {
+  margin-bottom: 8px;
+}
+.page-audit .event-list .item .detail .node:last-child .dot:after {
+  top: -28px;
+}
+.page-audit .event-list .item .detail .txt {
+  margin-bottom: 16px;
+}
+.page-audit .event-list .item .detail .txt:last-child {
+  margin-bottom: 0;
 }
 .page-audit .event-list .item .row {
   position: absolute;
@@ -2617,10 +2721,9 @@ header .control-bar {
   width: 140px;
   height: 140px;
   line-height: 140px;
-  left: 50%;
-  top: -69px;
+  left: 525px;
+  top: -149px;
   text-align: center;
-  margin-left: -75px;
   border: 5px solid #eee;
   border-radius: 75px;
   font-size: 140px;
@@ -2632,10 +2735,14 @@ header .control-bar {
 .page-audit .event-list .clock .fa {
   vertical-align: top;
 }
+.page-audit .event-list .wrap {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
 .page-audit .event-list .state {
   position: absolute;
-  left: 50%;
-  margin-left: -80px;
+  left: 520px;
   top: 100%;
   color: #ff6600;
   font-weight: 700;
@@ -2844,7 +2951,7 @@ header .control-bar {
 }
 /*移动端兼容*/
 /* @import "mobile.less" */
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .wrapper {
     width: 300px;
   }

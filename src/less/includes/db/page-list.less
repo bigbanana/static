@@ -142,3 +142,35 @@
     }
   }
 }
+
+/* top200 */
+.usa-market-list{
+  margin-top: @space;
+  .usa-nav{
+    padding: @space*0.5;
+    width: @wrapper+-(@space*0.5+1)*2;
+    font-size: 14px;
+    a{
+      display: inline-block;
+      padding: 0 @space*0.5;
+      &.active{
+        color: @red;
+      }
+    }
+
+    &.stuck{
+      position: fixed;
+      top:73px;
+    }
+  }
+  .list{
+    margin-top: @space;
+    .item{
+      margin-bottom: @space;
+      h3{
+        font-size: 14px;
+        line-height: 40px;
+      }
+    }
+  }
+}

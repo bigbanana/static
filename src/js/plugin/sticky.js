@@ -19,14 +19,16 @@
     init: function(){
       this.createWrapper();
       var originalHandler = this.options.handler
+      this.options.static = this.$el.css('position') == "static";
+      this.options.height = this.$el.outerHeight(true);
 
       this.waypoint = new Waypoint($.extend({}, this.options, {
         element: this.wrapper,
         handler: $.proxy(function(direction) {
           var shouldBeStuck = this.options.direction.indexOf(direction) > -1
-          var wrapperHeight = shouldBeStuck ? this.$el.outerHeight(true) : ''
+          var wrapperHeight = shouldBeStuck ? this.options.height : ''
 
-          this.$wrapper.height(wrapperHeight)
+          this.options.static && this.$wrapper.height(wrapperHeight)
           this.$el.toggleClass(this.options.stuckClass, shouldBeStuck)
 
           if (originalHandler) {
