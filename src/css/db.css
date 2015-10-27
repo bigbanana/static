@@ -2121,20 +2121,21 @@ header .control-bar {
   z-index: 3;
   min-height: 540px;
 }
-.detail-style-2 .body .ads {
+.detail-style-2 .ads {
   position: absolute;
-  top: 16px;
+  top: 24px;
   right: 16px;
   width: 300px;
+  z-index: 10;
 }
-.detail-style-2 .body .ads .ad {
+.detail-style-2 .ads .ad {
   width: 100%;
   display: block;
   height: 120px;
   vertical-align: top;
   margin-bottom: 16px;
 }
-.detail-style-2 .body .ads .ad img {
+.detail-style-2 .ads .ad img {
   width: 100%;
   height: 100%;
 }
