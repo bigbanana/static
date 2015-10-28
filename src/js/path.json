@@ -11,6 +11,7 @@
   "css": "lib/require-css-plugin",
   "text": "lib/require-text-plugin",
   "json": "lib/require-json-plugin",
+  "async": "lib/require-async-plugin",
   "image": "lib/require-image-plugin",
   "cookie": "lib/cookie",
   "queryString": "lib/queryString",

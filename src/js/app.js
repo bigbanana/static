@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-09-28 10:02:01 */
+/* build : 564493634@qq.com 2015-10-27 16:15:42 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2134,6 +2134,7 @@ require.config({
     "css": "lib/require-css-plugin",
     "text": "lib/require-text-plugin",
     "json": "lib/require-json-plugin",
+    "async": "lib/require-async-plugin",
     "image": "lib/require-image-plugin",
     "cookie": "lib/cookie",
     "queryString": "lib/queryString",
@@ -2197,6 +2198,6 @@ require.config({
     "console": "special/console",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
   },
-  urlArgs: "yaozhVersion=1.3.4"+"&data="+new Date().getTime(),
-  waitSeconds: 10
+  urlArgs: "yaozhVersion=1.3.9"+"&data="+new Date().getTime(),
+  waitSeconds: 100
 })

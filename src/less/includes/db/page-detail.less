@@ -19,11 +19,15 @@
     background-color: #f2f5f8;
     padding: @space @width+@space*2 @space @space;
     position: relative;z-index: 3;
-    min-height: 540px;
+    min-height: 830px;
   }
-  .ads{
+  .side{
     position: absolute;
     top: @space+8;right: @space;
+    width:@width;
+    z-index:10;
+  }
+  .ads{
     width:@width;
     z-index:10;
     .ad{
@@ -34,6 +38,26 @@
       margin-bottom: @space;
       img{
         .size(100%);
+      }
+    }
+  }
+  .db-new-reward{
+    margin-bottom: @space;
+    .ui-panel-content{
+      overflow: hidden;
+      height: 250px;
+      .item{
+        border-top:1px dotted @borderColor;
+        .text-overflow();
+        padding: @space/4 0;margin:-1px @space/2 0;
+        b{
+          display: inline-block;margin-right: @space/2;
+          background-color: #999;color:#fff;
+          width:18px;height:18px;line-height:18px;font-size:12px;text-align: center;border-radius: 3px;
+          &.yel{
+            background-color: #f60;
+          }
+        }
       }
     }
   }

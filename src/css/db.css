@@ -2119,12 +2119,16 @@ header .control-bar {
   padding: 16px 332px 16px 16px;
   position: relative;
   z-index: 3;
-  min-height: 540px;
+  min-height: 830px;
 }
-.detail-style-2 .ads {
+.detail-style-2 .side {
   position: absolute;
   top: 24px;
   right: 16px;
+  width: 300px;
+  z-index: 10;
+}
+.detail-style-2 .ads {
   width: 300px;
   z-index: 10;
 }
@@ -2138,6 +2142,36 @@ header .control-bar {
 .detail-style-2 .ads .ad img {
   width: 100%;
   height: 100%;
+}
+.detail-style-2 .db-new-reward {
+  margin-bottom: 16px;
+}
+.detail-style-2 .db-new-reward .ui-panel-content {
+  overflow: hidden;
+  height: 250px;
+}
+.detail-style-2 .db-new-reward .ui-panel-content .item {
+  border-top: 1px dotted #cccccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 4px 0;
+  margin: -1px 8px 0;
+}
+.detail-style-2 .db-new-reward .ui-panel-content .item b {
+  display: inline-block;
+  margin-right: 8px;
+  background-color: #999;
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 3px;
+}
+.detail-style-2 .db-new-reward .ui-panel-content .item b.yel {
+  background-color: #f60;
 }
 .detail-main .ui-panel {
   border: none;
