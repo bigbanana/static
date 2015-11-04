@@ -22,10 +22,12 @@
   "jquery.dialog": "module/dialog",
   "jquery.preon": "module/preon",
   "jquery.confirm": "module/confirm",
+  "jquery.prompt": "module/prompt",
   "jquery.loading": "module/loading",
   "alert": "module/alert",
   "tips": "module/tips",
   "outer": "module/outer",
+  "input": "module/input",
   "sidebar": "module/sidebar",
 
   "jquery.widget": "plugin/jquery.widget",

@@ -34,8 +34,14 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE. 
  *
 */
-define('jquery.easing', ['jquery'], function($) {
-  $.easing['jswing'] = $.easing['swing'];
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+    define('jquery.easing', ['jquery'],factory);
+  } else {
+    factory( jQuery );
+  }
+}(function($){
+	$.easing['jswing'] = $.easing['swing'];
 
 	$.extend( $.easing,{
 		def: 'easeOutQuad',
@@ -168,7 +174,7 @@ define('jquery.easing', ['jquery'], function($) {
 			return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
 		}
 	});
-});
+}));
 
 /*
  *

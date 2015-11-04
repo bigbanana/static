@@ -22,7 +22,7 @@ var PATH = {
   backup: path.join(__dirname,'backup'),
   database : path.join(__dirname,'../database'),
 }
-PATH.databaseLess = path.join(PATH.database,'Public','less','db.less');
+PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/Public/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
 var version      = "1.4.1";
@@ -114,7 +114,7 @@ gulp.task('app',function(){
 });
 
 gulp.task('database-less',function(){
-  return gulp.src([PATH.databaseLess])
+  return gulp.src(PATH.databaseLess)
     .pipe(less({
       paths: [ path.join(__dirname,'../') ]
     }))
@@ -131,7 +131,7 @@ gulp.task('watch',function(){
   //build src less
   gulp.watch([PATH.src+'/less/**/*.less'],['less']);
   //build database
-  gulp.watch([PATH.databaseLess],['database-less']);
+  gulp.watch([PATH.database+'/Public/less/**/*.less'],['database-less']);
 });
 
 gulp.task('default',['script','css','copy']);

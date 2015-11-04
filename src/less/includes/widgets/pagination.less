@@ -1,6 +1,6 @@
 .pagination{
   @paginationFontSize : 14px;
-  @paginationLineHeight : @inputLineHeight;
+  @paginationLineHeight : floor(@inputLineHeight*0.8);
   color: #666;line-height: @paginationLineHeight;
   font-size:@paginationFontSize;
   a{
@@ -11,6 +11,7 @@
     font-weight: normal;
     text-align: center;
     border: 1px solid #BBB;
+    line-height: @paginationLineHeight;
     min-width: @paginationLineHeight;
     padding: @paddingVerticalBase;
     margin: 0 5px 0 0;
@@ -38,9 +39,11 @@
     margin: 0 5px 0 0;
   }
   .skip-page{
+    line-height: @paginationLineHeight;
     .skip{
       display: inline-block;
       width: 2em;
+      height: @paginationLineHeight;
       border: 1px solid #BBB;
       border-radius: @borderRadiusBase;
       padding: @paddingVerticalBase @paddingHorizontalBase;

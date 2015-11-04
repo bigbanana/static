@@ -1,4 +1,4 @@
-define("utils",['jquery','browser','underscore','jquery.confirm','alert','tips'],function($,browser,_,Confirm,Alert,Tips){
+define("utils",['jquery','browser','underscore','jquery.confirm','jquery.prompt','alert','tips'],function($,browser,_,Confirm,Prompt,Alert,Tips){
   
   var utils = {
     browser: browser,
@@ -30,8 +30,20 @@ define("utils",['jquery','browser','underscore','jquery.confirm','alert','tips']
         cancel: def.reject
       });
       return def.promise();
+    },
+    prompt: function(msg){
+      var def = $.Deferred();
+      new Prompt({
+        content: msg,
+        pass: function(value){
+          def.resolve(value);
+        },
+        cancel: def.reject
+      });
+      return def.promise();
     }
   }
 
+window.utils = utils;
   return utils
 });

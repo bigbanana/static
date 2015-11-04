@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-10-27 16:15:42 */
+/* build : 564493634@qq.com 2015-11-04 16:54:38 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2144,10 +2144,12 @@ require.config({
     "jquery.dialog": "module/dialog",
     "jquery.preon": "module/preon",
     "jquery.confirm": "module/confirm",
+    "jquery.prompt": "module/prompt",
     "jquery.loading": "module/loading",
     "alert": "module/alert",
     "tips": "module/tips",
     "outer": "module/outer",
+    "input": "module/input",
     "sidebar": "module/sidebar",
     "jquery.widget": "plugin/jquery.widget",
     "jquery.plax": "plugin/plax",
@@ -2198,6 +2200,6 @@ require.config({
     "console": "special/console",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
   },
-  urlArgs: "yaozhVersion=1.3.9"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.4.1"+"&data="+new Date().getTime(),
   waitSeconds: 100
 })

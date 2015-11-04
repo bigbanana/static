@@ -428,6 +428,9 @@ hr.dotted {
 .relative {
   position: relative;
 }
+.absolute {
+  position: absolute;
+}
 .stuck,
 .fixed {
   position: fixed;
@@ -1437,12 +1440,12 @@ a.btn {
   line-height: 30px;
   vertical-align: top;
 }
-.form .form-box .btn.form-control-width {
+.form .btn.form-control-width {
   width: 186px;
   padding-left: 0;
   padding-right: 0;
 }
-.form .form-box button.btn.form-control-width {
+.form button.btn.form-control-width {
   width: 188px;
   padding-left: 0;
   padding-right: 0;
@@ -1818,6 +1821,19 @@ div.ui-dialog .ui-dialog-iframe {
   height: 100%;
   overflow: hidden;
 }
+.ui-prompt .ui-prompt-tips {
+  font-size: 14px;
+  line-height: 30px;
+}
+.ui-prompt .ui-prompt-input input {
+  width: 240px;
+  padding: 4px 8px;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+}
+.ui-prompt .ui-prompt-input input:focus {
+  border-color: #66afe9;
+}
 /*tips.less*/
 .ui-tips {
   position: fixed;
@@ -2088,7 +2104,7 @@ div.ui-autocomplete.open .ui-autocomplete-box {
 /*pagination.less*/
 .pagination {
   color: #666;
-  line-height: 20px;
+  line-height: 16px;
   font-size: 14px;
   /* 小按钮 */
 }
@@ -2100,7 +2116,8 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   font-weight: normal;
   text-align: center;
   border: 1px solid #BBB;
-  min-width: 20px;
+  line-height: 16px;
+  min-width: 16px;
   padding: 4px;
   margin: 0 5px 0 0;
   border-radius: 2px;
@@ -2110,7 +2127,7 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   cursor: default;
   border-radius: 0;
   box-shadow: none;
-  line-height: 22px;
+  line-height: 18px;
 }
 .pagination a.current {
   background: #666;
@@ -2125,9 +2142,13 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   min-width: 14px;
   margin: 0 5px 0 0;
 }
+.pagination .skip-page {
+  line-height: 16px;
+}
 .pagination .skip-page .skip {
   display: inline-block;
   width: 2em;
+  height: 16px;
   border: 1px solid #BBB;
   border-radius: 2px;
   padding: 4px 8px;
@@ -2140,7 +2161,7 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   border: 1px solid #BBB;
   border-radius: 2px;
   padding: 4px 8px;
-  height: 30px;
+  height: 26px;
 }
 .pagination .page-size:focus {
   border-color: #66afe9;

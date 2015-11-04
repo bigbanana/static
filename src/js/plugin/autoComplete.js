@@ -9,7 +9,7 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.autoComplete',['jquery','underscore','jquery.widget','effect'],factory);
+    define('jquery.autoComplete',['jquery','underscore','jquery.widget','effect','outer'],factory);
   } else {
     factory( jQuery,_,widget,Effect );
   }
@@ -36,14 +36,13 @@
     },
     events: function(){
       var that = this;
+      var inBox = false;
       this.$el.on('focus',$.proxy(this.show,this));
-      this.$el.on('blur',$.proxy(this.hide,this));
       this.$el.on('keydown',function(e){
-
         switch(e.keyCode){
           case 9:
-          case 13:
           case 37:
+          case 13:
           case 39:{
             break;
           }
@@ -69,10 +68,16 @@
       this.$el.on('autoCompleteChange',function(e,data){
         that.$el.val(data);
       });
-      this.$list.on('mousedown','>li',function(){
+      this.$list.on('click','>li',function(e){
         var index = $(this).index();
         that.$el.trigger('autoCompleteChange',that._list[index]);
+        if(!e.isTrigger) that.hide();
       });
+      this.$list.on('outer',function(e){
+        if(e.target == that.$el[0]) return;
+        that.hide();
+      });
+
     },
     req: function(key){
       var that = this;
@@ -122,7 +127,7 @@
       }else{
         active = num%len;
       }
-      $children.eq(active).addClass('active').trigger('mousedown');
+      $children.eq(active).addClass('active').trigger('click');
     },
     show: function(){
       if(this.state == 'show' || this._list.length == 0) return;
