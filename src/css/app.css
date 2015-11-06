@@ -2047,7 +2047,7 @@ div.ui-dialog .ui-dialog-iframe {
   text-decoration: none;
   display: block;
   position: relative;
-  z-index: 2;
+  z-index: 6;
   border-radius: 2px;
   padding: 4px 16px 4px 8px;
 }

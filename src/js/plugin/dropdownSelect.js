@@ -74,13 +74,14 @@
       this.createWidget();
     },
     destory: function(){
+      this.$widget.before(this.$el);
       this.$widget.remove();
-      this.$el.data('dropdownSelect') = null;
+      this.$el.data('dropdownSelect',null);
       this.$el.show();
     },
     _temp: _.template([
-      '<a href="javascript:;" data-widget="dropdown" class="ui-dropdown-select-name"></a>',
       '<i class="ui-dropdown-arrow"></i>',
+      '<a href="javascript:;" data-widget="dropdown" class="ui-dropdown-select-name"></a>',
       '<div class="ui-dropdown-menu">',
         '<ul>',
         '<% _.each(list,function(item){ %>',
