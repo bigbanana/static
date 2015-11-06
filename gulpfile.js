@@ -25,6 +25,7 @@ var PATH = {
 PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/Public/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
+
 var version      = "1.4.2";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
