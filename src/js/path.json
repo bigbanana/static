@@ -13,6 +13,7 @@
   "json": "lib/require-json-plugin",
   "async": "lib/require-async-plugin",
   "image": "lib/require-image-plugin",
+  "noext": "lib/require-noext-plugin",
   "cookie": "lib/cookie",
   "queryString": "lib/queryString",
   "utils": "lib/utils",
@@ -81,6 +82,7 @@
   "ie6": "special/ie6",
   "console": "special/console",
 
-  "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9"
+  "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
+  "dict": "http://dict.cn/hc/?noext=1"
 
 }

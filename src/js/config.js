@@ -31,6 +31,9 @@ require.config({
     },
     "pinyin": {
       exports: 'pinyin'
+    },
+    "db.dict": {
+      deps: ['jquery']
     }
   },
   deps : ["modernizr","global"].concat(window.config.deps)

@@ -271,6 +271,7 @@
       var yAxisNum;
       for (yAxisNum=1 ; yAxisNum <= nbYaxis ; yAxisNum++) {
         var yAxisConfigCurrentAxis = {
+          allowDecimals: false,
           title: {
             text: typeof $table.data('graph-yaxis-'+yAxisNum+'-title-text') != 'undefined'  ? $table.data('graph-yaxis-'+yAxisNum+'-title-text') : null
           },
