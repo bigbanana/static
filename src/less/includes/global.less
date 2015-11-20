@@ -44,6 +44,7 @@ body{background-color: #fff;}
 /*padding*/
 
 .padding{padding:@paddingHorizontalBase @paddingVerticalBase;}
+.p0{padding: 0px!important;}
 .p5{padding: 5px!important;}
 .pt5{padding-top: 5px!important;}
 .pr5{padding-right: 5px!important;}
@@ -75,7 +76,10 @@ body{background-color: #fff;}
 .yahei{font-family: "Microsoft Yahei"}
 .simsun{font-family: "SimSun"}
 
-/*text-align*/
+
+/* 对齐 */
+.vt{vertical-align: top}
+.vm{vertical-align: middle}
 .tc{text-align: center;}
 .tl{text-align: left;}
 .tr{text-align: right;}
@@ -114,8 +118,10 @@ body{background-color: #fff;}
 /* 盒模型 */
 .ib{*display:inline;display: inline-block;}
 .dn{display: none;}
+.db{display: block;}
 .hide{display: none!important;}
 .show{display: block!important;}
+
 
 /* 边框 */
 .nb{
@@ -125,7 +131,7 @@ body{background-color: #fff;}
 /* 无序列表 */
 ul.dot{
   li{
-    padding-left: 16px;background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
+    padding-left: 16px;background: data-uri("../images/core/dot.jpg") no-repeat 5px center transparent;
   }
 }
 

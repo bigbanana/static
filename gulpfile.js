@@ -21,8 +21,10 @@ var PATH = {
   dest : path.join(__dirname,'dist'),
   backup: path.join(__dirname,'backup'),
   database : path.join(__dirname,'../database'),
+  news: path.join(__dirname,'../newnews.yaozh.com')
 }
 PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/Public/less/includes/**/*'];
+PATH.newsLess = [PATH.news+'/static/less/**/*.less','!'+PATH.news+'/static/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
 var version      = "1.4.3";
@@ -36,10 +38,16 @@ var appJsConfig  = [PATH.src+'/js/require.js',PATH.src+'/js/config.js'];
 //includes下的less不进行编译
 var lessFile   = [PATH.src+'/less/**/*.less','!'+PATH.src+'/less/includes/**/*'];
 
+//autoprefixer配置
+var autoprefixerConfig = {
+    browsers: ['last 2 versions','ie 6','ie 7'],
+    cascade: false
+  }
+
+
 var banner = [
     '/* build : <%= package.author %> '+moment().format('YYYY-MM-DD HH:mm:ss')+' */\n'
   ].join('');
-
 
 gulp.task('clean',function(){
   return gulp.src(PATH.backup,{read:false}).pipe(clean());
@@ -98,10 +106,7 @@ gulp.task('css',['backup','less'],function(){
 gulp.task('less',function(){
   return gulp.src(lessFile)
     .pipe(less())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions','ie 6','ie 7'],
-      cascade: false
-    }))
+    .pipe(autoprefixer(autoprefixerConfig))
     .pipe(gulp.dest(PATH.src+'/css'));
 });
 
@@ -118,11 +123,18 @@ gulp.task('database-less',function(){
     .pipe(less({
       paths: [ path.join(__dirname,'../') ]
     }))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions','ie 6','ie 7'],
-      cascade: false
-    }))
+    .pipe(autoprefixer(autoprefixerConfig))
     .pipe(gulp.dest(path.join(PATH.database,'Public','css')));
+});
+
+gulp.task('news-less',function(){
+
+  return gulp.src(PATH.newsLess)
+    .pipe(less({
+      paths: [ path.join(__dirname,'../') ]
+    }))
+    .pipe(autoprefixer(autoprefixerConfig))
+    .pipe(gulp.dest(path.join(PATH.news,'static','css')));
 });
 
 gulp.task('watch',function(){
@@ -131,7 +143,9 @@ gulp.task('watch',function(){
   //build src less
   gulp.watch([PATH.src+'/less/**/*.less'],['less']);
   //build database
-  gulp.watch([PATH.database+'/Public/less/**/*.less'],['database-less']);
+  gulp.watch([PATH.databaseLess[0]],['database-less']);
+  //build news
+  gulp.watch([PATH.newsLess[0]],['news-less']);
 });
 
 gulp.task('default',['script','css','copy']);

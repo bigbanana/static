@@ -203,7 +203,7 @@
       this.$el.append($el);
     },
     _skipPageTemp: _.template([
-      '<span class="skip-page">跳转到 <input type="text" class="skip" value="" /> 页 <a href="javascript:;" class="btn jump">跳转</a></span>'
+      '<span class="skip-page">跳转到 <input type="text" class="skip" value="" /> 页 <a href="javascript:;" class="jump">跳转</a></span>'
     ].join('')),
     _pageSizeSelectTemp: _.template([
       '<select class="page-size">',
@@ -232,7 +232,7 @@
       pageSizeArray: [10,20,50,100],//分页选择控制
       skipPage: false,//是否允许跳转到指定页
       showPages: false,//是否显示总页数
-      showNums: true,//是否显示总条数
+      showNums: false,//是否显示总条数
       maxPage: 0,//最大显示页数
       onChange: $.noop
     }

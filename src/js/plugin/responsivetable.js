@@ -159,8 +159,8 @@
         '<div class="btn-group">',
           '<button class="btn btn-sm" data-action="show-all">显示全部</button>',
           '<div class="ui-dropdown pull-right ml5">',
-            '<a class="btn btn-sm dropdown-toggle" data-widget="dropdown">显示&nbsp;&nbsp;</a>',
             '<i class="ui-dropdown-arrow"></i>',
+            '<a class="btn btn-sm dropdown-toggle" data-widget="dropdown">显示&nbsp;&nbsp;</a>',
           '</div>',
         '</div>',
       '</div>'

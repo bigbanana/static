@@ -251,6 +251,9 @@ body {
 .padding {
   padding: 8px 4px;
 }
+.p0 {
+  padding: 0px!important;
+}
 .p5 {
   padding: 5px!important;
 }
@@ -325,7 +328,13 @@ body {
 .simsun {
   font-family: "SimSun";
 }
-/*text-align*/
+/* 对齐 */
+.vt {
+  vertical-align: top;
+}
+.vm {
+  vertical-align: middle;
+}
 .tc {
   text-align: center;
 }
@@ -398,6 +407,9 @@ body {
 .dn {
   display: none;
 }
+.db {
+  display: block;
+}
 .hide {
   display: none!important;
 }
@@ -411,7 +423,7 @@ body {
 /* 无序列表 */
 ul.dot li {
   padding-left: 16px;
-  background: url(../images/core/dot.jpg) no-repeat 5px center transparent;
+  background: url("data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMraHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkI1RDhGM0I0RkVEMDExRTQ5NUI4OEE5QUM4ODUyNzdBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkI1RDhGM0I1RkVEMDExRTQ5NUI4OEE5QUM4ODUyNzdBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjVEOEYzQjJGRUQwMTFFNDk1Qjg4QTlBQzg4NTI3N0EiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjVEOEYzQjNGRUQwMTFFNDk1Qjg4QTlBQzg4NTI3N0EiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAGBAQEBQQGBQUGCQYFBgkLCAYGCAsMCgoLCgoMEAwMDAwMDBAMDg8QDw4MExMUFBMTHBsbGxwfHx8fHx8fHx8fAQcHBw0MDRgQEBgaFREVGh8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx//wAARCAAEAAQDAREAAhEBAxEB/8QASgABAAAAAAAAAAAAAAAAAAAABwEBAAAAAAAAAAAAAAAAAAAAABABAAAAAAAAAAAAAAAAAAAAABEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AGAf/2Q==") no-repeat 5px center transparent;
 }
 /*数字列表*/
 ol.decimal {
@@ -1156,7 +1168,7 @@ hr.dotted {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   /*states*/
   color: #333333;
-  background-color: #ffffff;
+  background-color: #dddddd;
   border-color: #cccccc;
   padding: 4px 16px;
   font-size: 14px;
@@ -1166,19 +1178,19 @@ hr.dotted {
 .btn:focus,
 .btn.btn-state-focus {
   color: #333333;
-  background-color: #e0e0e0;
+  background-color: #bebebe;
   border-color: #adadad;
 }
 .btn:hover {
   color: #333333;
-  background-color: #e0e0e0;
+  background-color: #bebebe;
   border-color: #adadad;
 }
 .btn:active,
 .btn.btn-state-active,
 .open .ui-dropdown-toggle.btn {
   color: #333333;
-  background-color: #e0e0e0;
+  background-color: #bebebe;
   border-color: #adadad;
 }
 .btn:active:hover,
@@ -1191,7 +1203,7 @@ hr.dotted {
 .btn.btn-state-active.focus,
 .open .ui-dropdown-toggle.btn.focus {
   color: #333333;
-  background-color: #e0e0e0;
+  background-color: #bebebe;
   border-color: #adadad;
 }
 .btn.disabled,
@@ -2258,7 +2270,6 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   position: absolute;
   right: 0;
   top: 0;
-  line-height: 30px;
 }
 .ui-tab .ui-tab-navs .ui-tab-side a {
   color: #666;
@@ -2307,7 +2318,6 @@ div.ui-autocomplete.open .ui-autocomplete-box {
 }
 .ui-panel .ui-panel-title .ui-panel-side {
   float: right;
-  line-height: 30px;
 }
 .ui-panel .ui-panel-title .ui-panel-side a:hover {
   color: #3366cc;

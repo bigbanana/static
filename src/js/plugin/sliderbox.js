@@ -32,7 +32,8 @@
       });
       this.$items = this.$el.children();  
       this.$items.css({
-        width : this.$items.width()
+        width : this.$items.width(),
+        height : this.$items.height()
       });
       this.$items.detach().addClass('ui-sliderbox-item');
       if(this.options.direction == "vertical") this.$items.css({float:'left'});
@@ -111,15 +112,20 @@
         duration : this.options.duration,
         easing : this.options.easing
       });
+
+      if(this.current == index) return false;//去除重复调用
+      this.current = index;
       var event = $.Event('slider',{index : index});
       this.$el.trigger(event);
-      this.current = index;
+    },
+    getIndex: function(){
+      return this.current;
     },
     prev : function(){
-      this.slider(this.current-1);
+      this.slider(this.getIndex()-1);
     },
     next : function(){
-      this.slider(this.current+1);
+      this.slider(this.getIndex()+1);
     },
     openAuto: function(){
       clearInterval(this.timer);
