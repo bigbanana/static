@@ -46,14 +46,14 @@ var autoprefixerConfig = {
 
 
 var banner = [
-    '/* build : <%= package.author %> '+moment().format('YYYY-MM-DD HH:mm:ss')+' */\n'
+    '/* build : <%= package.author %> '+moment().format('YYYY-MM-DDHH:mm:ss')+' */\n'
   ].join('');
 
 gulp.task('clean',function(){
   //return gulp.src(PATH.backup,{read:false}).pipe(clean());
 });
 gulp.task('backup',['clean'],function(done){
-  return gulp.src(PATH.dest+'/**').pipe(gulp.dest(PATH.backup+'_'+new Date().getTime()));
+  return gulp.src(PATH.dest+'/**').pipe(gulp.dest(PATH.backup+'_'+moment().format('YYYY-MM-DD_HH:mm:ss')));
 });
 
 gulp.task('script',['backup'],function(){
