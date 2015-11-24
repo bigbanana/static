@@ -1883,7 +1883,7 @@ div.ui-dialog .ui-dialog-iframe {
 }
 /*loading.less*/
 .ui-loading {
-  position: fixed;
+  position: absolute;
   z-index: 100;
   top: 0;
   left: 0;
@@ -1897,40 +1897,52 @@ div.ui-dialog .ui-dialog-iframe {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
-  opacity: 0.5;
-  /* support: IE8 */
-  filter: Alpha(Opacity=50);
+  background-color: #fff;
 }
 .ui-loading .ui-loading-box {
   position: absolute;
   z-index: 2;
-  border-radius: 5px;
   top: 50%;
   left: 50%;
+  width: 150px;
   height: 50px;
   line-height: 50px;
   margin-top: -25px;
-  margin-left: -50px;
+  margin-left: -75px;
   text-align: center;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.34);
 }
 .ui-loading .ui-loading-box .ui-loading-text {
   display: inline-block;
-  padding-right: 10px;
-  font-size: 14px;
+  font-size: 20px;
   vertical-align: top;
+  margin-left: 8px;
 }
-.ui-loading-parent {
-  position: relative;
+.ui-loading.ui-loading-small .ui-loading-box {
+  height: 20px;
+  line-height: 20px;
+  margin-top: -10px;
+  width: 100px;
+  margin-left: -50px;
 }
-.ui-loading-icon {
+.ui-loading.ui-loading-small .ui-loading-icon {
+  width: 20px;
+  height: 20px;
+  background: url(../images/core/spinner-rosetta-gray-14x14.gif) center center no-repeat transparent;
+}
+.ui-loading.ui-loading-small .ui-loading-text {
+  font-size: inherit;
+  margin-left: 4px;
+}
+.ui-loading .ui-loading-icon {
   display: inline-block;
   width: 50px;
   height: 50px;
   vertical-align: top;
-  background: url(../images/core/loading-30.gif) center center no-repeat transparent;
+  background: url(../images/core/spinner-rosetta-gray-32x32.gif) center center no-repeat transparent;
+}
+.ui-loading-parent {
+  position: relative;
+  cursor: default;
 }
 /*dropdown.less*/
 .ui-dropdown .ui-dropdown-menu {

@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-11-10 10:49:34 */
+/* build : 564493634@qq.com 2015-11-23 10:11:25 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2203,8 +2203,8 @@ require.config({
     "ie6": "special/ie6",
     "console": "special/console",
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
-    "dict": "http://dict.cn/hc/?noext=1"
+    "dict": "other/dict"
   },
-  urlArgs: "yaozhVersion=1.4.2"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.4.3"+"&data="+new Date().getTime(),
   waitSeconds: 100
 })

@@ -27,7 +27,7 @@ PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/
 PATH.newsLess = [PATH.news+'/static/less/**/*.less','!'+PATH.news+'/static/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
-var version      = "1.4.3";
+var version      = "1.4.4";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置

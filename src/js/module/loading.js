@@ -27,54 +27,35 @@
 
     $.extend(Loading.prototype,{
       init: function(){
-        this.isShow = false;
+        if(this.$el.width() < 124 || this.$el.height() < 50){
+          this.className+=' ui-loading-small';
+        }
         this.$widget = $(this._temp(this)).addClass(this.className);
         this.$overlay = this.$widget.find('.ui-loading-overlay');
-        this.$box = this.$widget.find('.ui-loading-box');
+        this.$box = this.$widget.find('.ui-loading-box');        
       },
       show: function(){
         var that = this;
-        if(this.isShow) return;
         this.isShow = true;
         if(this.$el.css('position')!='absolute'){
           this.$el.addClass('ui-loading-parent');
         }
         this.$el.append(this.$widget);
-        this.$overlay.fadeIn(this.duration);
-        if(this.wait){
-          this.$overlay.delay(this.wait).queue(function(){
-            that.hide();
-            that.$overlay.dequeue();
-          });
-        }
-        
-        this.$box.delay(50).css({opacity:0,marginTop:-100})
-        .animate({opacity:1,marginTop:-25},{
-          duration : this.duration,
-          easing : this.easing
-        });
+        this._timer = setTimeout(function(){
+          that._timer = null;
+          that.hide();
+        },this.wait);
       },
       hide: function(){
-        var that = this;
-        if(!this.isShow) return;
+        this._timer = null;
         this.isShow = false;
-        this.$box.animate({opacity:0,marginTop:50},{
-          duration : this.duration,
-          easing : this.easing
-        });
-        this.$overlay.clearQueue().delay(50)
-        .fadeOut(this.duration,function(){
-          that.$el.removeClass('ui-loading-parent');
-          that.$widget.detach();
-        });
+        this.$el.removeClass('ui-loading-parent');
+        this.$widget.detach();
       },
       destroy: function(){
-        var that = this;
         this.hide();
-        this.$overlay.queue(function(){
-          that.$widget.remove();
-          that.$el.data('loading',null);
-        });
+        this.$widget.remove();
+        this.$el.data('loading',null);
       },
       _temp: _.template([
         '<div class="ui-loading">',
@@ -86,6 +67,7 @@
 
     $.extend(Loading,{
       options : {
+        type:'layer',//layer || text
         text:'Loading...',
         autoShow:true,
         duration:300,

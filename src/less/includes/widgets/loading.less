@@ -1,27 +1,39 @@
 .ui-loading{
-  position: fixed;z-index: 100;
+  position: absolute;z-index: 100;
   top:0;left:0;width: 100%;height: 100%;
   .ui-loading-overlay{
     position: absolute;z-index: 1;
     top:0;left:0;width: 100%;height: 100%;
-    background-color: #000;.opacity(0.5);
+    background-color: #fff;
   }
   .ui-loading-box{
-    position: absolute;z-index: 2;border-radius: 5px;
-    top:50%;left:50%;height: 50px;line-height: 50px;margin-top: -25px;margin-left: -50px;
-    text-align: center;background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.34);
+    position: absolute;z-index: 2;
+    top:50%;left:50%;width:150px;height: 50px;line-height: 50px;margin-top: -25px;margin-left: -75px;
+    text-align: center;
     .ui-loading-text{
-      display: inline-block;padding-right: 10px;font-size: 14px;
-      vertical-align: top;
+      display: inline-block;font-size: 20px;
+      vertical-align: top;margin-left: @hspace;
     }
   }
 
+  &.ui-loading-small{
+    .ui-loading-box{
+      height: 20px;line-height: 20px;margin-top: -10px;
+      width:100px;margin-left: -50px;
+    }
+    .ui-loading-icon{
+      width: 20px;height: 20px;background: url(../images/core/spinner-rosetta-gray-14x14.gif) center center no-repeat transparent;
+    }
+    .ui-loading-text{
+      font-size: inherit;margin-left: @hhspace;
+    }
+  }
+
+  .ui-loading-icon{
+    display: inline-block;width: 50px;height: 50px;vertical-align: top;
+    background: url(../images/core/spinner-rosetta-gray-32x32.gif) center center no-repeat transparent;
+  }
 }
 .ui-loading-parent{
-  position: relative;
-}
-.ui-loading-icon{
-  display: inline-block;width: 50px;height: 50px;vertical-align: top;
-  background: url(../images/core/loading-30.gif) center center no-repeat transparent;
+  position: relative;cursor:default;
 }
