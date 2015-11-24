@@ -50,10 +50,10 @@ var banner = [
   ].join('');
 
 gulp.task('clean',function(){
-  return gulp.src(PATH.backup,{read:false}).pipe(clean());
+  //return gulp.src(PATH.backup,{read:false}).pipe(clean());
 });
 gulp.task('backup',['clean'],function(done){
-  return gulp.src(PATH.dest+'/**').pipe(gulp.dest(PATH.backup));
+  return gulp.src(PATH.dest+'/**').pipe(gulp.dest(PATH.backup+'_'+new Date().getTime()));
 });
 
 gulp.task('script',['backup'],function(){

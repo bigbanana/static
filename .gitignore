@@ -1,6 +1,6 @@
 gulpfile.demo.js
 /node_modules
 /dist
-/backup
+/backup*
 /psd
 /src/thirdparty/umeditor/php/upload
