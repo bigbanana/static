@@ -42,11 +42,11 @@
         }
         this.$el.append(this.$widget);
         this._timer = setTimeout(function(){
-          that._timer = null;
           that.hide();
         },this.wait);
       },
       hide: function(){
+        clearInterval(this._timer);
         this._timer = null;
         this.isShow = false;
         this.$el.removeClass('ui-loading-parent');

@@ -24,6 +24,23 @@
   }
 }
 
+.ui-shade{
+  position: absolute;left:0;top:0;width:100%;height: 100%;z-index: 100;
+  .ui-shade-content{
+    position: absolute;z-index: 2;
+  }
+  .ui-shade-overlayer{
+    position: absolute;z-index: 1;
+    top:0;left:0;
+    border-style:solid;
+    border-color:#000;
+    .opacity(0.5);
+  }
+}
+.ui-shade-body{
+  height: 100%;overflow: hidden;
+}
+
 @media (max-width: (@wrapper+(@uiSideBarWidth+20)*2+18)){
   .ui-sidebar{
     left:auto;right:0;margin-right: 10px;margin-left: auto;

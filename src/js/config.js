@@ -32,7 +32,7 @@ require.config({
     "pinyin": {
       exports: 'pinyin'
     },
-    "db.dict": {
+    "dict": {
       deps: ['jquery']
     }
   },

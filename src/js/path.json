@@ -58,6 +58,7 @@
   "jquery.sticky": "plugin/sticky",
   "jquery.activemenu": "plugin/activemenu",
   "jquery.tabNavOverflow": "plugin/tabNavOverflow",
+  "jquery.shade": "plugin/shade",
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",
