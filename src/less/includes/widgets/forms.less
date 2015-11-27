@@ -43,11 +43,15 @@
       width:@inputWidth/2
     }
   }
+
   select.form-control{
     width:@inputWidth+(@paddingHorizontalBase+1)*2;
     height:@height;
   }
-   
+  
+  textarea.form-control{
+    height:@inputLineHeight*3;
+  }
   
   .radio,.checkbox,.form-text{
     display:inline-block;line-height: @inputLineHeight;vertical-align: top;

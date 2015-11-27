@@ -21,11 +21,11 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.pagination',['jquery','underscore','jquery.widget'],factory);
+    define('jquery.pagination',['jquery','underscore','jquery.widget','queryString'],factory);
   } else {
-    factory( jQuery,_,widget );
+    factory( jQuery,_,widget,queryString );
   }
-}(function($,_,widget){
+}(function($,_,widget,queryString){
   function Pagination(opt){
     this.$el = $(opt.el);
     var _data = this.$el.data(),data = {};
@@ -67,7 +67,7 @@
     },
     setPage: function(number){
       this.setOptions({currentPage:number});
-      var href = _.template(this.href)({page:number});
+      var href = this._createHref({page:number});
       //处理hash兼容
       if(href.search("#") == 0){
         location.hash = href.substring(1);
@@ -77,6 +77,7 @@
     },
     setPageSize: function(number){
       this.setOptions({pageSize:number});
+      this.setPage(this.currentPage);
     },
     render: function(){
       var self = this;
@@ -176,11 +177,18 @@
         }
       }
     },
+    _createHref: function(opt){
+      var href,params;
+      href= _.template(this.href)(opt);
+      params= queryString.parse(queryString.extract(href));
+      params.pageSize= this.options.pageSize;
+      return href.split('?')[0]+'?'+queryString.stringify(params);
+    },
     _createElements: function(items){
       var self = this,$els = $();
       ($.type(items) == "object") && (items = [items]);
       $.each(items,function(index,item){
-        item.href = item.page ? _.template(self.href)({page:item.page}) : "javascript:;";
+        item.href = item.page ? self._createHref({page:item.page}) : "javascript:;";
         var opt = $.extend({style:'',href:"javascript:;"},item);
         var $el = $(self._elementTemp(opt));
         $els = $els.add($el);

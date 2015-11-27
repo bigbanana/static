@@ -43,7 +43,7 @@
 
       if(this.options.direction == "horizontal") this.$itemBox.css({width:'100%'});
 
-      this.current = 0;
+      this.current = null;
       var width = this.$items.eq(0).outerWidth(true),
           height = this.$items.eq(0).outerHeight(true);
       this.options.item = {
@@ -53,14 +53,19 @@
 
       if(this.options.direction == "horizontal"){
         this.$itemBox.css({height:height*this.$items.length});
+        this.$el.css({
+          width : width,
+          height : height*this.options.displayNumber
+        });
       }else{
         this.$itemBox.css({width:width*this.$items.length});
+        this.$el.css({
+          width : width*this.options.displayNumber,
+          height : height
+        });
       }
-
-      this.$el.css({
-        width : width*this.options.displayNumber,
-        height : height
-      }).addClass('ui-sliderbox');
+      
+      this.$el.addClass('ui-sliderbox');
       this.initControl();
       this.slider(0);
       if(this.options.auto){
@@ -71,16 +76,15 @@
       }
     },
     initControl : function(){
-      var _this = this;
+      var _this = this,total;
       if(!this.options.control){
         this.$controlBox = $('<div>');
         return ;
       }
       this.$controlBox = $('<div class="ui-sliderbox-control"></div>').appendTo(this.$el);
-      this.$controlBox.css({
-        position:'absolute'
-      });
-      this.$items.each(function(i){
+
+      total = Math.ceil(this.$items.length/_this.options.controlSkip);
+      _.each(_.range(total),function(item,i){
         var $ct;
         if(!!_this.options.createControl){
           $ct = _this.options.createControl($(this),i);
@@ -89,14 +93,36 @@
         }
         _this.$controlBox.append($ct);
       });
+
       this.$controlBox.on(this.options.eventType,'a',function(){
         var $this = $(this);
-        _this.slider($this.index());
+        _this.slider($this.index()*_this.options.controlSkip);
       });
       this.$el.on('slider',function(e){
-        _this.$controlBox.children().eq(e.index).addClass('active')
+        var index;
+        index = Math.floor(e.index/_this.options.controlSkip);
+        _this.$controlBox.children().eq(index).addClass('active')
         .siblings('.active').removeClass('active');
       });
+
+      if(_this.options.controlSkip>1){
+        this.prev = function(){
+          var target;
+          target = this.getIndex()-1*_this.options.controlSkip;
+          if(target<0) target=Math.ceil(this.$items.length/_this.options.controlSkip);
+          if(target>this.$items.length) target=0;
+          this.slider(target);
+        },
+        this.next = function(){
+          var target;
+          target = this.getIndex()+1*_this.options.controlSkip;
+          if(target<0) target=Math.ceil(this.$items.length/_this.options.controlSkip);
+          if(target>this.$items.length) target=0;
+          this.slider(target);
+        }
+
+      }
+
     },
     slider : function(index,direction){
       var _this = this;
@@ -119,7 +145,7 @@
       this.$el.trigger(event);
     },
     getIndex: function(){
-      return this.current;
+      return this.current || 0;
     },
     prev : function(){
       this.slider(this.getIndex()-1);
@@ -141,6 +167,7 @@
       eventType : 'click',
       displayNumber : 1,
       control : true,
+      controlSkip : 1,//控制器长度
       auto : true,
       hoverPause: true,
       delay : 3000,

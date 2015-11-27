@@ -1484,6 +1484,9 @@ a.btn {
   width: 188px;
   height: 30px;
 }
+.form textarea.form-control {
+  height: 60px;
+}
 .form .radio,
 .form .checkbox,
 .form .form-text {
@@ -2183,6 +2186,7 @@ div.ui-autocomplete.open .ui-autocomplete-box {
 .pagination .page-size {
   display: inline-block;
   border: 1px solid #BBB;
+  vertical-align: top;
   border-radius: 2px;
   padding: 4px 8px;
   height: 26px;
