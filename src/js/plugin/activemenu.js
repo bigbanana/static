@@ -36,7 +36,6 @@
       this.$el.on('click','>',function(e){
         var $this = $(this);
         var index = $this.index();
-        debugger;
         that.scrollTo(index);
         return false;
       });
@@ -54,7 +53,7 @@
       var $panel = this.$panels.eq(index);
       var offset = $panel.offset();
       console.log(offset.top-this.options.offset)
-      $('html,body').stop().animate({'scrollTop':offset.top-this.options.offset},this.options.duration);
+      $('html,body').stop().animate({'scrollTop':offset.top-this.options.offset+1},this.options.duration);
     },
     select: function(index){
       if(index<0 || index>this.$navs.length) return;
