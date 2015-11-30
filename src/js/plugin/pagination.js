@@ -87,7 +87,10 @@
       }
       var items = [];
       this.$el.empty();
-      if(this.currentPage>totalPage) return;
+      if(this.currentPage>totalPage){
+        this.setPage(totalPage);
+        return;
+      };
       //添加当前页
       items.push({page: this.currentPage,html: this.currentPage,style:'current'});
 

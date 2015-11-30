@@ -36,6 +36,7 @@
       this.$el.on('click','>',function(e){
         var $this = $(this);
         var index = $this.index();
+        debugger;
         that.scrollTo(index);
         return false;
       });
