@@ -1,6 +1,7 @@
 {
   "global": "global",
 
+  "json2": "lib/json2",
   "jquery": "lib/jquery",
   "backbone": "lib/backbone",
   "backbone.epoxy": "lib/backbone.epoxy",
@@ -52,6 +53,7 @@
   "jquery.responsivetable": "plugin/responsivetable",
   "jquery.tabs": "plugin/tabs",
   "jquery.datepicker": "plugin/datepicker",
+  "jquery.timepicker": "plugin/timepicker",
   "jquery.linkSelect": "plugin/linkSelect",
   "jquery.dropdownSelect": "plugin/dropdownSelect",
   "jquery.autoComplete": "plugin/autoComplete",
@@ -75,6 +77,7 @@
   "highcharts.data": "other/highcharts.data",
   "highchartTable": "other/highchartTable",
   "jquery.highchartTable": "other/jquery.highchartTable",
+  "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
   "pinyin": "other/pinyin",
   
 

@@ -87,7 +87,7 @@
       }
       var items = [];
       this.$el.empty();
-      if(this.currentPage>totalPage){
+      if(totalPage!=0 && this.currentPage>totalPage){
         this.setPage(totalPage);
         return;
       };

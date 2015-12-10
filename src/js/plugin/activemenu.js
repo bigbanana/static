@@ -52,7 +52,6 @@
     scrollTo: function(index){
       var $panel = this.$panels.eq(index);
       var offset = $panel.offset();
-      console.log(offset.top-this.options.offset)
       $('html,body').stop().animate({'scrollTop':offset.top-this.options.offset+1},this.options.duration);
     },
     select: function(index){

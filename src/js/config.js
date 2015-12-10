@@ -6,11 +6,14 @@
  * devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
  * probaseUrl http://static.yaozh.com/js
  */
-window.config = config = window.config || {};
+window.config = config = window.config || {baseUrl : '//static.yaozh.com/js'};
 config.deps = config.deps || [];
 
 require.config({
   shim : {
+    "json2": {
+      exports: 'JSON'
+    },
     "prism": {
       deps : ['css!../css/plugin/prism-twilight']
     },
@@ -29,6 +32,9 @@ require.config({
       deps: ["highcharts"],
       exports: "highcharts"
     },
+    "jquery.datetimepicker": {
+      deps: ["css!../css/plugin/jquery-ui-timepicker-addon"]
+    },
     "pinyin": {
       exports: 'pinyin'
     },
@@ -36,5 +42,5 @@ require.config({
       deps: ['jquery']
     }
   },
-  deps : ["modernizr","global"].concat(window.config.deps)
+  deps : ["modernizr","json2","global"].concat(window.config.deps)
 });

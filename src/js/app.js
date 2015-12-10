@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-11-2414:59:23 */
+/* build : 564493634@qq.com 2015-12-0310:44:14 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2091,11 +2091,14 @@ var requirejs, require, define;
  * devbaseUrl http://192.168.1.251/static/src/js || http://192.168.1.251/static/dist/js
  * probaseUrl http://static.yaozh.com/js
  */
-window.config = config = window.config || {};
+window.config = config = window.config || {baseUrl : '//static.yaozh.com/js'};
 config.deps = config.deps || [];
 
 require.config({
   shim : {
+    "json2": {
+      exports: 'JSON'
+    },
     "prism": {
       deps : ['css!../css/plugin/prism-twilight']
     },
@@ -2114,6 +2117,9 @@ require.config({
       deps: ["highcharts"],
       exports: "highcharts"
     },
+    "jquery.datetimepicker": {
+      deps: ["css!../css/plugin/jquery-ui-timepicker-addon"]
+    },
     "pinyin": {
       exports: 'pinyin'
     },
@@ -2121,12 +2127,13 @@ require.config({
       deps: ['jquery']
     }
   },
-  deps : ["modernizr","global"].concat(window.config.deps)
+  deps : ["modernizr","json2","global"].concat(window.config.deps)
 });
 require.config({
   baseUrl: "http://static.yaozh.com/js",
   paths: {
     "global": "global",
+    "json2": "lib/json2",
     "jquery": "lib/jquery",
     "backbone": "lib/backbone",
     "backbone.epoxy": "lib/backbone.epoxy",
@@ -2176,6 +2183,7 @@ require.config({
     "jquery.responsivetable": "plugin/responsivetable",
     "jquery.tabs": "plugin/tabs",
     "jquery.datepicker": "plugin/datepicker",
+    "jquery.timepicker": "plugin/timepicker",
     "jquery.linkSelect": "plugin/linkSelect",
     "jquery.dropdownSelect": "plugin/dropdownSelect",
     "jquery.autoComplete": "plugin/autoComplete",
@@ -2198,6 +2206,7 @@ require.config({
     "highcharts.data": "other/highcharts.data",
     "highchartTable": "other/highchartTable",
     "jquery.highchartTable": "other/jquery.highchartTable",
+    "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
     "pinyin": "other/pinyin",
     "DD_belatedPNG": "special/DD_belatedPNG",
     "fastclick": "special/fastclick",
@@ -2206,6 +2215,6 @@ require.config({
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
     "dict": "other/dict"
   },
-  urlArgs: "yaozhVersion=1.4.4"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.4.6"+"&data="+new Date().getTime(),
   waitSeconds: 100
 })

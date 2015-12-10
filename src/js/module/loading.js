@@ -30,7 +30,10 @@
         if(this.$el.width() < 124 || this.$el.height() < 50){
           this.className+=' ui-loading-small';
         }
-        this.$widget = $(this._temp(this)).addClass(this.className);
+        this.$widget = this.$el.find('.ui-loading');
+        if(this.$widget.length==0){
+          this.$widget = $(this._temp(this)).addClass(this.className);
+        }
         this.$overlay = this.$widget.find('.ui-loading-overlay');
         this.$box = this.$widget.find('.ui-loading-box');        
       },

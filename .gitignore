@@ -1,4 +1,5 @@
 gulpfile.demo.js
+tags
 /node_modules
 /dist
 /backup*

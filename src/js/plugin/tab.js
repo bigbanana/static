@@ -40,7 +40,7 @@
     },
     events: function(){
       var that = this;
-      this.$tabNav.on(this.options.event,'>a',function(){
+      this.$tabNav.on(this.options.event,'>',function(){
         var index = $(this).index();
         that.select(index);
       });
