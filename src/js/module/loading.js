@@ -29,6 +29,7 @@
       init: function(){
         if(this.$el.width() < 124 || this.$el.height() < 50){
           this.className+=' ui-loading-small';
+          this.$el.html('<span>'+this.$el.text()+'</span>')
         }
         this.$widget = this.$el.find('.ui-loading');
         if(this.$widget.length==0){
@@ -49,7 +50,7 @@
         },this.wait);
       },
       hide: function(){
-        clearInterval(this._timer);
+        clearTimeout(this._timer);
         this._timer = null;
         this.isShow = false;
         this.$el.removeClass('ui-loading-parent');

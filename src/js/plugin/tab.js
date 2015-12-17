@@ -46,8 +46,12 @@
       });
     },
     select: function(index){
-      this.$tabNav.children().removeClass("active").eq(index).addClass("active");
-      this.$tabPanels.removeClass("active").eq(index).addClass("active");
+      this.$curNav = this.$tabNav.children().eq(index);
+      this.$curPan = this.$tabPanels.eq(index);
+      this.$tabNav.children().removeClass("active");
+      this.$tabPanels.removeClass("active");
+      this.$curNav.addClass("active");
+      this.$curPan.addClass("active");
     },
     normalModel: function(){
       this.$tabNav = this.$el.find('>.ui-tab-navs>.ui-tab-nav');

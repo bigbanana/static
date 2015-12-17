@@ -17,7 +17,6 @@
 
   var AutoComplete = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
-    this._cache = {};
     this._list = [];
     this.state = "hide";
     this.$el = $(opt.el);
@@ -85,16 +84,11 @@
         this.render([],key);
         return;
       }
-      if(!!this._cache[key]){
-        this.render(this._cache[key],key);
-        return;
-      }
       var params = {}
       params[this.options.field] = key;
       $.get(this.options.remote,$.extend(params,this.options.params)).done(function(res){
         if(!res) return;
-        that._cache[key] = res;
-        that.render(that._cache[key],key);
+        that.render(res,key);
       });
     },
     debounceReq: _.debounce(function(){
@@ -130,6 +124,7 @@
       $children.eq(active).addClass('active').trigger('click');
     },
     show: function(){
+      console.log('zzz')
       if(this.state == 'show' || this._list.length == 0) return;
       this.$wrap.addClass('open');
       new Effect({
