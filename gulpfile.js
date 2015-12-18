@@ -27,7 +27,7 @@ PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/
 PATH.newsLess = [PATH.news+'/static/less/**/*.less','!'+PATH.news+'/static/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
-var version      = "1.4.8";
+var version      = "1.4.9";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置
@@ -53,7 +53,7 @@ gulp.task('clean',function(){
   //return gulp.src(PATH.backup,{read:false}).pipe(clean());
 });
 gulp.task('backup',['clean'],function(done){
-  return gulp.src(PATH.dest+'/**').pipe(gulp.dest(PATH.backup+'_'+moment().format('YYYY-MM-DD_HH:mm:ss')));
+  return gulp.src(PATH.dest+'/**').pipe(gulp.dest(PATH.backup+'_'+moment().format('YYYY-MM-DD_HH_mm_ss')));
 });
 
 gulp.task('script',['backup'],function(){
@@ -65,7 +65,7 @@ gulp.task('script',['backup'],function(){
   gulp.src(appJsConfig)
     .pipe(concat('app.js'))
     .pipe(footer(initRequireConfig({pro:true})))
-    .pipe(uglify())
+    .pipe(uglify({drop_console:true}))
     .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(PATH.dest+'/js'));
 
@@ -76,7 +76,7 @@ gulp.task('script',['backup'],function(){
     otherFiles.push("!"+files);
 
     gulp.src([files])
-      .pipe(uglify())
+      .pipe(uglify({drop_console:true}))
       .pipe(concat(fileName+'.js'))
       .pipe(header(banner,{package:package}))
       .pipe(gulp.dest(PATH.dest));
@@ -84,7 +84,7 @@ gulp.task('script',['backup'],function(){
 
   //处理其它脚本
   return gulp.src(otherFiles)
-    .pipe(uglify())
+    .pipe(uglify({drop_console:true}))
     .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(PATH.dest+'/js'));
 });

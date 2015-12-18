@@ -8,6 +8,7 @@
   "backbone.queryparams": "lib/backbone.queryparams",
   "underscore": "lib/underscore",
   "modernizr": "lib/modernizr",
+  "moment": "lib/moment",
   "device": "lib/device",
   "css": "lib/require-css-plugin",
   "text": "lib/require-text-plugin",

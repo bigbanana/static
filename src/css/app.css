@@ -378,18 +378,33 @@ body {
 }
 /* color */
 .cl-red {
-  color: #f00;
+  color: #e74c3c;
+}
+.cl-red a {
+  color: #e74c3c;
 }
 .cl-green {
-  color: #008E59;
+  color: #008e59;
+}
+.cl-green a {
+  color: #008e59;
 }
 .cl-blue {
-  color: #2980b9;
+  color: #3366cc;
+}
+.cl-blue a {
+  color: #3366cc;
 }
 .cl-gray {
   color: #999999;
 }
+.cl-gray a {
+  color: #999999;
+}
 .cl-orange {
+  color: #fd6600;
+}
+.cl-orange a {
   color: #fd6600;
 }
 /* float */

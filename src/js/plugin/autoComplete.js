@@ -124,7 +124,6 @@
       $children.eq(active).addClass('active').trigger('click');
     },
     show: function(){
-      console.log('zzz')
       if(this.state == 'show' || this._list.length == 0) return;
       this.$wrap.addClass('open');
       new Effect({
