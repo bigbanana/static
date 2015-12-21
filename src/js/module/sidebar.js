@@ -12,7 +12,7 @@
     var _this = this;
     $.extend(this,arguments.callee.options,opt);
     this.$el = $(this.el);
-    this.init();
+    $($.proxy(this.init,this));
   }
 
   $.extend(Sidebar.prototype,{

@@ -380,31 +380,16 @@ body {
 .cl-red {
   color: #e74c3c;
 }
-.cl-red a {
-  color: #e74c3c;
-}
 .cl-green {
-  color: #008e59;
-}
-.cl-green a {
   color: #008e59;
 }
 .cl-blue {
   color: #3366cc;
 }
-.cl-blue a {
-  color: #3366cc;
-}
 .cl-gray {
   color: #999999;
 }
-.cl-gray a {
-  color: #999999;
-}
 .cl-orange {
-  color: #fd6600;
-}
-.cl-orange a {
   color: #fd6600;
 }
 /* float */
@@ -2411,6 +2396,19 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   width: 28px;
   height: 28px;
   margin-top: 8px;
+}
+.ui-sidebar .item.with-text {
+  line-height: 20px;
+}
+.ui-sidebar .item.with-text .fa {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+}
+.ui-sidebar .item.with-text .text {
+  display: block;
+  line-height: 16px;
 }
 .ui-shade {
   position: absolute;
