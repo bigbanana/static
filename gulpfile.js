@@ -21,13 +21,15 @@ var PATH = {
   dest : path.join(__dirname,'dist'),
   backup: path.join(__dirname,'backup'),
   database : path.join(__dirname,'../database'),
-  news: path.join(__dirname,'../newnews.yaozh.com')
+  news: path.join(__dirname,'../newnews.yaozh.com'),
+  star: path.join(__dirname,'../star_project')
 }
 PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/Public/less/includes/**/*'];
 PATH.newsLess = [PATH.news+'/static/less/**/*.less','!'+PATH.news+'/static/less/includes/**/*'];
+PATH.starLess = [PATH.star+'/static/less/**/*.less','!'+PATH.star+'/static/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
-var version      = "1.4.10";
+var version      = "1.4.11";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置
@@ -128,13 +130,21 @@ gulp.task('database-less',function(){
 });
 
 gulp.task('news-less',function(){
-
   return gulp.src(PATH.newsLess)
     .pipe(less({
       paths: [ path.join(__dirname,'../') ]
     }))
     .pipe(autoprefixer(autoprefixerConfig))
     .pipe(gulp.dest(path.join(PATH.news,'static','css')));
+});
+
+gulp.task('star-less',function(){
+  return gulp.src(PATH.starLess)
+    .pipe(less({
+      paths: [ path.join(__dirname,'../') ]
+    }))
+    .pipe(autoprefixer(autoprefixerConfig))
+    .pipe(gulp.dest(path.join(PATH.star,'static','css')));
 });
 
 gulp.task('watch',function(){
@@ -146,6 +156,8 @@ gulp.task('watch',function(){
   gulp.watch([PATH.databaseLess[0]],['database-less']);
   //build news
   gulp.watch([PATH.newsLess[0]],['news-less']);
+  //build star
+  gulp.watch([PATH.starLess[0]],['star-less']);
 });
 
 gulp.task('default',['script','css','copy']);

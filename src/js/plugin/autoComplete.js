@@ -87,7 +87,7 @@
       var params = {}
       params[this.options.field] = key;
       $.get(this.options.remote,$.extend(params,this.options.params)).done(function(res){
-        if(!res) return;
+        if(!res) res=[];
         that.render(res,key);
       });
     },
@@ -124,6 +124,7 @@
       $children.eq(active).addClass('active').trigger('click');
     },
     show: function(){
+      console.log(this._list.length);
       if(this.state == 'show' || this._list.length == 0) return;
       this.$wrap.addClass('open');
       new Effect({
