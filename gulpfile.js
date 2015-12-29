@@ -65,10 +65,12 @@ gulp.task('script',['backup'],function(){
   });
   //处理app.js
   gulp.src(appJsConfig)
+    .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
     .pipe(footer(initRequireConfig({pro:true})))
     .pipe(uglify({drop_console:true}))
     .pipe(header(banner,{package:package}))
+    .pipe(sourcemaps.write('../sourcemaps'))
     .pipe(gulp.dest(PATH.dest+'/js'));
 
   //处理合并
@@ -78,9 +80,11 @@ gulp.task('script',['backup'],function(){
     otherFiles.push("!"+files);
 
     gulp.src([files])
+      .pipe(sourcemaps.init())
       .pipe(uglify({drop_console:true}))
       .pipe(concat(fileName+'.js'))
       .pipe(header(banner,{package:package}))
+      .pipe(sourcemaps.write('./sourcemaps'))
       .pipe(gulp.dest(PATH.dest));
   });
 

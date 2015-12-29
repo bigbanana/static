@@ -170,7 +170,7 @@ if (typeof JSON !== 'object') {
     JSON = {};
 }
 
-(function () {
+define('json2',[],function () {
     'use strict';
     
     var rx_one = /^[\],:{}\s]*$/,
@@ -516,4 +516,6 @@ if (typeof JSON !== 'object') {
             throw new SyntaxError('JSON.parse');
         };
     }
-}());
+    
+    return JSON;
+});

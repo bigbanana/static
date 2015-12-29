@@ -54,6 +54,9 @@
       var offset = $panel.offset();
       $('html,body').stop().animate({'scrollTop':offset.top-this.options.offset+1},this.options.duration);
     },
+    refresh: function(){
+      Waypoint.refreshAll();
+    },
     select: function(index){
       if(index<0 || index>this.$navs.length) return;
       this.$navs.eq(index).addClass(this.options.activeName)
