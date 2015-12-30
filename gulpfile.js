@@ -29,7 +29,7 @@ PATH.newsLess = [PATH.news+'/static/less/**/*.less','!'+PATH.news+'/static/less/
 PATH.starLess = [PATH.star+'/static/less/**/*.less','!'+PATH.star+'/static/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
-var version      = "1.4.11";
+var version      = "1.4.12";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置

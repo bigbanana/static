@@ -117,7 +117,7 @@
       }
       var _this = this;
       var $el = this.$el.clone().addClass('responsivetable-clone');
-      this.$elClone = this.$elClone.add($el);
+      this.$elClone = this.$elClone.add($el).removeAttr('data-widget');
       this.$sticky = $('<div class="sticky-table-header">').append($el);
       this.$el.before(this.$sticky);
       this.$sticky.css({
