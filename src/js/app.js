@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2015-12-2509:16:14 */
+/* build : 564493634@qq.com 2016-01-2715:46:47 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2091,7 +2091,6 @@ var requirejs, require, define;
  */
 window.config = config = window.config || {baseUrl : '//static.yaozh.com/js'};
 config.deps = config.deps || [];
-
 require.config({
   shim : {
     "json2": {
@@ -2127,6 +2126,21 @@ require.config({
   },
   deps : ["modernizr","json2","global"].concat(window.config.deps)
 });
+
+define('setLinkDialogHeight',[],function(){
+  return function(height){
+    var params = location.search.slice(1).split('&');
+    var param,parObj={},par;
+    while(param = params.pop()){
+      par = param.split('=');
+      parObj[par[0]] = decodeURIComponent(par[1]);
+    }
+    if(!parObj._window_name) return;
+    window.top.location = parObj._window_url+'#setLinkDialogHeight?_window_name='+parObj._window_name+'&height='+height+'&t='+new Date().getTime();
+  }
+});
+
+
 require.config({
   baseUrl: "http://static.yaozh.com/js",
   paths: {
@@ -2214,6 +2228,6 @@ require.config({
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
     "dict": "other/dict"
   },
-  urlArgs: "yaozhVersion=1.4.11"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.4.12"+"&data="+new Date().getTime(),
   waitSeconds: 100
 })

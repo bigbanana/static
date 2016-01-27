@@ -93,6 +93,7 @@
 
   $.extend(MoveFocus,{
     options : {
+      collection: "",
       funMap: {
         37: "left",
         38: "up",

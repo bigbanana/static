@@ -22,11 +22,11 @@ var PATH = {
   backup: path.join(__dirname,'backup'),
   database : path.join(__dirname,'../database'),
   news: path.join(__dirname,'../newnews.yaozh.com'),
-  star: path.join(__dirname,'../star_project')
+  star: path.join(__dirname,'../star.yaozh.com')
 }
 PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/Public/less/includes/**/*'];
 PATH.newsLess = [PATH.news+'/static/less/**/*.less','!'+PATH.news+'/static/less/includes/**/*'];
-PATH.starLess = [PATH.star+'/static/less/**/*.less','!'+PATH.star+'/static/less/includes/**/*'];
+PATH.starLess = [PATH.star+'/public/less/**/*.less','!'+PATH.star+'/public/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
 var version      = "1.4.12";
@@ -68,7 +68,7 @@ gulp.task('script',['backup'],function(){
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
     .pipe(footer(initRequireConfig({pro:true})))
-    .pipe(uglify({drop_console:true}))
+    .pipe(uglify({compress:{drop_console:true}}))
     .pipe(header(banner,{package:package}))
     .pipe(sourcemaps.write('../sourcemaps'))
     .pipe(gulp.dest(PATH.dest+'/js'));
@@ -81,7 +81,7 @@ gulp.task('script',['backup'],function(){
 
     gulp.src([files])
       .pipe(sourcemaps.init())
-      .pipe(uglify({drop_console:true}))
+      .pipe(uglify({compress:{drop_console:true}}))
       .pipe(concat(fileName+'.js'))
       .pipe(header(banner,{package:package}))
       .pipe(sourcemaps.write('./sourcemaps'))
@@ -90,7 +90,7 @@ gulp.task('script',['backup'],function(){
 
   //处理其它脚本
   return gulp.src(otherFiles)
-    .pipe(uglify({drop_console:true}))
+    .pipe(uglify({compress:{drop_console:true}}))
     .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(PATH.dest+'/js'));
 });
@@ -148,7 +148,7 @@ gulp.task('star-less',function(){
       paths: [ path.join(__dirname,'../') ]
     }))
     .pipe(autoprefixer(autoprefixerConfig))
-    .pipe(gulp.dest(path.join(PATH.star,'static','css')));
+    .pipe(gulp.dest(path.join(PATH.star,'public','css')));
 });
 
 gulp.task('watch',function(){

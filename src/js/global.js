@@ -40,6 +40,7 @@ require(['jquery.datepicker'],function(Datepicker){
 /**
  * jquery常用扩展
  */
+
 require(['jquery'],function($){
 
   //序列化form为object

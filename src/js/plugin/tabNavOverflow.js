@@ -40,7 +40,7 @@
       this.tid = 0;
       this.width = 0;
       this.maxWidth = 0;
-      this.$container = $('<select style="width:100px;" class="zzz"></select>');
+      this.$container = $('<select style="width:100px;"></select>');
       this.$el.after(this.$container);
       this.$container.attr('name','tabnav'+TID).dropdownSelect();
       this.refresh();
@@ -58,6 +58,10 @@
       this.container();
     },
     add: function(item){
+      var rt = this._add(item);
+      this.$container.data('dropdownSelect').$widget.toggle(!rt);
+    },
+    _add: function(item){
       var maxWidth
         keys = KEYMAP[this.options.direction],
         $item = $(item);

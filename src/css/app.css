@@ -2413,6 +2413,34 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   display: block;
   line-height: 16px;
 }
+.ui-search {
+  position: relative;
+  height: 26px;
+  border: 1px solid #cccccc;
+  margin-top: 4px;
+  padding-right: 60px;
+  display: inline-block;
+  vertical-align: top;
+}
+.ui-search input {
+  border: none;
+  width: 160px;
+  vertical-align: top;
+  padding: 4px;
+  line-height: 18px;
+  box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.14);
+}
+.ui-search button {
+  height: 28px;
+  width: 60px;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background-color: #3366cc;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
 .ui-shade {
   position: absolute;
   left: 0;
