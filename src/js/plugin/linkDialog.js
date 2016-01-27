@@ -78,6 +78,9 @@
     refresh: function(){
       window.location.reload();
     },
+    open: function(){
+      this.dialog.open();
+    },
     setOption: function(opt){
       this.dialog.setOption(opt);
     },

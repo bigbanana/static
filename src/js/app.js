@@ -2128,7 +2128,7 @@ require.config({
 });
 
 define('setLinkDialogHeight',[],function(){
-  return function(height){
+  function fun(height){
     var params = location.search.slice(1).split('&');
     var param,parObj={},par;
     while(param = params.pop()){
@@ -2138,8 +2138,8 @@ define('setLinkDialogHeight',[],function(){
     if(!parObj._window_name) return;
     window.top.location = parObj._window_url+'#setLinkDialogHeight?_window_name='+parObj._window_name+'&height='+height+'&t='+new Date().getTime();
   }
+  return fun;
 });
-
 
 require.config({
   baseUrl: "http://static.yaozh.com/js",
