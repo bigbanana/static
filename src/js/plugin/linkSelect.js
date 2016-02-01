@@ -3,14 +3,14 @@
  * 参数
  * names : 分别的字段名，字符串(用逗号隔开)或数组(每一个的名字)
  * default : 默认值，字符串或数组，同理names参数
- * data : [
+ * list : [
  *          {
  *            name:"",
  *            value:"",
  *            list:[{name:"",value:""}]
  *          }
  *        ]
- * src : 远程拉取数据,数据格式为data
+ * src : 远程拉取数据,数据格式为list
  * 
  */
 (function( factory ) {
@@ -57,23 +57,27 @@
       this.create();
     },
     create: function(){
-      var $select = this.createSelect(this.options.data);
-      this.$el.append($select);
-      $select.dropdownSelect();
-      _.defer(_.bind(this.setDefault,this));
+      var self = this;
+      this.createSelect(this.options).done(function($select){
+        self.$el.append($select);
+        $select.dropdownSelect();
+        _.defer(_.bind(self.setDefault,self));
+      });
+      
     },
     events: function(){
-      var that = this;
+      var self = this;
       this.$el.on('change','select',function(){
         var $this = $(this);
         var $widget = $this.data('dropdownSelect').$widget;
         var $selected = $this.find('option:selected');
         var data = $selected.data('data');
         $widget.nextAll().remove();
-        if(!data || !data.list || data.list.length == 0) return;
-        var $select = that.createSelect(data.list);
-        $widget.after($select);
-        $select.dropdownSelect({className:'mt5'});
+        if(!data) return;
+        self.createSelect(data).done(function($select){
+          $widget.after($select);
+          $select.dropdownSelect({className:'mt5'});
+        });
       });
     },
     getName: function($el){
@@ -88,7 +92,29 @@
       var $select = this.$el.children().eq(index).children('select');
       $select.val(item).trigger('change');
     },
-    createSelect: function(list,className){
+    createSelect: function(data){
+      var self = this;
+      var def = $.Deferred();
+      var promise = def.promise();
+      if(data.list == null){
+        def.reject();
+        return promise;
+      };
+      if(!data.list){
+        data.list = null;
+        this.req(data.id).done(function(list){
+          data.list = list;
+          arguments.callee.call(self,data).done(function($select){
+            def.resolve($select);
+          });
+        });
+        return promise;
+      }
+      if(data.list.length == 0){
+        def.reject();
+        return promise;
+      }
+      var list = data.list;
       var option = $.extend({},this.options,{name:this.getName()});
       var $select = $(this.selectTemp(option));
       var obj,opt = {};
@@ -98,7 +124,8 @@
       while(obj=list.shift()){
         $select.append(this.createOption(obj));
       }
-      return $select;
+      def.resolve($select);
+      return promise;
     },
     createOption: function(data){
       var $option = $(this.optionTemp(data));
@@ -109,6 +136,14 @@
       var that = this;
       $.each(this.options.defaults,function(index,item){
         that.setValue(index,item);
+      });
+    },
+    req: function(id){
+      return $.ajax({
+        url: this.options.url,
+        type: 'get',
+        dataType: 'json',
+        data: {id:id}
       });
     },
     selectTemp: _.template([
