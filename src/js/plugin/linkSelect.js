@@ -46,13 +46,6 @@
       if(!!this.options.data && $.type(this.options.data)=="string"){
         this.options.data = $.parseJSON(this.options.data);
       }
-      if(!!this.options.src){
-        $.get(this.options.src).done(function(res){
-          that.option.data = res;
-          that.create();
-        });
-        return;
-      }
 
       this.create();
     },
@@ -82,10 +75,10 @@
     },
     getName: function($el){
       var index = this.$el.children().length;
-      if(this.options.names){
+      if(this.options.names.length>1){
         return this.options.names[index];
       }else{
-        return this.options.names+(index+1);
+        return this.options.names;
       }
     },
     setValue: function(index,item){
@@ -94,17 +87,21 @@
     },
     createSelect: function(data){
       var self = this;
+      var func = arguments.callee;
       var def = $.Deferred();
       var promise = def.promise();
-      if(data.list == null){
+      if(data.list === null){
         def.reject();
         return promise;
       };
       if(!data.list){
         data.list = null;
-        this.req(data.id).done(function(list){
-          data.list = list;
-          arguments.callee.call(self,data).done(function($select){
+        this.req(data.val).done(function(res){
+          if(res.state != 1){
+            def.reject(); 
+          };
+          data.list = res.data;
+          func.call(self,data).done(function($select){
             def.resolve($select);
           });
         });
@@ -138,12 +135,17 @@
         that.setValue(index,item);
       });
     },
-    req: function(id){
+    req: function(val){
+      if(!this.options.src){
+        var d=$.Deferred();
+        d.reject();
+        return d.promise();
+      }
       return $.ajax({
-        url: this.options.url,
+        url: this.options.src,
         type: 'get',
         dataType: 'json',
-        data: {id:id}
+        data: {val:val}
       });
     },
     selectTemp: _.template([
