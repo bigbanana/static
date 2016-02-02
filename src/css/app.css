@@ -1992,7 +1992,7 @@ div.ui-dialog .ui-dialog-iframe {
   display: none;
   left: 0;
   z-index: 10;
-  padding: 5px 0;
+  padding: 4px 0;
   margin: 2px 0 0;
   font-size: 14px;
   text-align: left;
@@ -2002,6 +2002,8 @@ div.ui-dialog .ui-dialog-iframe {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 2px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  max-height: 416px;
+  overflow: auto;
 }
 .ui-dropdown .ui-dropdown-menu li a,
 .ui-dropup .ui-dropdown-menu li a {
@@ -2009,7 +2011,7 @@ div.ui-dialog .ui-dialog-iframe {
   padding: 3px 20px;
   clear: both;
   font-weight: 400;
-  line-height: 1.42857143;
+  line-height: 20px;
   color: #333;
   white-space: nowrap;
   text-decoration: none;
@@ -2091,7 +2093,8 @@ div.ui-autocomplete {
 div.ui-autocomplete .ui-autocomplete-box {
   display: none;
   position: absolute;
-  width: 100%;
+  min-width: 100%;
+  _width: 100%;
   top: 100%;
   left: 0;
   z-index: 10;
