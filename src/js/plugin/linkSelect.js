@@ -54,9 +54,9 @@
       this.createSelect(this.options).done(function($select){
         self.$el.append($select);
         $select.dropdownSelect();
+        $select.trigger('ls-create');
         _.defer(_.bind(self.setDefault,self));
       });
-      
     },
     events: function(){
       var self = this;
@@ -69,6 +69,7 @@
         if(!data) return;
         self.createSelect(data).done(function($select){
           $widget.after($select);
+          $select.trigger('ls-create');
           $select.dropdownSelect({className:'mt5'});
         });
       });
