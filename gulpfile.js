@@ -5,11 +5,13 @@ footer       = require('gulp-footer'),
 concat       = require('gulp-concat'),
 uglify       = require('gulp-uglify'),
 less         = require('gulp-less'),
-cssmin       = require('gulp-cssmin'),
+csso         = require('gulp-csso'),
 rename       = require('gulp-rename'),
 clean        = require('gulp-clean'),
 autoprefixer = require('gulp-autoprefixer'),
 sourcemaps   = require('gulp-sourcemaps'),
+spritesmith  = require('gulp.spritesmith'),
+merge        = require('merge-stream'),
 moment       = require('moment');
 
 var package = require('./package.json');
@@ -20,13 +22,7 @@ var PATH = {
   src : path.join(__dirname,'src'),
   dest : path.join(__dirname,'dist'),
   backup: path.join(__dirname,'backup'),
-  database : path.join(__dirname,'../database'),
-  news: path.join(__dirname,'../newnews.yaozh.com'),
-  star: path.join(__dirname,'../star.yaozh.com')
 }
-PATH.databaseLess = [PATH.database+'/Public/less/**/*.less','!'+PATH.database+'/Public/less/includes/**/*'];
-PATH.newsLess = [PATH.news+'/static/less/**/*.less','!'+PATH.news+'/static/less/includes/**/*'];
-PATH.starLess = [PATH.star+'/public/less/**/*.less','!'+PATH.star+'/public/less/includes/**/*'];
 
 var baseUrl       = "http://static.yaozh.com/js";
 var version      = "1.4.15";
@@ -104,7 +100,7 @@ gulp.task('copy',['backup'],function(){
 
 gulp.task('css',['backup','less'],function(){
   return gulp.src(PATH.src+'/css/**/*.css')
-    .pipe(cssmin({compatibility:'ie7'}))
+    .pipe(csso())
     .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(PATH.dest+'/css'))
 });
@@ -124,44 +120,11 @@ gulp.task('app',function(){
     .pipe(gulp.dest(PATH.src+'/js'));
 });
 
-gulp.task('database-less',function(){
-  return gulp.src(PATH.databaseLess)
-    .pipe(less({
-      paths: [ path.join(__dirname,'../') ]
-    }))
-    .pipe(autoprefixer(autoprefixerConfig))
-    .pipe(gulp.dest(path.join(PATH.database,'Public','css')));
-});
-
-gulp.task('news-less',function(){
-  return gulp.src(PATH.newsLess)
-    .pipe(less({
-      paths: [ path.join(__dirname,'../') ]
-    }))
-    .pipe(autoprefixer(autoprefixerConfig))
-    .pipe(gulp.dest(path.join(PATH.news,'static','css')));
-});
-
-gulp.task('star-less',function(){
-  return gulp.src(PATH.starLess)
-    .pipe(less({
-      paths: [ path.join(__dirname,'../') ]
-    }))
-    .pipe(autoprefixer(autoprefixerConfig))
-    .pipe(gulp.dest(path.join(PATH.star,'public','css')));
-});
-
 gulp.task('watch',function(){
   //build src app.js
   gulp.watch([PATH.src+'/js/config.js',PATH.src+'/js/path.json'],['app']);
   //build src less
   gulp.watch([PATH.src+'/less/**/*.less'],['less']);
-  //build database
-  gulp.watch([PATH.databaseLess[0]],['database-less']);
-  //build news
-  gulp.watch([PATH.newsLess[0]],['news-less']);
-  //build star
-  gulp.watch([PATH.starLess[0]],['star-less']);
 });
 
 gulp.task('default',['script','css','copy']);

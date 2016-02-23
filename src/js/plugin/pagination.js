@@ -33,15 +33,15 @@
     _.mapObject(_data,function(v,k){
       switch(k){
         case 'page': {
-          data.currentPage = v;
+          data.currentPage = parseInt(v);
           break;
         }
         case 'size': {
-          data.pageSize = v;
+          data.pageSize = parseInt(v);
           break;
         }
         case 'max': {
-          data.maxPage = v;
+          data.maxPage = parseInt(v);
           break;
         }
         default: {
