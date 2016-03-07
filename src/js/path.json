@@ -18,6 +18,7 @@
   "noext": "lib/require-noext-plugin",
   "cookie": "lib/cookie",
   "queryString": "lib/queryString",
+  "messenger": "lib/messenger",
   "utils": "lib/utils",
   "browser": "lib/browser",
   "effect": "lib/effect",

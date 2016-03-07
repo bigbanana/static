@@ -39,6 +39,7 @@
     //处理pie饼图标题
     if(this.options.type == "pie"){
       this.$el.attr('data-graph-datalabels-enabled','1');
+      this.$el.attr('data-graph-pie-show-in-legend','1');
       this.$el.find('>tbody>tr').each(function(){
         var $children = $(this).children();
         $children.eq(1).attr('data-graph-name',$children.eq(0).text());

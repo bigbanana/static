@@ -5,11 +5,11 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone','queryString'],factory);
+    define('jquery.linkDialog',['jquery','jquery.widget','jquery.dialog','underscore','backbone'],factory);
   } else {
-    factory($,widget,Dialog,_,Backbone,queryString);
+    factory($,widget,Dialog,_,Backbone);
   }
-}(function($,widget,Dialog,_,Backbone,queryString){
+}(function($,widget,Dialog,_,Backbone){
   var id = 0;
   var URLREG = /^https?:\/\/.*$/;
   var $body = $(document.body);
@@ -32,12 +32,6 @@
   $.extend(LinkDialog.prototype,{
     init: function(){
       var that = this;
-      var href = this.options.href.split('?')
-      var pars = queryString.parse(href[1]||'');
-      pars._window_type = 'iframe';
-      pars._window_name = this.options.windowName;
-      pars._window_url = window.location.href.replace(/#.*/,'');
-      this.options.href = href[0]+'?'+queryString.stringify(pars);
 
       this.$dialog = $(this.temp(this.options));
       this.$iframe = this.$dialog.children();
@@ -101,21 +95,6 @@
     data.el = $el;
     new LinkDialog(data);
   });
-
-  function setLinkDialogHeight(name,height){
-    var $iframe = $('iframe[name="'+name+'"]');
-    if($iframe.length == 0) return;
-    var ld = $iframe.data('linkDialog');
-    ld.setOption({height:height});
-  }
-
-  var router = new Backbone.Router();
-  router.route(/setLinkDialogHeight\?(.+)/,'',function(params){
-    params = queryString.parse(params);
-    setLinkDialogHeight(params._window_name,params.height);
-    this.navigate('');
-  });
-  Backbone.history.start();
 
   return LinkDialog
 

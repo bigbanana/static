@@ -11,6 +11,9 @@
 
   var Sticky = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
+    if(this.options.stickyOffset != "undefined"){
+      this.options.offset = this.options.stickyOffset;
+    }
     this.$el = $(this.options.el);
     this.init();
   }
