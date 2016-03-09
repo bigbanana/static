@@ -3,11 +3,12 @@
 */
 define('input',['jquery'],function($){
   // IE6\7\8不支持input事件，但支持propertychange事件
-  if (!('onpropertychange' in document)) return;
-  
+  if ('oninput' in document) return;
+
   function isInput(elem){
     return /^INPUT|TEXTAREA$/.test(elem.nodeName);
   }
+  
   $.event.special.input = {
     setup: function () {
       var elem = this;

@@ -3402,7 +3402,6 @@ if ( !jQuery.support.changeBubbles ) {
 	jQuery.event.special.change = {
 
 		setup: function() {
-
 			if ( rformElems.test( this.nodeName ) ) {
 				// IE doesn't fire change on a check/radio until blur; trigger it on click
 				// after a propertychange. Eat the blur-change in special.change.handle.

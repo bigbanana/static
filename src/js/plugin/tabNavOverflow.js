@@ -95,7 +95,7 @@
   });
   $.extend(TabNavOverflow,{
     options: {
-      direction: 'horizontal',
+      direction: 'horizontal'
     }
   });
 
