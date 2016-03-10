@@ -1,7 +1,7 @@
 /**
  * [轮播展示盒子]
  * @param  {[string]} direction [方向]
- * @param  {[string]} eventType [触发事件类型]
+ * @param  {[string]} event [触发事件类型]
  * @param  {[number]} displayNumber [显示条数]
  * @param  {[boole]} control [是否显示控制面板]
  * @param  {[boole]} auto [是否自动播放]
@@ -94,7 +94,7 @@
         _this.$controlBox.append($ct);
       });
 
-      this.$controlBox.on(this.options.eventType,'a',function(){
+      this.$controlBox.on(this.options.event,'a',function(){
         var $this = $(this);
         _this.slider($this.index()*_this.options.controlSkip);
       });
@@ -164,7 +164,7 @@
   $.extend(SliderBox,{
     options : {
       direction : 'vertical',//horizontal,vertical
-      eventType : 'click',
+      event : 'click',
       displayNumber : 1,
       control : true,
       controlSkip : 1,//控制器长度
