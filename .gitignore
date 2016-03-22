@@ -1,6 +1,7 @@
 gulpfile.demo.js
 tags
 /node_modules
+/cdemo
 /dist
 /backup*
 /psd

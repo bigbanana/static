@@ -37,7 +37,7 @@
       var that = this;
       var inBox = false;
       this.$el.on('focus',$.proxy(this.show,this));
-      this.$el.on('keydown',function(e){
+      this.$el.on('keydown input',function(e){
         switch(e.keyCode){
           case 9:
           case 37:
@@ -76,7 +76,6 @@
         if(e.target == that.$el[0]) return;
         that.hide();
       });
-
     },
     req: function(key){
       var that = this;

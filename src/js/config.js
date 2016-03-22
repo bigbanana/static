@@ -29,6 +29,10 @@ require.config({
       deps: ["highcharts"],
       exports: "highcharts"
     },
+    "highcharts-more": {
+      deps: ["highcharts"],
+      exports: "highcharts"
+    },
     "jquery.datetimepicker": {
       deps: ["css!../css/plugin/jquery-ui-timepicker-addon"]
     },
@@ -40,18 +44,4 @@ require.config({
     }
   },
   deps : ["modernizr","json2","global"].concat(window.config.deps)
-});
-
-define('setLinkDialogHeight',[],function(){
-  function fun(height){
-    var params = location.search.slice(1).split('&');
-    var param,parObj={},par;
-    while(param = params.pop()){
-      par = param.split('=');
-      parObj[par[0]] = decodeURIComponent(par[1]);
-    }
-    if(!parObj._window_name) return;
-    window.top.location = parObj._window_url+'#setLinkDialogHeight?_window_name='+parObj._window_name+'&height='+height+'&t='+new Date().getTime();
-  }
-  return fun;
 });

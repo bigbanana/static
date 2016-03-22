@@ -10,11 +10,11 @@
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.marquee',['jquery'],factory);
+    define('jquery.marquee',['jquery','jquery.widget'],factory);
   } else {
-    factory( jQuery );
+    factory( jQuery,widget );
   }
-}(function($){
+}(function($,widget){
 
   function Marquee(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
@@ -120,6 +120,8 @@
       });
     }
   });
+
+  widget.install('marquee',Marquee);
 
   return Marquee;
 

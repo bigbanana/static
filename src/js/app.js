@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2016-03-0714:05:35 */
+/* build : 564493634@qq.com 2016-03-1811:27:37 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2114,6 +2114,10 @@ require.config({
       deps: ["highcharts"],
       exports: "highcharts"
     },
+    "highcharts-more": {
+      deps: ["highcharts"],
+      exports: "highcharts"
+    },
     "jquery.datetimepicker": {
       deps: ["css!../css/plugin/jquery-ui-timepicker-addon"]
     },
@@ -2125,20 +2129,6 @@ require.config({
     }
   },
   deps : ["modernizr","json2","global"].concat(window.config.deps)
-});
-
-define('setLinkDialogHeight',[],function(){
-  function fun(height){
-    var params = location.search.slice(1).split('&');
-    var param,parObj={},par;
-    while(param = params.pop()){
-      par = param.split('=');
-      parObj[par[0]] = decodeURIComponent(par[1]);
-    }
-    if(!parObj._window_name) return;
-    window.top.location = parObj._window_url+'#setLinkDialogHeight?_window_name='+parObj._window_name+'&height='+height+'&t='+new Date().getTime();
-  }
-  return fun;
 });
 
 require.config({
@@ -2218,6 +2208,7 @@ require.config({
     "jquery.magnifier": "other/jquery.magnifier",
     "highcharts": "other/highcharts",
     "highcharts.data": "other/highcharts.data",
+    "highcharts-more": "other/highcharts-more",
     "highchartTable": "other/highchartTable",
     "jquery.highchartTable": "other/jquery.highchartTable",
     "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
@@ -2229,6 +2220,6 @@ require.config({
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
     "dict": "other/dict"
   },
-  urlArgs: "yaozhVersion=1.4.15"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion=1.4.17"+"&data="+new Date().getTime(),
   waitSeconds: 100
 })

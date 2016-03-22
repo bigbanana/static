@@ -156,7 +156,7 @@
             yAxis:     column.yAxis,
             dashStyle: column.dashStyle,
             marker: {
-                enabled: false
+                enabled: true
             },
             dataLabels: {
               enabled: column.dataLabelsEnabled,
@@ -186,7 +186,7 @@
             color:   vline.color,
             visible: vline.visible,
             marker: {
-              enabled: false
+              enabled: true
             }
           });
         }
