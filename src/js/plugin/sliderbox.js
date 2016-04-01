@@ -1,4 +1,5 @@
 /**
+ * 即将废弃
  * [轮播展示盒子]
  * @param  {[string]} direction [方向]
  * @param  {[string]} event [触发事件类型]

@@ -30,9 +30,8 @@
     }));
 
     //由于jquery-ui的datepicker缓存属性与widget冲突，所以返回jqueryui给widget使用。
-    if(opt.widget){
-      return this.$el.data('datepicker');
-    }
+    this._datepicker = this.$el.data('datepicker');
+    return this._datepicker;
 
   }
   $.extend(Datepicker.prototype,{});
