@@ -313,7 +313,7 @@
         '#B5CA92'*/
         /*'#2f7ed8', '#0d233a', '#8bbc21', '#910000', '#1aadce', 
         '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'*/
-        '#7cb5ec','#434348','#71d6c8','#89a54e','#f7a35c','#8085e9','#f7605c'
+        '#7cb5ec','#434348','#71d6c8','#89a54e','#f7a35c','#8085e9','#f7605c','#90ed7d','#B5D6F6','#FFF57C'
       ];
       var colors = [];
 
@@ -321,7 +321,7 @@
       var lineShadow  = $table.data('graph-line-shadow');
       var lineWidth   = $table.data('graph-line-width') || 2;
 
-      for(var i=0; i<9; i++) {
+      for(var i=0; i<defaultColors.length; i++) {
         var dataname = 'graph-color-' + (i+1);
         colors.push(typeof $table.data(dataname) != 'undefined' ? $table.data(dataname) : typeof themeColors[i] != 'undefined' ? themeColors[i] : defaultColors[i]);
       }
