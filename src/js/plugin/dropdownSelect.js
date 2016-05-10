@@ -15,7 +15,9 @@
       opt.event = "mouseenter";
     }
     this.options = $.extend(true,{},arguments.callee.options,opt);
-    this.$el = $(opt.el).hide();
+    this.$el = $(opt.el);
+    this.options.width = this.$el.innerWidth();
+    this.$el.hide();
     this.init();
   }
 
@@ -45,13 +47,12 @@
       .siblings('.selected').removeClass('selected');
     },
     createWidget: function(){
-      var minWidth = this.$el.innerWidth()
       this.list = this.$el.children().map(function(){
         var $this = $(this);
         return {value:$this.val(),text:$this.text()}
       });
       var css = {
-        width: minWidth+2
+        width: this.options.width+2
       }
       if(!this.$widget){
         this.$widget = $('<span class="ui-dropdown-select ui-dropdown"></span>').insertAfter(this.$el);
@@ -63,7 +64,7 @@
       this.$widget.html(this._temp({list:this.list})).append(this.$el);
       this.$selectName = this.$widget.find('.ui-dropdown-select-name');
       this.$selectMenu = this.$widget.find('.ui-dropdown-menu');
-      this.$selectMenu.css({minWidth:minWidth});
+      this.$selectMenu.css({minWidth:this.options.width});
       this.changeValue();
     },
     addClass: function(name){

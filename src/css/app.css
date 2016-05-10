@@ -2083,7 +2083,7 @@ div.ui-autocomplete.open .ui-autocomplete-box {
   border: 1px solid #BBB;
   vertical-align: top;
   border-radius: 2px;
-  padding: 4px 8px;
+  padding: 0 8px;
   height: 26px;
 }
 .pagination .page-size:focus {
