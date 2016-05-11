@@ -29,7 +29,7 @@ var version      = "1.4.18";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
 //所有需要复制的文件配置
-var copyConfig   = ["/fonts","/thirdparty","/images","/test"];
+var copyConfig   = ["/fonts","/thirdparty","/images","/test","/data"];
 //构建app.js需要的模块
 var appJsConfig  = [PATH.src+'/js/require.js',PATH.src+'/js/config.js'];
 

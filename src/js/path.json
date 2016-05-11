@@ -68,6 +68,7 @@
   "pace": "other/pace",
   "preloadjs": "other/preloadjs",
   "TweenMax": "other/TweenMax",
+  "d3": "other/d3",
   "jquery.gsap": "other/jquery.gsap",
   "prism": "other/prism",
   "jquery.lightbox": "other/lightbox",
