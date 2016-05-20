@@ -153,6 +153,11 @@ html {
 :focus {
   outline: none;
 }
+input[type=text]::-ms-clear,
+input[type=tel]::-ms-clear,
+input[type=number]::-ms-clear {
+  display: none;
+}
 /* @import "global.less" */
 body {
   background-color: #fff;
