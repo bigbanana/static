@@ -92,7 +92,7 @@
     },
     debounceReq: _.debounce(function(){
       this.req(this.$el.val());
-    },100),
+    },300),
     render: function(list,key){
       var that = this;
       this._list = list;

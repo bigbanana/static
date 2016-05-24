@@ -41,8 +41,33 @@ define("utils",['jquery','browser','underscore','jquery.confirm','jquery.prompt'
         cancel: def.reject
       });
       return def.promise();
+    },
+    /**
+     * [promisify 返回函数通过$.Deferred封装的promise]
+     * @param  {Function} fn [函数]
+     * @return {Function} [返回值为jquery promise的函数]
+     */
+    promisify: function(fn){
+      if(fn.__isPromisified__ === true) {
+        return fn;
+      }
+      fn.__isPromisified__ = true;
+
+      var fuc = function(arg){
+        var $def = $.Deferred();
+        var args = Array.prototype.slice.call(arguments);
+        args.push(function(){
+          $def.resolve.apply(window,Array.prototype.slice.call(arguments))
+        });
+        fn.apply(window,args);
+        return $def.promise();
+      }
+      
+      return fuc;
     }
   }
+
+  utils.require = utils.promisify(require)
 
 window.utils = utils;
   return utils
