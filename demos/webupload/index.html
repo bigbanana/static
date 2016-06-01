@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>webupload</title>
+  <style>
+    #up{
+      background-color: red;
+      width:100px;height:30px;display: inline-block;line-height: 30px;
+    }
+  </style>
+  <script src="//static.yaozh.com/js/app.js"></script>
+  <script>
+    require(['jquery','webuploader'],function($,WebUploader){
+      $(function(){
+        var up = WebUploader.create({
+          swf: 'path_of_swf/Uploader.swf',
+          server: './fileupload.php',
+          pick:'#up',
+          auto:true
+        });
+        up.on("fileQueued",function(){
+          console.log(arguments);
+        });
+
+        up.on("startUpload",function(){
+          console.log(arguments);
+        });
+        up.on("uploadProgress",function(){
+          console.log(arguments);
+        });
+        up.on("uploadSuccess",function(){
+          console.log(arguments);
+        });
+        
+
+      });
+    });
+  </script>
+</head>
+<body>
+  <a href="javascript:;" id="up">选择</a>
+</body>
+</html>

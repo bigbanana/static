@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2016-05-1010:27:11 */
+/* build : 564493634@qq.com 2016-06-0112:49:14 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2214,6 +2214,7 @@ require.config({
     "jquery.highchartTable": "other/jquery.highchartTable",
     "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
     "pinyin": "other/pinyin",
+    "webuploader": "../thirdparty/webuploader/webuploader",
     "DD_belatedPNG": "special/DD_belatedPNG",
     "fastclick": "special/fastclick",
     "ie6": "special/ie6",
@@ -2221,6 +2222,6 @@ require.config({
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
     "dict": "other/dict"
   },
-  urlArgs: "yaozhVersion=1.4.18"+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion="+(config ? config.version : "1.4.18")+"&data="+new Date().getTime(),
   waitSeconds: 100
 })
