@@ -63,6 +63,7 @@
   "jquery.activemenu": "plugin/activemenu",
   "jquery.tabNavOverflow": "plugin/tabNavOverflow",
   "jquery.shade": "plugin/shade",
+  "jquery.dateSelect": "plugin/dateSelect",
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",
