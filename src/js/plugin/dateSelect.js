@@ -20,7 +20,8 @@
 
   $.extend(DateSelect.prototype,{
     init: function(){
-      this.date = moment(this.$el.val()||undefined);
+      var _date = moment(this.$el.val());
+      this.date = [_date.get('year'),_date.get('month'),_date.get('date')];
       this.$el.wrap('<div class="ui-date-select"></div>').hide();
       this.$wrap = this.$el.parent();
       this.$year = $('<select></select>').width(this.options.widths[0]).appendTo(this.$wrap);
@@ -30,28 +31,30 @@
       this.options.hasmonth && this.options.hasdate && this.$date.appendTo(this.$wrap);
       this.event();
       this.updateYear();
+      isNaN(this.date[1]) && (this.date[1]= 1);
+      isNaN(this.date[2]) && (this.date[2]= 1);
       this.$year.trigger('change');
     },
     event: function(){
       var that = this;
       this.$year.on('change',function(){
-        that.date.set('year',parseInt(this.value));
+        that.date[0]= parseInt(this.value);
         that.updateYear();
         that.updateMonth();
         that.setValue();
       });
       this.$month.on('change',function(){
-        that.date.set('month',parseInt(this.value));
+        that.date[1]= parseInt(this.value);
         that.updateDate();
         that.setValue();
       });
       this.$date.on('change',function(){
-        that.date.set('date',parseInt(this.value));
+        that.date[2]= parseInt(this.value);
         that.setValue();
       });
     },
     updateYear: function(){
-      var opts=[],year = this.date.get('year'),that = this,cur;
+      var opts=[],year = this.date[0],that = this,cur;
       this.$year.dropdownSelect('destory');
       this.$year.empty();
       cur = year;
@@ -71,7 +74,7 @@
       this.$year.data('dropdownSelect').$selectMenu.width(88);
     },
     updateMonth: function(){
-      var opts=[],month = this.date.get('month'),that = this;
+      var opts=[],month = this.date[1],that = this;
       this.$month.dropdownSelect('destory');
       this.$month.empty();
       for(var i=0;i<12;i++){
@@ -79,13 +82,13 @@
       }
       this.$month.dropdownSelect({className:'ml5'});
       //时间不合法就隐藏
-      this.$month.data('dropdownSelect').$widget.toggle(!isNaN(this.date.unix()));
+      this.$month.data('dropdownSelect').$widget.toggle(!isNaN(this.date[0]));
     },
     updateDate: function(){
       var opts=[],
           that = this,
-          date = this.date.get('date'),
-          maxdate = this.date.clone().endOf('month').get('date');
+          date = this.date[2],
+          maxdate = moment(this.date).endOf('month').get('date');
       this.$date.dropdownSelect('destory');
       this.$date.empty();
       for(var i=1;i<maxdate+1;i++){
@@ -95,11 +98,10 @@
       this.$date.data('dropdownSelect').$selectMenu.width(60);
     },
     setValue: function(){
-      var unix = this.date.unix();
-      if(isNaN(unix)){
+      if(isNaN(this.date[0])){
         this.$el.val('');
       }else{
-        this.$el.val(this.date.format(this.options.format));
+        this.$el.val(moment(this.date).format(this.options.format));
       }
       this.$el.trigger('change');
     }
