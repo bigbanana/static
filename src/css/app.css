@@ -1977,6 +1977,12 @@ div.ui-dialog .ui-dialog-iframe {
   border-radius: 2px;
   padding: 4px 16px 4px 8px;
 }
+/*dateSelect.less*/
+.ui-date-select {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
 /*autoComplete.less*/
 div.ui-autocomplete {
   display: inline-block;

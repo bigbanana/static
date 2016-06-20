@@ -20,12 +20,12 @@
   $.extend(DateSelect.prototype,{
     init: function(){
       this.date = moment();
-      this.$el.wrap('<div class="ui-data-select"></div>').hide();
+      this.$el.wrap('<div class="ui-date-select"></div>').hide();
       this.$wrap = this.$el.parent();
-      this.$year = $('<select style="width:78px;"></select>').appendTo(this.$wrap);
-      this.$month = $('<select style="width:50px;"></select>');
+      this.$year = $('<select></select>').width(this.options.widths[0]).appendTo(this.$wrap);
+      this.$month = $('<select></select>').width(this.options.widths[1]);
       this.options.hasmonth && this.$month.appendTo(this.$wrap);
-      this.$date = $('<select style="width:50px;"></select>');
+      this.$date = $('<select></select>').width(this.options.widths[0]);
       this.options.hasmonth && this.options.hasdate && this.$date.appendTo(this.$wrap);
       this.updateYear();
       this.updateMonth();
@@ -42,7 +42,7 @@
         that.setValue();
       });
       this.$month.on('change',function(){
-        that.date.set('month',parseInt(this.value)+1);
+        that.date.set('month',parseInt(this.value));
         that.updateDate();
         that.setValue();
       });
@@ -63,17 +63,17 @@
       _.each(opts,function(item){
         that.$year.append('<option value="'+item+'"'+(item==year&&' selected')+'>'+item+'</option>');
       });
-      this.$year.dropdownSelect({className:'mr10'});
+      this.$year.dropdownSelect();
       this.$year.data('dropdownSelect').$selectMenu.width(88);
     },
     updateMonth: function(){
       var opts=[],month = this.date.get('month'),that = this;
       this.$month.dropdownSelect('destory');
       this.$month.empty();
-      for(var i=1;i<13;i++){
-        that.$month.append('<option value="'+i+'"'+(i==month&&' selected')+'>'+i+'</option>');
+      for(var i=0;i<12;i++){
+        that.$month.append('<option value="'+i+'"'+(i==month&&' selected')+'>'+(i+1)+'</option>');
       }
-      this.$month.dropdownSelect({className:'mr10'});
+      this.$month.dropdownSelect({className:'ml5'});
     },
     updateDate: function(){
       var opts=[],
@@ -85,11 +85,12 @@
       for(var i=1;i<maxdate+1;i++){
         that.$date.append('<option value="'+i+'"'+(i==date&&' selected')+'>'+i+'</option>');
       }
-      this.$date.dropdownSelect();
+      this.$date.dropdownSelect({className:'ml5'});
       this.$date.data('dropdownSelect').$selectMenu.width(60);
     },
     setValue: function(){
       this.$el.val(this.options.format && this.date.format(this.options.format) || this.date.unix());
+      this.$el.trigger('change');
     }
   });
 
@@ -97,8 +98,9 @@
     options:{
       hasmonth: true,
       hasdate: true,
+      widths:[78,50,50],
       range: 20, //年份跨度（前后20年）
-      format: '' //YY-MM-DD
+      format: '' //YYYY-MM-DD
     }
   });
 
