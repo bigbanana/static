@@ -1,6 +1,7 @@
 /**
  * [响应式表格]
  * @param  {[number]} offset [上边距偏移量（解决与顶部固定条重叠问题）]
+ * @param  {[Boole]} hide [是否初始化时隐藏该列]
  * @param  {[number]} priority [表格列优先级，值越高越先隐藏使用data-priority设置在thead>tr>th上]
  * @return {[type]}         [description]
  */
@@ -12,7 +13,6 @@
     factory( $,_,browser,widget );
   }
 }(function($,_,browser,widget){
-  //滑动显示一个列表
   var Responsivetable = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(opt.el);
@@ -67,13 +67,14 @@
         var $this = $(this);
         var data = $this.data();
         data.priority = data.priority || 1;
+        $this.toggleClass('hide',!!(data && data.hide));
       });
       this.$body.children().each(function(){
         var idStart = 0;
         $(this).children().each(function(index){
           var $cell = $(this);
           var data = _this.$head.find('th').eq(index).data();
-
+          $cell.toggleClass('hide',!!(data && data.hide));
           $cell.addClass('priority'+(data && data.priority || 1));
         });
       });
