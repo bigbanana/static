@@ -13,14 +13,9 @@
   }
 }(function($,_,Dialog,widget){
   function Confirm(opt){
-    $.extend(this,arguments.callee.options,arguments.callee.dialogOpt,opt);
-    this.dialogOpt = $.extend({},arguments.callee.dialogOpt,{
-      width:this.width,
-      height:this.height,
-      minWidth:this.minWidth,
-      minHeight:this.minHeight,
-      modal:this.modal
-    });
+    $.extend(this,arguments.callee.options,opt);
+    this.dialogOpt = $.extend({},arguments.callee.dialogOpt,opt);
+    delete this.dialogOpt.el;
     this.init();
     this.events();
   }
