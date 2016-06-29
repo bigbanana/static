@@ -8,11 +8,11 @@
 
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
-    define('jquery.responsivetable',['jquery','underscore','browser','jquery.widget','jquery.ui','jquery.dropdown','jquery.waypoints'],factory);
+    define('jquery.responsivetable',['jquery','underscore','browser','jquery.widget','jquery.waypoints','jquery.ui','jquery.dropdown','jquery.sticky'],factory);
   } else {
-    factory( $,_,browser,widget );
+    factory( $,_,browser,widget,Waypoint );
   }
-}(function($,_,browser,widget){
+}(function($,_,browser,widget,Waypoint){
   var Responsivetable = function(opt){
     this.options = $.extend(true,{},arguments.callee.options,opt);
     this.$el = $(opt.el);
@@ -117,8 +117,8 @@
         return;
       }
       var _this = this;
-      var $el = this.$el.clone().addClass('responsivetable-clone');
-      this.$elClone = this.$elClone.add($el).removeAttr('data-widget');
+      var $el = this.$el.clone().addClass('responsivetable-clone').removeAttr('data-widget');
+      this.$elClone = this.$elClone.add($el);
       this.$sticky = $('<div class="sticky-table-header">').append($el);
       this.$el.before(this.$sticky);
       this.$sticky.css({
@@ -143,6 +143,10 @@
           }
         }
       });
+
+    },
+    refreshSticky: function(){
+      Waypoint.refreshAll();
     },
     windowResize: _.debounce(function(){
       //ie 6,7,8修改列导致window resize修改列产生冲突,导致修改列失败，所以去除resize修改列功能

@@ -46,8 +46,8 @@
       '<div class="ui-confirm" title="确认">',
         '<div class="ui-confirm-content"><%= content %></div>',
         '<div class="ui-dialog-toolbar">',
-          '<a class="btn btn-blue btn-sm" data-action="pass">确 定</a>',
-          '<a class="btn btn-sm ml10" data-action="cancel">取 消</a>',
+          '<a class="btn btn-blue btn-sm" data-action="pass"><%= passName %></a>',
+          '<a class="btn btn-sm ml10" data-action="cancel"><%= cancelName %></a>',
         '</div>',
       '</div>'
     ].join(''))
@@ -56,6 +56,8 @@
   $.extend(Confirm,{
     options : {
       content: '确定要继续操作吗？',
+      passName: '确 定',
+      cancelName: '取 消',
       pass: $.noop,
       cancel: $.noop
     },
