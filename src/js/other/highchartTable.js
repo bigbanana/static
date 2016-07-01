@@ -388,8 +388,11 @@
           },
           labels:
           {
+            /*
+            坑爹的横刻度旋转，导致全是省略号。
             rotation: $table.data('graph-xaxis-rotation') || 0,
             align:    $table.data('graph-xaxis-align') || 'center', 
+            */
             enabled:  typeof xAxisLabelsEnabled != 'undefined' ? xAxisLabelsEnabled : true,
             style:    xAxisLabelStyle
           },

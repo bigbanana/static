@@ -61,7 +61,7 @@
       if(isNaN(year)){
         cur = new Date().getFullYear();
       }
-      this.options.invalide && that.$year.append('<option value="">请选择</option>');
+      this.options.invalide && that.$year.append('<option value="">全部</option>');
       opts.push(cur);
       for(var i=1;i<this.options.range+1;i++){
         opts.unshift(cur-i);
