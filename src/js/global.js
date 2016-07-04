@@ -25,7 +25,7 @@ require(['browser'],function(browser){
 require(['modernizr'],function(modernizr){
   modernizr.addTest('iframe',window != window.top);
 });
-
+require(['jquery.linkDialog'],function(){});
 /**
  * 开启DOM widget兼容
  */
