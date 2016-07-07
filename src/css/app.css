@@ -1596,12 +1596,12 @@ a.btn {
 .responsive-table .table td.priority1,
 .responsive-table .table th.priority1 {
   display: table-cell;
-  display: inline\9;
+  *display: inline;
 }
 .responsive-table .table td.show,
 .responsive-table .table th.show {
   display: table-cell !important;
-  display: inline\9!important;
+  *display: inline!important;
 }
 .responsive-table .table td.hide,
 .responsive-table .table th.hide {
@@ -1669,35 +1669,35 @@ a.btn {
   .responsive-table .table td.priority2,
   .responsive-table .table th.priority2 {
     display: table-cell;
-    display: inline\9;
+    *display: inline;
   }
 }
 @media screen and (min-width: 640px) {
   .responsive-table .table td.priority3,
   .responsive-table .table th.priority3 {
     display: table-cell;
-    display: inline\9;
+    *display: inline;
   }
 }
 @media screen and (min-width: 800px) {
   .responsive-table .table td.priority4,
   .responsive-table .table th.priority4 {
     display: table-cell;
-    display: inline\9;
+    *display: inline;
   }
 }
 @media screen and (min-width: 960px) {
   .responsive-table .table td.priority5,
   .responsive-table .table th.priority5 {
     display: table-cell;
-    display: inline\9;
+    *display: inline;
   }
 }
 @media screen and (min-width: 1120px) {
   .responsive-table .table td.priority6,
   .responsive-table .table th.priority6 {
     display: table-cell;
-    display: inline\9;
+    *display: inline;
   }
 }
 /*dialog.less*/
