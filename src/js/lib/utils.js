@@ -64,6 +64,15 @@ define("utils",['jquery','browser','underscore','jquery.confirm','jquery.prompt'
       }
       
       return fuc;
+    },
+    getSearch: function(){
+      var res = location.href.match(/\?.*/);
+      if(res){
+        res = res[0];
+      }else{
+        res = "";
+      }
+      return res;
     }
   }
 
