@@ -1524,7 +1524,7 @@
             weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
             // invalidDate: '',
             decimalPoint: '.',
-            numericSymbols: ['k', 'M', 'G', 'T', 'P', 'E'], // SI prefixes used in axis labels
+            numericSymbols: ['千', '百万', '十亿', '万亿', '千万亿', 'E'], // SI prefixes used in axis labels
             resetZoom: 'Reset zoom',
             resetZoomTitle: 'Reset zoom level 1:1',
             thousandsSep: ' '
