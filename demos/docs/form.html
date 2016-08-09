@@ -49,6 +49,13 @@
       </div>
     </div>
     <div class="form-group">
+      <label class="form-label">必填项：</label>
+      <div class="form-box">
+        <label class="checkbox"><input type="checkbox" id="switch_a"> 邮箱</label>
+        <input type="text" class="form-control" name="email_a">
+      </div>
+    </div>
+    <div class="form-group">
       <label class="form-label">三态复选框：</label>
       <div class="form-box">
         <label class="checkbox"><input type="checkbox" value="2" name="zzz" data-widget="threecheckbox"> 三态复选框</label>
@@ -127,12 +134,24 @@
     require(['jquery','jquery.validate','jquery.placeholder','jquery.clearInput'],function(){
       //表单
       var $form1 = $('.form-test');
-      $form1.validate();
+      $form1.validate({
+        rules:{
+          email_a:{
+            required:"#switch_a:checked"
+          }
+        }
+      });
       $form1.on('change',function(e){
         console.log(e);
       });
       var $form2 = $('.form-test2');
-      $form2.validate();
+      $form2.validate({
+        rules:{
+          email:{
+            required:"#switch:checked"
+          }
+        }
+      });
 
       var $form3 = $(".form-test3");
       $form3.find('.placeholder-test').placeholder();
