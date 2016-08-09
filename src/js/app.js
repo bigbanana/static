@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2016-06-1618:22:31 */
+/* build : 564493634@qq.com 2016-08-0910:23:00 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2132,7 +2132,7 @@ require.config({
 });
 
 require.config({
-  baseUrl: "http://static.yaozh.com/js",
+  baseUrl: "//static.yaozh.com/js",
   paths: {
     "global": "global",
     "json2": "lib/json2",
@@ -2223,6 +2223,6 @@ require.config({
     "baidu.map": "http://api.map.baidu.com/getscript?v=2.0&ak=BB72a92913f9ca70a0587577b1a0dae9",
     "dict": "other/dict"
   },
-  urlArgs: "yaozhVersion="+(config ? config.version : "1.4.18")+"&data="+new Date().getTime(),
+  urlArgs: "yaozhVersion="+(config ? config.version : "1.4.19")+"&data="+new Date().getTime(),
   waitSeconds: 100
 })
