@@ -47,6 +47,8 @@
   "jquery.moveFocus": "plugin/moveFocus",
   "jquery.focusInput": "plugin/focusInput",
   "jquery.marquee": "plugin/marquee",
+  "jquery.kxbdMarquee": "plugin/kxbdMarquee",
+
   "jquery.rwdtable": "plugin/jquery.rwdtable",
   "jquery.dropdown": "plugin/dropdown",
   "jquery.linkDialog": "plugin/linkDialog",
