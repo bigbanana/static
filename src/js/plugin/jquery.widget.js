@@ -59,6 +59,7 @@
 
         widgetDefs = $.map(widgets,function(item){
           var widgetDef = $.Deferred();
+          console.log(item);
           require(['jquery.'+item],function(){
             $el[item] && $el[item](data);
             widgetDef.resolve();
