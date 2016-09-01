@@ -47,6 +47,8 @@
   "jquery.moveFocus": "plugin/moveFocus",
   "jquery.focusInput": "plugin/focusInput",
   "jquery.marquee": "plugin/marquee",
+
+
   "jquery.rwdtable": "plugin/jquery.rwdtable",
   "jquery.dropdown": "plugin/dropdown",
   "jquery.linkDialog": "plugin/linkDialog",
@@ -67,6 +69,7 @@
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",
+  "onepage": "other/onepage",
   "preloadjs": "other/preloadjs",
   "TweenMax": "other/TweenMax",
   "d3": "other/d3",
