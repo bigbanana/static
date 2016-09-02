@@ -27,6 +27,7 @@
       this.dialog = new Dialog($.extend({
         el:this.$wrap,
         close: function(){
+          that.cancel();
           that.$wrap.remove();
         }
       },this.dialogOpt));
@@ -39,7 +40,6 @@
       });
       this.$wrap.on('click','[data-action=cancel]',function(){
         that.dialog.close();
-        that.cancel();
       });
     },
     _template: _.template([
