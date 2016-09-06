@@ -23,11 +23,16 @@
   $.extend(Confirm.prototype,{
     init: function(){
       var that = this;
+      this.nopass = true;
       this.$wrap = $(this._template(this));
       this.dialog = new Dialog($.extend({
         el:this.$wrap,
         close: function(){
-          that.cancel();
+          if(that.nopass){
+            that.cancel()
+          }else{
+            that.pass();
+          };
           that.$wrap.remove();
         }
       },this.dialogOpt));
@@ -35,8 +40,8 @@
     events: function(){
       var that = this;
       this.$wrap.on('click','[data-action=pass]',function(){
+        that.nopass = false;
         that.dialog.close();
-        that.pass();
       });
       this.$wrap.on('click','[data-action=cancel]',function(){
         that.dialog.close();
