@@ -32,7 +32,7 @@
       this.event();
       this.updateYear();
       isNaN(this.date[1]) && (this.date[1]= 0);
-      isNaN(this.date[2]) && (this.date[2]= 0);
+      isNaN(this.date[2]) && (this.date[2]= 1);
       this.$year.trigger('change');
     },
     event: function(){
