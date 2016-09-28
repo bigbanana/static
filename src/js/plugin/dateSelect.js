@@ -20,7 +20,7 @@
 
   $.extend(DateSelect.prototype,{
     init: function(){
-      var _date = moment(this.$el.val());
+      var _date = moment(this.$el.val()).startOf("month");
       this.date = [_date.get('year'),_date.get('month'),_date.get('date')];
       this.$el.wrap('<div class="ui-date-select"></div>').hide();
       this.$wrap = this.$el.parent();
@@ -31,7 +31,7 @@
       this.options.hasmonth && this.options.hasdate && this.$date.appendTo(this.$wrap);
       this.event();
       this.updateYear();
-      isNaN(this.date[1]) && (this.date[1]= 1);
+      isNaN(this.date[1]) && (this.date[1]= 0);
       isNaN(this.date[2]) && (this.date[2]= 1);
       this.$year.trigger('change');
     },
@@ -43,6 +43,7 @@
         that.updateMonth();
         that.setValue();
       });
+      
       this.$month.on('change',function(){
         that.date[1]= parseInt(this.value);
         that.updateDate();

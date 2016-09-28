@@ -1,6 +1,5 @@
 {
   "global": "global",
-
   "json2": "lib/json2",
   "jquery": "lib/jquery",
   "backbone": "lib/backbone",

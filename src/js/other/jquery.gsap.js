@@ -1,5 +1,5 @@
 
-define('jquery.gsap',['jquery','TweenMax','utils'],function($,TweenMax,utils){
+define('jquery.gsap',['jquery','TweenMax','utils','jquery.widget'],function($,TweenMax,utils,widget){
   var Gsap = function(opt){
     if(utils.browser<9) return;
     this.options = $.extend(true,{},arguments.callee.options,opt);
@@ -58,25 +58,7 @@ define('jquery.gsap',['jquery','TweenMax','utils'],function($,TweenMax,utils){
     }
   });
 
-  $.fn.extend({
-    gsap : function(opt){
-      opt = opt || {};
-      var args = Array.prototype.slice.apply(arguments);
-      args.shift();
-      return this.each(function(){
-        var $this = $(this);
-        var data = $this.data('gsap');
-        if(!data && $.type(opt) == 'object'){
-          opt = $.extend({},opt,{el:$this});
-          data = new Gsap(opt);
-          $this.data('gsap',data);
-        }
-        if($.type(opt) == 'string') data[opt].apply(data,args);
-
-        return this;
-      });
-    }
-  });
+  widget.install('gsap',Gsap);
 
   return Gsap
 });
