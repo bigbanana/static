@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2016-08-0910:23:00 */
+/* build : 564493634@qq.com 2016-09-2117:16:07 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2198,6 +2198,8 @@ require.config({
     "jquery.dateSelect": "plugin/dateSelect",
     "jquery.ui": "other/jquery-ui",
     "pace": "other/pace",
+    "cryptojs": "other/crypto-js",
+    "onepage": "other/onepage",
     "preloadjs": "other/preloadjs",
     "TweenMax": "other/TweenMax",
     "d3": "other/d3",

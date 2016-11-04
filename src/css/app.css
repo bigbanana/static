@@ -1733,6 +1733,15 @@ div.ui-dialog .ui-dialog-iframe {
   height: 100%;
   overflow: hidden;
 }
+.ui-alert {
+  font-size: 14px;
+}
+.ui-confirm {
+  font-size: 14px;
+}
+.ui-prompt {
+  font-size: 14px;
+}
 .ui-prompt .ui-prompt-tips {
   font-size: 14px;
   line-height: 30px;

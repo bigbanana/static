@@ -68,6 +68,7 @@
 
   "jquery.ui": "other/jquery-ui",
   "pace": "other/pace",
+  "cryptojs": "other/crypto-js",
   "onepage": "other/onepage",
   "preloadjs": "other/preloadjs",
   "TweenMax": "other/TweenMax",
