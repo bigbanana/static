@@ -6,3 +6,4 @@ tags
 /backup*
 /psd
 /src/thirdparty/umeditor/php/upload
+/src/css/app.css
