@@ -87,6 +87,7 @@
   "jquery.highchartTable": "other/jquery.highchartTable",
   "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
   "pinyin": "other/pinyin",
+  "fullpage": "other/jquery.fullpage",
   "webuploader": "../thirdparty/webuploader/webuploader",
   
 

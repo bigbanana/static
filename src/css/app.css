@@ -1570,7 +1570,7 @@ a.btn {
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: #fff;
+  background:#fff;
   overflow: hidden;
   text-indent: -999px;
   margin: 0 3px;
