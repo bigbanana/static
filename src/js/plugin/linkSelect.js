@@ -70,7 +70,7 @@
         self.createSelect(data).done(function($select){
           $widget.after($select);
           $select.trigger('ls-create');
-          $select.dropdownSelect({className:'mt5'});
+          $select.dropdownSelect();
         });
       });
     },

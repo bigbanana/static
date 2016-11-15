@@ -4,15 +4,15 @@ div.ui-autocomplete{
   .ui-autocomplete-box{
     display: none;
     position: absolute;
-    min-width:100%;_width:100%;
+    min-width:100%;_width:100%;max-height: 526px;overflow-y: auto;
     top:100%;left:0;
     z-index: 10;
+    border: 1px solid @borderColor;
+    border-radius: @borderRadiusBase;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
     .ui-autocomplete-list{
       padding: 5px 0;margin: 2px 0 0;font-size: 14px;
       text-align: left;list-style: none;background-color: #fff;
-      border: 1px solid @borderColor;
-      border-radius: @borderRadiusBase;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
       *zoom:1;*line-height: 1.42857143;
       li{
         span{
