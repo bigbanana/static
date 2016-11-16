@@ -69,9 +69,11 @@
       });
       this.$list.on('click','>li',function(e){
         var index = $(this).index();
-        that.$el.trigger('autoCompleteClick',that._list[index]);
         that.$el.trigger('autoCompleteChange',that._list[index]);
-        if(!e.isTrigger) that.hide();
+        if(!e.isTrigger){
+          that.hide();
+          that.$el.trigger('autoCompleteClick',that._list[index]);
+        }
       });
       this.$list.on('outer',function(e){
         if(e.target == that.$el[0]) return;
