@@ -72,7 +72,7 @@
         that.$el.trigger('autoCompleteChange',that._list[index]);
         if(!e.isTrigger){
           that.hide();
-          that.$el.trigger('autoCompleteClick',that._list[index]);
+          that.$el.trigger('autoCompleteSelect',that._list[index]);
         }
       });
       this.$list.on('outer',function(e){
