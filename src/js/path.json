@@ -88,6 +88,7 @@
   "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
   "pinyin": "other/pinyin",
   "fullpage": "other/jquery.fullpage",
+  "video": "other/video",
   "webuploader": "../thirdparty/webuploader/webuploader",
   
 
