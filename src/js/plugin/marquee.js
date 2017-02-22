@@ -32,7 +32,7 @@
 
       this.$items = this.$el.children().addClass('ui-marquee-li');
       if(this.options.direction == "left") this.$items.css({float:"left"});
-      width = this.$items.innerWidth(),height = this.$items.innerHeight();
+      width = this.$items.outerWidth(true),height = this.$items.outerHeight(true);
       $.extend(this.options,{
         width : width,
         height : height,
