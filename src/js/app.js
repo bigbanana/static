@@ -2124,6 +2124,9 @@ require.config({
     "pinyin": {
       exports: 'pinyin'
     },
+    "multipleSelect": {
+      deps: ['jquery']
+    },
     "dict": {
       deps: ['jquery']
     }
