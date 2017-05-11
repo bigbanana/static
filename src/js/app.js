@@ -2217,6 +2217,7 @@ require.config({
     "jquery.highchartTable": "other/jquery.highchartTable",
     "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
     "pinyin": "other/pinyin",
+    "multipleSelect": "other/multipleSelect",
     "webuploader": "../thirdparty/webuploader/webuploader",
     "DD_belatedPNG": "special/DD_belatedPNG",
     "fastclick": "special/fastclick",
