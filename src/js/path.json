@@ -83,6 +83,7 @@
   "highcharts": "other/highcharts",
   "highcharts.data": "other/highcharts.data",
   "highcharts-more": "other/highcharts-more",
+  "highcharts.heatmap": "other/highcharts.heatmap",
   "highchartTable": "other/highchartTable",
   "jquery.highchartTable": "other/jquery.highchartTable",
   "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
