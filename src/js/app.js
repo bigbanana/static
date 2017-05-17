@@ -2118,6 +2118,10 @@ require.config({
       deps: ["highcharts"],
       exports: "highcharts"
     },
+    "highcharts.heatmap": {
+      deps: ["highcharts"],
+      exports: "highcharts"
+    },
     "jquery.datetimepicker": {
       deps: ["css!../css/plugin/jquery-ui-timepicker-addon"]
     },
@@ -2213,6 +2217,7 @@ require.config({
     "highcharts": "other/highcharts",
     "highcharts.data": "other/highcharts.data",
     "highcharts-more": "other/highcharts-more",
+    "highcharts.heatmap": "other/highcharts.heatmap",
     "highchartTable": "other/highchartTable",
     "jquery.highchartTable": "other/jquery.highchartTable",
     "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
