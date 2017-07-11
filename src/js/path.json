@@ -90,6 +90,7 @@
   "pinyin": "other/pinyin",
   "fullpage": "other/jquery.fullpage",
   "video": "other/video",
+  "MultiSelect": "other/multiple-select",
   "webuploader": "../thirdparty/webuploader/webuploader",
   
 

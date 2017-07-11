@@ -1,4 +1,4 @@
-/* build : 564493634@qq.com 2016-09-2117:16:07 */
+/* build : 564493634@qq.com 2017-07-1116:57:10 */
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.1.16 Copyright (c) 2010-2015, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -2125,6 +2125,9 @@ require.config({
     "jquery.datetimepicker": {
       deps: ["css!../css/plugin/jquery-ui-timepicker-addon"]
     },
+    "MultiSelect": {
+      deps: ['jquery',"css!../css/plugin/jquery-ui-timepicker-addon"]
+    },
     "pinyin": {
       exports: 'pinyin'
     },
@@ -2222,6 +2225,9 @@ require.config({
     "jquery.highchartTable": "other/jquery.highchartTable",
     "jquery.datetimepicker": "other/jquery-ui-timepicker-addon",
     "pinyin": "other/pinyin",
+    "fullpage": "other/jquery.fullpage",
+    "video": "other/video",
+    "MultiSelect": "other/multiple-select",
     "webuploader": "../thirdparty/webuploader/webuploader",
     "DD_belatedPNG": "special/DD_belatedPNG",
     "fastclick": "special/fastclick",
