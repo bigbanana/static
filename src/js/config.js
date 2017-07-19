@@ -33,8 +33,15 @@ require.config({
       deps: ["highcharts"],
       exports: "highcharts"
     },
+    "highcharts.heatmap": {
+      deps: ["highcharts"],
+      exports: "highcharts"
+    },
     "jquery.datetimepicker": {
       deps: ["css!../css/plugin/jquery-ui-timepicker-addon"]
+    },
+    "MultiSelect": {
+      deps: ['jquery',"css!../css/plugin/jquery-ui-timepicker-addon"]
     },
     "pinyin": {
       exports: 'pinyin'
