@@ -24,7 +24,7 @@ var PATH = {
   backup: path.join(__dirname,'backup'),
 }
 
-var baseUrl       = "//enstatic.yaozh.com/js";
+var baseUrl       = "//static.yaozh.com/js";
 var version      = "1.4.19";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
