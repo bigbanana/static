@@ -2,7 +2,6 @@ gulpfile.demo.js
 tags
 /node_modules
 /cdemo
-/dist
 /backup*
 /psd
 /src/thirdparty/umeditor/php/upload

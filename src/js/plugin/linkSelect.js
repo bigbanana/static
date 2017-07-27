@@ -41,7 +41,8 @@
         this.options.names = this.options.names.split(',');
       }
       if($.type(this.options.defaults)!="array"){
-        this.options.defaults = this.options.defaults.toString().split(',');
+        // fix 有些options自带","导致的bug
+        this.options.defaults = this.options.defaults.toString().replace(/([^\\]),/,'$1||').replace(/\\,/,',').split('||');
       }
       if(!!this.options.data && $.type(this.options.data)=="string"){
         this.options.data = $.parseJSON(this.options.data);

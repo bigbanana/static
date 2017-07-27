@@ -24,7 +24,7 @@ var PATH = {
   backup: path.join(__dirname,'backup'),
 }
 
-var baseUrl       = "//static.yaozh.com/js";
+var baseUrl       = "//enstatic.yaozh.com/js";
 var version      = "1.4.19";
 //所有需要合并的模块配置
 var concatConfig = ["/js/lib","/js/module","/js/plugin"];
@@ -54,7 +54,7 @@ gulp.task('backup',['clean'],function(done){
   return gulp.src(PATH.dest+'/**').pipe(gulp.dest(PATH.backup+'_'+moment().format('YYYY-MM-DD_HH_mm_ss')));
 });
 
-gulp.task('script',['backup'],function(){
+gulp.task('script',function(){
   var otherFiles = [PATH.src+'/js/**/*.js'];
   appJsConfig.forEach(function(file){
     otherFiles.push("!"+file);
@@ -65,7 +65,6 @@ gulp.task('script',['backup'],function(){
     .pipe(concat('app.js'))
     .pipe(footer(initRequireConfig({pro:true})))
     .pipe(uglify({compress:{drop_console:true}}))
-    .pipe(header(banner,{package:package}))
     .pipe(sourcemaps.write('../sourcemaps'))
     .pipe(gulp.dest(PATH.dest+'/js'));
 
@@ -79,7 +78,6 @@ gulp.task('script',['backup'],function(){
       .pipe(sourcemaps.init())
       .pipe(uglify({compress:{drop_console:true}}))
       .pipe(concat(fileName+'.js'))
-      .pipe(header(banner,{package:package}))
       .pipe(sourcemaps.write('./sourcemaps'))
       .pipe(gulp.dest(PATH.dest));
   });
@@ -87,21 +85,19 @@ gulp.task('script',['backup'],function(){
   //处理其它脚本
   return gulp.src(otherFiles)
     .pipe(uglify({compress:{drop_console:true}}))
-    .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(PATH.dest+'/js'));
 });
 
-gulp.task('copy',['backup'],function(){
+gulp.task('copy',function(){
   copyConfig.forEach(function(item){
     gulp.src(PATH.src+item+'/**')
       .pipe(gulp.dest(PATH.dest+item));
   });
 });
 
-gulp.task('css',['backup','less'],function(){
+gulp.task('css',['less'],function(){
   return gulp.src(PATH.src+'/css/**/*.css')
     .pipe(csso())
-    .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(PATH.dest+'/css'))
 });
 
@@ -116,7 +112,6 @@ gulp.task('app',function(){
   return gulp.src(appJsConfig)
     .pipe(concat('app.js'))
     .pipe(footer(initRequireConfig()))
-    .pipe(header(banner,{package:package}))
     .pipe(gulp.dest(PATH.src+'/js'));
 });
 
