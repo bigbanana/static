@@ -38,7 +38,7 @@
     init : function(){
       var that = this;
       if(!!this.options.names && $.type(this.options.names)!="array"){
-        this.options.names = this.options.names.split(/[^\\],/);
+        this.options.names = this.options.names.split(',');
       }
       if($.type(this.options.defaults)!="array"){
         this.options.defaults = this.options.defaults.toString().split(',');
